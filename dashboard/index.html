@@ -1,0 +1,915 @@
+<title>Mise Kitchen Operations</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<script src="https://unpkg.com/lucide@0.441.0/dist/umd/lucide.min.js"></script>
+<style>
+:root{
+  color-scheme: light;
+  --bg:#f2f6fc; --card:#ffffff; --line:#e3eaf6; --line-soft:#eef3fb; --hover:#f5f8ff;
+  --ink:#0a1a3f; --text:#33415c; --muted:#7383a3;
+  --blue:#1a56f0; --blue-2:#3d7bff; --blue-soft:#e8efff; --sky:#cfe0ff;
+  --navy:#0a1a3f; --navy-2:#132b66;
+  --good:#0f9d58; --good-soft:#e5f6ed; --warn:#e58a00; --warn-soft:#fff3df; --bad:#e2394b; --bad-soft:#fde8eb;
+  --radius:18px;
+  --shadow:0 1px 2px rgba(10,26,63,.04), 0 10px 30px rgba(10,26,63,.06);
+  --font:"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --num:"Sora", "Plus Jakarta Sans", system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+.num{font-family:var(--num);font-variant-numeric:tabular-nums}
+[data-lucide],svg.lucide{width:18px;height:18px;stroke-width:2;flex:none}
+
+/* ---------- shell ---------- */
+.app{display:grid;grid-template-columns:248px minmax(0,1fr);min-height:100vh}
+.side{position:sticky;top:0;height:100vh;padding:22px 16px;display:flex;flex-direction:column;gap:22px;
+  background:radial-gradient(120% 60% at 0% 0%,#1d3f99 0%,transparent 60%),linear-gradient(180deg,var(--navy-2),var(--navy));color:#dbe5ff;overflow:hidden}
+.brand{display:flex;align-items:center;gap:11px;padding:0 6px}
+.brand .mark{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#4d8bff,var(--blue));display:grid;place-items:center;box-shadow:0 6px 18px rgba(26,86,240,.45)}
+.brand b{font-family:var(--num);font-size:21px;color:#fff;letter-spacing:-.02em;display:block;line-height:1.1}
+.brand span{font-size:11.5px;color:#9fb3e6;letter-spacing:.04em}
+.nav{display:flex;flex-direction:column;gap:4px}
+.nav .lbl{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#7f95cc;padding:0 12px 6px}
+.nav button{all:unset;cursor:pointer;display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px;color:#c4d2f5;font-weight:600;font-size:14px;transition:background .15s,color .15s}
+.nav button:hover{background:rgba(255,255,255,.07);color:#fff}
+.nav button[aria-selected="true"]{background:#fff;color:var(--navy);box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.nav button[aria-selected="true"] svg{color:var(--blue)}
+.nav button:focus-visible{outline:2px solid #8fb2ff;outline-offset:2px}
+.nav .cnt{margin-left:auto;background:var(--bad);color:#fff;font-size:11px;font-weight:700;border-radius:99px;padding:1px 8px}
+.areacard{margin-top:auto;border-radius:16px;padding:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);position:relative;overflow:hidden}
+.areacard b{color:#fff;display:block;font-size:14px}
+.areacard p{margin:4px 0 0;font-size:12px;color:#9fb3e6}
+.areacard{padding-bottom:58px}
+.areacard svg.city{position:absolute;left:0;right:0;bottom:-2px;width:100%;height:50px;opacity:.28}
+main{min-width:0;padding:22px 28px 40px}
+
+/* ---------- top bar ---------- */
+.top{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.top h1{margin:0;font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.top .sub{font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.top .sub i,.top .sub svg{width:14px;height:14px}
+.filters{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.pill{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:0 4px 0 12px;height:40px;box-shadow:0 1px 2px rgba(10,26,63,.04)}
+.pill svg{width:16px;height:16px;color:var(--blue)}
+.pill select{border:0;background:transparent;height:38px;padding:0 26px 0 0;font-weight:600;font-size:13px;color:var(--ink);cursor:pointer;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237383a3' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center}
+.pill select:focus-visible{outline:none}
+.pill:focus-within{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+.btn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:12px;font-weight:700;font-size:13px}
+.btn.ghost{background:#fff;border:1px solid var(--line);color:var(--text)}
+.btn.ghost:hover{border-color:var(--blue);color:var(--blue)}
+.btn.primary{background:linear-gradient(135deg,var(--blue-2),var(--blue));color:#fff;box-shadow:0 8px 20px rgba(26,86,240,.3)}
+.btn.primary:hover{filter:brightness(1.06)}
+.btn[disabled]{opacity:.5;cursor:not-allowed;box-shadow:none}
+.btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.btn svg{width:16px;height:16px}
+
+/* ---------- panels ---------- */
+.panel{display:none;animation:fade .35s ease}
+.panel.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.grid{display:grid;gap:18px;margin-bottom:18px}
+.g2{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
+.g2e{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g23{grid-template-columns:minmax(0,2fr) minmax(0,3fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 22px;min-width:0}
+.ch{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
+.ch .ib{width:40px;height:40px;border-radius:12px;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;flex:none}
+.ch h2{margin:0;font-size:16px;line-height:1.35;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.ch p{margin:3px 0 0;font-size:12.5px;color:var(--muted)}
+.ch .act{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.src{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);font-size:11.5px;color:var(--muted)}
+.chart{width:100%;height:300px}
+.chart.tall{height:380px}
+.fallback{display:grid;place-items:center;height:100%;color:var(--muted);font-size:13px;text-align:center;padding:20px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;border-radius:24px;color:#fff;padding:30px 34px;margin-bottom:18px;min-height:250px;
+  background:radial-gradient(90% 120% at 100% 0%,#5b93ff 0%,transparent 55%),linear-gradient(120deg,#1546d6 0%,#1a56f0 45%,#2f6bff 100%);
+  box-shadow:0 18px 40px rgba(26,86,240,.28)}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1.2px,transparent 1.3px);background-size:18px 18px;mask-image:linear-gradient(90deg,#000 0%,transparent 55%);-webkit-mask-image:linear-gradient(90deg,#000 0%,transparent 55%)}
+.hero .txt{position:relative;max-width:520px;z-index:1}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);padding:5px 12px;border-radius:99px;font-size:12px;font-weight:600}
+.hero .eyebrow svg{width:14px;height:14px}
+.hero h2{font-size:27px;line-height:1.22;margin:14px 0 8px;font-weight:800;letter-spacing:-.02em}
+.hero p{margin:0;color:#dce7ff;font-size:14px;max-width:470px}
+.hstats{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+.hstat{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(6px);border-radius:14px;padding:10px 16px;min-width:130px}
+.hstat b{display:block;font-family:var(--num);font-size:22px;font-weight:700;line-height:1.2}
+.hstat span{font-size:11.5px;color:#dce7ff}
+.hero-art{position:absolute;right:0;bottom:0;width:min(58%,600px);height:auto;pointer-events:none}
+.steam path{animation:steam 2.6s ease-in-out infinite;transform-box:fill-box}
+.steam path:nth-child(2){animation-delay:.6s}.steam path:nth-child(3){animation-delay:1.2s}
+@keyframes steam{0%{opacity:0;transform:translateY(8px)}40%{opacity:.9}100%{opacity:0;transform:translateY(-14px)}}
+.wheel{animation:spin 1s linear infinite;transform-box:fill-box;transform-origin:center}
+@keyframes spin{to{transform:rotate(360deg)}}
+.rider{animation:bob 1.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-2px)}}
+.speed line{stroke-dasharray:14 10;animation:dash .8s linear infinite}
+@keyframes dash{to{stroke-dashoffset:24}}
+@media (prefers-reduced-motion: reduce){.steam path,.wheel,.rider,.speed line,.panel{animation:none}}
+
+/* ---------- KPI ---------- */
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-bottom:18px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 16px 6px;min-width:0;position:relative;overflow:hidden}
+.kpi .row{display:flex;align-items:center;gap:10px}
+.kpi .ib{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--blue-soft);color:var(--blue)}
+.kpi .ib svg{width:17px;height:17px}
+.kpi .l{font-size:12px;font-weight:600;color:var(--muted);line-height:1.3}
+.kpi .v{font-family:var(--num);font-size:26px;font-weight:700;color:var(--ink);margin-top:10px;letter-spacing:-.02em;line-height:1.1}
+.kpi .v small{font-size:13px;color:var(--muted);font-weight:500;margin-left:3px}
+.kpi .spark{height:44px;margin:0 -6px}
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:700;border-radius:99px;padding:2px 9px;white-space:nowrap}
+.chip svg{width:13px;height:13px}
+.chip.good{background:var(--good-soft);color:var(--good)} .chip.warn{background:var(--warn-soft);color:#b46a00} .chip.bad{background:var(--bad-soft);color:var(--bad)} .chip.info{background:var(--blue-soft);color:var(--blue)} .chip.mute{background:var(--line-soft);color:var(--muted)}
+.kpi .s{font-size:11.5px;color:var(--muted);margin-top:6px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+
+/* ---------- hotspots ---------- */
+.hots{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.hot{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px;border:1px solid var(--line);border-radius:16px;padding:14px 14px 12px 16px;position:relative;background:#fff;transition:transform .15s,box-shadow .15s,border-color .15s}
+.hot:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(10,26,63,.09);border-color:#c9d8f6}
+.hot:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.hot::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:4px;border-radius:0 4px 4px 0;background:var(--sev)}
+.hot .hd{display:flex;gap:10px;align-items:center}
+.hot .ib{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:var(--sevsoft);color:var(--sev)}
+.hot .k{font-weight:700;color:var(--ink);font-size:14.5px;line-height:1.2}
+.hot .d{font-size:12.5px;color:var(--muted)}
+.hot .big{margin-left:auto;text-align:right}
+.hot .big b{font-family:var(--num);font-size:24px;color:var(--ink);display:block;line-height:1}
+.hot .big span{font-size:11px;color:var(--muted);white-space:nowrap}
+.hot ul{margin:0;padding:0 0 0 16px;font-size:12.5px;color:var(--text)}
+.hot li{margin:2px 0}
+.owner{display:flex;gap:10px;background:var(--hover);border-radius:12px;padding:10px 12px;font-size:12.5px;margin-top:auto}
+.owner svg{color:var(--blue);margin-top:2px;width:16px;height:16px}
+.owner b{color:var(--ink)}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:0 -6px}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px}
+th{text-align:left;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:10px 10px;border-bottom:1px solid var(--line);white-space:nowrap;background:#fff;position:sticky;top:0}
+td{padding:11px 10px;border-bottom:1px solid var(--line-soft);vertical-align:middle}
+tbody tr:hover td{background:var(--hover)}
+tbody tr:last-child td{border-bottom:0}
+.r{text-align:right}
+.muted{color:var(--muted)}
+.neg{color:var(--bad)} .pos{color:var(--good)} .crit{color:#b46a00}
+td b{color:var(--ink)}
+.kname{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--ink)}
+.avatar{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:11px;font-weight:800;color:var(--blue);background:var(--blue-soft);flex:none;font-family:var(--num)}
+.gauge{display:flex;flex-direction:column;gap:5px;min-width:96px}
+.gauge .t span{white-space:nowrap}
+.gauge .t{display:flex;justify-content:space-between;gap:8px;font-size:12px}
+.gauge .bar{height:6px;border-radius:99px;background:var(--line-soft);overflow:hidden}
+.gauge .bar i{display:block;height:100%;border-radius:99px}
+.tag{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;border-radius:8px;padding:3px 9px;background:var(--blue-soft);color:var(--blue);white-space:nowrap}
+.tag svg{width:13px;height:13px}
+.tag.rev{background:var(--line-soft);color:var(--muted)}
+.tag.ok{background:var(--good-soft);color:var(--good)} .tag.no{background:var(--bad-soft);color:var(--bad)}
+.complaint{max-width:420px}
+.seg{display:inline-flex;background:var(--line-soft);border-radius:12px;padding:4px;gap:2px;flex-wrap:wrap}
+.seg button{all:unset;cursor:pointer;font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:9px;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:#fff;color:var(--blue);box-shadow:0 1px 4px rgba(10,26,63,.1)}
+.seg button[disabled]{opacity:.35;cursor:not-allowed}
+.seg button:focus-visible{outline:2px solid var(--blue)}
+.mini-select{border:1px solid var(--line);border-radius:10px;height:34px;padding:0 10px;background:#fff;font-weight:600;font-size:13px;color:var(--ink)}
+
+/* ---------- models / AI ---------- */
+.scores{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}
+.score{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.score .l{font-size:12px;color:var(--muted);font-weight:600}
+.score .v{font-family:var(--num);font-size:28px;font-weight:700;color:var(--ink);margin:8px 0 4px;letter-spacing:-.02em}
+.score .s{font-size:12px;color:var(--muted)}
+.score .ring{position:absolute;right:-24px;top:-24px;width:96px;height:96px;border-radius:50%;background:var(--blue-soft);opacity:.7}
+.score .ib{position:absolute;right:16px;top:16px;color:var(--blue)}
+.ai{background:linear-gradient(135deg,#0d2259 0%,#1a3f9c 100%);color:#dbe5ff;border:0;position:relative;overflow:hidden}
+.ai .ch h2{color:#fff} .ai .ch p{color:#a9bdf0}
+.ai .ch .ib{background:rgba(255,255,255,.12);color:#fff}
+.ai .src{border-color:rgba(255,255,255,.18);color:#a9bdf0}
+.ai .glow{position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(#3d7bff,transparent 70%);opacity:.55}
+.vs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:14px;position:relative}
+.vs div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px 14px;font-size:12px}
+.vs b{display:block;font-family:var(--num);font-size:22px;color:#fff}
+.ai .tw{background:#fff;border-radius:14px;margin:0;color:var(--text);position:relative}
+.ai .btn.primary{background:#fff;color:var(--blue);box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.msg{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:12.5px;position:relative}
+.msg.warn{background:rgba(229,138,0,.16);border-color:rgba(255,190,90,.4);color:#ffe2b5}
+footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);padding-top:8px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:4px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+
+/* ---------- responsive ---------- */
+@media (max-width:1280px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.hero-art{width:min(52%,520px);opacity:.9}}
+@media (max-width:1100px){.g2,.g2e,.g23{grid-template-columns:minmax(0,1fr)}.scores{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:960px){
+  .app{grid-template-columns:minmax(0,1fr)}
+  .side{position:sticky;top:0;z-index:20;height:auto;flex-direction:row;align-items:center;padding:10px 12px;gap:10px;overflow-x:auto}
+  .brand span,.nav .lbl,.areacard{display:none}
+  .brand .mark{width:34px;height:34px}
+  .nav{flex-direction:row;gap:2px}
+  .nav button{padding:8px 10px;font-size:13px;white-space:nowrap}
+  main{padding:16px 16px 32px}
+  .hero{padding:24px 20px 150px}
+  .hero-art{width:100%;max-width:440px;right:-20px;opacity:.85}
+  .clockb{display:none}
+  .hero h2{font-size:22px}
+}
+@media (max-width:640px){
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpis .kpi:first-child{grid-column:span 2}
+  .scores,.vs{grid-template-columns:minmax(0,1fr)}
+  .nav button span.t{display:none}
+  .filters{margin-left:0;width:100%}
+  .pill{flex:1 1 140px}
+  .pill select{width:100%}
+  .card{padding:16px}
+  .ch .act{margin-left:0;width:100%;justify-content:flex-start}
+  .ch{flex-wrap:wrap}
+  .chart{height:280px}
+}
+</style>
+
+<div class="app">
+<aside class="side">
+  <div class="brand">
+    <div class="mark">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18a9 9 0 0 1-18 0z"/><path d="M8 8c-1-1.5 1-2.5 0-4M12 8c-1-1.5 1-2.5 0-4M16 8c-1-1.5 1-2.5 0-4"/></svg>
+    </div>
+    <div><b>Mise</b><span>KITCHEN OPS</span></div>
+  </div>
+  <nav class="nav" id="nav" role="tablist" aria-label="Sections"></nav>
+  <div class="areacard">
+    <b id="areaName"></b>
+    <p id="areaMeta"></p>
+    <svg class="city" viewBox="0 0 150 60" preserveAspectRatio="none" fill="#fff" aria-hidden="true"><rect x="0" y="30" width="14" height="30"/><rect x="16" y="18" width="12" height="42"/><rect x="30" y="34" width="16" height="26"/><path d="M50 60V32h40v28z"/><path d="M56 32q14-22 28 0z"/><rect x="68" y="4" width="4" height="8"/><rect x="94" y="22" width="12" height="38"/><rect x="108" y="10" width="14" height="50"/><rect x="124" y="28" width="12" height="32"/><rect x="138" y="38" width="12" height="22"/></svg>
+  </div>
+</aside>
+
+<main>
+  <header class="top">
+    <div>
+      <h1 id="pageTitle">Overview</h1>
+      <div class="sub"><i data-lucide="radio"></i><span id="asof"></span></div>
+    </div>
+    <div class="filters">
+      <label class="pill"><i data-lucide="calendar-days"></i><select id="fDay" aria-label="Day"></select></label>
+      <label class="pill"><i data-lucide="store"></i><select id="fKitchen" aria-label="Kitchen"></select></label>
+      <label class="pill"><i data-lucide="clock-4"></i><select id="fSlot" aria-label="Meal slot"></select></label>
+      <button class="btn ghost" id="fReset" type="button"><i data-lucide="rotate-ccw"></i>Reset</button>
+    </div>
+  </header>
+
+  <!-- ================= OVERVIEW ================= -->
+  <section class="panel" id="p-overview">
+    <div class="hero">
+      <div class="txt">
+        <span class="eyebrow"><i data-lucide="sparkles"></i><span id="heroEyebrow"></span></span>
+        <h2 id="heroTitle"></h2>
+        <p id="heroSub"></p>
+        <div class="hstats" id="heroStats"></div>
+      </div>
+      <svg class="hero-art" viewBox="0 0 600 300" aria-hidden="true">
+        <defs>
+          <radialGradient id="halo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".28"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+          <linearGradient id="ctr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dfe9ff"/></linearGradient>
+        </defs>
+        <circle cx="400" cy="130" r="130" fill="url(#halo)"/>
+        <!-- skyline, back -->
+        <g fill="#fff" opacity=".11">
+          <rect x="40" y="120" width="34" height="140"/><rect x="78" y="86" width="28" height="174"/><rect x="88" y="70" width="8" height="16"/>
+          <rect x="110" y="132" width="44" height="128"/><path d="M160 260V112l20-16 20 16v148z"/><rect x="206" y="64" width="32" height="196"/>
+          <rect x="244" y="104" width="40" height="156"/><rect x="290" y="80" width="26" height="180"/><rect x="322" y="122" width="44" height="138"/>
+          <rect x="372" y="58" width="30" height="202"/><rect x="408" y="98" width="40" height="162"/><rect x="454" y="74" width="28" height="186"/>
+          <rect x="488" y="118" width="46" height="142"/><rect x="540" y="92" width="30" height="168"/><rect x="574" y="130" width="26" height="130"/>
+        </g>
+        <!-- skyline, front with a domed civic building -->
+        <g fill="#0a1a3f" opacity=".22">
+          <rect x="300" y="200" width="120" height="60"/><path d="M322 200q38-52 76 0z"/><rect x="357" y="140" width="6" height="12"/>
+          <rect x="300" y="194" width="120" height="6"/>
+          <rect x="430" y="176" width="36" height="84"/><rect x="470" y="150" width="30" height="110"/><rect x="504" y="186" width="44" height="74"/><rect x="552" y="164" width="48" height="96"/>
+          <rect x="250" y="182" width="44" height="78"/>
+        </g>
+        <g fill="#fff" opacity=".35">
+          <rect x="314" y="214" width="6" height="10" rx="1"/><rect x="330" y="214" width="6" height="10" rx="1"/><rect x="346" y="214" width="6" height="10" rx="1"/><rect x="362" y="214" width="6" height="10" rx="1"/><rect x="378" y="214" width="6" height="10" rx="1"/><rect x="394" y="214" width="6" height="10" rx="1"/>
+        </g>
+        <!-- location pin -->
+        <g transform="translate(468 104)"><path d="M0 0c-11 0-19 8-19 18 0 13 19 30 19 30s19-17 19-30C19 8 11 0 0 0z" fill="#fff"/><circle cy="18" r="7" fill="#1a56f0"/></g>
+        <!-- ground -->
+        <rect x="0" y="260" width="600" height="40" fill="#0a1a3f" opacity=".2"/>
+        <rect x="0" y="258" width="600" height="3" fill="#fff" opacity=".25"/>
+        <!-- ticket rail -->
+        <rect x="150" y="36" width="128" height="5" rx="2.5" fill="#fff" opacity=".9"/>
+        <g fill="#fff" transform="translate(0 -34)">
+          <path d="M158 75h28v40l-4.7-3.5-4.7 3.5-4.6-3.5-4.7 3.5-4.6-3.5-4.7 3.5z"/>
+          <path d="M196 75h28v34l-4.7-3.5-4.7 3.5-4.6-3.5-4.7 3.5-4.6-3.5-4.7 3.5z"/>
+          <path d="M234 75h28v44l-4.7-3.5-4.7 3.5-4.6-3.5-4.7 3.5-4.6-3.5-4.7 3.5z"/>
+        </g>
+        <g stroke="#1a56f0" stroke-width="2.4" stroke-linecap="round" opacity=".75" transform="translate(0 -34)">
+          <path d="M163 84h18M163 92h12M163 100h16"/><path d="M201 84h18M201 92h10"/><path d="M239 84h18M239 92h14M239 100h10M239 108h16"/>
+        </g>
+        <!-- chef -->
+        <g>
+          <path d="M176 220c0-38 14-62 36-62s36 24 36 62z" fill="#0a1a3f"/>
+          <path d="M202 162h20v58h-20z" fill="#fff" opacity=".92"/>
+          <circle cx="212" cy="140" r="15" fill="#0a1a3f"/>
+          <path d="M194 124c-11-1-13-17-2-19 1-12 17-14 21-5 7-9 23-4 21 7 11 3 8 18-3 18z" fill="#fff"/>
+          <rect x="197" y="120" width="31" height="8" rx="2" fill="#fff"/>
+          <path d="M186 180l-40 6" stroke="#0a1a3f" stroke-width="11" stroke-linecap="round"/>
+        </g>
+        <!-- counter -->
+        <rect x="30" y="214" width="250" height="46" rx="8" fill="url(#ctr)"/>
+        <rect x="30" y="214" width="250" height="7" rx="3.5" fill="#a9c4ff"/>
+        <rect x="46" y="232" width="60" height="5" rx="2.5" fill="#1a56f0" opacity=".25"/><rect x="200" y="232" width="60" height="5" rx="2.5" fill="#1a56f0" opacity=".25"/>
+        <!-- stove and pot -->
+        <rect x="64" y="204" width="80" height="10" rx="3" fill="#0a1a3f"/>
+        <path d="M74 166h60v30a10 10 0 0 1-10 10H84a10 10 0 0 1-10-10z" fill="#0b2a8a"/>
+        <rect x="68" y="161" width="72" height="9" rx="4.5" fill="#0a1a3f"/>
+        <rect x="60" y="174" width="12" height="6" rx="3" fill="#0a1a3f"/><rect x="136" y="174" width="12" height="6" rx="3" fill="#0a1a3f"/>
+        <g class="steam" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="round">
+          <path d="M90 152c-7-9 7-15 0-26"/><path d="M104 150c-7-10 7-17 0-30"/><path d="M118 152c-7-9 7-15 0-26"/>
+        </g>
+        <!-- delivery bag on counter -->
+        <g transform="translate(246 180)"><path d="M0 34V8h34v26z" fill="#fff"/><path d="M8 8V2h18v6" stroke="#fff" stroke-width="3" fill="none"/><text x="17" y="28" text-anchor="middle" font-family="Sora,sans-serif" font-weight="700" font-size="15" fill="#1a56f0">M</text></g>
+        <!-- rider on scooter -->
+        <g class="speed" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".6"><line x1="330" y1="226" x2="380" y2="226"/><line x1="346" y1="240" x2="386" y2="240"/><line x1="338" y1="212" x2="372" y2="212"/></g>
+        <g class="rider">
+          <rect x="396" y="168" width="44" height="38" rx="7" fill="#fff"/>
+          <text x="418" y="194" text-anchor="middle" font-family="Sora,sans-serif" font-weight="700" font-size="17" fill="#1a56f0">M</text>
+          <path d="M392 236h56l20-34h18l10 34h20a8 8 0 0 1 0 16H398a8 8 0 0 1-6-16z" fill="#fff"/>
+          <path d="M486 202l14-30" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+          <path d="M494 170h20" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+          <path d="M446 214c0-26 10-44 24-44s20 14 20 30l-8 16z" fill="#0a1a3f"/>
+          <path d="M470 190l26-12" stroke="#0a1a3f" stroke-width="9" stroke-linecap="round"/>
+          <path d="M452 214l26 0 8 24" stroke="#0a1a3f" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="472" cy="150" r="17" fill="#0a1a3f"/>
+          <path d="M455 150a17 17 0 0 1 34 0z" fill="#3d7bff"/>
+          <rect x="474" y="146" width="16" height="8" rx="4" fill="#cfe0ff"/>
+        </g>
+        <g class="wheel"><circle cx="412" cy="256" r="17" fill="#0a1a3f"/><circle cx="412" cy="256" r="7" fill="#fff"/><path d="M412 241v30M397 256h30" stroke="#fff" stroke-width="2" opacity=".5"/></g>
+        <g class="wheel"><circle cx="512" cy="256" r="17" fill="#0a1a3f"/><circle cx="512" cy="256" r="7" fill="#fff"/><path d="M512 241v30M497 256h30" stroke="#fff" stroke-width="2" opacity=".5"/></g>
+        <!-- clock badge -->
+        <g class="clockb" transform="translate(548 52)"><circle r="30" fill="#fff"/><circle r="24" fill="none" stroke="#cfe0ff" stroke-width="3"/><path d="M0-14V0l10 6" stroke="#0a1a3f" stroke-width="3.5" stroke-linecap="round" fill="none"/><circle r="3" fill="#1a56f0"/><text y="44" text-anchor="middle" font-family="Sora,sans-serif" font-weight="700" font-size="12" fill="#fff">15 MIN</text></g>
+      </svg>
+    </div>
+
+    <div class="kpis" id="kpis"></div>
+
+    <div class="card" style="margin-bottom:18px">
+        <div class="ch"><div class="ib"><i data-lucide="flame"></i></div><div><h2 id="t1"></h2><p>Each card is a kitchen × defect cluster far above the other kitchens. Click one to see the complaints.</p></div></div>
+        <div class="hots" id="hots"></div>
+        <div class="src" id="s1"></div>
+    </div>
+    <div class="grid g23">
+      <div class="card">
+        <div class="ch"><div class="ib"><i data-lucide="scale"></i></div><div><h2 id="t2"></h2><p>Average daily orders per kitchen against the 180-order break-even</p></div></div>
+        <div class="chart tall" id="beChart"></div>
+        <div class="src" id="s2"></div>
+      </div>
+      <div class="card">
+        <div class="ch"><div class="ib"><i data-lucide="calendar-check"></i></div><div><h2 id="t3"></h2><p>Forecast orders, dinner roster and predicted dinner prep time for tomorrow</p></div></div>
+        <div class="tw"><table id="tomTable"></table></div>
+        <div class="src" id="s3"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DEMAND ================= -->
+  <section class="panel" id="p-demand">
+    <div class="card" style="margin-bottom:18px">
+      <div class="ch"><div class="ib"><i data-lucide="trending-up"></i></div><div><h2 id="t4"></h2><p>Daily orders across the area. The shaded week was hidden from the model and forecast one day ahead.</p></div></div>
+      <div class="chart" id="trendChart"></div>
+      <div class="src" id="s4"></div>
+    </div>
+    <div class="grid g2e">
+      <div class="card">
+        <div class="ch"><div class="ib"><i data-lucide="grid-3x3"></i></div><div><h2 id="t5"></h2><p>Actual orders against forecast. Blue: busier than forecast. Red: quieter.</p></div></div>
+        <div class="chart tall" id="slotHeat"></div>
+        <div class="src" id="s5"></div>
+      </div>
+      <div class="card">
+        <div class="ch"><div class="ib"><i data-lucide="list-checks"></i></div><div><h2 id="t6"></h2><p>Forecast orders turned into prep quantities</p></div></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px"><select class="mini-select" id="pKitchen" aria-label="Kitchen for prep plan"></select><div class="seg" id="pSlot"></div></div>
+        <div class="tw"><table id="planTable"></table></div>
+        <div class="src" id="s6"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SPEED ================= -->
+  <section class="panel" id="p-speed">
+    <div class="card" style="margin-bottom:18px">
+      <div class="ch"><div class="ib"><i data-lucide="timer"></i></div><div><h2 id="t7"></h2><p>Predicted prep time per kitchen: dot is the typical order, bar runs to the bad case (9 in 10 orders beat it), diamond is the actual average.</p></div></div>
+      <div class="seg" id="sSlot"></div>
+      <div class="chart tall" id="speedChart"></div>
+      <div class="src" id="s7"></div>
+    </div>
+    <div class="card">
+      <div class="ch"><div class="ib"><i data-lucide="users"></i></div><div><h2 id="t8"></h2><p>Tomorrow's forecast replayed through the kitchen line with the rostered cooks, one more, and two more</p></div></div>
+      <div class="seg" id="wSlot" style="margin-bottom:10px"></div>
+      <div class="tw"><table id="whatTable"></table></div>
+      <div class="src" id="s8"></div>
+    </div>
+  </section>
+
+  <!-- ================= COMPLAINTS ================= -->
+  <section class="panel" id="p-complaints">
+    <div class="grid g2e">
+      <div class="card">
+        <div class="ch"><div class="ib"><i data-lucide="bar-chart-3"></i></div><div><h2 id="t9"></h2><p>Defects ranked, with the running share of complaints. Fix the few left of the 80% line first.</p></div></div>
+        <div class="chart" id="paretoChart"></div>
+        <div class="src" id="s9"></div>
+      </div>
+      <div class="card">
+        <div class="ch"><div class="ib"><i data-lucide="map"></i></div><div><h2 id="t10"></h2><p>Complaints per kitchen and defect. Click a cell to filter the list below.</p></div></div>
+        <div class="chart" id="defHeat"></div>
+        <div class="src" id="s10"></div>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:18px">
+      <div class="ch"><div class="ib"><i data-lucide="message-square-warning"></i></div><div><h2 id="t11"></h2><p id="listSub"></p></div><div class="act"><button class="btn ghost" id="clearHeat" type="button" hidden><i data-lucide="x"></i>Clear filter</button></div></div>
+      <div class="tw" style="max-height:520px;overflow:auto"><table id="compTable"></table></div>
+      <div class="src" id="s11"></div>
+    </div>
+    <div class="card ai">
+      <div class="glow"></div>
+      <div class="ch" style="position:relative"><div class="ib"><i data-lucide="brain-circuit"></i></div><div><h2 id="t12"></h2><p>Last night's 20 complaints, tagged by keyword rules and by Claude, scored against a human reviewer</p></div>
+        <div class="act"><button class="btn primary" id="tagBtn" type="button"><i data-lucide="sparkles"></i><span>Tag with Claude</span></button></div></div>
+      <div id="aiMsg"></div>
+      <div class="vs" id="score"></div>
+      <div class="tw"><table id="tagTable"></table></div>
+      <div class="src" id="s12"></div>
+    </div>
+  </section>
+
+  <!-- ================= MODELS ================= -->
+  <section class="panel" id="p-models">
+    <div class="card" style="margin-bottom:18px;background:linear-gradient(120deg,#fff 0%,#f3f7ff 100%)">
+      <div class="ch" style="margin-bottom:0"><div class="ib"><i data-lucide="shield-check"></i></div><div><h2 id="t13"></h2><p id="s13"></p></div></div>
+    </div>
+    <div class="scores" id="modelKv"></div>
+    <div class="grid g2e">
+      <div class="card">
+        <div class="ch"><div class="ib"><i data-lucide="target"></i></div><div><h2 id="t14"></h2><p>Forecast error (WAPE) per meal slot, lower is better</p></div></div>
+        <div class="chart" id="wapeChart"></div>
+        <div class="src" id="s14"></div>
+      </div>
+      <div class="card">
+        <div class="ch"><div class="ib"><i data-lucide="sliders-horizontal"></i></div><div><h2 id="t15"></h2><p>Extra error in minutes when each input is scrambled</p></div></div>
+        <div class="chart" id="impChart"></div>
+        <div class="src" id="s15"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer><span>Mise v1.1 · <span id="fBuilt"></span></span><span>All data is synthetic, generated to mirror a multi-brand cloud kitchen network</span></footer>
+</main>
+</div>
+
+<script id="mise-data" type="application/json">{"meta":{"area":"Bengaluru South-East","kitchens":["Koramangala","HSR Layout","Indiranagar","Whitefield","Bellandur","Electronic City","JP Nagar","Jayanagar","Marathahalli","Hebbal"],"brands":["EatFit","Olio Pizza","Sharief Bhai","CakeZone","Frozen Bottle","Millet Express"],"slots":["Breakfast","Lunch","Snacks","Dinner","Late night"],"slotHours":["8-11 am","12-3 pm","4-7 pm","7-11 pm","11 pm-2 am"],"defects":["Late delivery","Missing item","Wrong item","Taste or quality","Cold food","Packaging or spill","Quantity"],"tags":["Late delivery","Missing item","Wrong item","Taste or quality","Cold food","Packaging or spill","Quantity","Needs review"],"dates":["2026-10-02","2026-10-03","2026-10-04","2026-10-05","2026-10-06","2026-10-07","2026-10-08"],"weekday":{"2026-08-14":"Fri","2026-08-15":"Sat","2026-08-16":"Sun","2026-08-17":"Mon","2026-08-18":"Tue","2026-08-19":"Wed","2026-08-20":"Thu","2026-08-21":"Fri","2026-08-22":"Sat","2026-08-23":"Sun","2026-08-24":"Mon","2026-08-25":"Tue","2026-08-26":"Wed","2026-08-27":"Thu","2026-08-28":"Fri","2026-08-29":"Sat","2026-08-30":"Sun","2026-08-31":"Mon","2026-09-01":"Tue","2026-09-02":"Wed","2026-09-03":"Thu","2026-09-04":"Fri","2026-09-05":"Sat","2026-09-06":"Sun","2026-09-07":"Mon","2026-09-08":"Tue","2026-09-09":"Wed","2026-09-10":"Thu","2026-09-11":"Fri","2026-09-12":"Sat","2026-09-13":"Sun","2026-09-14":"Mon","2026-09-15":"Tue","2026-09-16":"Wed","2026-09-17":"Thu","2026-09-18":"Fri","2026-09-19":"Sat","2026-09-20":"Sun","2026-09-21":"Mon","2026-09-22":"Tue","2026-09-23":"Wed","2026-09-24":"Thu","2026-09-25":"Fri","2026-09-26":"Sat","2026-09-27":"Sun","2026-09-28":"Mon","2026-09-29":"Tue","2026-09-30":"Wed","2026-10-01":"Thu","2026-10-02":"Fri","2026-10-03":"Sat","2026-10-04":"Sun","2026-10-05":"Mon","2026-10-06":"Tue","2026-10-07":"Wed","2026-10-08":"Thu","2026-10-09":"Fri"},"tomorrow":"2026-10-09","breakEven":180,"strong":250,"promise":15,"historyStart":"2026-08-14","builtAt":"09 Oct 2026, 04:31 IST"},"cells":[[0,4,0,14,15.7,19.0,7.96,9.44,8.21,0.0,0.0,2,2,0],[0,4,3,139,123.0,100.0,9.45,11.28,9.49,0.043,0.029,7,12,0],[0,4,4,49,29.8,31.0,7.55,9.24,7.57,0.02,0.02,3,4,0],[0,4,1,60,67.1,79.0,8.45,9.99,8.5,0.0,0.0,6,6,0],[0,4,2,35,29.2,36.0,8.18,9.76,8.71,0.057,0.057,3,7,0],[0,5,0,8,10.8,12.0,7.29,8.61,7.45,0.0,0.0,2,1,0],[0,5,3,95,69.4,72.0,9.29,11.11,9.25,0.074,0.053,7,10,0],[0,5,4,17,17.9,24.0,7.31,8.66,7.35,0.0,0.0,3,2,0],[0,5,1,50,45.5,37.0,8.55,10.15,8.4,0.0,0.02,6,7,0],[0,5,2,18,16.5,18.0,6.4,7.53,6.86,0.0,0.0,3,2,0],[0,1,0,15,16.6,16.0,7.38,8.79,7.31,0.0,0.0,2,2,0],[0,1,3,144,122.0,128.0,9.56,11.45,9.75,0.056,0.028,8,14,0],[0,1,4,43,33.9,39.0,8.58,10.62,8.79,0.07,0.07,3,5,1],[0,1,1,62,86.0,95.0,7.99,9.46,8.03,0.016,0.0,7,7,0],[0,1,2,42,25.0,26.0,7.16,8.75,7.44,0.0,0.0,3,5,0],[0,9,0,11,15.0,9.0,7.24,8.52,7.46,0.0,0.0,2,1,0],[0,9,3,122,107.2,100.0,9.71,11.62,9.83,0.082,0.049,7,10,0],[0,9,4,39,28.2,25.0,9.46,11.8,9.67,0.128,0.077,3,7,0],[0,9,1,59,61.7,54.0,8.58,10.23,8.78,0.017,0.017,6,8,0],[0,9,2,33,25.7,26.0,8.53,10.22,9.05,0.121,0.03,3,6,1],[0,2,0,8,18.3,19.0,7.2,8.56,8.05,0.0,0.0,2,2,0],[0,2,3,145,131.3,137.0,9.16,10.92,9.27,0.021,0.021,8,11,0],[0,2,4,39,35.0,32.0,8.33,10.2,8.36,0.0,0.0,3,5,0],[0,2,1,71,88.6,87.0,8.2,9.71,8.3,0.0,0.0,7,7,0],[0,2,2,43,32.3,33.0,7.67,9.17,7.46,0.07,0.047,3,6,0],[0,6,0,12,15.3,15.0,7.61,8.98,8.06,0.0,0.0,2,1,0],[0,6,3,117,100.8,108.0,9.22,11.04,9.2,0.017,0.009,7,12,0],[0,6,4,24,29.3,20.0,6.65,7.91,6.71,0.042,0.0,3,3,0],[0,6,1,80,67.1,60.0,8.52,10.15,8.6,0.0,0.013,6,7,0],[0,6,2,30,31.6,25.0,6.79,8.03,6.81,0.0,0.0,3,3,0],[0,7,0,17,14.5,13.0,7.59,9.03,7.18,0.0,0.0,2,2,0],[0,7,3,139,111.9,102.0,15.56,18.17,16.71,0.525,0.504,7,25,0],[0,7,4,42,27.9,29.0,9.13,11.18,8.99,0.048,0.071,3,6,0],[0,7,1,63,69.4,74.0,7.94,9.44,8.19,0.0,0.0,6,8,0],[0,7,2,34,26.7,26.0,6.9,8.22,6.88,0.029,0.0,3,4,0],[0,0,0,9,16.0,30.0,7.74,9.1,7.81,0.0,0.0,2,1,0],[0,0,3,178,129.4,135.0,10.06,12.01,10.15,0.067,0.045,9,17,0],[0,0,4,47,39.4,53.0,7.52,8.99,7.31,0.0,0.021,4,5,0],[0,0,1,75,95.6,82.0,8.36,9.9,8.51,0.013,0.0,8,8,0],[0,0,2,55,35.2,33.0,8.92,10.66,8.97,0.091,0.145,4,8,0],[0,8,0,18,13.2,11.0,11.15,13.3,11.78,0.278,0.278,2,5,0],[0,8,3,140,124.1,129.0,8.94,10.65,8.76,0.014,0.007,7,11,0],[0,8,4,37,29.2,24.0,8.25,9.99,8.43,0.0,0.0,3,3,0],[0,8,1,72,76.7,70.0,8.3,9.86,8.48,0.014,0.0,6,8,0],[0,8,2,26,30.8,32.0,6.47,7.6,6.58,0.0,0.0,3,3,0],[0,3,0,14,16.0,19.0,8.4,10.08,8.43,0.071,0.0,2,3,0],[0,3,3,146,121.6,111.0,26.11,33.24,26.9,0.658,0.651,5,34,0],[0,3,4,41,31.4,28.0,9.39,11.49,9.94,0.098,0.073,3,5,0],[0,3,1,63,78.0,98.0,8.77,10.48,8.64,0.016,0.016,6,8,0],[0,3,2,33,28.3,25.0,6.83,8.16,6.55,0.0,0.0,3,4,0],[1,4,0,11,12.2,8.0,7.92,9.44,8.51,0.0,0.0,2,2,0],[1,4,3,114,132.8,133.0,8.86,10.57,9.03,0.026,0.026,7,10,0],[1,4,4,36,30.1,28.0,7.64,9.25,7.83,0.0,0.0,3,4,0],[1,4,1,45,53.6,51.0,8.18,9.66,8.01,0.0,0.0,6,4,0],[1,4,2,32,30.4,23.0,6.61,7.83,6.44,0.0,0.0,3,3,0],[1,5,0,10,7.5,6.0,7.18,8.46,7.53,0.0,0.0,2,1,0],[1,5,3,75,66.5,71.0,8.66,10.31,8.99,0.04,0.0,7,8,0],[1,5,4,16,19.5,24.0,7.54,8.91,8.23,0.062,0.0,3,3,0],[1,5,1,38,32.7,40.0,8.46,10.04,8.46,0.0,0.0,6,4,0],[1,5,2,18,15.1,15.0,6.58,7.78,7.07,0.0,0.0,3,2,0],[1,1,0,17,12.8,10.0,7.56,9.34,7.71,0.0,0.0,2,2,0],[1,1,3,142,138.8,144.0,8.47,10.14,8.5,0.014,0.014,8,13,0],[1,1,4,49,35.2,35.0,10.75,12.91,10.78,0.265,0.245,3,8,0],[1,1,1,58,64.5,58.0,8.1,9.61,8.14,0.017,0.034,7,6,0],[1,1,2,39,30.0,31.0,6.61,7.95,6.74,0.0,0.0,3,4,0],[1,9,0,7,7.7,13.0,7.75,9.18,7.34,0.0,0.0,2,1,0],[1,9,3,114,121.5,123.0,8.87,10.6,8.97,0.053,0.026,7,11,0],[1,9,4,22,28.1,26.0,7.08,8.4,7.52,0.0,0.0,3,2,0],[1,9,1,45,45.1,50.0,8.3,9.85,8.3,0.0,0.0,6,6,0],[1,9,2,24,27.3,34.0,8.36,10.07,9.36,0.125,0.042,3,5,0],[1,2,0,16,15.4,12.0,7.21,8.55,7.31,0.0,0.0,2,2,0],[1,2,3,163,137.4,151.0,12.38,14.46,12.51,0.288,0.258,8,20,0],[1,2,4,33,31.7,30.0,8.83,10.81,9.22,0.061,0.0,3,5,0],[1,2,1,74,63.9,56.0,8.62,10.27,8.78,0.0,0.0,7,9,0],[1,2,2,34,31.8,31.0,7.21,8.59,7.51,0.0,0.0,3,4,0],[1,6,0,13,10.1,5.0,8.84,10.48,8.62,0.154,0.154,2,5,0],[1,6,3,128,124.2,137.0,9.27,11.11,9.04,0.023,0.016,7,11,0],[1,6,4,36,32.7,38.0,8.31,10.1,8.49,0.0,0.028,3,4,0],[1,6,1,54,54.4,54.0,8.37,9.94,8.05,0.0,0.0,6,5,0],[1,6,2,25,30.9,26.0,5.71,6.74,5.86,0.0,0.0,3,3,0],[1,7,0,10,13.5,12.0,7.16,8.55,7.74,0.0,0.0,2,2,0],[1,7,3,117,116.7,121.0,9.69,11.6,10.18,0.085,0.026,7,13,0],[1,7,4,36,29.8,25.0,9.15,11.09,9.28,0.056,0.111,3,6,0],[1,7,1,39,49.7,56.0,8.04,9.51,8.0,0.026,0.026,6,4,0],[1,7,2,23,26.4,30.0,6.21,7.31,6.67,0.0,0.0,3,2,0],[1,0,0,12,14.6,15.0,7.22,8.54,7.05,0.0,0.0,2,2,0],[1,0,3,151,148.0,134.0,9.87,11.71,10.03,0.079,0.079,9,21,0],[1,0,4,35,35.0,42.0,7.79,9.29,8.02,0.0,0.0,4,4,0],[1,0,1,71,74.3,68.0,8.35,9.91,8.51,0.028,0.0,8,9,0],[1,0,2,40,37.9,32.0,7.3,8.76,7.19,0.0,0.0,4,5,0],[1,8,0,10,11.8,9.0,7.66,9.06,8.09,0.0,0.0,2,2,0],[1,8,3,110,130.0,135.0,8.61,10.26,8.69,0.027,0.027,7,9,0],[1,8,4,36,33.4,30.0,7.91,9.62,7.69,0.0,0.0,3,4,0],[1,8,1,64,57.1,54.0,8.13,9.65,8.07,0.0,0.0,6,8,0],[1,8,2,35,32.0,36.0,7.72,9.31,7.67,0.057,0.0,3,6,0],[1,3,0,11,12.6,8.0,7.61,9.1,7.65,0.0,0.0,2,2,0],[1,3,3,115,105.7,128.0,21.2,24.63,20.78,0.67,0.652,5,21,0],[1,3,4,36,31.8,28.0,9.09,10.99,8.98,0.139,0.056,3,7,0],[1,3,1,64,57.3,69.0,8.2,9.79,8.44,0.016,0.016,6,6,0],[1,3,2,29,30.4,33.0,7.14,8.57,7.18,0.0,0.034,3,4,0],[2,4,0,11,13.7,17.0,7.72,9.13,7.83,0.0,0.0,2,1,0],[2,4,3,127,126.2,120.0,9.33,11.14,9.57,0.079,0.047,7,14,0],[2,4,4,29,30.5,31.0,8.12,9.88,8.12,0.0,0.034,3,3,0],[2,4,1,44,57.6,52.0,8.1,9.64,8.48,0.045,0.0,6,7,0],[2,4,2,33,34.1,39.0,6.83,8.22,7.17,0.0,0.0,3,5,0],[2,5,0,8,6.4,4.0,7.17,8.49,7.71,0.0,0.0,2,1,0],[2,5,3,74,65.9,62.0,8.63,10.3,8.86,0.041,0.027,7,11,0],[2,5,4,20,18.9,17.0,6.22,7.36,6.15,0.0,0.0,3,2,0],[2,5,1,27,34.7,33.0,7.99,9.51,8.04,0.0,0.0,6,3,0],[2,5,2,12,15.2,18.0,7.63,9.1,8.16,0.0,0.0,3,2,0],[2,1,0,13,14.1,22.0,8.09,9.92,8.59,0.0,0.0,2,3,0],[2,1,3,124,136.1,145.0,9.04,10.85,9.17,0.04,0.008,8,13,0],[2,1,4,32,36.1,44.0,7.32,8.79,7.33,0.031,0.031,3,3,0],[2,1,1,69,65.7,64.0,8.26,9.81,8.43,0.029,0.014,7,7,0],[2,1,2,32,34.4,34.0,7.08,8.44,7.53,0.031,0.0,3,3,0],[2,9,0,9,12.3,15.0,7.12,8.35,6.65,0.0,0.0,2,0,0],[2,9,3,112,110.9,95.0,8.47,10.12,8.48,0.009,0.009,7,9,0],[2,9,4,28,30.5,42.0,6.69,7.9,6.83,0.0,0.0,3,2,0],[2,9,1,39,47.9,47.0,8.42,10.02,8.47,0.026,0.026,6,4,0],[2,9,2,24,27.1,27.0,6.83,8.09,7.01,0.0,0.0,3,4,0],[2,2,0,14,14.0,14.0,7.85,9.35,8.06,0.0,0.0,2,2,0],[2,2,3,135,138.0,143.0,9.1,10.8,8.99,0.022,0.007,8,15,0],[2,2,4,47,35.3,44.0,12.33,14.67,12.31,0.319,0.277,3,10,0],[2,2,1,71,77.5,67.0,8.92,10.62,8.98,0.014,0.0,7,11,0],[2,2,2,36,36.5,24.0,6.58,7.79,6.76,0.0,0.0,3,3,0],[2,6,0,13,12.0,8.0,7.68,9.09,7.81,0.0,0.0,2,1,0],[2,6,3,105,117.6,102.0,8.81,10.56,9.17,0.029,0.01,7,10,0],[2,6,4,31,33.1,34.0,8.89,10.73,8.74,0.0,0.032,3,5,0],[2,6,1,51,58.1,48.0,8.14,9.71,8.25,0.0,0.0,6,7,0],[2,6,2,30,30.7,36.0,7.39,8.9,7.4,0.0,0.0,3,4,0],[2,7,0,7,10.1,6.0,7.75,9.17,7.87,0.0,0.0,2,1,0],[2,7,3,108,124.3,120.0,9.03,10.82,9.46,0.046,0.009,7,12,0],[2,7,4,32,30.2,28.0,8.48,10.24,8.8,0.062,0.062,3,6,0],[2,7,1,53,49.3,44.0,8.29,9.86,8.34,0.019,0.057,6,6,0],[2,7,2,28,27.2,26.0,6.9,8.23,6.88,0.036,0.036,3,4,0],[2,0,0,17,12.2,8.0,7.2,8.68,7.27,0.0,0.0,2,2,0],[2,0,3,167,145.2,138.0,8.77,10.49,8.65,0.018,0.024,9,12,0],[2,0,4,39,38.9,51.0,7.54,9.08,7.79,0.051,0.051,4,5,0],[2,0,1,68,71.2,74.0,8.19,9.75,8.11,0.0,0.0,8,9,0],[2,0,2,46,37.5,32.0,8.22,9.89,8.37,0.065,0.065,4,6,0],[2,8,0,9,12.7,8.0,7.94,9.71,8.65,0.0,0.0,2,3,0],[2,8,3,116,124.5,108.0,8.72,10.39,8.73,0.026,0.026,7,10,0],[2,8,4,38,35.4,36.0,7.5,9.09,7.63,0.053,0.0,3,4,0],[2,8,1,55,59.2,51.0,8.42,10.02,8.55,0.0,0.0,6,7,0],[2,8,2,28,31.7,39.0,6.91,8.28,7.41,0.036,0.036,3,4,0],[2,3,0,11,13.9,17.0,8.43,10.22,8.55,0.0,0.0,2,2,0],[2,3,3,121,130.7,137.0,13.43,17.11,13.67,0.413,0.355,5,13,0],[2,3,4,28,35.7,39.0,7.8,9.48,7.78,0.036,0.0,3,5,0],[2,3,1,65,53.9,46.0,8.17,9.75,8.16,0.0,0.015,6,9,0],[2,3,2,34,29.7,24.0,9.28,11.16,9.71,0.029,0.029,3,6,0],[3,4,0,18,18.1,18.0,7.59,9.11,8.1,0.0,0.0,2,3,0],[3,4,3,116,96.0,103.0,9.08,10.82,9.1,0.034,0.034,7,10,0],[3,4,4,24,25.6,26.0,7.01,8.38,7.03,0.0,0.0,3,3,0],[3,4,1,74,78.2,72.0,8.19,9.69,8.35,0.0,0.0,6,7,0],[3,4,2,24,25.4,26.0,8.41,10.13,8.84,0.083,0.0,3,5,0],[3,5,0,17,11.0,11.0,7.29,8.83,7.6,0.0,0.0,2,3,0],[3,5,3,62,65.0,55.0,8.43,10.01,8.34,0.0,0.0,7,7,0],[3,5,4,13,16.7,14.0,7.45,8.81,7.17,0.0,0.0,3,2,0],[3,5,1,56,46.6,54.0,8.53,10.18,8.48,0.0,0.0,6,9,0],[3,5,2,20,15.2,13.0,7.05,8.31,7.31,0.05,0.05,3,3,0],[3,1,0,19,16.6,18.0,8.04,9.74,8.19,0.0,0.0,2,2,0],[3,1,3,109,107.1,96.0,8.38,9.97,8.37,0.0,0.0,8,9,0],[3,1,4,28,32.7,34.0,8.58,10.3,8.5,0.071,0.071,3,4,0],[3,1,1,90,81.8,82.0,8.35,9.93,8.51,0.011,0.0,7,10,0],[3,1,2,30,24.6,25.0,7.33,8.76,7.6,0.0,0.0,3,5,0],[3,9,0,13,11.7,19.0,7.66,9.16,7.43,0.0,0.0,2,2,0],[3,9,3,94,93.7,86.0,8.58,10.19,8.8,0.032,0.021,7,7,0],[3,9,4,22,24.0,22.0,7.67,9.22,7.74,0.0,0.0,3,4,0],[3,9,1,72,57.1,67.0,9.82,11.6,9.94,0.097,0.056,6,13,0],[3,9,2,15,23.6,23.0,6.92,8.19,7.27,0.067,0.0,3,2,0],[3,2,0,18,22.7,14.0,9.91,11.63,11.17,0.333,0.167,2,4,0],[3,2,3,108,112.9,91.0,9.1,10.8,9.03,0.028,0.037,8,9,0],[3,2,4,28,28.2,22.0,8.81,10.52,9.09,0.036,0.036,3,3,0],[3,2,1,103,80.3,93.0,9.35,11.14,9.13,0.039,0.029,7,14,1],[3,2,2,33,27.4,37.0,8.46,10.2,8.37,0.03,0.0,3,3,0],[3,6,0,18,14.5,10.0,8.1,9.68,7.86,0.056,0.0,2,2,0],[3,6,3,101,99.4,92.0,9.18,10.96,9.33,0.059,0.04,7,10,0],[3,6,4,23,22.6,24.0,7.12,8.53,7.14,0.0,0.0,3,3,0],[3,6,1,77,76.4,61.0,8.74,10.4,8.64,0.013,0.0,6,10,0],[3,6,2,17,21.8,17.0,6.88,8.13,6.85,0.059,0.0,3,2,0],[3,7,0,25,14.6,27.0,7.8,9.33,7.94,0.0,0.0,2,2,0],[3,7,3,92,105.6,94.0,8.45,10.03,8.57,0.011,0.011,7,8,0],[3,7,4,29,28.1,21.0,9.15,10.91,10.0,0.138,0.069,3,7,0],[3,7,1,71,75.3,64.0,8.19,9.77,8.35,0.0,0.0,6,7,0],[3,7,2,19,25.3,22.0,7.26,8.65,7.19,0.0,0.0,3,3,0],[3,0,0,28,20.5,14.0,11.43,13.81,11.41,0.25,0.25,2,6,0],[3,0,3,124,126.7,129.0,8.95,10.66,9.08,0.016,0.016,9,14,0],[3,0,4,31,33.7,32.0,7.2,8.58,7.37,0.0,0.0,4,4,0],[3,0,1,108,97.9,99.0,8.88,10.67,9.02,0.019,0.009,8,16,0],[3,0,2,41,30.6,34.0,6.75,7.94,6.79,0.0,0.024,4,4,0],[3,8,0,13,15.4,15.0,7.22,8.57,7.06,0.0,0.0,2,2,0],[3,8,3,92,114.6,96.0,8.89,10.6,9.0,0.0,0.011,7,9,1],[3,8,4,32,24.4,24.0,7.23,8.62,7.32,0.0,0.0,3,4,0],[3,8,1,83,74.2,79.0,9.14,10.94,9.36,0.036,0.024,6,10,0],[3,8,2,28,25.6,22.0,7.89,9.49,8.31,0.036,0.0,3,4,0],[3,3,0,20,18.6,19.0,6.87,8.21,6.55,0.0,0.0,2,2,0],[3,3,3,104,109.6,89.0,11.52,14.44,11.43,0.231,0.221,5,13,0],[3,3,4,35,30.7,33.0,7.72,9.38,7.93,0.0,0.0,3,3,0],[3,3,1,81,73.6,61.0,10.4,12.32,10.9,0.086,0.049,6,12,0],[3,3,2,36,25.3,22.0,6.98,8.41,7.34,0.0,0.0,3,4,0],[4,4,0,17,15.4,14.0,8.63,10.38,8.52,0.0,0.0,2,3,0],[4,4,3,80,97.3,96.0,8.58,10.16,8.75,0.025,0.037,7,7,0],[4,4,4,21,24.5,26.0,8.29,9.77,8.71,0.048,0.048,3,2,0],[4,4,1,67,73.3,92.0,7.98,9.45,8.19,0.015,0.015,6,7,0],[4,4,2,24,26.7,26.0,6.81,8.03,6.63,0.0,0.0,3,3,0],[4,5,0,8,11.1,12.0,6.99,8.24,6.72,0.0,0.0,2,1,0],[4,5,3,52,54.1,60.0,8.1,9.59,7.99,0.0,0.0,7,6,0],[4,5,4,8,12.3,20.0,9.32,11.12,9.69,0.0,0.0,3,2,0],[4,5,1,36,41.0,53.0,7.51,8.93,7.52,0.0,0.0,6,6,0],[4,5,2,22,13.9,18.0,6.27,7.41,6.53,0.0,0.0,3,3,0],[4,1,0,24,16.7,23.0,8.33,10.13,8.46,0.083,0.083,2,4,0],[4,1,3,120,101.1,108.0,9.3,11.11,9.56,0.058,0.017,8,14,0],[4,1,4,29,26.3,30.0,8.44,10.08,8.78,0.034,0.0,3,4,0],[4,1,1,78,80.0,81.0,8.93,10.7,9.02,0.0,0.013,7,11,0],[4,1,2,28,25.8,29.0,7.18,8.63,7.32,0.0,0.0,3,4,0],[4,9,0,15,14.9,11.0,7.42,9.02,7.62,0.0,0.0,2,2,0],[4,9,3,70,85.0,75.0,8.0,9.46,7.83,0.0,0.0,7,7,0],[4,9,4,18,22.8,23.0,7.89,9.43,8.14,0.056,0.056,3,3,0],[4,9,1,81,71.6,70.0,9.15,10.9,9.42,0.074,0.062,6,13,0],[4,9,2,15,21.8,21.0,7.32,8.81,7.47,0.0,0.0,3,3,0],[4,2,0,14,22.1,21.0,7.2,8.48,7.62,0.0,0.0,2,1,0],[4,2,3,116,116.6,122.0,8.78,10.46,9.06,0.009,0.009,8,14,0],[4,2,4,27,25.4,27.0,7.59,8.98,7.59,0.0,0.0,3,3,0],[4,2,1,86,82.4,112.0,9.28,10.99,8.95,0.035,0.047,7,14,0],[4,2,2,28,29.2,27.0,6.63,7.79,6.78,0.0,0.0,3,2,0],[4,6,0,19,15.2,19.0,7.49,8.92,7.48,0.0,0.0,2,2,0],[4,6,3,99,91.4,85.0,8.31,9.86,8.08,0.02,0.01,7,7,0],[4,6,4,26,22.3,29.0,6.82,8.16,6.81,0.0,0.038,3,3,0],[4,6,1,71,69.0,81.0,8.91,10.67,8.97,0.028,0.014,6,9,0],[4,6,2,22,26.7,25.0,7.17,8.57,7.21,0.0,0.0,3,3,0],[4,7,0,23,17.7,17.0,6.89,8.41,7.1,0.0,0.0,2,2,0],[4,7,3,76,92.8,110.0,8.49,10.08,8.61,0.0,0.014,7,6,1],[4,7,4,22,24.8,28.0,6.79,8.03,7.1,0.0,0.0,3,2,0],[4,7,1,84,62.6,78.0,9.28,11.05,9.32,0.048,0.048,6,10,0],[4,7,2,24,22.8,22.0,6.0,7.06,5.92,0.0,0.0,3,2,0],[4,0,0,24,19.6,23.0,8.53,10.31,8.35,0.0,0.0,2,4,0],[4,0,3,115,115.0,127.0,8.86,10.57,9.18,0.026,0.026,9,13,0],[4,0,4,26,28.8,22.0,7.43,8.85,7.65,0.038,0.038,4,4,0],[4,0,1,96,101.4,96.0,8.25,9.78,8.37,0.031,0.021,8,9,0],[4,0,2,27,31.0,25.0,6.56,7.84,6.63,0.0,0.0,4,5,0],[4,8,0,18,17.3,16.0,7.38,8.75,7.21,0.0,0.0,2,2,0],[4,8,3,102,97.6,107.0,8.3,9.87,8.24,0.029,0.01,7,8,0],[4,8,4,21,22.0,27.0,6.59,7.79,6.96,0.0,0.0,3,2,0],[4,8,1,81,74.8,94.0,8.4,10.01,8.37,0.0,0.0,6,7,0],[4,8,2,34,26.7,22.0,7.19,8.56,7.14,0.0,0.0,3,3,1],[4,3,0,26,16.9,23.0,9.75,11.98,9.64,0.077,0.115,2,6,0],[4,3,3,90,103.2,138.0,11.05,13.54,11.15,0.189,0.144,5,10,0],[4,3,4,25,22.7,25.0,8.05,9.83,8.28,0.08,0.0,3,5,0],[4,3,1,81,69.2,73.0,9.83,11.72,10.07,0.099,0.062,6,14,0],[4,3,2,30,26.3,24.0,5.91,7.03,5.99,0.0,0.0,3,3,0],[5,4,0,18,18.1,29.0,7.82,9.62,7.8,0.0,0.0,2,3,0],[5,4,3,107,86.7,96.0,8.56,10.17,8.78,0.019,0.009,7,8,0],[5,4,4,28,23.3,17.0,7.83,9.3,8.06,0.107,0.071,3,3,0],[5,4,1,83,71.2,56.0,9.28,10.99,9.49,0.024,0.0,6,9,0],[5,4,2,28,26.6,33.0,7.55,9.04,7.36,0.0,0.0,3,4,0],[5,5,0,8,9.1,7.0,7.64,9.1,7.6,0.0,0.0,2,2,0],[5,5,3,54,55.3,53.0,8.41,9.99,8.42,0.019,0.0,7,7,0],[5,5,4,16,14.4,12.0,6.77,7.99,6.56,0.0,0.0,3,1,0],[5,5,1,46,43.9,36.0,7.94,9.43,8.25,0.0,0.0,6,4,0],[5,5,2,15,13.9,9.0,6.74,7.98,7.24,0.0,0.0,3,2,0],[5,1,0,14,15.8,20.0,7.58,8.91,7.59,0.0,0.0,2,1,0],[5,1,3,108,98.4,102.0,8.45,10.04,8.62,0.019,0.019,8,8,0],[5,1,4,16,28.1,18.0,6.9,8.11,6.79,0.062,0.062,3,2,0],[5,1,1,85,80.0,72.0,8.62,10.26,8.68,0.0,0.0,7,8,0],[5,1,2,40,25.1,29.0,7.2,8.66,7.59,0.025,0.025,3,4,0],[5,9,0,16,14.6,20.0,7.35,8.77,7.35,0.0,0.0,2,2,0],[5,9,3,91,76.9,97.0,8.69,10.33,8.62,0.044,0.033,7,9,0],[5,9,4,13,19.3,15.0,8.06,9.58,8.07,0.0,0.0,3,2,0],[5,9,1,62,63.3,59.0,8.56,10.23,8.65,0.0,0.016,6,8,0],[5,9,2,29,20.8,19.0,8.33,9.94,8.57,0.034,0.069,3,6,0],[5,2,0,22,22.4,14.0,8.49,10.36,8.2,0.0,0.0,2,3,0],[5,2,3,118,106.2,116.0,9.03,10.76,9.17,0.034,0.008,8,11,0],[5,2,4,33,28.0,29.0,7.92,9.49,7.92,0.03,0.03,3,4,0],[5,2,1,82,75.4,78.0,8.29,9.85,8.19,0.0,0.0,7,9,0],[5,2,2,25,26.8,26.0,6.85,8.12,6.63,0.0,0.0,3,3,0],[5,6,0,16,13.9,10.0,8.32,10.11,8.47,0.0,0.0,2,3,0],[5,6,3,84,90.4,90.0,8.61,10.24,8.85,0.012,0.012,7,9,0],[5,6,4,18,21.1,20.0,7.8,9.32,7.68,0.0,0.0,3,5,0],[5,6,1,74,71.1,83.0,11.01,12.82,11.16,0.23,0.216,6,14,0],[5,6,2,21,23.0,31.0,7.07,8.43,7.13,0.0,0.095,3,4,0],[5,7,0,18,17.6,12.0,7.45,8.88,7.5,0.0,0.0,2,2,0],[5,7,3,113,88.7,91.0,9.64,11.52,9.76,0.044,0.044,7,14,0],[5,7,4,19,23.3,20.0,7.62,9.21,7.84,0.0,0.0,3,3,0],[5,7,1,66,66.9,71.0,7.78,9.27,7.81,0.015,0.015,6,7,0],[5,7,2,33,24.0,27.0,6.8,8.04,7.21,0.03,0.0,3,4,0],[5,0,0,23,18.0,23.0,10.52,12.63,10.85,0.13,0.13,2,5,0],[5,0,3,110,118.8,97.0,7.85,9.31,7.9,0.009,0.0,9,9,0],[5,0,4,28,30.6,29.0,6.92,8.28,7.21,0.036,0.0,4,5,0],[5,0,1,97,93.2,93.0,8.27,9.82,8.52,0.01,0.01,8,9,0],[5,0,2,45,29.1,33.0,7.34,8.76,7.17,0.022,0.0,4,7,0],[5,8,0,15,17.6,18.0,7.84,9.34,8.34,0.0,0.0,2,2,0],[5,8,3,90,102.3,110.0,10.07,11.96,10.62,0.111,0.044,7,13,0],[5,8,4,21,24.4,23.0,7.09,8.41,7.52,0.0,0.0,3,3,0],[5,8,1,73,73.4,81.0,8.47,10.11,8.51,0.0,0.014,6,8,0],[5,8,2,26,29.5,25.0,7.84,9.37,8.14,0.0,0.0,3,3,1],[5,3,0,23,18.5,28.0,7.64,9.42,7.4,0.0,0.0,2,3,0],[5,3,3,105,99.0,90.0,9.3,11.57,9.47,0.095,0.067,5,10,0],[5,3,4,17,23.9,24.0,7.95,9.45,7.71,0.0,0.059,3,3,0],[5,3,1,71,67.7,70.0,9.33,11.12,9.49,0.028,0.028,6,9,0],[5,3,2,28,26.5,25.0,6.57,7.76,6.93,0.036,0.0,3,2,0],[6,4,0,11,19.3,30.0,6.94,8.15,6.89,0.0,0.0,2,1,0],[6,4,3,98,98.7,81.0,8.69,10.3,8.93,0.061,0.041,7,10,0],[6,4,4,31,24.6,18.0,8.06,9.57,8.13,0.032,0.0,3,3,0],[6,4,1,92,80.5,69.0,9.39,11.24,9.3,0.022,0.022,6,10,0],[6,4,2,22,24.0,29.0,8.34,10.23,8.54,0.091,0.045,3,5,0],[6,5,0,14,12.6,9.0,7.47,8.81,7.3,0.0,0.0,2,1,0],[6,5,3,59,70.5,66.0,8.18,9.7,8.29,0.017,0.0,7,7,0],[6,5,4,17,17.8,13.0,6.89,8.14,6.77,0.0,0.0,3,2,0],[6,5,1,47,44.3,60.0,8.15,9.74,8.06,0.0,0.0,6,8,0],[6,5,2,18,17.5,18.0,6.22,7.38,6.52,0.056,0.056,3,3,0],[6,1,0,15,19.7,19.0,7.95,9.55,8.06,0.0,0.0,2,3,0],[6,1,3,118,113.8,103.0,8.65,10.3,8.63,0.008,0.017,8,10,0],[6,1,4,23,29.8,20.0,8.01,9.55,7.91,0.0,0.0,3,3,0],[6,1,1,94,82.4,83.0,8.51,10.17,8.45,0.0,0.011,7,10,0],[6,1,2,33,29.5,27.0,7.18,8.65,7.52,0.03,0.03,3,4,0],[6,9,0,13,18.9,12.0,8.62,10.31,8.93,0.0,0.0,2,2,0],[6,9,3,78,93.4,83.0,8.58,10.19,8.61,0.0,0.0,7,8,0],[6,9,4,29,22.5,15.0,7.47,8.98,7.52,0.069,0.0,3,4,0],[6,9,1,68,67.4,61.0,8.21,9.79,8.63,0.015,0.0,6,7,0],[6,9,2,21,24.0,22.0,7.38,8.72,6.88,0.0,0.0,3,3,0],[6,2,0,14,20.8,29.0,6.94,8.24,6.86,0.0,0.0,2,2,0],[6,2,3,125,111.2,107.0,9.08,10.87,9.22,0.064,0.032,8,12,0],[6,2,4,38,33.3,27.0,7.65,9.28,7.84,0.053,0.0,3,5,0],[6,2,1,110,87.8,84.0,9.49,11.29,9.25,0.027,0.027,7,13,0],[6,2,2,25,29.4,32.0,6.33,7.45,6.37,0.0,0.0,3,2,0],[6,6,0,12,17.1,22.0,7.52,8.94,7.89,0.0,0.0,2,2,0],[6,6,3,93,103.0,87.0,8.44,10.07,8.52,0.011,0.011,7,9,0],[6,6,4,27,26.2,21.0,7.42,8.84,7.44,0.0,0.0,3,3,0],[6,6,1,72,77.5,78.0,8.44,10.05,8.56,0.028,0.014,6,8,0],[6,6,2,16,26.0,32.0,7.06,8.32,7.04,0.0,0.0,3,2,0],[6,7,0,14,19.8,21.0,9.25,11.17,9.68,0.071,0.071,2,3,0],[6,7,3,101,102.3,89.0,8.35,9.96,8.45,0.032,0.0,7,8,1],[6,7,4,31,28.5,34.0,7.88,9.44,8.12,0.065,0.0,3,3,0],[6,7,1,93,73.1,69.0,9.22,10.95,9.36,0.075,0.032,6,11,0],[6,7,2,33,22.2,19.0,6.77,8.05,6.83,0.0,0.03,3,4,0],[6,0,0,28,19.8,27.0,7.48,8.92,7.69,0.0,0.0,2,3,0],[6,0,3,113,124.6,103.0,8.46,10.05,8.75,0.027,0.0,9,11,0],[6,0,4,39,32.5,22.0,8.4,10.01,8.2,0.026,0.0,4,5,0],[6,0,1,114,96.0,106.0,8.26,9.88,8.34,0.009,0.0,8,10,0],[6,0,2,36,30.2,27.0,6.54,7.71,6.72,0.0,0.0,4,4,0],[6,8,0,17,16.1,23.0,7.96,9.42,7.67,0.0,0.0,2,3,0],[6,8,3,103,106.4,88.0,8.24,9.79,8.28,0.01,0.019,7,8,0],[6,8,4,22,27.2,23.0,7.65,9.24,7.68,0.045,0.045,3,3,0],[6,8,1,80,77.3,80.0,8.76,10.52,8.82,0.013,0.0,6,9,0],[6,8,2,22,27.9,34.0,6.73,7.96,7.04,0.0,0.0,3,3,0],[6,3,0,20,16.3,23.0,8.72,10.62,9.11,0.05,0.0,2,4,0],[6,3,3,114,108.2,89.0,18.15,22.07,17.88,0.588,0.588,5,20,0],[6,3,4,29,26.9,22.0,8.1,9.75,8.39,0.034,0.0,3,5,0],[6,3,1,78,82.6,89.0,8.84,10.62,9.01,0.013,0.013,6,9,0],[6,3,2,30,26.2,33.0,7.1,8.52,6.91,0.0,0.0,3,4,0]],"tomorrow":[[4,0,3,1.2],[4,3,3,12.5],[4,4,3,8.3],[4,1,3,1.8],[4,2,3,7.9],[4,0,0,7.8],[4,3,0,18.6],[4,4,0,0.7],[4,1,0,28.1],[4,2,0,3.7],[4,0,4,0.8],[4,3,4,7.0],[4,4,4,3.9],[4,1,4,1.4],[4,2,4,5.4],[4,0,5,6.7],[4,3,5,5.1],[4,1,5,7.6],[4,2,5,1.8],[4,3,1,34.6],[4,4,1,7.6],[4,1,1,8.0],[4,2,1,6.8],[4,3,2,37.9],[4,4,2,8.6],[4,1,2,19.5],[4,2,2,2.0],[5,0,3,1.2],[5,3,3,8.8],[5,4,3,5.8],[5,1,3,1.2],[5,2,3,4.6],[5,0,0,4.9],[5,3,0,11.5],[5,4,0,0.6],[5,1,0,18.7],[5,2,0,3.6],[5,0,4,0.6],[5,3,4,4.2],[5,4,4,4.3],[5,1,4,1.4],[5,2,4,3.8],[5,0,5,4.7],[5,3,5,3.5],[5,1,5,3.8],[5,2,5,0.9],[5,3,1,20.8],[5,4,1,4.3],[5,1,1,4.6],[5,2,1,3.9],[5,3,2,19.9],[5,4,2,4.4],[5,1,2,11.5],[5,2,2,1.2],[1,0,3,1.9],[1,3,3,15.0],[1,4,3,9.8],[1,1,3,2.2],[1,2,3,9.7],[1,0,0,6.9],[1,3,0,21.1],[1,4,0,0.6],[1,1,0,44.0],[1,2,0,4.4],[1,0,4,0.9],[1,3,4,7.2],[1,4,4,4.3],[1,1,4,1.7],[1,2,4,6.2],[1,0,5,6.0],[1,3,5,6.2],[1,1,5,6.9],[1,2,5,2.2],[1,3,1,39.1],[1,4,1,8.9],[1,1,1,10.6],[1,2,1,6.7],[1,3,2,37.0],[1,4,2,10.8],[1,1,2,20.8],[1,2,2,2.3],[9,0,3,0.9],[9,3,3,12.5],[9,4,3,8.2],[9,1,3,1.4],[9,2,3,8.0],[9,0,0,7.1],[9,3,0,20.7],[9,4,0,0.5],[9,1,0,29.4],[9,2,0,3.2],[9,0,4,0.8],[9,3,4,5.7],[9,4,4,4.6],[9,1,4,1.4],[9,2,4,5.1],[9,0,5,6.6],[9,3,5,3.7],[9,1,5,6.8],[9,2,5,1.6],[9,3,1,28.4],[9,4,1,7.5],[9,1,1,7.8],[9,2,1,7.0],[9,3,2,28.7],[9,4,2,9.3],[9,1,2,13.2],[9,2,2,2.5],[2,0,3,2.2],[2,3,3,14.2],[2,4,3,9.5],[2,1,3,2.4],[2,2,3,9.1],[2,0,0,6.8],[2,3,0,22.1],[2,4,0,0.7],[2,1,0,33.8],[2,2,0,4.9],[2,0,4,1.2],[2,3,4,7.2],[2,4,4,6.1],[2,1,4,1.7],[2,2,4,6.2],[2,0,5,6.0],[2,3,5,5.8],[2,1,5,9.0],[2,2,5,1.2],[2,3,1,40.3],[2,4,1,8.5],[2,1,1,12.7],[2,2,1,8.1],[2,3,2,45.7],[2,4,2,11.0],[2,1,2,21.7],[2,2,2,3.5],[6,0,3,1.4],[6,3,3,12.3],[6,4,3,9.3],[6,1,3,2.3],[6,2,3,10.7],[6,0,0,6.8],[6,3,0,19.0],[6,4,0,0.6],[6,1,0,38.7],[6,2,0,3.6],[6,0,4,0.8],[6,3,4,6.6],[6,4,4,4.6],[6,1,4,1.3],[6,2,4,4.1],[6,0,5,4.5],[6,3,5,4.2],[6,1,5,6.0],[6,2,5,1.6],[6,3,1,35.0],[6,4,1,8.6],[6,1,1,7.6],[6,2,1,5.4],[6,3,2,29.0],[6,4,2,9.6],[6,1,2,17.7],[6,2,2,3.0],[7,0,3,1.8],[7,3,3,13.2],[7,4,3,8.7],[7,1,3,2.8],[7,2,3,7.5],[7,0,0,8.4],[7,3,0,18.1],[7,4,0,0.7],[7,1,0,33.7],[7,2,0,4.4],[7,0,4,1.0],[7,3,4,6.9],[7,4,4,3.9],[7,1,4,1.6],[7,2,4,5.9],[7,0,5,7.6],[7,3,5,4.6],[7,1,5,6.8],[7,2,5,2.3],[7,3,1,32.4],[7,4,1,7.7],[7,1,1,7.5],[7,2,1,5.2],[7,3,2,34.7],[7,4,2,8.2],[7,1,2,14.8],[7,2,2,2.7],[0,0,3,2.0],[0,3,3,16.0],[0,4,3,11.6],[0,1,3,4.9],[0,2,3,11.2],[0,0,0,8.0],[0,3,0,24.3],[0,4,0,0.9],[0,1,0,39.7],[0,2,0,6.2],[0,0,4,1.2],[0,3,4,6.8],[0,4,4,5.1],[0,1,4,1.8],[0,2,4,6.8],[0,0,5,8.0],[0,3,5,5.7],[0,1,5,8.5],[0,2,5,1.6],[0,3,1,41.8],[0,4,1,11.0],[0,1,1,10.2],[0,2,1,8.2],[0,3,2,38.9],[0,4,2,13.3],[0,1,2,21.7],[0,2,2,3.3],[8,0,3,1.1],[8,3,3,13.1],[8,4,3,8.5],[8,1,3,2.1],[8,2,3,8.4],[8,0,0,7.0],[8,3,0,20.6],[8,4,0,1.0],[8,1,0,34.7],[8,2,0,4.4],[8,0,4,1.0],[8,3,4,6.4],[8,4,4,4.9],[8,1,4,1.6],[8,2,4,5.3],[8,0,5,4.9],[8,3,5,4.5],[8,1,5,6.4],[8,2,5,1.0],[8,3,1,36.0],[8,4,1,6.6],[8,1,1,8.0],[8,2,1,6.1],[8,3,2,35.6],[8,4,2,8.7],[8,1,2,20.0],[8,2,2,3.2],[3,0,3,1.6],[3,3,3,13.3],[3,4,3,9.0],[3,1,3,1.9],[3,2,3,8.8],[3,0,0,8.2],[3,3,0,22.1],[3,4,0,1.0],[3,1,0,38.6],[3,2,0,2.8],[3,0,4,1.2],[3,3,4,6.9],[3,4,4,4.5],[3,1,4,1.1],[3,2,4,6.6],[3,0,5,6.6],[3,3,5,4.6],[3,1,5,7.4],[3,2,5,1.6],[3,3,1,39.6],[3,4,1,7.6],[3,1,1,10.0],[3,2,1,6.9],[3,3,2,38.4],[3,4,2,9.9],[3,1,2,17.3],[3,2,2,3.2]],"plan":[[4,0,3,"Cake bases, 500 g","pcs",0.74],[4,0,3,"Whipped cream","kg",0.06],[4,0,0,"Brown rice, cooked","kg",1.17],[4,0,0,"Dal and sabzi base","kg",1.41],[4,0,0,"Multigrain roti dough","kg",0.94],[4,0,4,"Ice-cream mix","L",0.21],[4,0,4,"Syrups","L",0.03],[4,0,5,"Chutney cups","pcs",13.42],[4,0,5,"Millet dosa batter","kg",1.07],[4,0,5,"Sambar","L",1.34],[4,3,3,"Cake bases, 500 g","pcs",7.47],[4,3,3,"Whipped cream","kg",0.62],[4,3,0,"Brown rice, cooked","kg",2.79],[4,3,0,"Dal and sabzi base","kg",3.35],[4,3,0,"Multigrain roti dough","kg",2.23],[4,3,4,"Ice-cream mix","L",1.75],[4,3,4,"Syrups","L",0.21],[4,3,5,"Chutney cups","pcs",10.2],[4,3,5,"Millet dosa batter","kg",0.82],[4,3,5,"Sambar","L",1.02],[4,3,1,"Garlic dip cups","pcs",34.6],[4,3,1,"Pizza dough balls","pcs",44.98],[4,3,1,"Pizza sauce","kg",2.77],[4,3,2,"Biryani masala base","kg",5.3],[4,3,2,"Marinated chicken","kg",7.58],[4,3,2,"Raita cups","pcs",37.88],[4,4,3,"Cake bases, 500 g","pcs",4.98],[4,4,3,"Whipped cream","kg",0.42],[4,4,0,"Brown rice, cooked","kg",0.11],[4,4,0,"Dal and sabzi base","kg",0.13],[4,4,0,"Multigrain roti dough","kg",0.09],[4,4,4,"Ice-cream mix","L",0.98],[4,4,4,"Syrups","L",0.12],[4,4,1,"Garlic dip cups","pcs",7.58],[4,4,1,"Pizza dough balls","pcs",9.85],[4,4,1,"Pizza sauce","kg",0.61],[4,4,2,"Biryani masala base","kg",1.2],[4,4,2,"Marinated chicken","kg",1.72],[4,4,2,"Raita cups","pcs",8.58],[4,1,3,"Cake bases, 500 g","pcs",1.1],[4,1,3,"Whipped cream","kg",0.09],[4,1,0,"Brown rice, cooked","kg",4.21],[4,1,0,"Dal and sabzi base","kg",5.05],[4,1,0,"Multigrain roti dough","kg",3.37],[4,1,4,"Ice-cream mix","L",0.36],[4,1,4,"Syrups","L",0.04],[4,1,5,"Chutney cups","pcs",15.26],[4,1,5,"Millet dosa batter","kg",1.22],[4,1,5,"Sambar","L",1.53],[4,1,1,"Garlic dip cups","pcs",8.02],[4,1,1,"Pizza dough balls","pcs",10.43],[4,1,1,"Pizza sauce","kg",0.64],[4,1,2,"Biryani masala base","kg",2.74],[4,1,2,"Marinated chicken","kg",3.91],[4,1,2,"Raita cups","pcs",19.54],[4,2,3,"Cake bases, 500 g","pcs",4.74],[4,2,3,"Whipped cream","kg",0.39],[4,2,0,"Brown rice, cooked","kg",0.56],[4,2,0,"Dal and sabzi base","kg",0.67],[4,2,0,"Multigrain roti dough","kg",0.45],[4,2,4,"Ice-cream mix","L",1.35],[4,2,4,"Syrups","L",0.16],[4,2,5,"Chutney cups","pcs",3.69],[4,2,5,"Millet dosa batter","kg",0.3],[4,2,5,"Sambar","L",0.37],[4,2,1,"Garlic dip cups","pcs",6.81],[4,2,1,"Pizza dough balls","pcs",8.85],[4,2,1,"Pizza sauce","kg",0.54],[4,2,2,"Biryani masala base","kg",0.28],[4,2,2,"Marinated chicken","kg",0.39],[4,2,2,"Raita cups","pcs",1.97],[5,0,3,"Cake bases, 500 g","pcs",0.73],[5,0,3,"Whipped cream","kg",0.06],[5,0,0,"Brown rice, cooked","kg",0.74],[5,0,0,"Dal and sabzi base","kg",0.88],[5,0,0,"Multigrain roti dough","kg",0.59],[5,0,4,"Ice-cream mix","L",0.15],[5,0,4,"Syrups","L",0.02],[5,0,5,"Chutney cups","pcs",9.34],[5,0,5,"Millet dosa batter","kg",0.75],[5,0,5,"Sambar","L",0.93],[5,3,3,"Cake bases, 500 g","pcs",5.26],[5,3,3,"Whipped cream","kg",0.44],[5,3,0,"Brown rice, cooked","kg",1.72],[5,3,0,"Dal and sabzi base","kg",2.06],[5,3,0,"Multigrain roti dough","kg",1.37],[5,3,4,"Ice-cream mix","L",1.04],[5,3,4,"Syrups","L",0.12],[5,3,5,"Chutney cups","pcs",6.93],[5,3,5,"Millet dosa batter","kg",0.55],[5,3,5,"Sambar","L",0.69],[5,3,1,"Garlic dip cups","pcs",20.79],[5,3,1,"Pizza dough balls","pcs",27.02],[5,3,1,"Pizza sauce","kg",1.66],[5,3,2,"Biryani masala base","kg",2.79],[5,3,2,"Marinated chicken","kg",3.98],[5,3,2,"Raita cups","pcs",19.92],[5,4,3,"Cake bases, 500 g","pcs",3.49],[5,4,3,"Whipped cream","kg",0.29],[5,4,0,"Brown rice, cooked","kg",0.08],[5,4,0,"Dal and sabzi base","kg",0.1],[5,4,0,"Multigrain roti dough","kg",0.07],[5,4,4,"Ice-cream mix","L",1.07],[5,4,4,"Syrups","L",0.13],[5,4,1,"Garlic dip cups","pcs",4.26],[5,4,1,"Pizza dough balls","pcs",5.54],[5,4,1,"Pizza sauce","kg",0.34],[5,4,2,"Biryani masala base","kg",0.61],[5,4,2,"Marinated chicken","kg",0.88],[5,4,2,"Raita cups","pcs",4.38],[5,1,3,"Cake bases, 500 g","pcs",0.72],[5,1,3,"Whipped cream","kg",0.06],[5,1,0,"Brown rice, cooked","kg",2.8],[5,1,0,"Dal and sabzi base","kg",3.36],[5,1,0,"Multigrain roti dough","kg",2.24],[5,1,4,"Ice-cream mix","L",0.35],[5,1,4,"Syrups","L",0.04],[5,1,5,"Chutney cups","pcs",7.7],[5,1,5,"Millet dosa batter","kg",0.62],[5,1,5,"Sambar","L",0.77],[5,1,1,"Garlic dip cups","pcs",4.59],[5,1,1,"Pizza dough balls","pcs",5.97],[5,1,1,"Pizza sauce","kg",0.37],[5,1,2,"Biryani masala base","kg",1.61],[5,1,2,"Marinated chicken","kg",2.3],[5,1,2,"Raita cups","pcs",11.51],[5,2,3,"Cake bases, 500 g","pcs",2.76],[5,2,3,"Whipped cream","kg",0.23],[5,2,0,"Brown rice, cooked","kg",0.54],[5,2,0,"Dal and sabzi base","kg",0.65],[5,2,0,"Multigrain roti dough","kg",0.43],[5,2,4,"Ice-cream mix","L",0.95],[5,2,4,"Syrups","L",0.11],[5,2,5,"Chutney cups","pcs",1.84],[5,2,5,"Millet dosa batter","kg",0.15],[5,2,5,"Sambar","L",0.18],[5,2,1,"Garlic dip cups","pcs",3.91],[5,2,1,"Pizza dough balls","pcs",5.09],[5,2,1,"Pizza sauce","kg",0.31],[5,2,2,"Biryani masala base","kg",0.17],[5,2,2,"Marinated chicken","kg",0.25],[5,2,2,"Raita cups","pcs",1.24],[1,0,3,"Cake bases, 500 g","pcs",1.12],[1,0,3,"Whipped cream","kg",0.09],[1,0,0,"Brown rice, cooked","kg",1.03],[1,0,0,"Dal and sabzi base","kg",1.24],[1,0,0,"Multigrain roti dough","kg",0.82],[1,0,4,"Ice-cream mix","L",0.22],[1,0,4,"Syrups","L",0.03],[1,0,5,"Chutney cups","pcs",12.08],[1,0,5,"Millet dosa batter","kg",0.97],[1,0,5,"Sambar","L",1.21],[1,3,3,"Cake bases, 500 g","pcs",9.01],[1,3,3,"Whipped cream","kg",0.75],[1,3,0,"Brown rice, cooked","kg",3.17],[1,3,0,"Dal and sabzi base","kg",3.8],[1,3,0,"Multigrain roti dough","kg",2.53],[1,3,4,"Ice-cream mix","L",1.8],[1,3,4,"Syrups","L",0.22],[1,3,5,"Chutney cups","pcs",12.36],[1,3,5,"Millet dosa batter","kg",0.99],[1,3,5,"Sambar","L",1.24],[1,3,1,"Garlic dip cups","pcs",39.07],[1,3,1,"Pizza dough balls","pcs",50.8],[1,3,1,"Pizza sauce","kg",3.13],[1,3,2,"Biryani masala base","kg",5.19],[1,3,2,"Marinated chicken","kg",7.41],[1,3,2,"Raita cups","pcs",37.04],[1,4,3,"Cake bases, 500 g","pcs",5.9],[1,4,3,"Whipped cream","kg",0.49],[1,4,0,"Brown rice, cooked","kg",0.09],[1,4,0,"Dal and sabzi base","kg",0.11],[1,4,0,"Multigrain roti dough","kg",0.07],[1,4,4,"Ice-cream mix","L",1.06],[1,4,4,"Syrups","L",0.13],[1,4,1,"Garlic dip cups","pcs",8.94],[1,4,1,"Pizza dough balls","pcs",11.62],[1,4,1,"Pizza sauce","kg",0.72],[1,4,2,"Biryani masala base","kg",1.51],[1,4,2,"Marinated chicken","kg",2.16],[1,4,2,"Raita cups","pcs",10.81],[1,1,3,"Cake bases, 500 g","pcs",1.32],[1,1,3,"Whipped cream","kg",0.11],[1,1,0,"Brown rice, cooked","kg",6.6],[1,1,0,"Dal and sabzi base","kg",7.91],[1,1,0,"Multigrain roti dough","kg",5.28],[1,1,4,"Ice-cream mix","L",0.43],[1,1,4,"Syrups","L",0.05],[1,1,5,"Chutney cups","pcs",13.73],[1,1,5,"Millet dosa batter","kg",1.1],[1,1,5,"Sambar","L",1.37],[1,1,1,"Garlic dip cups","pcs",10.59],[1,1,1,"Pizza dough balls","pcs",13.77],[1,1,1,"Pizza sauce","kg",0.85],[1,1,2,"Biryani masala base","kg",2.92],[1,1,2,"Marinated chicken","kg",4.16],[1,1,2,"Raita cups","pcs",20.82],[1,2,3,"Cake bases, 500 g","pcs",5.84],[1,2,3,"Whipped cream","kg",0.49],[1,2,0,"Brown rice, cooked","kg",0.66],[1,2,0,"Dal and sabzi base","kg",0.8],[1,2,0,"Multigrain roti dough","kg",0.53],[1,2,4,"Ice-cream mix","L",1.55],[1,2,4,"Syrups","L",0.19],[1,2,5,"Chutney cups","pcs",4.5],[1,2,5,"Millet dosa batter","kg",0.36],[1,2,5,"Sambar","L",0.45],[1,2,1,"Garlic dip cups","pcs",6.65],[1,2,1,"Pizza dough balls","pcs",8.65],[1,2,1,"Pizza sauce","kg",0.53],[1,2,2,"Biryani masala base","kg",0.32],[1,2,2,"Marinated chicken","kg",0.45],[1,2,2,"Raita cups","pcs",2.25],[9,0,3,"Cake bases, 500 g","pcs",0.56],[9,0,3,"Whipped cream","kg",0.05],[9,0,0,"Brown rice, cooked","kg",1.07],[9,0,0,"Dal and sabzi base","kg",1.28],[9,0,0,"Multigrain roti dough","kg",0.85],[9,0,4,"Ice-cream mix","L",0.19],[9,0,4,"Syrups","L",0.02],[9,0,5,"Chutney cups","pcs",13.25],[9,0,5,"Millet dosa batter","kg",1.06],[9,0,5,"Sambar","L",1.33],[9,3,3,"Cake bases, 500 g","pcs",7.52],[9,3,3,"Whipped cream","kg",0.63],[9,3,0,"Brown rice, cooked","kg",3.1],[9,3,0,"Dal and sabzi base","kg",3.72],[9,3,0,"Multigrain roti dough","kg",2.48],[9,3,4,"Ice-cream mix","L",1.43],[9,3,4,"Syrups","L",0.17],[9,3,5,"Chutney cups","pcs",7.44],[9,3,5,"Millet dosa batter","kg",0.59],[9,3,5,"Sambar","L",0.74],[9,3,1,"Garlic dip cups","pcs",28.43],[9,3,1,"Pizza dough balls","pcs",36.96],[9,3,1,"Pizza sauce","kg",2.27],[9,3,2,"Biryani masala base","kg",4.01],[9,3,2,"Marinated chicken","kg",5.73],[9,3,2,"Raita cups","pcs",28.66],[9,4,3,"Cake bases, 500 g","pcs",4.94],[9,4,3,"Whipped cream","kg",0.41],[9,4,0,"Brown rice, cooked","kg",0.08],[9,4,0,"Dal and sabzi base","kg",0.09],[9,4,0,"Multigrain roti dough","kg",0.06],[9,4,4,"Ice-cream mix","L",1.15],[9,4,4,"Syrups","L",0.14],[9,4,1,"Garlic dip cups","pcs",7.47],[9,4,1,"Pizza dough balls","pcs",9.72],[9,4,1,"Pizza sauce","kg",0.6],[9,4,2,"Biryani masala base","kg",1.3],[9,4,2,"Marinated chicken","kg",1.85],[9,4,2,"Raita cups","pcs",9.27],[9,1,3,"Cake bases, 500 g","pcs",0.84],[9,1,3,"Whipped cream","kg",0.07],[9,1,0,"Brown rice, cooked","kg",4.42],[9,1,0,"Dal and sabzi base","kg",5.3],[9,1,0,"Multigrain roti dough","kg",3.53],[9,1,4,"Ice-cream mix","L",0.35],[9,1,4,"Syrups","L",0.04],[9,1,5,"Chutney cups","pcs",13.64],[9,1,5,"Millet dosa batter","kg",1.09],[9,1,5,"Sambar","L",1.36],[9,1,1,"Garlic dip cups","pcs",7.77],[9,1,1,"Pizza dough balls","pcs",10.1],[9,1,1,"Pizza sauce","kg",0.62],[9,1,2,"Biryani masala base","kg",1.85],[9,1,2,"Marinated chicken","kg",2.64],[9,1,2,"Raita cups","pcs",13.18],[9,2,3,"Cake bases, 500 g","pcs",4.78],[9,2,3,"Whipped cream","kg",0.4],[9,2,0,"Brown rice, cooked","kg",0.47],[9,2,0,"Dal and sabzi base","kg",0.57],[9,2,0,"Multigrain roti dough","kg",0.38],[9,2,4,"Ice-cream mix","L",1.27],[9,2,4,"Syrups","L",0.15],[9,2,5,"Chutney cups","pcs",3.11],[9,2,5,"Millet dosa batter","kg",0.25],[9,2,5,"Sambar","L",0.31],[9,2,1,"Garlic dip cups","pcs",6.97],[9,2,1,"Pizza dough balls","pcs",9.06],[9,2,1,"Pizza sauce","kg",0.56],[9,2,2,"Biryani masala base","kg",0.35],[9,2,2,"Marinated chicken","kg",0.5],[9,2,2,"Raita cups","pcs",2.49],[2,0,3,"Cake bases, 500 g","pcs",1.3],[2,0,3,"Whipped cream","kg",0.11],[2,0,0,"Brown rice, cooked","kg",1.01],[2,0,0,"Dal and sabzi base","kg",1.22],[2,0,0,"Multigrain roti dough","kg",0.81],[2,0,4,"Ice-cream mix","L",0.3],[2,0,4,"Syrups","L",0.04],[2,0,5,"Chutney cups","pcs",11.94],[2,0,5,"Millet dosa batter","kg",0.95],[2,0,5,"Sambar","L",1.19],[2,3,3,"Cake bases, 500 g","pcs",8.51],[2,3,3,"Whipped cream","kg",0.71],[2,3,0,"Brown rice, cooked","kg",3.31],[2,3,0,"Dal and sabzi base","kg",3.98],[2,3,0,"Multigrain roti dough","kg",2.65],[2,3,4,"Ice-cream mix","L",1.8],[2,3,4,"Syrups","L",0.22],[2,3,5,"Chutney cups","pcs",11.56],[2,3,5,"Millet dosa batter","kg",0.92],[2,3,5,"Sambar","L",1.16],[2,3,1,"Garlic dip cups","pcs",40.26],[2,3,1,"Pizza dough balls","pcs",52.34],[2,3,1,"Pizza sauce","kg",3.22],[2,3,2,"Biryani masala base","kg",6.4],[2,3,2,"Marinated chicken","kg",9.15],[2,3,2,"Raita cups","pcs",45.73],[2,4,3,"Cake bases, 500 g","pcs",5.71],[2,4,3,"Whipped cream","kg",0.48],[2,4,0,"Brown rice, cooked","kg",0.11],[2,4,0,"Dal and sabzi base","kg",0.13],[2,4,0,"Multigrain roti dough","kg",0.09],[2,4,4,"Ice-cream mix","L",1.53],[2,4,4,"Syrups","L",0.18],[2,4,1,"Garlic dip cups","pcs",8.55],[2,4,1,"Pizza dough balls","pcs",11.11],[2,4,1,"Pizza sauce","kg",0.68],[2,4,2,"Biryani masala base","kg",1.54],[2,4,2,"Marinated chicken","kg",2.19],[2,4,2,"Raita cups","pcs",10.97],[2,1,3,"Cake bases, 500 g","pcs",1.42],[2,1,3,"Whipped cream","kg",0.12],[2,1,0,"Brown rice, cooked","kg",5.07],[2,1,0,"Dal and sabzi base","kg",6.08],[2,1,0,"Multigrain roti dough","kg",4.05],[2,1,4,"Ice-cream mix","L",0.42],[2,1,4,"Syrups","L",0.05],[2,1,5,"Chutney cups","pcs",17.98],[2,1,5,"Millet dosa batter","kg",1.44],[2,1,5,"Sambar","L",1.8],[2,1,1,"Garlic dip cups","pcs",12.71],[2,1,1,"Pizza dough balls","pcs",16.52],[2,1,1,"Pizza sauce","kg",1.02],[2,1,2,"Biryani masala base","kg",3.04],[2,1,2,"Marinated chicken","kg",4.35],[2,1,2,"Raita cups","pcs",21.73],[2,2,3,"Cake bases, 500 g","pcs",5.47],[2,2,3,"Whipped cream","kg",0.46],[2,2,0,"Brown rice, cooked","kg",0.74],[2,2,0,"Dal and sabzi base","kg",0.88],[2,2,0,"Multigrain roti dough","kg",0.59],[2,2,4,"Ice-cream mix","L",1.56],[2,2,4,"Syrups","L",0.19],[2,2,5,"Chutney cups","pcs",2.42],[2,2,5,"Millet dosa batter","kg",0.19],[2,2,5,"Sambar","L",0.24],[2,2,1,"Garlic dip cups","pcs",8.11],[2,2,1,"Pizza dough balls","pcs",10.54],[2,2,1,"Pizza sauce","kg",0.65],[2,2,2,"Biryani masala base","kg",0.49],[2,2,2,"Marinated chicken","kg",0.7],[2,2,2,"Raita cups","pcs",3.52],[6,0,3,"Cake bases, 500 g","pcs",0.86],[6,0,3,"Whipped cream","kg",0.07],[6,0,0,"Brown rice, cooked","kg",1.02],[6,0,0,"Dal and sabzi base","kg",1.22],[6,0,0,"Multigrain roti dough","kg",0.81],[6,0,4,"Ice-cream mix","L",0.21],[6,0,4,"Syrups","L",0.03],[6,0,5,"Chutney cups","pcs",9.08],[6,0,5,"Millet dosa batter","kg",0.73],[6,0,5,"Sambar","L",0.91],[6,3,3,"Cake bases, 500 g","pcs",7.39],[6,3,3,"Whipped cream","kg",0.62],[6,3,0,"Brown rice, cooked","kg",2.85],[6,3,0,"Dal and sabzi base","kg",3.42],[6,3,0,"Multigrain roti dough","kg",2.28],[6,3,4,"Ice-cream mix","L",1.65],[6,3,4,"Syrups","L",0.2],[6,3,5,"Chutney cups","pcs",8.39],[6,3,5,"Millet dosa batter","kg",0.67],[6,3,5,"Sambar","L",0.84],[6,3,1,"Garlic dip cups","pcs",35.0],[6,3,1,"Pizza dough balls","pcs",45.51],[6,3,1,"Pizza sauce","kg",2.8],[6,3,2,"Biryani masala base","kg",4.07],[6,3,2,"Marinated chicken","kg",5.81],[6,3,2,"Raita cups","pcs",29.04],[6,4,3,"Cake bases, 500 g","pcs",5.59],[6,4,3,"Whipped cream","kg",0.47],[6,4,0,"Brown rice, cooked","kg",0.09],[6,4,0,"Dal and sabzi base","kg",0.11],[6,4,0,"Multigrain roti dough","kg",0.07],[6,4,4,"Ice-cream mix","L",1.14],[6,4,4,"Syrups","L",0.14],[6,4,1,"Garlic dip cups","pcs",8.56],[6,4,1,"Pizza dough balls","pcs",11.13],[6,4,1,"Pizza sauce","kg",0.69],[6,4,2,"Biryani masala base","kg",1.34],[6,4,2,"Marinated chicken","kg",1.92],[6,4,2,"Raita cups","pcs",9.58],[6,1,3,"Cake bases, 500 g","pcs",1.4],[6,1,3,"Whipped cream","kg",0.12],[6,1,0,"Brown rice, cooked","kg",5.81],[6,1,0,"Dal and sabzi base","kg",6.97],[6,1,0,"Multigrain roti dough","kg",4.65],[6,1,4,"Ice-cream mix","L",0.32],[6,1,4,"Syrups","L",0.04],[6,1,5,"Chutney cups","pcs",12.06],[6,1,5,"Millet dosa batter","kg",0.96],[6,1,5,"Sambar","L",1.21],[6,1,1,"Garlic dip cups","pcs",7.62],[6,1,1,"Pizza dough balls","pcs",9.91],[6,1,1,"Pizza sauce","kg",0.61],[6,1,2,"Biryani masala base","kg",2.48],[6,1,2,"Marinated chicken","kg",3.54],[6,1,2,"Raita cups","pcs",17.7],[6,2,3,"Cake bases, 500 g","pcs",6.41],[6,2,3,"Whipped cream","kg",0.53],[6,2,0,"Brown rice, cooked","kg",0.55],[6,2,0,"Dal and sabzi base","kg",0.66],[6,2,0,"Multigrain roti dough","kg",0.44],[6,2,4,"Ice-cream mix","L",1.03],[6,2,4,"Syrups","L",0.12],[6,2,5,"Chutney cups","pcs",3.14],[6,2,5,"Millet dosa batter","kg",0.25],[6,2,5,"Sambar","L",0.31],[6,2,1,"Garlic dip cups","pcs",5.39],[6,2,1,"Pizza dough balls","pcs",7.0],[6,2,1,"Pizza sauce","kg",0.43],[6,2,2,"Biryani masala base","kg",0.42],[6,2,2,"Marinated chicken","kg",0.6],[6,2,2,"Raita cups","pcs",3.02],[7,0,3,"Cake bases, 500 g","pcs",1.06],[7,0,3,"Whipped cream","kg",0.09],[7,0,0,"Brown rice, cooked","kg",1.25],[7,0,0,"Dal and sabzi base","kg",1.5],[7,0,0,"Multigrain roti dough","kg",1.0],[7,0,4,"Ice-cream mix","L",0.25],[7,0,4,"Syrups","L",0.03],[7,0,5,"Chutney cups","pcs",15.17],[7,0,5,"Millet dosa batter","kg",1.21],[7,0,5,"Sambar","L",1.52],[7,3,3,"Cake bases, 500 g","pcs",7.92],[7,3,3,"Whipped cream","kg",0.66],[7,3,0,"Brown rice, cooked","kg",2.72],[7,3,0,"Dal and sabzi base","kg",3.26],[7,3,0,"Multigrain roti dough","kg",2.17],[7,3,4,"Ice-cream mix","L",1.72],[7,3,4,"Syrups","L",0.21],[7,3,5,"Chutney cups","pcs",9.16],[7,3,5,"Millet dosa batter","kg",0.73],[7,3,5,"Sambar","L",0.92],[7,3,1,"Garlic dip cups","pcs",32.37],[7,3,1,"Pizza dough balls","pcs",42.08],[7,3,1,"Pizza sauce","kg",2.59],[7,3,2,"Biryani masala base","kg",4.85],[7,3,2,"Marinated chicken","kg",6.93],[7,3,2,"Raita cups","pcs",34.67],[7,4,3,"Cake bases, 500 g","pcs",5.25],[7,4,3,"Whipped cream","kg",0.44],[7,4,0,"Brown rice, cooked","kg",0.11],[7,4,0,"Dal and sabzi base","kg",0.13],[7,4,0,"Multigrain roti dough","kg",0.09],[7,4,4,"Ice-cream mix","L",0.97],[7,4,4,"Syrups","L",0.12],[7,4,1,"Garlic dip cups","pcs",7.68],[7,4,1,"Pizza dough balls","pcs",9.98],[7,4,1,"Pizza sauce","kg",0.61],[7,4,2,"Biryani masala base","kg",1.14],[7,4,2,"Marinated chicken","kg",1.64],[7,4,2,"Raita cups","pcs",8.18],[7,1,3,"Cake bases, 500 g","pcs",1.66],[7,1,3,"Whipped cream","kg",0.14],[7,1,0,"Brown rice, cooked","kg",5.05],[7,1,0,"Dal and sabzi base","kg",6.06],[7,1,0,"Multigrain roti dough","kg",4.04],[7,1,4,"Ice-cream mix","L",0.39],[7,1,4,"Syrups","L",0.05],[7,1,5,"Chutney cups","pcs",13.65],[7,1,5,"Millet dosa batter","kg",1.09],[7,1,5,"Sambar","L",1.36],[7,1,1,"Garlic dip cups","pcs",7.5],[7,1,1,"Pizza dough balls","pcs",9.75],[7,1,1,"Pizza sauce","kg",0.6],[7,1,2,"Biryani masala base","kg",2.07],[7,1,2,"Marinated chicken","kg",2.96],[7,1,2,"Raita cups","pcs",14.82],[7,2,3,"Cake bases, 500 g","pcs",4.52],[7,2,3,"Whipped cream","kg",0.38],[7,2,0,"Brown rice, cooked","kg",0.66],[7,2,0,"Dal and sabzi base","kg",0.79],[7,2,0,"Multigrain roti dough","kg",0.53],[7,2,4,"Ice-cream mix","L",1.46],[7,2,4,"Syrups","L",0.18],[7,2,5,"Chutney cups","pcs",4.68],[7,2,5,"Millet dosa batter","kg",0.37],[7,2,5,"Sambar","L",0.47],[7,2,1,"Garlic dip cups","pcs",5.24],[7,2,1,"Pizza dough balls","pcs",6.82],[7,2,1,"Pizza sauce","kg",0.42],[7,2,2,"Biryani masala base","kg",0.38],[7,2,2,"Marinated chicken","kg",0.54],[7,2,2,"Raita cups","pcs",2.69],[0,0,3,"Cake bases, 500 g","pcs",1.2],[0,0,3,"Whipped cream","kg",0.1],[0,0,0,"Brown rice, cooked","kg",1.2],[0,0,0,"Dal and sabzi base","kg",1.44],[0,0,0,"Multigrain roti dough","kg",0.96],[0,0,4,"Ice-cream mix","L",0.31],[0,0,4,"Syrups","L",0.04],[0,0,5,"Chutney cups","pcs",16.08],[0,0,5,"Millet dosa batter","kg",1.29],[0,0,5,"Sambar","L",1.61],[0,3,3,"Cake bases, 500 g","pcs",9.58],[0,3,3,"Whipped cream","kg",0.8],[0,3,0,"Brown rice, cooked","kg",3.64],[0,3,0,"Dal and sabzi base","kg",4.37],[0,3,0,"Multigrain roti dough","kg",2.92],[0,3,4,"Ice-cream mix","L",1.7],[0,3,4,"Syrups","L",0.2],[0,3,5,"Chutney cups","pcs",11.39],[0,3,5,"Millet dosa batter","kg",0.91],[0,3,5,"Sambar","L",1.14],[0,3,1,"Garlic dip cups","pcs",41.82],[0,3,1,"Pizza dough balls","pcs",54.36],[0,3,1,"Pizza sauce","kg",3.35],[0,3,2,"Biryani masala base","kg",5.44],[0,3,2,"Marinated chicken","kg",7.78],[0,3,2,"Raita cups","pcs",38.88],[0,4,3,"Cake bases, 500 g","pcs",6.97],[0,4,3,"Whipped cream","kg",0.58],[0,4,0,"Brown rice, cooked","kg",0.13],[0,4,0,"Dal and sabzi base","kg",0.16],[0,4,0,"Multigrain roti dough","kg",0.11],[0,4,4,"Ice-cream mix","L",1.27],[0,4,4,"Syrups","L",0.15],[0,4,1,"Garlic dip cups","pcs",11.01],[0,4,1,"Pizza dough balls","pcs",14.32],[0,4,1,"Pizza sauce","kg",0.88],[0,4,2,"Biryani masala base","kg",1.86],[0,4,2,"Marinated chicken","kg",2.66],[0,4,2,"Raita cups","pcs",13.29],[0,1,3,"Cake bases, 500 g","pcs",2.91],[0,1,3,"Whipped cream","kg",0.24],[0,1,0,"Brown rice, cooked","kg",5.95],[0,1,0,"Dal and sabzi base","kg",7.14],[0,1,0,"Multigrain roti dough","kg",4.76],[0,1,4,"Ice-cream mix","L",0.46],[0,1,4,"Syrups","L",0.05],[0,1,5,"Chutney cups","pcs",17.05],[0,1,5,"Millet dosa batter","kg",1.36],[0,1,5,"Sambar","L",1.7],[0,1,1,"Garlic dip cups","pcs",10.19],[0,1,1,"Pizza dough balls","pcs",13.24],[0,1,1,"Pizza sauce","kg",0.81],[0,1,2,"Biryani masala base","kg",3.04],[0,1,2,"Marinated chicken","kg",4.35],[0,1,2,"Raita cups","pcs",21.73],[0,2,3,"Cake bases, 500 g","pcs",6.69],[0,2,3,"Whipped cream","kg",0.56],[0,2,0,"Brown rice, cooked","kg",0.93],[0,2,0,"Dal and sabzi base","kg",1.12],[0,2,0,"Multigrain roti dough","kg",0.74],[0,2,4,"Ice-cream mix","L",1.71],[0,2,4,"Syrups","L",0.21],[0,2,5,"Chutney cups","pcs",3.3],[0,2,5,"Millet dosa batter","kg",0.26],[0,2,5,"Sambar","L",0.33],[0,2,1,"Garlic dip cups","pcs",8.18],[0,2,1,"Pizza dough balls","pcs",10.63],[0,2,1,"Pizza sauce","kg",0.65],[0,2,2,"Biryani masala base","kg",0.46],[0,2,2,"Marinated chicken","kg",0.65],[0,2,2,"Raita cups","pcs",3.26],[8,0,3,"Cake bases, 500 g","pcs",0.66],[8,0,3,"Whipped cream","kg",0.06],[8,0,0,"Brown rice, cooked","kg",1.05],[8,0,0,"Dal and sabzi base","kg",1.26],[8,0,0,"Multigrain roti dough","kg",0.84],[8,0,4,"Ice-cream mix","L",0.24],[8,0,4,"Syrups","L",0.03],[8,0,5,"Chutney cups","pcs",9.9],[8,0,5,"Millet dosa batter","kg",0.79],[8,0,5,"Sambar","L",0.99],[8,3,3,"Cake bases, 500 g","pcs",7.89],[8,3,3,"Whipped cream","kg",0.66],[8,3,0,"Brown rice, cooked","kg",3.09],[8,3,0,"Dal and sabzi base","kg",3.71],[8,3,0,"Multigrain roti dough","kg",2.47],[8,3,4,"Ice-cream mix","L",1.6],[8,3,4,"Syrups","L",0.19],[8,3,5,"Chutney cups","pcs",9.06],[8,3,5,"Millet dosa batter","kg",0.72],[8,3,5,"Sambar","L",0.91],[8,3,1,"Garlic dip cups","pcs",36.02],[8,3,1,"Pizza dough balls","pcs",46.82],[8,3,1,"Pizza sauce","kg",2.88],[8,3,2,"Biryani masala base","kg",4.98],[8,3,2,"Marinated chicken","kg",7.12],[8,3,2,"Raita cups","pcs",35.58],[8,4,3,"Cake bases, 500 g","pcs",5.11],[8,4,3,"Whipped cream","kg",0.43],[8,4,0,"Brown rice, cooked","kg",0.15],[8,4,0,"Dal and sabzi base","kg",0.18],[8,4,0,"Multigrain roti dough","kg",0.12],[8,4,4,"Ice-cream mix","L",1.22],[8,4,4,"Syrups","L",0.15],[8,4,1,"Garlic dip cups","pcs",6.58],[8,4,1,"Pizza dough balls","pcs",8.56],[8,4,1,"Pizza sauce","kg",0.53],[8,4,2,"Biryani masala base","kg",1.22],[8,4,2,"Marinated chicken","kg",1.74],[8,4,2,"Raita cups","pcs",8.69],[8,1,3,"Cake bases, 500 g","pcs",1.26],[8,1,3,"Whipped cream","kg",0.11],[8,1,0,"Brown rice, cooked","kg",5.21],[8,1,0,"Dal and sabzi base","kg",6.25],[8,1,0,"Multigrain roti dough","kg",4.17],[8,1,4,"Ice-cream mix","L",0.4],[8,1,4,"Syrups","L",0.05],[8,1,5,"Chutney cups","pcs",12.81],[8,1,5,"Millet dosa batter","kg",1.02],[8,1,5,"Sambar","L",1.28],[8,1,1,"Garlic dip cups","pcs",8.02],[8,1,1,"Pizza dough balls","pcs",10.43],[8,1,1,"Pizza sauce","kg",0.64],[8,1,2,"Biryani masala base","kg",2.79],[8,1,2,"Marinated chicken","kg",3.99],[8,1,2,"Raita cups","pcs",19.96],[8,2,3,"Cake bases, 500 g","pcs",5.07],[8,2,3,"Whipped cream","kg",0.42],[8,2,0,"Brown rice, cooked","kg",0.66],[8,2,0,"Dal and sabzi base","kg",0.79],[8,2,0,"Multigrain roti dough","kg",0.53],[8,2,4,"Ice-cream mix","L",1.33],[8,2,4,"Syrups","L",0.16],[8,2,5,"Chutney cups","pcs",2.09],[8,2,5,"Millet dosa batter","kg",0.17],[8,2,5,"Sambar","L",0.21],[8,2,1,"Garlic dip cups","pcs",6.08],[8,2,1,"Pizza dough balls","pcs",7.9],[8,2,1,"Pizza sauce","kg",0.49],[8,2,2,"Biryani masala base","kg",0.45],[8,2,2,"Marinated chicken","kg",0.65],[8,2,2,"Raita cups","pcs",3.23],[3,0,3,"Cake bases, 500 g","pcs",0.97],[3,0,3,"Whipped cream","kg",0.08],[3,0,0,"Brown rice, cooked","kg",1.23],[3,0,0,"Dal and sabzi base","kg",1.48],[3,0,0,"Multigrain roti dough","kg",0.99],[3,0,4,"Ice-cream mix","L",0.29],[3,0,4,"Syrups","L",0.03],[3,0,5,"Chutney cups","pcs",13.15],[3,0,5,"Millet dosa batter","kg",1.05],[3,0,5,"Sambar","L",1.31],[3,3,3,"Cake bases, 500 g","pcs",7.98],[3,3,3,"Whipped cream","kg",0.67],[3,3,0,"Brown rice, cooked","kg",3.31],[3,3,0,"Dal and sabzi base","kg",3.98],[3,3,0,"Multigrain roti dough","kg",2.65],[3,3,4,"Ice-cream mix","L",1.73],[3,3,4,"Syrups","L",0.21],[3,3,5,"Chutney cups","pcs",9.28],[3,3,5,"Millet dosa batter","kg",0.74],[3,3,5,"Sambar","L",0.93],[3,3,1,"Garlic dip cups","pcs",39.64],[3,3,1,"Pizza dough balls","pcs",51.53],[3,3,1,"Pizza sauce","kg",3.17],[3,3,2,"Biryani masala base","kg",5.37],[3,3,2,"Marinated chicken","kg",7.67],[3,3,2,"Raita cups","pcs",38.37],[3,4,3,"Cake bases, 500 g","pcs",5.41],[3,4,3,"Whipped cream","kg",0.45],[3,4,0,"Brown rice, cooked","kg",0.14],[3,4,0,"Dal and sabzi base","kg",0.17],[3,4,0,"Multigrain roti dough","kg",0.11],[3,4,4,"Ice-cream mix","L",1.13],[3,4,4,"Syrups","L",0.14],[3,4,1,"Garlic dip cups","pcs",7.61],[3,4,1,"Pizza dough balls","pcs",9.89],[3,4,1,"Pizza sauce","kg",0.61],[3,4,2,"Biryani masala base","kg",1.39],[3,4,2,"Marinated chicken","kg",1.98],[3,4,2,"Raita cups","pcs",9.91],[3,1,3,"Cake bases, 500 g","pcs",1.14],[3,1,3,"Whipped cream","kg",0.1],[3,1,0,"Brown rice, cooked","kg",5.8],[3,1,0,"Dal and sabzi base","kg",6.95],[3,1,0,"Multigrain roti dough","kg",4.64],[3,1,4,"Ice-cream mix","L",0.27],[3,1,4,"Syrups","L",0.03],[3,1,5,"Chutney cups","pcs",14.9],[3,1,5,"Millet dosa batter","kg",1.19],[3,1,5,"Sambar","L",1.49],[3,1,1,"Garlic dip cups","pcs",10.01],[3,1,1,"Pizza dough balls","pcs",13.01],[3,1,1,"Pizza sauce","kg",0.8],[3,1,2,"Biryani masala base","kg",2.42],[3,1,2,"Marinated chicken","kg",3.45],[3,1,2,"Raita cups","pcs",17.26],[3,2,3,"Cake bases, 500 g","pcs",5.28],[3,2,3,"Whipped cream","kg",0.44],[3,2,0,"Brown rice, cooked","kg",0.42],[3,2,0,"Dal and sabzi base","kg",0.5],[3,2,0,"Multigrain roti dough","kg",0.34],[3,2,4,"Ice-cream mix","L",1.64],[3,2,4,"Syrups","L",0.2],[3,2,5,"Chutney cups","pcs",3.16],[3,2,5,"Millet dosa batter","kg",0.25],[3,2,5,"Sambar","L",0.32],[3,2,1,"Garlic dip cups","pcs",6.9],[3,2,1,"Pizza dough balls","pcs",8.96],[3,2,1,"Pizza sauce","kg",0.55],[3,2,2,"Biryani masala base","kg",0.44],[3,2,2,"Marinated chicken","kg",0.63],[3,2,2,"Raita cups","pcs",3.15]],"whatif":[[4,0,2,17.0,8.04,0.0,7.73,0.0,7.69,0.0],[4,3,7,116.0,9.18,0.036,8.84,0.019,8.68,0.013],[4,4,3,29.0,8.25,0.021,7.96,0.028,7.44,0.003],[4,1,6,67.0,8.5,0.007,8.29,0.004,8.27,0.007],[4,2,3,28.0,7.55,0.029,7.35,0.009,7.14,0.01],[5,0,2,11.0,7.62,0.0,7.48,0.0,7.36,0.0],[5,3,7,69.0,8.25,0.015,8.37,0.017,8.4,0.017],[5,4,3,19.0,6.93,0.011,7.12,0.013,6.87,0.029],[5,1,6,41.0,8.29,0.008,8.18,0.008,8.04,0.0],[5,2,3,18.0,7.27,0.031,6.9,0.026,7.12,0.009],[1,0,2,16.0,8.08,0.011,7.39,0.0,7.27,0.0],[1,3,8,126.0,8.62,0.019,8.63,0.021,8.51,0.017],[1,4,3,34.0,8.69,0.047,8.01,0.017,7.76,0.019],[1,1,7,86.0,8.88,0.031,8.38,0.007,8.13,0.006],[1,2,3,31.0,7.27,0.024,6.96,0.006,6.92,0.009],[9,0,2,15.0,8.03,0.004,7.48,0.0,7.68,0.0],[9,3,7,100.0,8.77,0.02,8.42,0.012,8.41,0.015],[9,4,3,30.0,7.86,0.022,7.53,0.016,7.81,0.028],[9,1,6,60.0,8.47,0.013,8.26,0.013,8.15,0.007],[9,2,3,27.0,7.26,0.011,7.38,0.013,7.29,0.009],[2,0,2,16.0,7.76,0.009,7.31,0.0,7.35,0.0],[2,3,8,135.0,9.94,0.102,8.87,0.03,8.59,0.013],[2,4,3,36.0,8.25,0.042,8.03,0.024,7.42,0.017],[2,1,7,81.0,8.84,0.011,8.44,0.009,8.47,0.012],[2,2,3,33.0,7.77,0.031,7.42,0.007,6.97,0.011],[6,0,2,14.0,7.99,0.005,7.37,0.0,7.36,0.0],[6,3,7,106.0,9.4,0.061,8.6,0.02,8.3,0.011],[6,4,3,33.0,8.45,0.048,7.5,0.016,7.71,0.01],[6,1,6,74.0,9.12,0.03,8.33,0.003,8.29,0.009],[6,2,3,28.0,7.24,0.017,7.06,0.006,6.68,0.008],[7,0,2,19.0,7.85,0.004,7.87,0.003,7.55,0.0],[7,3,7,110.0,9.19,0.041,8.65,0.02,8.2,0.01],[7,4,3,29.0,7.82,0.029,7.5,0.012,7.28,0.013],[7,1,6,67.0,8.56,0.013,8.23,0.004,8.15,0.007],[7,2,3,28.0,7.54,0.006,6.78,0.011,6.96,0.007],[0,0,2,19.0,7.87,0.012,7.53,0.0,7.39,0.0],[0,3,9,133.0,8.72,0.017,8.72,0.019,8.48,0.016],[0,4,4,42.0,8.21,0.027,7.66,0.009,7.54,0.013],[0,1,8,87.0,8.48,0.014,8.24,0.006,8.18,0.006],[0,2,4,37.0,6.95,0.009,7.2,0.013,7.04,0.008],[8,0,2,14.0,7.39,0.0,7.45,0.0,7.31,0.0],[8,3,7,116.0,9.56,0.057,9.08,0.025,8.59,0.018],[8,4,3,30.0,7.91,0.031,7.48,0.015,7.42,0.011],[8,1,6,73.0,8.82,0.026,8.54,0.01,8.19,0.005],[8,2,3,29.0,7.88,0.043,7.07,0.006,6.97,0.0],[3,0,2,18.0,7.96,0.0,7.45,0.0,7.58,0.0],[3,3,5,125.0,16.32,0.452,12.59,0.226,9.85,0.091],[3,4,3,32.0,8.04,0.019,7.78,0.01,7.32,0.005],[3,1,6,76.0,9.07,0.029,8.71,0.014,8.16,0.006],[3,2,3,30.0,7.22,0.01,7.22,0.009,6.84,0.005]],"complaints":[[1190,0,0,1,1,7,"bhai 1 ghanta laga, kya kar rahe ho","Swiggy",15.5],[1191,0,0,2,3,7,"namak bahut zyada","Swiggy",8.1],[1192,0,0,3,2,5,"Gravy leaked all over the bag.","Zomato",7.2],[1193,0,0,4,2,4,"Food was lukewarm by the time it reached.","Swiggy",8.9],[1194,0,0,4,2,4,"The biryani arrived cold, had to reheat it.","Call centre",7.8],[1195,0,0,4,2,4,"Biryani completely cold and rubbery.","Zomato",8.6],[1196,0,0,4,2,7,"biryani was like room temp, no steam at all","Zomato",7.2],[1197,0,1,1,2,7,"box half empty","Swiggy",6.9],[1198,0,1,2,3,7,"this is not what i ordered at all","Zomato",4.7],[1199,0,1,3,1,7,"paid 40 rs for dip, where is it?","Swiggy",10.4],[1200,0,1,3,1,1,"Dip and seasoning both missing from the pizza order.","Swiggy",8.4],[1201,0,1,3,1,1,"Garlic dip was missing again.","Call centre",11.4],[1202,0,1,3,1,1,"Paid for extra dip, not in the bag.","Zomato",16.8],[1203,0,1,3,1,7,"dip nahi tha phir se","Zomato",12.8],[1204,0,1,4,1,7,"dip nahi tha phir se","Swiggy",11.2],[1205,0,2,2,0,5,"Box was crushed and the thali was damaged.","Swiggy",9.2],[1206,0,2,3,3,1,"Extra cheese charged but not added.","Swiggy",5.9],[1207,0,2,3,0,1,"Extra cheese charged but not added.","Zomato",8.7],[1208,0,2,3,5,1,"Paid for a combo, the drink was not in the bag.","Swiggy",7.6],[1209,0,3,3,1,5,"Gravy leaked all over the bag.","Swiggy",8.7],[1210,0,3,3,3,3,"Tasted stale, not like usual.","Swiggy",13.7],[1211,0,3,3,2,7,"food reached after ages, kids slept hungry","Swiggy",26.3],[1212,0,3,3,1,4,"Garlic bread completely cold and rubbery.","Zomato",32.7],[1213,0,3,3,1,0,"Waited almost an hour for a simple farmhouse pizza.","Zomato",33.0],[1214,0,3,3,0,4,"Thali completely cold and rubbery.","Call centre",35.2],[1215,0,3,3,2,0,"Waited almost an hour for a simple chicken biryani.","Swiggy",42.2],[1216,0,3,3,1,7,"eta kept increasing every 5 min","Swiggy",49.2],[1217,0,3,3,2,0,"Rider said the kitchen was still preparing when he arrived.","Zomato",46.8],[1218,0,3,3,0,0,"Ordered for a team dinner, food came after everyone left.","Zomato",44.3],[1219,0,3,3,2,0,"Rider said the kitchen was still preparing when he arrived.","Swiggy",54.4],[1220,0,3,3,0,0,"Ordered for a team dinner, food came after everyone left.","Swiggy",47.5],[1221,0,3,3,4,0,"Ordered for a team dinner, food came after everyone left.","Zomato",48.3],[1222,0,3,3,1,0,"Rider said the kitchen was still preparing when he arrived.","Swiggy",48.6],[1223,0,4,2,0,7,"food reached after ages, kids slept hungry","Zomato",16.4],[1224,0,5,3,3,7,"this is not what i ordered at all","Zomato",6.7],[1225,0,6,0,0,1,"Garlic dip was missing from my order.","Zomato",6.9],[1226,0,6,1,0,7,"my coke never came","Swiggy",6.8],[1227,0,7,1,0,7,"namak bahut zyada","Zomato",11.0],[1228,0,7,3,1,7,"bhai 1 ghanta laga, kya kar rahe ho","Zomato",20.0],[1229,0,7,3,4,7,"box half empty","Swiggy",4.0],[1230,0,7,3,2,0,"delivery partner reached restaurant n waited 25 min for food","Zomato",15.6],[1231,0,7,3,1,0,"Rider said the kitchen was still preparing when he arrived.","Zomato",18.4],[1232,0,7,3,2,7,"biryani was like room temp, no steam at all","Swiggy",16.9],[1233,0,7,3,5,7,"bhai 1 ghanta laga, kya kar rahe ho","Swiggy",22.0],[1234,0,7,3,1,0,"Order reached 46 minutes after the promised time.","Swiggy",27.7],[1235,0,7,3,2,0,"Ordered for a team dinner, food came after everyone left.","Swiggy",27.1],[1236,0,7,3,2,7,"food reached after ages, kids slept hungry","Swiggy",28.5],[1237,0,7,3,0,1,"Extra cheese charged but not added.","Swiggy",25.9],[1238,0,7,3,2,0,"Slow again from this outlet, third time this week.","Zomato",32.5],[1239,0,8,0,5,0,"Rider said the kitchen was still preparing when he arrived.","Swiggy",15.9],[1240,0,8,1,1,7,"food reached after ages, kids slept hungry","Call centre",15.0],[1241,0,8,3,0,3,"Oily and heavy, not what I expect from this brand.","Zomato",9.3],[1242,0,8,3,1,5,"Gravy leaked all over the bag.","Call centre",13.2],[1243,0,8,3,5,2,"Got veg instead of chicken.","Zomato",8.4],[1244,0,9,2,1,2,"Wrong size delivered.","Zomato",10.0],[1245,0,9,3,0,5,"Leaked through the bag onto my bike.","Swiggy",9.2],[1246,0,9,4,2,7,"box half empty","Swiggy",9.4],[1247,0,9,4,1,7,"eta kept increasing every 5 min","Zomato",18.5],[1248,1,0,1,5,3,"The idli plate was too salty today.","Zomato",9.8],[1249,1,0,2,0,7,"curry all over the bag, box was wet","Swiggy",7.1],[1250,1,0,3,0,1,"One of the two items was not delivered.","Zomato",17.1],[1251,1,0,4,3,5,"Box was crushed and the jar cake was damaged.","Swiggy",7.5],[1252,1,0,4,2,4,"The biryani arrived cold, had to reheat it.","Swiggy",7.9],[1253,1,1,3,1,1,"Dip and seasoning both missing from the pizza order.","Zomato",9.7],[1254,1,1,3,1,1,"Dip and seasoning both missing from the pizza order.","Zomato",8.6],[1255,1,1,3,1,7,"dip nahi tha phir se","Swiggy",12.9],[1256,1,1,4,1,1,"Garlic dip was missing again.","Swiggy",8.2],[1257,1,1,4,0,0,"Order reached 54 minutes after the promised time.","Zomato",18.0],[1258,1,2,3,2,4,"The chicken biryani arrived cold, had to reheat it.","Zomato",15.8],[1259,1,2,3,1,0,"Waited almost an hour for a simple garlic bread.","Swiggy",20.1],[1260,1,2,3,2,5,"Leaked through the bag onto my bike.","Zomato",18.5],[1261,1,2,4,2,5,"Gravy leaked all over the bag.","Call centre",9.3],[1262,1,2,4,2,7,"this is not what i ordered at all","Zomato",9.1],[1263,1,3,1,0,3,"Tasted stale, not like usual.","Swiggy",6.8],[1264,1,3,3,2,0,"Rider said the kitchen was still preparing when he arrived.","Swiggy",24.7],[1265,1,3,3,2,3,"Overcooked and mushy, not good.","Zomato",28.0],[1266,1,3,3,5,0,"Rider said the kitchen was still preparing when he arrived.","Swiggy",33.6],[1267,1,3,3,1,0,"Waited almost an hour for a simple farmhouse pizza.","Swiggy",28.7],[1268,1,3,3,0,4,"Dal-rice bowl completely cold and rubbery.","Call centre",27.7],[1269,1,3,3,3,4,"Cake completely cold and rubbery.","Zomato",26.5],[1270,1,3,3,5,0,"Took forever. Rider waited outside the kitchen for 20 minutes.","Call centre",23.1],[1271,1,3,4,1,4,"Pizza completely cold and rubbery.","Swiggy",17.1],[1272,1,6,0,4,7,"curry all over the bag, box was wet","Zomato",4.0],[1273,1,6,3,1,7,"box half empty","Call centre",9.9],[1274,1,6,3,4,7,"this is not what i ordered at all","Zomato",3.1],[1275,1,7,3,2,7,"raita gayab tha","Swiggy",9.5],[1276,1,7,3,1,7,"food reached after ages, kids slept hungry","Zomato",16.4],[1277,1,7,4,1,0,"Rider said the kitchen was still preparing when he arrived.","Zomato",20.1],[1278,1,8,4,2,3,"Tasted stale, not like usual.","Swiggy",11.1],[1279,1,9,3,1,0,"Took forever. Rider waited outside the kitchen for 20 minutes.","Call centre",15.4],[1280,2,0,3,3,5,"Gravy leaked all over the bag.","Swiggy",5.5],[1281,2,0,3,3,5,"Box was crushed and the jar cake was damaged.","Swiggy",4.8],[1282,2,0,4,2,4,"The biryani arrived cold, had to reheat it.","Swiggy",12.0],[1283,2,0,4,2,4,"The chicken biryani arrived cold, had to reheat it.","Zomato",8.9],[1284,2,0,4,2,4,"Food was lukewarm by the time it reached.","Swiggy",12.3],[1285,2,0,4,2,4,"Chicken biryani completely cold and rubbery.","Call centre",7.9],[1286,2,1,3,1,7,"my coke never came","Call centre",11.8],[1287,2,1,3,1,1,"Garlic dip was missing again.","Swiggy",10.2],[1288,2,1,3,1,1,"Paid for extra dip, not in the bag.","Swiggy",8.7],[1289,2,1,3,1,1,"No oregano or chilli flakes sachets in the box.","Swiggy",7.8],[1290,2,1,3,2,7,"ordered at 8.10 got it 9.05, unacceptable","Zomato",16.3],[1291,2,1,4,1,1,"Paid for extra dip, not in the bag.","Swiggy",11.1],[1292,2,2,2,0,3,"Overcooked and mushy, not good.","Zomato",8.6],[1293,2,2,4,2,0,"Rider said the kitchen was still preparing when he arrived.","Swiggy",23.8],[1294,2,3,3,0,2,"Received someone else's order.","Zomato",6.4],[1295,2,3,3,4,1,"Raita not included with the ice cream.","Swiggy",6.3],[1296,2,3,3,0,3,"Protein meal was soggy and undercooked.","Zomato",9.6],[1297,2,3,3,1,4,"Pizza completely cold and rubbery.","Swiggy",18.7],[1298,2,3,3,2,0,"Ordered for a team dinner, food came after everyone left.","Swiggy",15.9],[1299,2,3,3,3,7,"had to microwave the whole thing again","Swiggy",18.4],[1300,2,4,3,1,4,"The farmhouse pizza arrived cold, had to reheat it.","Zomato",19.4],[1301,2,4,3,2,0,"Ordered for a team dinner, food came after everyone left.","Zomato",16.2],[1302,2,6,3,1,7,"curry all over the bag, box was wet","Swiggy",11.4],[1303,2,7,3,4,3,"Tasted stale, not like usual.","Zomato",5.5],[1304,2,8,1,0,3,"The dal-rice bowl was too salty today.","Zomato",6.7],[1305,2,8,3,3,1,"Extra cheese charged but not added.","Swiggy",4.9],[1306,2,9,1,5,7,"dosa was rubber, chutney sour","Zomato",6.9],[1307,3,0,3,1,6,"Portion was much smaller than usual.","Call centre",17.1],[1308,3,0,4,2,4,"Cold in the middle, clearly sat somewhere for a while.","Zomato",10.0],[1309,3,1,3,1,1,"Paid for extra dip, not in the bag.","Swiggy",8.6],[1310,3,1,3,1,1,"Paid for extra dip, not in the bag.","Zomato",8.4],[1311,3,1,3,1,1,"Paid for extra dip, not in the bag.","Swiggy",8.1],[1312,3,3,1,2,5,"Box was crushed and the chicken biryani was damaged.","Swiggy",14.3],[1313,3,4,0,0,3,"Oily and heavy, not what I expect from this brand.","Call centre",7.0],[1314,3,6,0,3,7,"namak bahut zyada","Swiggy",6.2],[1315,3,7,1,2,6,"Half-filled container, felt cheated.","Zomato",8.2],[1316,3,7,3,2,3,"The biryani was too salty today.","Swiggy",9.9],[1317,3,8,2,1,5,"Container lid broken, everything spilled.","Zomato",8.0],[1318,3,8,2,1,7,"base was raw from inside","Zomato",10.2],[1319,3,9,1,2,0,"Took forever. Rider waited outside the kitchen for 20 minutes.","Swiggy",16.0],[1320,3,9,1,2,3,"Oily and heavy, not what I expect from this brand.","Zomato",8.3],[1321,3,9,2,3,7,"cake looked like it was dropped","Swiggy",5.4],[1322,4,0,1,0,1,"Extra cheese charged but not added.","Zomato",6.4],[1323,4,0,2,3,3,"Tasted stale, not like usual.","Swiggy",4.5],[1324,4,0,2,0,5,"Gravy leaked all over the bag.","Call centre",8.7],[1325,4,0,3,1,7,"bhai 1 ghanta laga, kya kar rahe ho","Zomato",16.7],[1326,4,0,4,2,7,"biryani was like room temp, no steam at all","Zomato",8.0],[1327,4,0,4,2,4,"Chicken biryani completely cold and rubbery.","Zomato",9.5],[1328,4,0,4,2,4,"Biryani completely cold and rubbery.","Swiggy",9.2],[1329,4,0,4,2,4,"Cold in the middle, clearly sat somewhere for a while.","Zomato",11.9],[1330,4,0,4,2,4,"Cold in the middle, clearly sat somewhere for a while.","Call centre",12.1],[1331,4,1,1,0,3,"Tasted stale, not like usual.","Swiggy",10.6],[1332,4,1,2,3,1,"Paid for a combo, the drink was not in the bag.","Swiggy",3.8],[1333,4,1,3,1,1,"No oregano or chilli flakes sachets in the box.","Call centre",12.1],[1334,4,1,3,1,1,"Garlic dip was missing again.","Zomato",10.3],[1335,4,1,3,1,1,"No oregano or chilli flakes sachets in the box.","Swiggy",10.7],[1336,4,1,4,1,1,"Paid for extra dip, not in the bag.","Swiggy",13.3],[1337,4,1,4,1,0,"delivery partner reached restaurant n waited 25 min for food","Zomato",15.9],[1338,4,2,0,4,1,"No oregano or chilli flakes sachets in the box.","Swiggy",3.3],[1339,4,2,4,2,7,"curry all over the bag, box was wet","Swiggy",8.4],[1340,4,2,4,3,7,"this is not what i ordered at all","Swiggy",5.1],[1341,4,3,1,1,0,"Order reached 35 minutes after the promised time.","Swiggy",15.3],[1342,4,3,3,1,4,"Food was lukewarm by the time it reached.","Swiggy",21.1],[1343,4,3,3,2,0,"Ordered for a team dinner, food came after everyone left.","Swiggy",15.1],[1344,4,3,3,1,5,"Leaked through the bag onto my bike.","Zomato",15.9],[1345,4,3,4,2,7,"biryani smelled off","Zomato",11.2],[1346,4,6,1,4,3,"Tasted stale, not like usual.","Swiggy",8.1],[1347,4,7,1,5,7,"this is not what i ordered at all","Swiggy",16.6],[1348,4,7,1,2,0,"Took forever. Rider waited outside the kitchen for 20 minutes.","Swiggy",16.4],[1349,4,7,1,0,7,"my coke never came","Swiggy",7.1],[1350,4,7,2,4,6,"Portion was much smaller than usual.","Zomato",3.8],[1351,4,7,3,3,1,"Cake order cancelled after 20 minutes, said out of stock.","Swiggy",null],[1352,4,7,3,3,1,"Cake order cancelled after 20 minutes, said out of stock.","Zomato",null],[1353,4,7,3,3,1,"Cake cancelled at the last minute, birthday ruined.","Zomato",null],[1354,4,7,3,3,7,"my coke never came","Swiggy",null],[1355,4,7,3,3,1,"They called to say the cake is not available. Why accept the order?","Swiggy",null],[1356,4,8,2,4,1,"Paid for a combo, the drink was not in the bag.","Swiggy",5.2],[1357,4,9,1,1,4,"Cold in the middle, clearly sat somewhere for a while.","Call centre",15.9],[1358,5,0,1,2,3,"The chicken biryani was too salty today.","Swiggy",8.3],[1359,5,0,1,0,7,"this is not what i ordered at all","Zomato",9.7],[1360,5,0,4,2,7,"biryani was like room temp, no steam at all","Swiggy",7.2],[1361,5,1,3,1,3,"Overcooked and mushy, not good.","Zomato",9.0],[1362,5,1,3,1,1,"Dip and seasoning both missing from the pizza order.","Zomato",8.6],[1363,5,1,3,1,1,"No oregano or chilli flakes sachets in the box.","Zomato",12.3],[1364,5,1,3,1,1,"Paid for extra dip, not in the bag.","Zomato",11.8],[1365,5,2,3,1,4,"The farmhouse pizza arrived cold, had to reheat it.","Call centre",16.5],[1366,5,2,3,0,6,"Very little in the protein meal for the price.","Swiggy",9.5],[1367,5,2,3,1,7,"base was raw from inside","Swiggy",13.7],[1368,5,2,3,2,3,"The chicken biryani was too salty today.","Swiggy",9.5],[1369,5,4,1,0,3,"Overcooked and mushy, not good.","Swiggy",7.2],[1370,5,4,1,0,5,"Leaked through the bag onto my bike.","Call centre",6.8],[1371,5,4,1,2,0,"Waited almost an hour for a simple mutton biryani.","Swiggy",15.9],[1372,5,6,1,0,1,"Extra cheese charged but not added.","Zomato",8.8],[1373,5,6,3,2,7,"my coke never came","Swiggy",13.2],[1374,5,7,1,0,7,"dal had no flavour at all","Zomato",6.7],[1375,5,7,3,1,0,"Rider said the kitchen was still preparing when he arrived.","Swiggy",17.8],[1376,5,7,4,1,7,"paid 40 rs for dip, where is it?","Call centre",11.3],[1377,5,8,3,1,1,"Raita not included with the pizza.","Zomato",9.4],[1378,5,9,1,0,1,"No oregano or chilli flakes sachets in the box.","Call centre",8.1],[1379,5,9,1,0,7,"namak bahut zyada","Swiggy",6.1],[1380,6,0,2,0,3,"Overcooked and mushy, not good.","Zomato",7.1],[1381,6,0,3,2,7,"biryani smelled off","Swiggy",10.5],[1382,6,0,3,1,4,"The garlic bread arrived cold, had to reheat it.","Zomato",18.0],[1383,6,0,4,2,1,"Raita not included with the mutton biryani.","Swiggy",8.3],[1384,6,0,4,2,4,"Chicken biryani completely cold and rubbery.","Swiggy",7.7],[1385,6,0,4,2,4,"Cold in the middle, clearly sat somewhere for a while.","Swiggy",8.9],[1386,6,1,3,1,7,"paid 40 rs for dip, where is it?","Zomato",12.1],[1387,6,1,3,1,7,"paid 40 rs for dip, where is it?","Swiggy",10.8],[1388,6,1,3,1,1,"Dip and seasoning both missing from the pizza order.","Call centre",10.9],[1389,6,2,3,1,0,"Ordered for a team dinner, food came after everyone left.","Swiggy",16.2],[1390,6,3,3,2,0,"Order reached 26 minutes after the promised time.","Call centre",27.1],[1391,6,3,3,1,0,"Ordered for a team dinner, food came after everyone left.","Swiggy",24.3],[1392,6,3,3,1,0,"Took forever. Rider waited outside the kitchen for 20 minutes.","Swiggy",31.0],[1393,6,3,3,2,4,"everything ice-cold by the time it came","Swiggy",23.5],[1394,6,3,3,2,1,"Paid for a combo, the drink was not in the bag.","Zomato",18.2],[1395,6,3,3,2,0,"Took forever. Rider waited outside the kitchen for 20 minutes.","Zomato",26.1],[1396,6,3,3,0,7,"eta kept increasing every 5 min","Zomato",26.2],[1397,6,4,3,2,3,"Oily and heavy, not what I expect from this brand.","Zomato",8.4],[1398,6,4,3,1,6,"Half-filled container, felt cheated.","Zomato",9.8],[1399,6,4,4,1,7,"ordered at 8.10 got it 9.05, unacceptable","Swiggy",15.9],[1400,6,6,1,2,0,"Ordered for a team dinner, food came after everyone left.","Zomato",18.8],[1401,6,6,1,1,6,"Portion was much smaller than usual.","Swiggy",9.5],[1402,6,7,2,4,7,"box half empty","Swiggy",3.1],[1403,6,7,3,3,1,"Cake cancelled at the last minute, birthday ruined.","Swiggy",null],[1404,6,7,3,3,1,"They called to say the cake is not available. Why accept the order?","Zomato",null],[1405,6,7,3,3,1,"order was cancelled after accepting, no cake","Swiggy",null],[1406,6,7,3,3,1,"Cake order cancelled after 20 minutes, said out of stock.","Swiggy",null],[1407,6,7,3,3,1,"order was cancelled after accepting, no cake","Call centre",null],[1408,6,7,4,1,0,"Took forever. Rider waited outside the kitchen for 20 minutes.","Swiggy",15.1],[1409,6,8,2,1,3,"Oily and heavy, not what I expect from this brand.","Call centre",13.3],[1410,6,8,3,0,7,"box half empty","Swiggy",7.5],[1411,6,9,0,0,5,"Container lid broken, everything spilled.","Zomato",7.9],[1412,6,9,1,0,3,"The protein meal was too salty today.","Swiggy",6.9]],"prevWeek":[[4,0,3],[4,7,3],[4,6,2],[4,3,4],[4,2,1],[5,0,1],[5,1,2],[5,7,1],[5,3,1],[1,4,1],[1,0,2],[1,1,20],[1,7,14],[1,5,1],[1,6,1],[1,3,2],[9,0,3],[9,1,3],[9,7,5],[9,3,2],[9,2,2],[2,4,1],[2,0,2],[2,1,2],[2,7,4],[2,5,2],[2,6,2],[2,3,3],[2,2,1],[6,0,4],[6,1,3],[6,7,6],[6,5,1],[6,6,1],[6,3,2],[6,2,1],[7,4,1],[7,0,8],[7,1,3],[7,7,1],[7,3,1],[0,4,18],[0,1,1],[0,7,11],[0,5,5],[0,6,2],[0,3,1],[0,2,2],[8,4,3],[8,0,8],[8,1,4],[8,7,3],[8,5,1],[8,6,1],[8,3,5],[3,4,6],[3,0,16],[3,1,2],[3,7,14],[3,5,1]],"lastNight":[[1393,3,3,2,"everything ice-cold by the time it came",4,4],[1394,3,3,2,"Paid for a combo, the drink was not in the bag.",1,1],[1395,3,3,2,"Took forever. Rider waited outside the kitchen for 20 minutes.",0,0],[1396,3,3,0,"eta kept increasing every 5 min",7,0],[1397,4,3,2,"Oily and heavy, not what I expect from this brand.",3,3],[1398,4,3,1,"Half-filled container, felt cheated.",6,6],[1399,4,4,1,"ordered at 8.10 got it 9.05, unacceptable",7,0],[1400,6,1,2,"Ordered for a team dinner, food came after everyone left.",0,0],[1401,6,1,1,"Portion was much smaller than usual.",6,6],[1402,7,2,4,"box half empty",7,6],[1403,7,3,3,"Cake cancelled at the last minute, birthday ruined.",1,1],[1404,7,3,3,"They called to say the cake is not available. Why accept the order?",1,1],[1405,7,3,3,"order was cancelled after accepting, no cake",1,1],[1406,7,3,3,"Cake order cancelled after 20 minutes, said out of stock.",1,1],[1407,7,3,3,"order was cancelled after accepting, no cake",1,1],[1408,7,4,1,"Took forever. Rider waited outside the kitchen for 20 minutes.",0,0],[1409,8,2,1,"Oily and heavy, not what I expect from this brand.",3,3],[1410,8,3,0,"box half empty",7,6],[1411,9,0,0,"Container lid broken, everything spilled.",5,5],[1412,9,1,0,"The protein meal was too salty today.",3,3]],"hotspots":[{"kitchen":"HSR Layout","defect":"Missing item","n":22,"typical":3.0,"prev":20,"evidence":["22 complaints this week vs 3 at a typical kitchen; 20 the week before","82% at Dinner, 95% on Olio Pizza","Orders were delivered; the items were left out at packing"],"owner":"Packing lead","action":"Brand-wise checklist at the pass; dips and sachets pre-kitted per order","slot":"Dinner","brand":"Olio Pizza"},{"kitchen":"Whitefield","defect":"Late delivery","n":19,"typical":2.0,"prev":16,"evidence":["19 complaints this week vs 2 at a typical kitchen; 16 the week before","95% at Dinner, 42% on Sharief Bhai","100% of these orders took over 15 min in the kitchen (so the delay is in the kitchen)","Cooks on shift for these orders: 5 (usually 7)"],"owner":"Kitchen manager","action":"Restore the missing cooks at dinner; see the staffing what-if","slot":"Dinner","brand":"Sharief Bhai"},{"kitchen":"Koramangala","defect":"Cold food","n":16,"typical":2.0,"prev":18,"evidence":["16 complaints this week vs 2 at a typical kitchen; 18 the week before","94% at Late night, 94% on Sharief Bhai","6% of these orders took over 15 min in the kitchen (so the delay is after the kitchen: rider wait)","Cooks on shift: 4, the normal level"],"owner":"Area manager with platform","action":"Check rider wait at pickup; hot bags; hold orders until rider is near","slot":"Late night","brand":"Sharief Bhai"},{"kitchen":"Jayanagar","defect":"Late delivery","n":9,"typical":2.0,"prev":8,"evidence":["9 complaints this week vs 2 at a typical kitchen; 8 the week before","67% at Dinner, 56% on Olio Pizza","100% of these orders took over 15 min in the kitchen (so the delay is in the kitchen)","Cooks on shift: 7, the normal level"],"owner":"Kitchen manager","action":"Add a line cook or station for the slot; simplify the peak menu","slot":"Dinner","brand":"Olio Pizza"},{"kitchen":"Jayanagar","defect":"Missing item","n":10,"typical":3.0,"prev":3,"evidence":["10 complaints this week vs 3 at a typical kitchen; 3 the week before","100% at Dinner, 90% on CakeZone","9 of 10 are orders cancelled after acceptance","2 stock-outs this week (Cake bases, 500 g): Central kitchen dispatch short by 18 bases"],"owner":"Central kitchen dispatch","action":"Fix the dispatch count for the brand; do not accept orders for items switched off","slot":"Dinner","brand":"CakeZone"}],"trend":[["2026-08-14",2546,null,null],["2026-08-15",2664,null,null],["2026-08-16",2552,null,null],["2026-08-17",2566,null,null],["2026-08-18",2467,null,null],["2026-08-19",2258,null,null],["2026-08-20",2445,null,null],["2026-08-21",2629,null,null],["2026-08-22",2429,null,null],["2026-08-23",2515,null,null],["2026-08-24",2472,null,null],["2026-08-25",2459,null,null],["2026-08-26",2471,null,null],["2026-08-27",2426,null,null],["2026-08-28",2593,null,null],["2026-08-29",2449,null,null],["2026-08-30",2453,null,null],["2026-08-31",2293,null,null],["2026-09-01",2271,null,null],["2026-09-02",2313,null,null],["2026-09-03",2438,null,null],["2026-09-04",2831,null,null],["2026-09-05",2540,null,null],["2026-09-06",2853,null,null],["2026-09-07",2591,null,null],["2026-09-08",2267,null,null],["2026-09-09",2292,null,null],["2026-09-10",2287,null,null],["2026-09-11",2499,null,null],["2026-09-12",2528,null,null],["2026-09-13",2607,null,null],["2026-09-14",2642,null,null],["2026-09-15",2553,null,null],["2026-09-16",2411,null,null],["2026-09-17",2372,null,null],["2026-09-18",2904,null,null],["2026-09-19",2559,null,null],["2026-09-20",2700,null,null],["2026-09-21",2251,null,null],["2026-09-22",2557,null,null],["2026-09-23",2528,null,null],["2026-09-24",2281,null,null],["2026-09-25",2606,null,null],["2026-09-26",2528,null,null],["2026-09-27",2480,null,null],["2026-09-28",2321,null,null],["2026-09-29",2533,null,null],["2026-09-30",2286,null,null],["2026-10-01",2378,null,null],["2026-10-02",2873,2611.0,2606.0],["2026-10-03",2532,2492.0,2528.0],["2026-10-04",2470,2545.0,2480.0],["2026-10-05",2534,2447.0,2321.0],["2026-10-06",2346,2329.0,2533.0],["2026-10-07",2391,2276.0,2286.0],["2026-10-08",2550,2507.0,2378.0]],"stockouts":[[0,1,4,"Olio Pizza","Pizza dough balls",27,"Ran out during service"],[0,9,2,"EatFit","Dal and sabzi base",68,"Ran out during service"],[3,2,1,"Millet Express","Millet dosa batter",25,"Ran out during service"],[3,8,3,"Millet Express","Millet dosa batter",45,"Ran out during service"],[4,7,3,"CakeZone","Cake bases, 500 g",100,"Central kitchen dispatch short by 18 bases"],[4,8,2,"Sharief Bhai","Biryani masala base",32,"Ran out during service"],[5,8,2,"Frozen Bottle","Ice-cream mix",53,"Ran out during service"],[6,7,3,"CakeZone","Cake bases, 500 g",96,"Central kitchen dispatch short by 18 bases"]],"models":{"forecast":{"wape":0.1267,"baseline":0.1643,"bySlot":{"Breakfast":{"model":0.2248,"baseline":0.3264},"Dinner":{"model":0.1019,"baseline":0.1268},"Late night":{"model":0.1585,"baseline":0.2119},"Lunch":{"model":0.1109,"baseline":0.1454},"Snacks":{"model":0.1764,"baseline":0.2205}},"byKitchen":{"Bellandur":{"model":0.1313,"baseline":0.21},"Electronic City":{"model":0.1427,"baseline":0.203},"HSR Layout":{"model":0.1329,"baseline":0.1403},"Hebbal":{"model":0.1327,"baseline":0.1596},"Indiranagar":{"model":0.1194,"baseline":0.1422},"JP Nagar":{"model":0.0966,"baseline":0.1341},"Jayanagar":{"model":0.1554,"baseline":0.1834},"Koramangala":{"model":0.1278,"baseline":0.1489},"Marathahalli":{"model":0.1125,"baseline":0.1347},"Whitefield":{"model":0.122,"baseline":0.2093}},"trainRows":5670,"testRows":1890},"prep":{"mae":0.981,"baseline":2.622,"precision":0.834,"recall":0.686,"importance":{"kitchen_c":-0.001,"brand_c":1.523,"slot_c":-0.002,"items":0.747,"orders_in_progress":0.038,"stations_on_shift":0.002,"load_per_station":1.068,"recent_avg_prep_min":0.0,"minute_of_slot":-0.001,"dow":0.0},"lateOrders":955,"orders":17683,"trainRows":121894},"tagger":{"method":"keyword rules","accuracy":0.7247,"n":1413}}}</script>
+<script>
+(function(){
+"use strict";
+const D = JSON.parse(document.getElementById("mise-data").textContent);
+const M = D.meta, K = M.kitchens, B = M.brands, S = M.slots, DEF = M.defects, TAGS = M.tags, DAYS = M.dates;
+const REVIEW = TAGS.indexOf("Needs review");
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt = n => Math.round(n).toLocaleString("en-IN");
+const pct = (x, d=0) => (x*100).toFixed(d) + "%";
+const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const dl = iso => `${M.weekday[iso] || ""} ${Number(iso.slice(8))} ${MON[Number(iso.slice(5,7))-1]}`.trim();
+const short = iso => `${Number(iso.slice(8))} ${MON[Number(iso.slice(5,7))-1]}`;
+const SRC = `Source: Mise pipeline, synthetic order data for ${K.length} kitchens`;
+const and = a => a.length <= 1 ? (a[0] || "") : a.slice(0,-1).join(", ") + " and " + a[a.length-1];
+const ic = n => `<i data-lucide="${n}"></i>`;
+const initials = n => n.split(/\s+/).map(w => w[0]).join("").slice(0,2).toUpperCase();
+const ICON = {"Late delivery":"clock","Missing item":"package-x","Wrong item":"shuffle","Taste or quality":"utensils-crossed","Cold food":"snowflake","Packaging or spill":"droplets","Quantity":"scale","Needs review":"scan-search"};
+const C = {blue:"#1a56f0", blue2:"#3d7bff", sky:"#cfe0ff", navy:"#0a1a3f", grey:"#b4c0d6", good:"#0f9d58", warn:"#e58a00", bad:"#e2394b", muted:"#7383a3", line:"#eef3fb"};
+const FONT = "Plus Jakarta Sans, system-ui, sans-serif", NUMF = "Sora, Plus Jakarta Sans, sans-serif";
+
+const F = {day:0,k:1,s:2,orders:3,fc:4,base:5,p50:6,p90:7,act:8,late:9,plate:10,st:11,q:12,so:13};
+const state = {day:"all", kitchen:"all", slot:"all", tab:"overview", heat:null, pk:3, ps:3, sslot:3, wslot:3, ai:{}};
+
+/* ---------- icons ---------- */
+let iconQueued = false;
+function icons(){ if (iconQueued) return; iconQueued = true; requestAnimationFrame(() => { iconQueued = false; if (window.lucide && lucide.createIcons) { try { lucide.createIcons(); } catch(e){} } }); }
+
+/* ---------- charts ---------- */
+const BASE = {
+  textStyle:{fontFamily:FONT, color:"#42506b"}, animationDuration:650, animationEasing:"cubicOut",
+  tooltip:{backgroundColor:"#0a1a3f", borderWidth:0, padding:[8,12], textStyle:{color:"#fff", fontSize:12, fontFamily:FONT}, extraCssText:"border-radius:10px;box-shadow:0 10px 24px rgba(10,26,63,.25);"}
+};
+const charts = {};
+function chart(id, opt, onClick){
+  const el = $(id); if (!el || !el.offsetWidth) return null;
+  if (!window.echarts) { el.innerHTML = `<div class="fallback">Charts need an internet connection to load the chart library.</div>`; return null; }
+  let c = charts[id];
+  if (c && !c.isDisposed() && c.getDom() !== el) c.dispose();
+  if (!c || c.isDisposed()) { c = charts[id] = echarts.init(el, null, {renderer:"svg"}); }
+  c.resize();
+  c.setOption(Object.assign({}, BASE, opt, {tooltip: Object.assign({}, BASE.tooltip, opt.tooltip || {})}), true);
+  c.off("click"); if (onClick) c.on("click", onClick);
+  return c;
+}
+const axisLbl = {color:C.muted, fontSize:11, fontFamily:FONT};
+const split = {lineStyle:{color:C.line}};
+const narrow = () => innerWidth < 640;
+
+/* ---------- filters ---------- */
+const inDay = d => state.day === "all" || d === state.day;
+const inK = k => state.kitchen === "all" || k === state.kitchen;
+const inS = s => state.slot === "all" || s === state.slot;
+const cellsF = (o={}) => D.cells.filter(c => (o.ignoreDay || inDay(c[F.day])) && (o.ignoreK || inK(c[F.k])) && (o.ignoreS || inS(c[F.s])));
+const compF = (o={}) => D.complaints.filter(c => (o.ignoreDay || inDay(c[1])) && (o.ignoreK || inK(c[2])) && (o.ignoreS || inS(c[3])));
+const nDays = () => state.day === "all" ? DAYS.length : 1;
+const scope = () => [state.day === "all" ? `${short(DAYS[0])} to ${short(DAYS[DAYS.length-1])}` : dl(DAYS[state.day]), state.kitchen === "all" ? "all kitchens" : K[state.kitchen], state.slot === "all" ? "all meal slots" : S[state.slot]].join(", ");
+
+function initFilters(){
+  $("fDay").innerHTML = `<option value="all">Last 7 days</option>` + DAYS.map((d,i)=>`<option value="${i}">${esc(dl(d))}</option>`).join("");
+  $("fKitchen").innerHTML = `<option value="all">All kitchens</option>` + K.map((k,i)=>`<option value="${i}">${esc(k)}</option>`).join("");
+  $("fSlot").innerHTML = `<option value="all">All meal slots</option>` + S.map((s,i)=>`<option value="${i}">${esc(s)} · ${esc(M.slotHours[i])}</option>`).join("");
+  const read = v => v === "all" ? "all" : Number(v);
+  $("fDay").onchange = e => { state.day = read(e.target.value); state.heat = null; render(); };
+  $("fKitchen").onchange = e => { state.kitchen = read(e.target.value); state.heat = null; if (state.kitchen !== "all") state.pk = state.kitchen; render(); };
+  $("fSlot").onchange = e => { state.slot = read(e.target.value); state.heat = null; if (state.slot !== "all") state.sslot = state.wslot = state.ps = state.slot; render(); };
+  $("fReset").onclick = () => { state.day = state.kitchen = state.slot = "all"; state.heat = null; $("fDay").value = $("fKitchen").value = $("fSlot").value = "all"; render(); };
+  $("areaName").textContent = M.area;
+  $("areaMeta").textContent = `${K.length} kitchens · ${B.length} brands · ${S.length} meal slots`;
+}
+
+/* ---------- nav ---------- */
+const TABS = [["overview","Overview","layout-dashboard"],["demand","Demand and prep","trending-up"],["speed","Kitchen speed","timer"],["complaints","Complaints","message-square-warning"],["models","Model health","brain-circuit"]];
+function renderTabs(){
+  $("nav").innerHTML = `<div class="lbl">Workspace</div>` + TABS.map(([id,l,i]) => `<button role="tab" id="tab-${id}" aria-controls="p-${id}" aria-selected="${state.tab===id}">${ic(i)}<span class="t">${l}</span>${id==="complaints" ? `<span class="cnt">${D.hotspots.length}</span>` : ""}</button>`).join("");
+  TABS.forEach(([id]) => { $(`tab-${id}`).onclick = () => go(id); });
+  $("pageTitle").textContent = TABS.find(t => t[0] === state.tab)[1];
+  icons();
+}
+function go(id){ state.tab = id; try { history.replaceState(null, "", "#" + id); } catch(e){} renderTabs(); showPanel(); scrollTo({top:0, behavior:"smooth"}); }
+function showPanel(){ TABS.forEach(([id]) => $(`p-${id}`).classList.toggle("on", state.tab === id)); requestAnimationFrame(drawCharts); }
+
+/* ---------- per-day series for KPIs ---------- */
+function daySeries(){
+  return DAYS.map((d,i) => {
+    const cs = D.cells.filter(c => c[F.day]===i && inK(c[F.k]) && inS(c[F.s]));
+    const orders = cs.reduce((a,c)=>a+c[F.orders],0), fc = cs.reduce((a,c)=>a+c[F.fc],0);
+    const late = cs.reduce((a,c)=>a+c[F.late]*c[F.orders],0), so = cs.reduce((a,c)=>a+c[F.so],0);
+    const comp = D.complaints.filter(c => c[1]===i && inK(c[2]) && inS(c[3])).length;
+    const below = K.filter((_,k) => inK(k) && D.cells.filter(c => c[F.k]===k && c[F.day]===i).reduce((a,c)=>a+c[F.orders],0) < M.breakEven).length;
+    return {orders, fc, late, so, comp, below, onTime: 1 - late/Math.max(orders,1), per1k: comp/Math.max(orders,1)*1000};
+  });
+}
+function dayTotals(){
+  return K.map((name,k) => ({k, name, avg: D.cells.filter(c => c[F.k]===k && inDay(c[F.day])).reduce((a,c)=>a+c[F.orders],0)/nDays()})).filter(x => inK(x.k));
+}
+
+/* ---------- header + KPIs ---------- */
+function renderHeader(){
+  $("asof").textContent = `Data to ${dl(DAYS[DAYS.length-1])}, 11:58 pm IST · ${scope()}`;
+  const ser = daySeries(), pick = state.day === "all" ? ser : [ser[state.day]];
+  const sum = f => pick.reduce((a,x)=>a+x[f],0);
+  const orders = sum("orders"), fc = sum("fc"), late = sum("late"), so = sum("so"), comp = sum("comp");
+  const gap = (orders-fc)/Math.max(fc,1), onTime = 1 - late/Math.max(orders,1), per1k = comp/Math.max(orders,1)*1000;
+  const days = dayTotals(), below = days.filter(x => x.avg < M.breakEven);
+  const chip = (cls, icon, t) => `<span class="chip ${cls}">${icon ? ic(icon) : ""}${esc(t)}</span>`;
+  const K5 = [
+    {id:"orders", l:"Orders", i:"shopping-bag", v: fmt(orders), c: chip(Math.abs(gap) > .08 ? "warn" : "info", gap >= 0 ? "arrow-up-right" : "arrow-down-right", `${gap>=0?"+":""}${pct(gap,1)} vs forecast`), s:`Forecast ${fmt(fc)}`, series: ser.map(x=>x.orders), col:C.blue},
+    {id:"ontime", l:"Ready within 15 min", i:"timer", v: `${(onTime*100).toFixed(1)}<small>%</small>`, c: chip(onTime < .93 ? "bad" : onTime < .96 ? "warn" : "good", "", onTime >= .95 ? "On target" : "Target 95%"), s:`${fmt(late)} orders over 15 min`, series: ser.map(x=>+(x.onTime*100).toFixed(1)), col:C.good},
+    {id:"comp", l:"Complaints per 1,000", i:"message-square-warning", v: per1k.toFixed(1), c: chip(per1k > 18 ? "bad" : per1k > 13 ? "warn" : "good", "", per1k > 18 ? "High" : per1k > 13 ? "Watch" : "Healthy"), s:`${comp} complaints`, series: ser.map(x=>+x.per1k.toFixed(1)), col:C.bad},
+    {id:"be", l:"Below break-even", i:"store", v: `${below.length}<small>of ${days.length}</small>`, c: chip(below.length ? "bad" : "good", "", below.length ? "Losing money" : "All covered"), s: below.length ? below.map(x=>x.name).slice(0,2).join(", ") : "All at 180+ a day", series: ser.map(x=>x.below), col:C.warn},
+    {id:"so", l:"Items switched off", i:"package-x", v: String(so), c: chip(so >= 3 ? "bad" : so ? "warn" : "good", "", so ? "Stock-outs" : "None"), s: "During service", series: ser.map(x=>x.so), col:C.navy},
+  ];
+  $("kpis").innerHTML = K5.map(k => `<div class="kpi"><div class="row"><div class="ib">${ic(k.i)}</div><div class="l">${k.l}</div></div><div class="v">${k.v}</div><div class="s">${k.c}<span>${esc(k.s)}</span></div><div class="spark" id="sp-${k.id}"></div></div>`).join("");
+  state.k5 = K5;
+  icons();
+}
+function drawSparks(){
+  (state.k5 || []).forEach(k => {
+    chart(`sp-${k.id}`, {
+      grid:{left:6,right:6,top:8,bottom:4}, animation:false,
+      xAxis:{type:"category", show:false, data:DAYS.map(dl), boundaryGap:false},
+      yAxis:{type:"value", show:false, scale:true},
+      tooltip:{trigger:"axis", formatter: p => `${p[0].name}<br><b>${p[0].value}</b>`},
+      series:[{type:"line", data:k.series, smooth:true, symbol:"circle", symbolSize: (v,p) => (state.day !== "all" && p.dataIndex === state.day) ? 7 : 0, showSymbol:true,
+        lineStyle:{width:2, color:k.col}, itemStyle:{color:k.col},
+        areaStyle:{color:{type:"linear",x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:k.col+"33"},{offset:1,color:k.col+"00"}]}}}]
+    });
+  });
+}
+
+/* ---------- overview ---------- */
+const recOf = w => w[5] <= .10 ? {n:0, t:"Roster is enough"} : w[7] <= .10 ? {n:1, t:"Add 1 cook"} : {n:2, t:"Add 2 cooks"};
+function renderOverview(){
+  const hs = D.hotspots;
+  // hero
+  const tomK = K.map((name,k) => ({k, name, orders: D.tomorrow.filter(r=>r[0]===k).reduce((a,r)=>a+r[3],0), w: D.whatif.find(w=>w[0]===k && w[1]===3)}));
+  const vis = tomK.filter(x => inK(x.k));
+  const need = vis.filter(x => x.w && recOf(x.w).n > 0), low = vis.filter(x => x.orders < M.breakEven);
+  const tot = vis.reduce((a,x)=>a+x.orders,0);
+  $("heroEyebrow").textContent = `Plan for ${dl(M.tomorrow)}`;
+  $("heroTitle").textContent = state.kitchen === "all" ? `${fmt(tot)} orders expected across ${vis.length} kitchens tomorrow` : `${K[state.kitchen]} expects ${fmt(tot)} orders tomorrow`;
+  $("heroSub").textContent = (need.length ? `Add dinner cooks at ${and(need.map(x => `${x.name} (+${recOf(x.w).n})`))}. ` : "Rostered cooks cover dinner. ") + (hs.length ? `Top issue: ${hs[0].kitchen} ${hs[0].defect.toLowerCase()}, ${(hs[0].n/Math.max(hs[0].typical,1)).toFixed(0)}× a typical kitchen.` : "");
+  $("heroStats").innerHTML = [[fmt(tot), "orders forecast"], [String(need.length), need.length === 1 ? "kitchen needs a cook" : "kitchens need cooks"], [String(low.length), "below break-even"]].map(([v,l]) => `<div class="hstat"><b>${v}</b><span>${l}</span></div>`).join("");
+
+  // hotspots
+  $("t1").textContent = `${hs.length} issues need an owner this week`;
+  $("hots").innerHTML = hs.map((h,i) => { const ratio = h.n/Math.max(h.typical,1), sev = ratio >= 6 ? [C.bad,"var(--bad-soft)","Critical"] : [C.warn,"var(--warn-soft)","Watch"];
+    const up = h.n > h.prev;
+    return `<button class="hot" type="button" data-i="${i}" style="--sev:${sev[0]};--sevsoft:${sev[1]}">
+      <div class="hd"><div class="ib">${ic(ICON[h.defect] || "alert-circle")}</div><div><div class="k">${esc(h.kitchen)}</div><div class="d">${esc(h.defect)} · ${esc(h.slot)}</div></div>
+      <div class="big"><b>${h.n}</b><span>vs ${fmt(h.typical)} typical</span></div></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="chip ${ratio >= 6 ? "bad" : "warn"}">${sev[2]}</span><span class="chip ${up ? "bad" : "good"}">${ic(up ? "arrow-up-right" : "arrow-down-right")}${up ? "up" : "down"} from ${h.prev}</span><span class="chip mute">${esc(h.brand)}</span></div>
+      <ul>${h.evidence.slice(1).map(e=>`<li>${esc(e)}</li>`).join("")}</ul>
+      <div class="owner">${ic("user-round-check")}<div><b>${esc(h.owner)}</b><br>${esc(h.action)}</div></div></button>`; }).join("");
+  $("hots").querySelectorAll(".hot").forEach(b => b.onclick = () => { const h = hs[Number(b.dataset.i)]; state.heat = [K.indexOf(h.kitchen), TAGS.indexOf(h.defect)]; render(); go("complaints"); });
+  $("s1").textContent = `${SRC}; complaints ${short(DAYS[0])} to ${short(DAYS[DAYS.length-1])} tagged by ${D.models.tagger.method}, linked to their orders. Hotspot: at least 6 complaints and 2.5× the median kitchen.`;
+
+  // tomorrow table
+  $("t3").textContent = `Tomorrow: ${need.length ? "add dinner cooks at " + and(need.map(x => `${x.name} (+${recOf(x.w).n})`)) : "rosters cover dinner in every kitchen"}${low.length ? "; " + and(low.map(x=>x.name)) + (low.length > 1 ? " are" : " is") + " forecast below break-even" : ""}`;
+  const maxO = Math.max(...vis.map(x=>x.orders), M.strong);
+  $("tomTable").innerHTML = `<thead><tr><th>Kitchen</th><th>Forecast orders</th><th class="r">Cooks</th><th>Dinner prep</th><th>Action</th></tr></thead><tbody>` +
+    vis.sort((a,b) => recOf(b.w).n - recOf(a.w).n || a.orders - b.orders).map(x => { const r = recOf(x.w), below = x.orders < M.breakEven, pt = x.w[4];
+      const bc = below ? C.bad : x.orders >= M.strong ? C.blue : C.blue2;
+      return `<tr><td><div class="kname"><span class="avatar">${initials(x.name)}</span>${esc(x.name)}</div></td>
+        <td><div class="gauge"><div class="t"><b class="num">${fmt(x.orders)}</b><span class="muted">${below ? "below 180" : x.orders >= M.strong ? "strong" : "above 180"}</span></div><div class="bar"><i style="width:${(x.orders/maxO*100).toFixed(0)}%;background:${bc}"></i></div></div></td>
+        <td class="r num">${x.w[2]}</td>
+        <td><div class="gauge"><div class="t"><b class="num ${pt > M.promise ? "neg" : ""}">${pt.toFixed(1)} min</b><span class="muted">${pct(x.w[5],0)} at risk</span></div><div class="bar"><i style="width:${Math.min(100,pt/20*100).toFixed(0)}%;background:${x.w[5] > .10 ? C.bad : x.w[5] > .05 ? C.warn : C.good}"></i></div></div></td>
+        <td>${r.n ? `<span class="chip bad">${ic("user-plus")}${r.t}</span>` : below ? `<span class="chip warn">${ic("trending-down")}Below 180</span>` : `<span class="chip good">${ic("check")}On track</span>`}</td></tr>`; }).join("") + `</tbody>`;
+  $("s3").textContent = `Source: demand forecast and prep-time model for ${dl(M.tomorrow)}; roster as planned. Rule: add cooks until under 10% of orders are at risk.`;
+  icons();
+}
+function drawBreakEven(){
+  const rows = dayTotals().sort((a,b)=>a.avg-b.avg);
+  const below = rows.filter(r => r.avg < M.breakEven);
+  $("t2").textContent = below.length ? `${and(below.map(r=>r.name))} ${below.length>1?"are":"is"} below break-even; ${rows.filter(r=>r.avg>=M.strong).length} of ${rows.length} kitchens are clearly profitable` : `All ${rows.length} kitchens cover the 180-order break-even`;
+  const nw = narrow();
+  chart("beChart", {
+    grid:{left:8, right:44, top:48, bottom:8, containLabel:true},
+    tooltip:{trigger:"axis", axisPointer:{type:"shadow"}, formatter: p => `<b>${p[0].name}</b><br>${fmt(p[0].value)} orders a day`},
+    xAxis:{type:"value", splitLine:split, axisLabel:axisLbl, max: v => Math.max(350, Math.ceil(v.max*1.06/50)*50)},
+    yAxis:{type:"category", data:rows.map(r=>r.name), axisLine:{show:false}, axisTick:{show:false}, axisLabel:{color:"#33415c", fontSize:12.5, fontWeight:600}},
+    series:[{type:"bar", data:rows.map(r=>({value:Math.round(r.avg), itemStyle:{color: r.avg < M.breakEven ? {type:"linear",x:0,y:0,x2:1,y2:0,colorStops:[{offset:0,color:"#ff8a98"},{offset:1,color:C.bad}]} : {type:"linear",x:0,y:0,x2:1,y2:0,colorStops:[{offset:0,color:"#7aa6ff"},{offset:1,color:C.blue}]}}})),
+      barWidth:"56%", itemStyle:{borderRadius:[0,8,8,0]},
+      label:{show:true, position:"right", fontFamily:NUMF, fontWeight:600, color:C.navy, fontSize:12},
+      markLine:{symbol:"none", silent:true, data:[
+        {xAxis:M.breakEven, lineStyle:{color:C.bad, type:"dashed", width:1.5}, label:{formatter: nw ? "180" : "Break-even 180", color:C.bad, fontWeight:700, position:"end", distance:22}},
+        {xAxis:M.strong, lineStyle:{color:C.good, type:"dashed", width:1.5}, label:{formatter: nw ? "250" : "Profitable 250", color:C.good, fontWeight:700, position:"end", distance:5}}]}}]
+  });
+  $("s2").textContent = `${SRC}; ${scope().split(", ")[0]}. Break-even uses whole days, so the meal slot filter does not apply.`;
+}
+
+/* ---------- demand ---------- */
+function drawTrend(){
+  const T = D.trend, m = D.models.forecast;
+  $("t4").textContent = `The forecast missed by ${pct(m.wape,1)} in the test week, against ${pct(m.baseline,1)} for "same day last week": ${Math.round((1-m.wape/m.baseline)*100)}% less error`;
+  const ti = T.findIndex(t => t[2] != null);
+  chart("trendChart", {
+    grid:{left:8, right:16, top:40, bottom:8, containLabel:true},
+    legend:{top:0, left:0, icon:"roundRect", itemWidth:14, itemHeight:4, textStyle:{color:"#42506b", fontSize:12}},
+    tooltip:{trigger:"axis", axisPointer:{type:"line", lineStyle:{color:C.sky}}, valueFormatter: v => v == null ? "–" : fmt(v)},
+    xAxis:{type:"category", data:T.map(t=>short(t[0])), boundaryGap:false, axisLine:{lineStyle:{color:"#d6e0f2"}}, axisTick:{show:false}, axisLabel:Object.assign({interval:6}, axisLbl)},
+    yAxis:{type:"value", scale:true, splitLine:split, axisLabel:Object.assign({formatter: v => fmt(v)}, axisLbl)},
+    series:[
+      {name:"Actual orders", type:"line", data:T.map(t=>t[1]), smooth:.3, symbol:"none", lineStyle:{width:2.2, color:C.navy}, itemStyle:{color:C.navy},
+        areaStyle:{color:{type:"linear",x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:"rgba(26,86,240,.18)"},{offset:1,color:"rgba(26,86,240,0)"}]}},
+        markArea:{silent:true, itemStyle:{color:"rgba(26,86,240,.07)"}, label:{color:C.blue, fontWeight:700, fontSize:11.5}, data:[[{name:"Test week", xAxis:short(T[ti][0])},{xAxis:short(T[T.length-1][0])}]]}},
+      {name:"Mise forecast", type:"line", data:T.map(t=>t[2]), symbol:"circle", symbolSize:7, lineStyle:{width:2.6, color:C.blue}, itemStyle:{color:C.blue, borderColor:"#fff", borderWidth:2}},
+      {name:"Same day last week", type:"line", data:T.map(t=>t[3]), symbol:"none", lineStyle:{width:2, color:C.grey, type:"dashed"}, itemStyle:{color:C.grey}}]
+  });
+  $("s4").textContent = `${SRC}; ${fmt(T.reduce((a,t)=>a+t[1],0))} orders from ${short(T[0][0])} to ${short(T[T.length-1][0])}. Area total; filters do not apply.`;
+}
+function drawSlotHeat(){
+  const cs = cellsF({ignoreK:true, ignoreS:true}), ks = K.map((n,k)=>k).filter(inK), data = []; let worst = null;
+  ks.forEach((k,yi) => S.forEach((sl,s) => {
+    const sub = cs.filter(c=>c[F.k]===k && c[F.s]===s), a = sub.reduce((t,c)=>t+c[F.orders],0), f = sub.reduce((t,c)=>t+c[F.fc],0), g = f ? (a-f)/f : 0;
+    if (inS(s) && (!worst || g < worst.g)) worst = {g, name:K[k], sl};
+    data.push({value:[s, yi, +(g*100).toFixed(1)], a, f, dim: !inS(s)});
+  }));
+  $("t5").textContent = worst ? `${worst.name} at ${worst.sl.toLowerCase()} was furthest below forecast (${pct(worst.g,0)})` : "Actual against forecast";
+  chart("slotHeat", {
+    grid:{left:8, right:8, top:8, bottom:52, containLabel:true},
+    tooltip:{formatter: p => `<b>${K[ks[p.value[1]]]}, ${S[p.value[0]]}</b><br>Actual ${fmt(p.data.a)} · forecast ${fmt(p.data.f)}<br>${p.value[2] >= 0 ? "+" : ""}${p.value[2]}%`},
+    xAxis:{type:"category", data:S, position:"top", axisLine:{show:false}, axisTick:{show:false}, axisLabel:{color:"#33415c", fontSize:11.5, fontWeight:600, interval:0}, splitArea:{show:false}},
+    yAxis:{type:"category", data:ks.map(k=>K[k]), inverse:true, axisLine:{show:false}, axisTick:{show:false}, axisLabel:{color:"#33415c", fontSize:12, fontWeight:600}},
+    visualMap:{min:-20, max:20, calculable:false, orient:"horizontal", left:"center", bottom:0, itemWidth:12, itemHeight:160, text:["Busier","Quieter"], textStyle:{color:C.muted, fontSize:11}, inRange:{color:[C.bad,"#ffd3d9","#ffffff","#cfe0ff",C.blue]}},
+    series:[{type:"heatmap", data, itemStyle:{borderColor:"#fff", borderWidth:3, borderRadius:8},
+      label:{show:true, formatter: p => p.data.dim ? "" : fmt(p.data.a), fontFamily:NUMF, fontSize:11.5, fontWeight:600, color:C.navy},
+      emphasis:{itemStyle:{borderColor:C.navy, borderWidth:2}}}]
+  });
+  $("s5").textContent = `${SRC}; ${scope().split(", ")[0]}. Cell shows actual orders; colour shows the gap to the one-day-ahead forecast.`;
+}
+function renderPlan(){
+  $("pKitchen").innerHTML = K.map((k,i)=>`<option value="${i}">${esc(k)}</option>`).join(""); $("pKitchen").value = String(state.pk);
+  $("pKitchen").onchange = e => { state.pk = Number(e.target.value); renderPlan(); };
+  seg("pSlot", S, () => state.ps, v => { state.ps = v; renderPlan(); });
+  const k = state.pk, s = state.ps, rows = D.tomorrow.filter(r=>r[0]===k && r[1]===s), total = rows.reduce((a,r)=>a+r[3],0);
+  const items = D.plan.filter(p => p[0]===k && p[1]===s).sort((a,b)=> B[a[2]].localeCompare(B[b[2]]));
+  $("t6").textContent = `${K[k]} should prep for about ${fmt(total)} ${S[s].toLowerCase()} orders on ${dl(M.tomorrow)}`;
+  $("planTable").innerHTML = `<thead><tr><th>Brand</th><th class="r">Orders</th><th>Prep item</th><th class="r">Quantity</th></tr></thead><tbody>` +
+    (items.length ? items.map((p,i) => { const first = i === 0 || items[i-1][2] !== p[2], o = rows.find(r=>r[2]===p[2]);
+      const q = p[4] === "pcs" ? Math.ceil(p[5]) : (Math.ceil(p[5]*10)/10).toFixed(1);
+      return `<tr><td>${first ? `<b>${esc(B[p[2]])}</b>` : ""}</td><td class="r num">${first && o ? fmt(o[3]) : ""}</td><td>${esc(p[3])}</td><td class="r num"><b>${q}</b> <span class="muted">${esc(p[4])}</span></td></tr>`; }).join("") : `<tr><td colspan="4" class="muted">No orders forecast for this slot.</td></tr>`) + `</tbody>`;
+  $("s6").textContent = `Source: demand forecast for ${dl(M.tomorrow)} × recipe quantity per order. Round up for safety stock.`;
+}
+
+/* ---------- speed ---------- */
+function drawSpeed(){
+  seg("sSlot", S, () => state.sslot, v => { state.sslot = v; drawSpeed(); }, state.slot);
+  const s0 = state.sslot;
+  const rows = K.map((name,k) => { const sub = D.cells.filter(c=>c[F.k]===k && c[F.s]===s0 && inDay(c[F.day])); const n = sub.reduce((a,c)=>a+c[F.orders],0) || 1;
+    const w = f => sub.reduce((a,c)=>a+c[f]*c[F.orders],0)/n;
+    return {k, name, p50:w(F.p50), p90:w(F.p90), act:w(F.act), late:w(F.late), st: Math.round(sub.reduce((a,c)=>a+c[F.st],0)/Math.max(sub.length,1)), q: Math.max(0,...sub.map(c=>c[F.q]))}; })
+    .filter(r => inK(r.k)).sort((a,b)=>a.p90-b.p90);
+  const worst = rows[rows.length-1];
+  $("t7").textContent = worst.p90 > M.promise ? `${worst.name} is most at risk at ${S[s0].toLowerCase()}: typical ${worst.p50.toFixed(1)} min, bad case ${worst.p90.toFixed(1)} min, with ${worst.st} cooks` : `All kitchens stay inside the 15-minute promise at ${S[s0].toLowerCase()}`;
+  const col = r => r.p50 > M.promise ? C.bad : r.p90 > M.promise ? C.warn : C.blue;
+  const nw = narrow();
+  chart("speedChart", {
+    grid:{left:8, right: nw ? 28 : 90, top:24, bottom:8, containLabel:true},
+    tooltip:{trigger:"axis", axisPointer:{type:"shadow", shadowStyle:{color:"rgba(26,86,240,.05)"}}, formatter: p => { const r = rows[p[0].dataIndex];
+      return `<b>${r.name}</b> · ${S[s0]}<br>Typical ${r.p50.toFixed(1)} min · bad case ${r.p90.toFixed(1)} min<br>Actual average ${r.act.toFixed(1)} min<br>${r.st} cooks · peak queue ${r.q} orders<br>${pct(r.late,0)} of orders over 15 min`; }},
+    xAxis:{type:"value", min:0, max: v => Math.max(20, Math.ceil((v.max+1)/5)*5), interval: nw ? 10 : 5, splitLine:split, axisLabel:Object.assign({formatter: nw ? "{value}" : "{value} min"}, axisLbl), name: nw ? "min" : "", nameTextStyle:axisLbl},
+    yAxis:{type:"category", data:rows.map(r=>r.name), axisLine:{show:false}, axisTick:{show:false}, axisLabel:{color:"#33415c", fontSize:12.5, fontWeight:600}},
+    series:[
+      {type:"bar", stack:"r", data:rows.map(r=>+r.p50.toFixed(2)), itemStyle:{color:"transparent"}, barWidth:12, silent:true,
+        markArea:{silent:true, itemStyle:{color:"rgba(226,57,75,.06)"}, data:[[{xAxis:M.promise},{xAxis:"max"}]]},
+        markLine:{symbol:"none", silent:true, lineStyle:{color:C.bad, width:1.6, type:"solid"}, label:{formatter:"15-min promise", color:C.bad, fontWeight:700, position:"end"}, data:[{xAxis:M.promise}]}},
+      {type:"bar", stack:"r", data:rows.map(r=>({value:+(r.p90-r.p50).toFixed(2), itemStyle:{color:col(r)+"55", borderRadius:6}})), barWidth:12,
+        label:{show:!nw, position:"right", distance:10, formatter: p => `${pct(rows[p.dataIndex].late,0)} late`, color:C.navy, fontFamily:NUMF, fontSize:11.5, fontWeight:600}},
+      {type:"scatter", data:rows.map(r=>({value:[+r.p50.toFixed(2), r.name], itemStyle:{color:col(r)}})), symbolSize:14, itemStyle:{borderColor:"#fff", borderWidth:2.5}, z:5},
+      {type:"scatter", data:rows.map(r=>[+r.act.toFixed(2), r.name]), symbol:"diamond", symbolSize:12, itemStyle:{color:C.navy, borderColor:"#fff", borderWidth:1.5}, z:6}]
+  });
+  $("s7").textContent = `Source: prep-time model (gradient-boosted trees, median and 90th percentile), ${scope().split(", ")[0]}; order-weighted averages.`;
+}
+function renderWhatIf(){
+  seg("wSlot", S, () => state.wslot, v => { state.wslot = v; renderWhatIf(); }, state.slot);
+  const s0 = state.wslot, rows = D.whatif.filter(w => w[1]===s0 && inK(w[0])).sort((a,b)=>b[5]-a[5]);
+  const need = rows.filter(w => w[5] > .10);
+  $("t8").textContent = need.length ? `${and(need.map(w=>K[w[0]]))} ${need.length>1?"need":"needs"} extra cooks for ${S[s0].toLowerCase()} on ${dl(M.tomorrow)}; one more cook cuts ${K[need[0][0]]}'s share at risk from ${pct(need[0][5],0)} to ${pct(need[0][7],0)}` : `Rostered cooks cover ${S[s0].toLowerCase()} on ${dl(M.tomorrow)} in every kitchen`;
+  const g = (p, l) => `<td><div class="gauge"><div class="t"><b class="num ${l > .10 ? "neg" : ""}">${p.toFixed(1)} min</b><span class="${l > .10 ? "neg" : "muted"}">${pct(l,0)} at risk</span></div><div class="bar"><i style="width:${Math.min(100, l/.3*100).toFixed(0)}%;background:${l > .10 ? C.bad : l > .05 ? C.warn : C.good}"></i></div></div></td>`;
+  $("whatTable").innerHTML = `<thead><tr><th>Kitchen</th><th class="r">Forecast orders</th><th class="r">Cooks</th><th>As rostered</th><th>+1 cook</th><th>+2 cooks</th><th>Recommendation</th></tr></thead><tbody>` +
+    rows.map(w => { const r = recOf(w);
+      return `<tr><td><div class="kname"><span class="avatar">${initials(K[w[0]])}</span>${esc(K[w[0]])}</div></td><td class="r num">${fmt(w[3])}</td><td class="r num">${w[2]}</td>${g(w[4],w[5])}${g(w[6],w[7])}${g(w[8],w[9])}<td>${r.n ? `<span class="chip bad">${ic("user-plus")}${r.t}</span>` : `<span class="chip good">${ic("check")}Keep roster</span>`}</td></tr>`; }).join("") + `</tbody>`;
+  $("s8").textContent = `Source: queue simulation of tomorrow's forecast orders (12 runs per kitchen) scored by the prep-time model. Rule: add cooks until under 10% of orders are at risk.`;
+  icons();
+}
+
+/* ---------- complaints ---------- */
+function drawPareto(){
+  const all = compF(), rev = all.filter(c=>c[5]===REVIEW).length;
+  const cnt = DEF.map((d,i) => ({d, n: all.filter(c=>c[5]===i).length})).sort((a,b)=>b.n-a.n);
+  if (rev) cnt.push({d:"Needs review", n:rev, review:true});
+  const total = cnt.reduce((a,r)=>a+r.n,0) || 1, known = total - rev || 1;
+  let cum = 0; const vital = []; cnt.filter(r=>!r.review).forEach(r => { if (cum/known < .8) vital.push(r.d); cum += r.n; });
+  $("t9").textContent = `${and(vital)} make up ${pct(cnt.filter(r=>vital.includes(r.d)).reduce((a,r)=>a+r.n,0)/known,0)} of tagged complaints${rev ? `; ${rev} more need a person or AI to read them` : ""}`;
+  cum = 0; const run = cnt.map(r => { cum += r.n; return +(cum/total*100).toFixed(1); });
+  const lbl = d => d.replace(" or ", " /\n").replace(" item", "\nitem").replace(" delivery","\ndelivery").replace(" food","\nfood").replace("Needs review","Needs\nreview");
+  chart("paretoChart", {
+    grid:{left:8, right:8, top:30, bottom:8, containLabel:true},
+    tooltip:{trigger:"axis", axisPointer:{type:"shadow", shadowStyle:{color:"rgba(26,86,240,.05)"}}, formatter: p => `<b>${cnt[p[0].dataIndex].d}</b><br>${cnt[p[0].dataIndex].n} complaints, ${pct(cnt[p[0].dataIndex].n/total,0)}<br>Running share ${run[p[0].dataIndex]}%`},
+    xAxis:{type:"category", data:cnt.map(r=>lbl(r.d)), axisLine:{lineStyle:{color:"#d6e0f2"}}, axisTick:{show:false}, axisLabel:{color:C.muted, fontSize:10.5, interval:0, lineHeight:13}},
+    yAxis:[{type:"value", splitLine:split, axisLabel:axisLbl}, {type:"value", min:0, max:100, splitLine:{show:false}, axisLabel:Object.assign({formatter:"{value}%"}, axisLbl)}],
+    series:[
+      {type:"bar", barWidth:"55%", data:cnt.map(r=>({value:r.n, itemStyle: r.review ? {color:"rgba(180,192,214,.18)", borderColor:C.grey, borderType:"dashed", borderWidth:1.5, borderRadius:[8,8,0,0]} : {color: vital.includes(r.d) ? {type:"linear",x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:C.blue2},{offset:1,color:C.blue}]} : C.sky, borderRadius:[8,8,0,0]}})),
+        label:{show:true, position:"top", color:C.navy, fontFamily:NUMF, fontWeight:600, fontSize:11.5}},
+      {type:"line", yAxisIndex:1, data:run, smooth:true, symbol:"circle", symbolSize:7, lineStyle:{color:C.navy, width:2}, itemStyle:{color:"#fff", borderColor:C.navy, borderWidth:2},
+        markLine:{symbol:"none", silent:true, lineStyle:{color:C.warn, type:"dashed"}, label:{formatter:"80%", color:"#b46a00", fontWeight:700, position:"insideEndTop"}, data:[{yAxis:80}]}}]
+  });
+  $("s9").textContent = `${SRC}; ${total} complaints, ${scope()}; tagged by ${D.models.tagger.method}.`;
+}
+function drawDefHeat(){
+  const list = compF({ignoreK:true}), ks = K.map((n,k)=>k).filter(inK), m = K.map(()=>TAGS.map(()=>0));
+  list.forEach(c => m[c[2]][c[5]]++);
+  const prev = K.map(()=>TAGS.map(()=>0)); D.prevWeek.forEach(([k,d,n]) => prev[k][d] = n);
+  const weekView = state.day === "all" && state.slot === "all";
+  const abbr = ["Late","Missing","Wrong","Taste","Cold","Spill","Qty","Review"];
+  let best = {n:0}; const data = [];
+  ks.forEach((k,yi) => TAGS.forEach((d,j) => { const n = m[k][j]; if (n > best.n && j !== REVIEW) best = {n, name:K[k], d};
+    const sel = state.heat && state.heat[0]===k && state.heat[1]===j;
+    data.push({value:[j, yi, n], k, prev: prev[k][j], itemStyle: sel ? {borderColor:C.navy, borderWidth:3} : j === REVIEW && n ? {color:"#e6ebf4"} : undefined}); }));
+  $("t10").textContent = best.n ? `${best.name}: ${best.d.toLowerCase()} is the largest single cluster (${best.n} complaints)` : "No complaints for these filters";
+  const max = Math.max(4, ...data.filter(x => x.value[0] !== REVIEW).map(x=>x.value[2]));
+  chart("defHeat", {
+    grid:{left:8, right:8, top:8, bottom:8, containLabel:true},
+    tooltip:{formatter: p => `<b>${K[p.data.k]}</b> · ${TAGS[p.value[0]]}<br>${p.value[2]} complaints${weekView ? `<br>Week before: ${p.data.prev}` : ""}`},
+    xAxis:{type:"category", data:abbr, position:"top", axisLine:{show:false}, axisTick:{show:false}, axisLabel:{color:"#33415c", fontSize:11, fontWeight:600, interval:0}},
+    yAxis:{type:"category", data:ks.map(k=>K[k]), inverse:true, axisLine:{show:false}, axisTick:{show:false}, axisLabel:{color:"#33415c", fontSize:12, fontWeight:600}},
+    visualMap:{show:false, min:0, max, seriesIndex:0, inRange:{color:["#f6f9ff","#ffd3d9","#ff8a98",C.bad]}},
+    series:[{type:"heatmap", data, itemStyle:{borderColor:"#fff", borderWidth:3, borderRadius:7},
+      label:{show:true, formatter: p => p.value[2] ? p.value[2] : "·", fontFamily:NUMF, fontSize:11.5, fontWeight:600, color:C.navy},
+      emphasis:{itemStyle:{borderColor:C.blue, borderWidth:2}}}]
+  }, p => { if (!p.data) return; const k = p.data.k, d = p.value[0]; state.heat = state.heat && state.heat[0]===k && state.heat[1]===d ? null : [k,d]; drawDefHeat(); renderCompList(); });
+  $("s10").textContent = `${SRC}; ${scope().split(", ").filter((_,i)=>i!==1).join(", ")}. Change against the week before shown in the tooltip for the full week.`;
+}
+function renderCompList(){
+  let list = compF({ignoreK: !!state.heat}); if (state.heat) list = list.filter(c => c[2]===state.heat[0] && c[5]===state.heat[1]);
+  list = list.slice().sort((a,b)=>b[1]-a[1] || b[0]-a[0]);
+  $("t11").textContent = state.heat ? `${K[state.heat[0]]}: ${TAGS[state.heat[1]].toLowerCase()} (${list.length} complaints)` : `Latest complaints (${list.length} in view)`;
+  $("listSub").textContent = state.heat ? "Kitchen prep time comes from the linked order: over 15 minutes means the delay started in the kitchen." : "Click a cell in the heat map to filter. Kitchen prep time comes from the linked order.";
+  $("clearHeat").hidden = !state.heat; $("clearHeat").onclick = () => { state.heat = null; drawDefHeat(); renderCompList(); };
+  $("compTable").innerHTML = `<thead><tr><th>Date</th><th>Kitchen</th><th>Brand · slot</th><th>Tag</th><th>Complaint</th><th class="r">Kitchen prep</th><th>Source</th></tr></thead><tbody>` +
+    list.slice(0,40).map(c => `<tr><td class="num" style="white-space:nowrap">${esc(short(DAYS[c[1]]))}</td><td><b>${esc(K[c[2]])}</b></td><td>${esc(B[c[4]])}<br><span class="muted">${esc(S[c[3]])}</span></td><td><span class="tag ${c[5]===REVIEW?"rev":""}">${ic(ICON[TAGS[c[5]]])}${esc(TAGS[c[5]])}</span></td><td class="complaint">${esc(c[6])}</td><td class="r num ${c[8] > M.promise ? "neg" : ""}">${c[8]==null ? `<span class="chip warn">Cancelled</span>` : c[8].toFixed(1) + " min"}</td><td class="muted">${esc(c[7])}</td></tr>`).join("") + `</tbody>`;
+  $("s11").textContent = `${SRC}; showing up to 40 rows, newest first.`;
+  icons();
+}
+
+/* ---------- live AI tagging ---------- */
+const AIERR = {not_granted:"Claude is not allowed for this page. Allow it when asked, or use the keyword tags.", sampling_disabled:"Claude is not available on this account.", rate_limited:"Too many requests. Try again in a minute.", session_expired:"Sign in to Claude again, then retry.", refused:"Claude declined this request.", invalid_json:"Claude's reply could not be read. Try again.", upstream_error:"Connection problem. Try again."};
+let samplePromise = null;
+const getSample = () => samplePromise || (samplePromise = (window.claude && window.claude.use) ? Promise.resolve().then(() => window.claude.use("sample")).catch(() => null) : Promise.resolve(null));
+function renderTagging(){
+  const L = D.lastNight;
+  const ruleOk = L.filter(r => r[5] === r[6]).length, ai = state.ai, aiN = L.filter(r => ai[r[0]] != null).length, aiOk = L.filter(r => ai[r[0]] != null && TAGS.indexOf(ai[r[0]].defect) === r[6]).length;
+  $("t12").textContent = aiN ? `Claude matched the reviewer on ${aiOk} of ${aiN} complaints; keyword rules matched ${ruleOk} of ${L.length}` : `Keyword rules match the reviewer on ${ruleOk} of ${L.length} messy complaints; Claude can read the rest`;
+  $("score").innerHTML = `<div><b>${ruleOk}/${L.length}</b>Keyword rules, last night</div><div><b>${aiN ? `${aiOk}/${aiN}` : "–"}</b>Claude, last night</div><div><b>${pct(D.models.tagger.accuracy,1)}</b>Rules on all ${fmt(D.models.tagger.n)} complaints</div>`;
+  $("tagTable").innerHTML = `<thead><tr><th>Kitchen</th><th>Complaint</th><th>Keyword rules</th><th>Claude</th><th>Reviewer</th></tr></thead><tbody>` +
+    L.map(r => { const a = ai[r[0]]; const ok = t => t === r[6] ? "ok" : "no";
+      return `<tr><td><b>${esc(K[r[1]])}</b><br><span class="muted">${esc(B[r[3]])}</span></td><td class="complaint">${esc(r[4])}${a && a.cause ? `<br><span class="muted">Likely cause: ${esc(a.cause)}</span>` : ""}</td><td><span class="tag ${ok(r[5])}">${esc(TAGS[r[5]])}</span></td><td>${a ? `<span class="tag ${ok(TAGS.indexOf(a.defect))}">${esc(a.defect)}</span>` : `<span class="muted">Not run</span>`}</td><td>${esc(TAGS[r[6]])}</td></tr>`; }).join("") + `</tbody>`;
+  $("s12").textContent = `Source: complaints received ${dl(DAYS[DAYS.length-1])}; reviewer labels are the ground truth kept by the data generator. Claude runs on the viewer's own account.`;
+}
+function aiMessage(text, warn){ $("aiMsg").innerHTML = text ? `<div class="msg ${warn?"warn":""}">${esc(text)}</div>` : ""; }
+getSample().then(s => { if (!s) { $("tagBtn").disabled = true; aiMessage("Live tagging runs when this page is opened inside Claude. Everywhere else the page shows the pipeline's keyword tags, which are already applied to every chart.", true); } });
+$("tagBtn").onclick = async () => {
+  const sample = await getSample(); if (!sample) return;
+  const btn = $("tagBtn"), lbl = btn.querySelector("span"); btn.disabled = true; lbl.textContent = "Claude is reading 20 complaints…"; aiMessage("");
+  const items = D.lastNight.map(r => ({id:r[0], kitchen:K[r[1]], slot:S[r[2]], brand:B[r[3]], text:r[4]}));
+  const prompt = `You tag customer complaints for a multi-brand cloud kitchen in Bengaluru. Complaints can be in English or Hinglish and may have typos.\nFor each complaint choose exactly one defect from ${JSON.stringify(DEF)}. If an order was cancelled or an item never arrived, use "Missing item". If food came late AND cold, choose the one the customer stresses most.\nAlso give a likely operational cause in at most 8 words.\nReply with only a JSON array: [{"id": number, "defect": string, "cause": string}].\n\nComplaints:\n${JSON.stringify(items)}`;
+  try {
+    let out = await sample.json(prompt, {modelTier:"quick"});
+    if (out && !Array.isArray(out)) out = Object.values(out).find(Array.isArray) || [];
+    let n = 0;
+    for (const r of out || []) { const id = Number(r && r.id), d = String(r && r.defect || ""); if (D.lastNight.some(x=>x[0]===id) && DEF.includes(d)) { state.ai[id] = {defect:d, cause:String(r.cause||"").slice(0,90)}; n++; } }
+    if (!n) aiMessage("Claude replied, but no tags could be read. Try again.", true);
+    lbl.textContent = "Tag again";
+  } catch (e) { aiMessage(AIERR[e && e.code] || "Tagging did not finish. Try again.", true); lbl.textContent = "Tag with Claude"; }
+  finally { btn.disabled = false; renderTagging(); }
+};
+
+/* ---------- model health ---------- */
+function renderModels(){
+  const f = D.models.forecast, p = D.models.prep, t = D.models.tagger;
+  $("t13").textContent = `Both models beat the manager's rule of thumb: forecast error down ${Math.round((1-f.wape/f.baseline)*100)}%, prep-time error down ${Math.round((1-p.mae/p.baseline)*100)}%`;
+  const kv = [["Demand forecast error", pct(f.wape,1), `vs ${pct(f.baseline,1)} for same day last week`, "trending-up"],
+              ["Prep-time error", `${p.mae.toFixed(2)} min`, `vs ${p.baseline.toFixed(2)} min for the kitchen's usual time`, "timer"],
+              ["Late-order flags", `${pct(p.precision,0)} right`, `catches ${pct(p.recall,0)} of the ${fmt(p.lateOrders)} late orders`, "bell-ring"],
+              ["Complaint tagging", pct(t.accuracy,1), `${t.method}, on ${fmt(t.n)} complaints`, "tags"]];
+  $("modelKv").innerHTML = kv.map(([l,v,s,i]) => `<div class="score"><div class="ring"></div><div class="ib">${ic(i)}</div><div class="l">${l}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join("");
+  $("s13").textContent = `Training: ${fmt(f.trainRows)} kitchen-brand-slot days and ${fmt(p.trainRows)} orders. Test: ${short(DAYS[0])} to ${short(DAYS[DAYS.length-1])}, hidden from both models.`;
+  icons();
+}
+function drawWape(){
+  const rows = S.map(s => ({s, m: D.models.forecast.bySlot[s].model, b: D.models.forecast.bySlot[s].baseline}));
+  const best = rows.slice().sort((a,b)=>(b.b-b.m)-(a.b-a.m))[0];
+  $("t14").textContent = `The model wins in every slot; the biggest gain is at ${best.s.toLowerCase()} (${pct(best.m,0)} against ${pct(best.b,0)})`;
+  chart("wapeChart", {
+    grid:{left:8, right:40, top:34, bottom:8, containLabel:true},
+    legend:{top:0, left:0, icon:"roundRect", itemWidth:12, itemHeight:10, textStyle:{color:"#42506b", fontSize:12}},
+    tooltip:{trigger:"axis", axisPointer:{type:"shadow", shadowStyle:{color:"rgba(26,86,240,.05)"}}, valueFormatter: v => pct(v,1)},
+    xAxis:{type:"value", splitLine:split, axisLabel:Object.assign({formatter: v => pct(v,0)}, axisLbl)},
+    yAxis:{type:"category", data:S, inverse:true, axisLine:{show:false}, axisTick:{show:false}, axisLabel:{color:"#33415c", fontSize:12.5, fontWeight:600}},
+    series:[
+      {name:"Mise model", type:"bar", data:rows.map(r=>r.m), barWidth:11, barGap:"40%", itemStyle:{color:C.blue, borderRadius:[0,6,6,0]}, label:{show:true, position:"right", formatter: p => pct(p.value,1), color:C.navy, fontFamily:NUMF, fontSize:11, fontWeight:600}},
+      {name:"Same day last week", type:"bar", data:rows.map(r=>r.b), barWidth:11, itemStyle:{color:C.sky, borderRadius:[0,6,6,0]}, label:{show:true, position:"right", formatter: p => pct(p.value,1), color:C.muted, fontFamily:NUMF, fontSize:11}}]
+  });
+  $("s14").textContent = `Source: one-day-ahead forecasts for ${short(DAYS[0])} to ${short(DAYS[DAYS.length-1])}, scored per kitchen and slot.`;
+}
+function drawImp(){
+  const NAMES = {brand_c:"Brand (dish type)", load_per_station:"Orders waiting per cook", items:"Items in the order", orders_in_progress:"Orders on the line", kitchen_c:"Kitchen", recent_avg_prep_min:"Recent prep times", dow:"Day of week", slot_c:"Meal slot", minute_of_slot:"Time within slot", stations_on_shift:"Cooks on shift"};
+  const rows = Object.entries(D.models.prep.importance).map(([k,v]) => ({n: NAMES[k] || k, v: Math.max(0,v)})).sort((a,b)=>b.v-a.v).slice(0,6);
+  $("t15").textContent = `Prep time depends mostly on what is cooked and how many orders each cook is juggling`;
+  chart("impChart", {
+    grid:{left:8, right:56, top:8, bottom:8, containLabel:true},
+    tooltip:{trigger:"axis", axisPointer:{type:"shadow", shadowStyle:{color:"rgba(26,86,240,.05)"}}, valueFormatter: v => `+${v.toFixed(2)} min`},
+    xAxis:{type:"value", splitLine:split, axisLabel:Object.assign({formatter:"{value}"}, axisLbl)},
+    yAxis:{type:"category", data:rows.map(r=>r.n), inverse:true, axisLine:{show:false}, axisTick:{show:false}, axisLabel:{color:"#33415c", fontSize:12.5, fontWeight:600}},
+    series:[{type:"bar", data:rows.map((r,i)=>({value:+r.v.toFixed(3), itemStyle:{color: i < 2 ? {type:"linear",x:0,y:0,x2:1,y2:0,colorStops:[{offset:0,color:C.blue2},{offset:1,color:C.blue}]} : C.sky}})), barWidth:"52%", itemStyle:{borderRadius:[0,8,8,0]},
+      label:{show:true, position:"right", formatter: p => `+${p.value.toFixed(2)} min`, color:C.navy, fontFamily:NUMF, fontSize:11.5, fontWeight:600}}]
+  });
+  $("s15").textContent = `Source: permutation importance on test-week orders; extra average error in minutes when the input is scrambled.`;
+}
+
+/* ---------- shared ---------- */
+function seg(id, labels, get, set, lock){
+  const el = $(id);
+  el.innerHTML = labels.map((l,i)=>`<button type="button" data-i="${i}" aria-pressed="${i===get()}" ${lock !== undefined && lock !== "all" && lock !== i ? "disabled" : ""}>${esc(l)}</button>`).join("");
+  el.querySelectorAll("button").forEach(b => b.onclick = () => set(Number(b.dataset.i)));
+}
+function drawCharts(){
+  if (state.tab === "overview") { drawSparks(); drawBreakEven(); }
+  if (state.tab === "demand") { drawTrend(); drawSlotHeat(); }
+  if (state.tab === "speed") drawSpeed();
+  if (state.tab === "complaints") { drawPareto(); drawDefHeat(); }
+  if (state.tab === "models") { drawWape(); drawImp(); }
+}
+function render(){ renderHeader(); renderOverview(); renderPlan(); renderWhatIf(); renderCompList(); renderTagging(); renderModels(); drawCharts(); icons(); }
+
+const h0 = (location.hash || "").slice(1); if (TABS.some(t => t[0] === h0)) state.tab = h0;
+$("fBuilt").textContent = `Pipeline run ${M.builtAt}`;
+initFilters(); renderTabs(); render(); showPanel();
+let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(drawCharts, 150); });
+})();
+</script>

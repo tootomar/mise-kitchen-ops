@@ -1,0 +1,711 @@
+kitchen,slot,brand,item,unit,quantity
+Bellandur,Breakfast,CakeZone,"Cake bases, 500 g",pcs,0.74
+Bellandur,Breakfast,CakeZone,Whipped cream,kg,0.06
+Bellandur,Dinner,CakeZone,"Cake bases, 500 g",pcs,7.47
+Bellandur,Dinner,CakeZone,Whipped cream,kg,0.62
+Bellandur,Late night,CakeZone,"Cake bases, 500 g",pcs,4.98
+Bellandur,Late night,CakeZone,Whipped cream,kg,0.42
+Bellandur,Lunch,CakeZone,"Cake bases, 500 g",pcs,1.1
+Bellandur,Lunch,CakeZone,Whipped cream,kg,0.09
+Bellandur,Snacks,CakeZone,"Cake bases, 500 g",pcs,4.74
+Bellandur,Snacks,CakeZone,Whipped cream,kg,0.39
+Bellandur,Breakfast,EatFit,Dal and sabzi base,kg,1.41
+Bellandur,Breakfast,EatFit,Multigrain roti dough,kg,0.94
+Bellandur,Breakfast,EatFit,"Brown rice, cooked",kg,1.17
+Bellandur,Dinner,EatFit,Dal and sabzi base,kg,3.35
+Bellandur,Dinner,EatFit,Multigrain roti dough,kg,2.23
+Bellandur,Dinner,EatFit,"Brown rice, cooked",kg,2.79
+Bellandur,Late night,EatFit,Dal and sabzi base,kg,0.13
+Bellandur,Late night,EatFit,Multigrain roti dough,kg,0.09
+Bellandur,Late night,EatFit,"Brown rice, cooked",kg,0.11
+Bellandur,Lunch,EatFit,Dal and sabzi base,kg,5.05
+Bellandur,Lunch,EatFit,Multigrain roti dough,kg,3.37
+Bellandur,Lunch,EatFit,"Brown rice, cooked",kg,4.21
+Bellandur,Snacks,EatFit,Dal and sabzi base,kg,0.67
+Bellandur,Snacks,EatFit,Multigrain roti dough,kg,0.45
+Bellandur,Snacks,EatFit,"Brown rice, cooked",kg,0.56
+Bellandur,Breakfast,Frozen Bottle,Ice-cream mix,L,0.21
+Bellandur,Breakfast,Frozen Bottle,Syrups,L,0.03
+Bellandur,Dinner,Frozen Bottle,Ice-cream mix,L,1.75
+Bellandur,Dinner,Frozen Bottle,Syrups,L,0.21
+Bellandur,Late night,Frozen Bottle,Ice-cream mix,L,0.98
+Bellandur,Late night,Frozen Bottle,Syrups,L,0.12
+Bellandur,Lunch,Frozen Bottle,Ice-cream mix,L,0.36
+Bellandur,Lunch,Frozen Bottle,Syrups,L,0.04
+Bellandur,Snacks,Frozen Bottle,Ice-cream mix,L,1.35
+Bellandur,Snacks,Frozen Bottle,Syrups,L,0.16
+Bellandur,Breakfast,Millet Express,Millet dosa batter,kg,1.07
+Bellandur,Breakfast,Millet Express,Sambar,L,1.34
+Bellandur,Breakfast,Millet Express,Chutney cups,pcs,13.42
+Bellandur,Dinner,Millet Express,Millet dosa batter,kg,0.82
+Bellandur,Dinner,Millet Express,Sambar,L,1.02
+Bellandur,Dinner,Millet Express,Chutney cups,pcs,10.2
+Bellandur,Lunch,Millet Express,Millet dosa batter,kg,1.22
+Bellandur,Lunch,Millet Express,Sambar,L,1.53
+Bellandur,Lunch,Millet Express,Chutney cups,pcs,15.26
+Bellandur,Snacks,Millet Express,Millet dosa batter,kg,0.3
+Bellandur,Snacks,Millet Express,Sambar,L,0.37
+Bellandur,Snacks,Millet Express,Chutney cups,pcs,3.69
+Bellandur,Dinner,Olio Pizza,Pizza dough balls,pcs,44.98
+Bellandur,Dinner,Olio Pizza,Pizza sauce,kg,2.77
+Bellandur,Dinner,Olio Pizza,Garlic dip cups,pcs,34.6
+Bellandur,Late night,Olio Pizza,Pizza dough balls,pcs,9.85
+Bellandur,Late night,Olio Pizza,Pizza sauce,kg,0.61
+Bellandur,Late night,Olio Pizza,Garlic dip cups,pcs,7.58
+Bellandur,Lunch,Olio Pizza,Pizza dough balls,pcs,10.43
+Bellandur,Lunch,Olio Pizza,Pizza sauce,kg,0.64
+Bellandur,Lunch,Olio Pizza,Garlic dip cups,pcs,8.02
+Bellandur,Snacks,Olio Pizza,Pizza dough balls,pcs,8.85
+Bellandur,Snacks,Olio Pizza,Pizza sauce,kg,0.54
+Bellandur,Snacks,Olio Pizza,Garlic dip cups,pcs,6.81
+Bellandur,Dinner,Sharief Bhai,Biryani masala base,kg,5.3
+Bellandur,Dinner,Sharief Bhai,Marinated chicken,kg,7.58
+Bellandur,Dinner,Sharief Bhai,Raita cups,pcs,37.88
+Bellandur,Late night,Sharief Bhai,Biryani masala base,kg,1.2
+Bellandur,Late night,Sharief Bhai,Marinated chicken,kg,1.72
+Bellandur,Late night,Sharief Bhai,Raita cups,pcs,8.58
+Bellandur,Lunch,Sharief Bhai,Biryani masala base,kg,2.74
+Bellandur,Lunch,Sharief Bhai,Marinated chicken,kg,3.91
+Bellandur,Lunch,Sharief Bhai,Raita cups,pcs,19.54
+Bellandur,Snacks,Sharief Bhai,Biryani masala base,kg,0.28
+Bellandur,Snacks,Sharief Bhai,Marinated chicken,kg,0.39
+Bellandur,Snacks,Sharief Bhai,Raita cups,pcs,1.97
+Electronic City,Breakfast,CakeZone,"Cake bases, 500 g",pcs,0.73
+Electronic City,Breakfast,CakeZone,Whipped cream,kg,0.06
+Electronic City,Dinner,CakeZone,"Cake bases, 500 g",pcs,5.26
+Electronic City,Dinner,CakeZone,Whipped cream,kg,0.44
+Electronic City,Late night,CakeZone,"Cake bases, 500 g",pcs,3.49
+Electronic City,Late night,CakeZone,Whipped cream,kg,0.29
+Electronic City,Lunch,CakeZone,"Cake bases, 500 g",pcs,0.72
+Electronic City,Lunch,CakeZone,Whipped cream,kg,0.06
+Electronic City,Snacks,CakeZone,"Cake bases, 500 g",pcs,2.76
+Electronic City,Snacks,CakeZone,Whipped cream,kg,0.23
+Electronic City,Breakfast,EatFit,Dal and sabzi base,kg,0.88
+Electronic City,Breakfast,EatFit,Multigrain roti dough,kg,0.59
+Electronic City,Breakfast,EatFit,"Brown rice, cooked",kg,0.74
+Electronic City,Dinner,EatFit,Dal and sabzi base,kg,2.06
+Electronic City,Dinner,EatFit,Multigrain roti dough,kg,1.37
+Electronic City,Dinner,EatFit,"Brown rice, cooked",kg,1.72
+Electronic City,Late night,EatFit,Dal and sabzi base,kg,0.1
+Electronic City,Late night,EatFit,Multigrain roti dough,kg,0.07
+Electronic City,Late night,EatFit,"Brown rice, cooked",kg,0.08
+Electronic City,Lunch,EatFit,Dal and sabzi base,kg,3.36
+Electronic City,Lunch,EatFit,Multigrain roti dough,kg,2.24
+Electronic City,Lunch,EatFit,"Brown rice, cooked",kg,2.8
+Electronic City,Snacks,EatFit,Dal and sabzi base,kg,0.65
+Electronic City,Snacks,EatFit,Multigrain roti dough,kg,0.43
+Electronic City,Snacks,EatFit,"Brown rice, cooked",kg,0.54
+Electronic City,Breakfast,Frozen Bottle,Ice-cream mix,L,0.15
+Electronic City,Breakfast,Frozen Bottle,Syrups,L,0.02
+Electronic City,Dinner,Frozen Bottle,Ice-cream mix,L,1.04
+Electronic City,Dinner,Frozen Bottle,Syrups,L,0.12
+Electronic City,Late night,Frozen Bottle,Ice-cream mix,L,1.07
+Electronic City,Late night,Frozen Bottle,Syrups,L,0.13
+Electronic City,Lunch,Frozen Bottle,Ice-cream mix,L,0.35
+Electronic City,Lunch,Frozen Bottle,Syrups,L,0.04
+Electronic City,Snacks,Frozen Bottle,Ice-cream mix,L,0.95
+Electronic City,Snacks,Frozen Bottle,Syrups,L,0.11
+Electronic City,Breakfast,Millet Express,Millet dosa batter,kg,0.75
+Electronic City,Breakfast,Millet Express,Sambar,L,0.93
+Electronic City,Breakfast,Millet Express,Chutney cups,pcs,9.34
+Electronic City,Dinner,Millet Express,Millet dosa batter,kg,0.55
+Electronic City,Dinner,Millet Express,Sambar,L,0.69
+Electronic City,Dinner,Millet Express,Chutney cups,pcs,6.93
+Electronic City,Lunch,Millet Express,Millet dosa batter,kg,0.62
+Electronic City,Lunch,Millet Express,Sambar,L,0.77
+Electronic City,Lunch,Millet Express,Chutney cups,pcs,7.7
+Electronic City,Snacks,Millet Express,Millet dosa batter,kg,0.15
+Electronic City,Snacks,Millet Express,Sambar,L,0.18
+Electronic City,Snacks,Millet Express,Chutney cups,pcs,1.84
+Electronic City,Dinner,Olio Pizza,Pizza dough balls,pcs,27.02
+Electronic City,Dinner,Olio Pizza,Pizza sauce,kg,1.66
+Electronic City,Dinner,Olio Pizza,Garlic dip cups,pcs,20.79
+Electronic City,Late night,Olio Pizza,Pizza dough balls,pcs,5.54
+Electronic City,Late night,Olio Pizza,Pizza sauce,kg,0.34
+Electronic City,Late night,Olio Pizza,Garlic dip cups,pcs,4.26
+Electronic City,Lunch,Olio Pizza,Pizza dough balls,pcs,5.97
+Electronic City,Lunch,Olio Pizza,Pizza sauce,kg,0.37
+Electronic City,Lunch,Olio Pizza,Garlic dip cups,pcs,4.59
+Electronic City,Snacks,Olio Pizza,Pizza dough balls,pcs,5.09
+Electronic City,Snacks,Olio Pizza,Pizza sauce,kg,0.31
+Electronic City,Snacks,Olio Pizza,Garlic dip cups,pcs,3.91
+Electronic City,Dinner,Sharief Bhai,Biryani masala base,kg,2.79
+Electronic City,Dinner,Sharief Bhai,Marinated chicken,kg,3.98
+Electronic City,Dinner,Sharief Bhai,Raita cups,pcs,19.92
+Electronic City,Late night,Sharief Bhai,Biryani masala base,kg,0.61
+Electronic City,Late night,Sharief Bhai,Marinated chicken,kg,0.88
+Electronic City,Late night,Sharief Bhai,Raita cups,pcs,4.38
+Electronic City,Lunch,Sharief Bhai,Biryani masala base,kg,1.61
+Electronic City,Lunch,Sharief Bhai,Marinated chicken,kg,2.3
+Electronic City,Lunch,Sharief Bhai,Raita cups,pcs,11.51
+Electronic City,Snacks,Sharief Bhai,Biryani masala base,kg,0.17
+Electronic City,Snacks,Sharief Bhai,Marinated chicken,kg,0.25
+Electronic City,Snacks,Sharief Bhai,Raita cups,pcs,1.24
+HSR Layout,Breakfast,CakeZone,"Cake bases, 500 g",pcs,1.12
+HSR Layout,Breakfast,CakeZone,Whipped cream,kg,0.09
+HSR Layout,Dinner,CakeZone,"Cake bases, 500 g",pcs,9.01
+HSR Layout,Dinner,CakeZone,Whipped cream,kg,0.75
+HSR Layout,Late night,CakeZone,"Cake bases, 500 g",pcs,5.9
+HSR Layout,Late night,CakeZone,Whipped cream,kg,0.49
+HSR Layout,Lunch,CakeZone,"Cake bases, 500 g",pcs,1.32
+HSR Layout,Lunch,CakeZone,Whipped cream,kg,0.11
+HSR Layout,Snacks,CakeZone,"Cake bases, 500 g",pcs,5.84
+HSR Layout,Snacks,CakeZone,Whipped cream,kg,0.49
+HSR Layout,Breakfast,EatFit,Dal and sabzi base,kg,1.24
+HSR Layout,Breakfast,EatFit,Multigrain roti dough,kg,0.82
+HSR Layout,Breakfast,EatFit,"Brown rice, cooked",kg,1.03
+HSR Layout,Dinner,EatFit,Dal and sabzi base,kg,3.8
+HSR Layout,Dinner,EatFit,Multigrain roti dough,kg,2.53
+HSR Layout,Dinner,EatFit,"Brown rice, cooked",kg,3.17
+HSR Layout,Late night,EatFit,Dal and sabzi base,kg,0.11
+HSR Layout,Late night,EatFit,Multigrain roti dough,kg,0.07
+HSR Layout,Late night,EatFit,"Brown rice, cooked",kg,0.09
+HSR Layout,Lunch,EatFit,Dal and sabzi base,kg,7.91
+HSR Layout,Lunch,EatFit,Multigrain roti dough,kg,5.28
+HSR Layout,Lunch,EatFit,"Brown rice, cooked",kg,6.6
+HSR Layout,Snacks,EatFit,Dal and sabzi base,kg,0.8
+HSR Layout,Snacks,EatFit,Multigrain roti dough,kg,0.53
+HSR Layout,Snacks,EatFit,"Brown rice, cooked",kg,0.66
+HSR Layout,Breakfast,Frozen Bottle,Ice-cream mix,L,0.22
+HSR Layout,Breakfast,Frozen Bottle,Syrups,L,0.03
+HSR Layout,Dinner,Frozen Bottle,Ice-cream mix,L,1.8
+HSR Layout,Dinner,Frozen Bottle,Syrups,L,0.22
+HSR Layout,Late night,Frozen Bottle,Ice-cream mix,L,1.06
+HSR Layout,Late night,Frozen Bottle,Syrups,L,0.13
+HSR Layout,Lunch,Frozen Bottle,Ice-cream mix,L,0.43
+HSR Layout,Lunch,Frozen Bottle,Syrups,L,0.05
+HSR Layout,Snacks,Frozen Bottle,Ice-cream mix,L,1.55
+HSR Layout,Snacks,Frozen Bottle,Syrups,L,0.19
+HSR Layout,Breakfast,Millet Express,Millet dosa batter,kg,0.97
+HSR Layout,Breakfast,Millet Express,Sambar,L,1.21
+HSR Layout,Breakfast,Millet Express,Chutney cups,pcs,12.08
+HSR Layout,Dinner,Millet Express,Millet dosa batter,kg,0.99
+HSR Layout,Dinner,Millet Express,Sambar,L,1.24
+HSR Layout,Dinner,Millet Express,Chutney cups,pcs,12.36
+HSR Layout,Lunch,Millet Express,Millet dosa batter,kg,1.1
+HSR Layout,Lunch,Millet Express,Sambar,L,1.37
+HSR Layout,Lunch,Millet Express,Chutney cups,pcs,13.73
+HSR Layout,Snacks,Millet Express,Millet dosa batter,kg,0.36
+HSR Layout,Snacks,Millet Express,Sambar,L,0.45
+HSR Layout,Snacks,Millet Express,Chutney cups,pcs,4.5
+HSR Layout,Dinner,Olio Pizza,Pizza dough balls,pcs,50.8
+HSR Layout,Dinner,Olio Pizza,Pizza sauce,kg,3.13
+HSR Layout,Dinner,Olio Pizza,Garlic dip cups,pcs,39.07
+HSR Layout,Late night,Olio Pizza,Pizza dough balls,pcs,11.62
+HSR Layout,Late night,Olio Pizza,Pizza sauce,kg,0.72
+HSR Layout,Late night,Olio Pizza,Garlic dip cups,pcs,8.94
+HSR Layout,Lunch,Olio Pizza,Pizza dough balls,pcs,13.77
+HSR Layout,Lunch,Olio Pizza,Pizza sauce,kg,0.85
+HSR Layout,Lunch,Olio Pizza,Garlic dip cups,pcs,10.59
+HSR Layout,Snacks,Olio Pizza,Pizza dough balls,pcs,8.65
+HSR Layout,Snacks,Olio Pizza,Pizza sauce,kg,0.53
+HSR Layout,Snacks,Olio Pizza,Garlic dip cups,pcs,6.65
+HSR Layout,Dinner,Sharief Bhai,Biryani masala base,kg,5.19
+HSR Layout,Dinner,Sharief Bhai,Marinated chicken,kg,7.41
+HSR Layout,Dinner,Sharief Bhai,Raita cups,pcs,37.04
+HSR Layout,Late night,Sharief Bhai,Biryani masala base,kg,1.51
+HSR Layout,Late night,Sharief Bhai,Marinated chicken,kg,2.16
+HSR Layout,Late night,Sharief Bhai,Raita cups,pcs,10.81
+HSR Layout,Lunch,Sharief Bhai,Biryani masala base,kg,2.92
+HSR Layout,Lunch,Sharief Bhai,Marinated chicken,kg,4.16
+HSR Layout,Lunch,Sharief Bhai,Raita cups,pcs,20.82
+HSR Layout,Snacks,Sharief Bhai,Biryani masala base,kg,0.32
+HSR Layout,Snacks,Sharief Bhai,Marinated chicken,kg,0.45
+HSR Layout,Snacks,Sharief Bhai,Raita cups,pcs,2.25
+Hebbal,Breakfast,CakeZone,"Cake bases, 500 g",pcs,0.56
+Hebbal,Breakfast,CakeZone,Whipped cream,kg,0.05
+Hebbal,Dinner,CakeZone,"Cake bases, 500 g",pcs,7.52
+Hebbal,Dinner,CakeZone,Whipped cream,kg,0.63
+Hebbal,Late night,CakeZone,"Cake bases, 500 g",pcs,4.94
+Hebbal,Late night,CakeZone,Whipped cream,kg,0.41
+Hebbal,Lunch,CakeZone,"Cake bases, 500 g",pcs,0.84
+Hebbal,Lunch,CakeZone,Whipped cream,kg,0.07
+Hebbal,Snacks,CakeZone,"Cake bases, 500 g",pcs,4.78
+Hebbal,Snacks,CakeZone,Whipped cream,kg,0.4
+Hebbal,Breakfast,EatFit,Dal and sabzi base,kg,1.28
+Hebbal,Breakfast,EatFit,Multigrain roti dough,kg,0.85
+Hebbal,Breakfast,EatFit,"Brown rice, cooked",kg,1.07
+Hebbal,Dinner,EatFit,Dal and sabzi base,kg,3.72
+Hebbal,Dinner,EatFit,Multigrain roti dough,kg,2.48
+Hebbal,Dinner,EatFit,"Brown rice, cooked",kg,3.1
+Hebbal,Late night,EatFit,Dal and sabzi base,kg,0.09
+Hebbal,Late night,EatFit,Multigrain roti dough,kg,0.06
+Hebbal,Late night,EatFit,"Brown rice, cooked",kg,0.08
+Hebbal,Lunch,EatFit,Dal and sabzi base,kg,5.3
+Hebbal,Lunch,EatFit,Multigrain roti dough,kg,3.53
+Hebbal,Lunch,EatFit,"Brown rice, cooked",kg,4.42
+Hebbal,Snacks,EatFit,Dal and sabzi base,kg,0.57
+Hebbal,Snacks,EatFit,Multigrain roti dough,kg,0.38
+Hebbal,Snacks,EatFit,"Brown rice, cooked",kg,0.47
+Hebbal,Breakfast,Frozen Bottle,Ice-cream mix,L,0.19
+Hebbal,Breakfast,Frozen Bottle,Syrups,L,0.02
+Hebbal,Dinner,Frozen Bottle,Ice-cream mix,L,1.43
+Hebbal,Dinner,Frozen Bottle,Syrups,L,0.17
+Hebbal,Late night,Frozen Bottle,Ice-cream mix,L,1.15
+Hebbal,Late night,Frozen Bottle,Syrups,L,0.14
+Hebbal,Lunch,Frozen Bottle,Ice-cream mix,L,0.35
+Hebbal,Lunch,Frozen Bottle,Syrups,L,0.04
+Hebbal,Snacks,Frozen Bottle,Ice-cream mix,L,1.27
+Hebbal,Snacks,Frozen Bottle,Syrups,L,0.15
+Hebbal,Breakfast,Millet Express,Millet dosa batter,kg,1.06
+Hebbal,Breakfast,Millet Express,Sambar,L,1.33
+Hebbal,Breakfast,Millet Express,Chutney cups,pcs,13.25
+Hebbal,Dinner,Millet Express,Millet dosa batter,kg,0.59
+Hebbal,Dinner,Millet Express,Sambar,L,0.74
+Hebbal,Dinner,Millet Express,Chutney cups,pcs,7.44
+Hebbal,Lunch,Millet Express,Millet dosa batter,kg,1.09
+Hebbal,Lunch,Millet Express,Sambar,L,1.36
+Hebbal,Lunch,Millet Express,Chutney cups,pcs,13.64
+Hebbal,Snacks,Millet Express,Millet dosa batter,kg,0.25
+Hebbal,Snacks,Millet Express,Sambar,L,0.31
+Hebbal,Snacks,Millet Express,Chutney cups,pcs,3.11
+Hebbal,Dinner,Olio Pizza,Pizza dough balls,pcs,36.96
+Hebbal,Dinner,Olio Pizza,Pizza sauce,kg,2.27
+Hebbal,Dinner,Olio Pizza,Garlic dip cups,pcs,28.43
+Hebbal,Late night,Olio Pizza,Pizza dough balls,pcs,9.72
+Hebbal,Late night,Olio Pizza,Pizza sauce,kg,0.6
+Hebbal,Late night,Olio Pizza,Garlic dip cups,pcs,7.47
+Hebbal,Lunch,Olio Pizza,Pizza dough balls,pcs,10.1
+Hebbal,Lunch,Olio Pizza,Pizza sauce,kg,0.62
+Hebbal,Lunch,Olio Pizza,Garlic dip cups,pcs,7.77
+Hebbal,Snacks,Olio Pizza,Pizza dough balls,pcs,9.06
+Hebbal,Snacks,Olio Pizza,Pizza sauce,kg,0.56
+Hebbal,Snacks,Olio Pizza,Garlic dip cups,pcs,6.97
+Hebbal,Dinner,Sharief Bhai,Biryani masala base,kg,4.01
+Hebbal,Dinner,Sharief Bhai,Marinated chicken,kg,5.73
+Hebbal,Dinner,Sharief Bhai,Raita cups,pcs,28.66
+Hebbal,Late night,Sharief Bhai,Biryani masala base,kg,1.3
+Hebbal,Late night,Sharief Bhai,Marinated chicken,kg,1.85
+Hebbal,Late night,Sharief Bhai,Raita cups,pcs,9.27
+Hebbal,Lunch,Sharief Bhai,Biryani masala base,kg,1.85
+Hebbal,Lunch,Sharief Bhai,Marinated chicken,kg,2.64
+Hebbal,Lunch,Sharief Bhai,Raita cups,pcs,13.18
+Hebbal,Snacks,Sharief Bhai,Biryani masala base,kg,0.35
+Hebbal,Snacks,Sharief Bhai,Marinated chicken,kg,0.5
+Hebbal,Snacks,Sharief Bhai,Raita cups,pcs,2.49
+Indiranagar,Breakfast,CakeZone,"Cake bases, 500 g",pcs,1.3
+Indiranagar,Breakfast,CakeZone,Whipped cream,kg,0.11
+Indiranagar,Dinner,CakeZone,"Cake bases, 500 g",pcs,8.51
+Indiranagar,Dinner,CakeZone,Whipped cream,kg,0.71
+Indiranagar,Late night,CakeZone,"Cake bases, 500 g",pcs,5.71
+Indiranagar,Late night,CakeZone,Whipped cream,kg,0.48
+Indiranagar,Lunch,CakeZone,"Cake bases, 500 g",pcs,1.42
+Indiranagar,Lunch,CakeZone,Whipped cream,kg,0.12
+Indiranagar,Snacks,CakeZone,"Cake bases, 500 g",pcs,5.47
+Indiranagar,Snacks,CakeZone,Whipped cream,kg,0.46
+Indiranagar,Breakfast,EatFit,Dal and sabzi base,kg,1.22
+Indiranagar,Breakfast,EatFit,Multigrain roti dough,kg,0.81
+Indiranagar,Breakfast,EatFit,"Brown rice, cooked",kg,1.01
+Indiranagar,Dinner,EatFit,Dal and sabzi base,kg,3.98
+Indiranagar,Dinner,EatFit,Multigrain roti dough,kg,2.65
+Indiranagar,Dinner,EatFit,"Brown rice, cooked",kg,3.31
+Indiranagar,Late night,EatFit,Dal and sabzi base,kg,0.13
+Indiranagar,Late night,EatFit,Multigrain roti dough,kg,0.09
+Indiranagar,Late night,EatFit,"Brown rice, cooked",kg,0.11
+Indiranagar,Lunch,EatFit,Dal and sabzi base,kg,6.08
+Indiranagar,Lunch,EatFit,Multigrain roti dough,kg,4.05
+Indiranagar,Lunch,EatFit,"Brown rice, cooked",kg,5.07
+Indiranagar,Snacks,EatFit,Dal and sabzi base,kg,0.88
+Indiranagar,Snacks,EatFit,Multigrain roti dough,kg,0.59
+Indiranagar,Snacks,EatFit,"Brown rice, cooked",kg,0.74
+Indiranagar,Breakfast,Frozen Bottle,Ice-cream mix,L,0.3
+Indiranagar,Breakfast,Frozen Bottle,Syrups,L,0.04
+Indiranagar,Dinner,Frozen Bottle,Ice-cream mix,L,1.8
+Indiranagar,Dinner,Frozen Bottle,Syrups,L,0.22
+Indiranagar,Late night,Frozen Bottle,Ice-cream mix,L,1.53
+Indiranagar,Late night,Frozen Bottle,Syrups,L,0.18
+Indiranagar,Lunch,Frozen Bottle,Ice-cream mix,L,0.42
+Indiranagar,Lunch,Frozen Bottle,Syrups,L,0.05
+Indiranagar,Snacks,Frozen Bottle,Ice-cream mix,L,1.56
+Indiranagar,Snacks,Frozen Bottle,Syrups,L,0.19
+Indiranagar,Breakfast,Millet Express,Millet dosa batter,kg,0.95
+Indiranagar,Breakfast,Millet Express,Sambar,L,1.19
+Indiranagar,Breakfast,Millet Express,Chutney cups,pcs,11.94
+Indiranagar,Dinner,Millet Express,Millet dosa batter,kg,0.92
+Indiranagar,Dinner,Millet Express,Sambar,L,1.16
+Indiranagar,Dinner,Millet Express,Chutney cups,pcs,11.56
+Indiranagar,Lunch,Millet Express,Millet dosa batter,kg,1.44
+Indiranagar,Lunch,Millet Express,Sambar,L,1.8
+Indiranagar,Lunch,Millet Express,Chutney cups,pcs,17.98
+Indiranagar,Snacks,Millet Express,Millet dosa batter,kg,0.19
+Indiranagar,Snacks,Millet Express,Sambar,L,0.24
+Indiranagar,Snacks,Millet Express,Chutney cups,pcs,2.42
+Indiranagar,Dinner,Olio Pizza,Pizza dough balls,pcs,52.34
+Indiranagar,Dinner,Olio Pizza,Pizza sauce,kg,3.22
+Indiranagar,Dinner,Olio Pizza,Garlic dip cups,pcs,40.26
+Indiranagar,Late night,Olio Pizza,Pizza dough balls,pcs,11.11
+Indiranagar,Late night,Olio Pizza,Pizza sauce,kg,0.68
+Indiranagar,Late night,Olio Pizza,Garlic dip cups,pcs,8.55
+Indiranagar,Lunch,Olio Pizza,Pizza dough balls,pcs,16.52
+Indiranagar,Lunch,Olio Pizza,Pizza sauce,kg,1.02
+Indiranagar,Lunch,Olio Pizza,Garlic dip cups,pcs,12.71
+Indiranagar,Snacks,Olio Pizza,Pizza dough balls,pcs,10.54
+Indiranagar,Snacks,Olio Pizza,Pizza sauce,kg,0.65
+Indiranagar,Snacks,Olio Pizza,Garlic dip cups,pcs,8.11
+Indiranagar,Dinner,Sharief Bhai,Biryani masala base,kg,6.4
+Indiranagar,Dinner,Sharief Bhai,Marinated chicken,kg,9.15
+Indiranagar,Dinner,Sharief Bhai,Raita cups,pcs,45.73
+Indiranagar,Late night,Sharief Bhai,Biryani masala base,kg,1.54
+Indiranagar,Late night,Sharief Bhai,Marinated chicken,kg,2.19
+Indiranagar,Late night,Sharief Bhai,Raita cups,pcs,10.97
+Indiranagar,Lunch,Sharief Bhai,Biryani masala base,kg,3.04
+Indiranagar,Lunch,Sharief Bhai,Marinated chicken,kg,4.35
+Indiranagar,Lunch,Sharief Bhai,Raita cups,pcs,21.73
+Indiranagar,Snacks,Sharief Bhai,Biryani masala base,kg,0.49
+Indiranagar,Snacks,Sharief Bhai,Marinated chicken,kg,0.7
+Indiranagar,Snacks,Sharief Bhai,Raita cups,pcs,3.52
+JP Nagar,Breakfast,CakeZone,"Cake bases, 500 g",pcs,0.86
+JP Nagar,Breakfast,CakeZone,Whipped cream,kg,0.07
+JP Nagar,Dinner,CakeZone,"Cake bases, 500 g",pcs,7.39
+JP Nagar,Dinner,CakeZone,Whipped cream,kg,0.62
+JP Nagar,Late night,CakeZone,"Cake bases, 500 g",pcs,5.59
+JP Nagar,Late night,CakeZone,Whipped cream,kg,0.47
+JP Nagar,Lunch,CakeZone,"Cake bases, 500 g",pcs,1.4
+JP Nagar,Lunch,CakeZone,Whipped cream,kg,0.12
+JP Nagar,Snacks,CakeZone,"Cake bases, 500 g",pcs,6.41
+JP Nagar,Snacks,CakeZone,Whipped cream,kg,0.53
+JP Nagar,Breakfast,EatFit,Dal and sabzi base,kg,1.22
+JP Nagar,Breakfast,EatFit,Multigrain roti dough,kg,0.81
+JP Nagar,Breakfast,EatFit,"Brown rice, cooked",kg,1.02
+JP Nagar,Dinner,EatFit,Dal and sabzi base,kg,3.42
+JP Nagar,Dinner,EatFit,Multigrain roti dough,kg,2.28
+JP Nagar,Dinner,EatFit,"Brown rice, cooked",kg,2.85
+JP Nagar,Late night,EatFit,Dal and sabzi base,kg,0.11
+JP Nagar,Late night,EatFit,Multigrain roti dough,kg,0.07
+JP Nagar,Late night,EatFit,"Brown rice, cooked",kg,0.09
+JP Nagar,Lunch,EatFit,Dal and sabzi base,kg,6.97
+JP Nagar,Lunch,EatFit,Multigrain roti dough,kg,4.65
+JP Nagar,Lunch,EatFit,"Brown rice, cooked",kg,5.81
+JP Nagar,Snacks,EatFit,Dal and sabzi base,kg,0.66
+JP Nagar,Snacks,EatFit,Multigrain roti dough,kg,0.44
+JP Nagar,Snacks,EatFit,"Brown rice, cooked",kg,0.55
+JP Nagar,Breakfast,Frozen Bottle,Ice-cream mix,L,0.21
+JP Nagar,Breakfast,Frozen Bottle,Syrups,L,0.03
+JP Nagar,Dinner,Frozen Bottle,Ice-cream mix,L,1.65
+JP Nagar,Dinner,Frozen Bottle,Syrups,L,0.2
+JP Nagar,Late night,Frozen Bottle,Ice-cream mix,L,1.14
+JP Nagar,Late night,Frozen Bottle,Syrups,L,0.14
+JP Nagar,Lunch,Frozen Bottle,Ice-cream mix,L,0.32
+JP Nagar,Lunch,Frozen Bottle,Syrups,L,0.04
+JP Nagar,Snacks,Frozen Bottle,Ice-cream mix,L,1.03
+JP Nagar,Snacks,Frozen Bottle,Syrups,L,0.12
+JP Nagar,Breakfast,Millet Express,Millet dosa batter,kg,0.73
+JP Nagar,Breakfast,Millet Express,Sambar,L,0.91
+JP Nagar,Breakfast,Millet Express,Chutney cups,pcs,9.08
+JP Nagar,Dinner,Millet Express,Millet dosa batter,kg,0.67
+JP Nagar,Dinner,Millet Express,Sambar,L,0.84
+JP Nagar,Dinner,Millet Express,Chutney cups,pcs,8.39
+JP Nagar,Lunch,Millet Express,Millet dosa batter,kg,0.96
+JP Nagar,Lunch,Millet Express,Sambar,L,1.21
+JP Nagar,Lunch,Millet Express,Chutney cups,pcs,12.06
+JP Nagar,Snacks,Millet Express,Millet dosa batter,kg,0.25
+JP Nagar,Snacks,Millet Express,Sambar,L,0.31
+JP Nagar,Snacks,Millet Express,Chutney cups,pcs,3.14
+JP Nagar,Dinner,Olio Pizza,Pizza dough balls,pcs,45.51
+JP Nagar,Dinner,Olio Pizza,Pizza sauce,kg,2.8
+JP Nagar,Dinner,Olio Pizza,Garlic dip cups,pcs,35.0
+JP Nagar,Late night,Olio Pizza,Pizza dough balls,pcs,11.13
+JP Nagar,Late night,Olio Pizza,Pizza sauce,kg,0.69
+JP Nagar,Late night,Olio Pizza,Garlic dip cups,pcs,8.56
+JP Nagar,Lunch,Olio Pizza,Pizza dough balls,pcs,9.91
+JP Nagar,Lunch,Olio Pizza,Pizza sauce,kg,0.61
+JP Nagar,Lunch,Olio Pizza,Garlic dip cups,pcs,7.62
+JP Nagar,Snacks,Olio Pizza,Pizza dough balls,pcs,7.0
+JP Nagar,Snacks,Olio Pizza,Pizza sauce,kg,0.43
+JP Nagar,Snacks,Olio Pizza,Garlic dip cups,pcs,5.39
+JP Nagar,Dinner,Sharief Bhai,Biryani masala base,kg,4.07
+JP Nagar,Dinner,Sharief Bhai,Marinated chicken,kg,5.81
+JP Nagar,Dinner,Sharief Bhai,Raita cups,pcs,29.04
+JP Nagar,Late night,Sharief Bhai,Biryani masala base,kg,1.34
+JP Nagar,Late night,Sharief Bhai,Marinated chicken,kg,1.92
+JP Nagar,Late night,Sharief Bhai,Raita cups,pcs,9.58
+JP Nagar,Lunch,Sharief Bhai,Biryani masala base,kg,2.48
+JP Nagar,Lunch,Sharief Bhai,Marinated chicken,kg,3.54
+JP Nagar,Lunch,Sharief Bhai,Raita cups,pcs,17.7
+JP Nagar,Snacks,Sharief Bhai,Biryani masala base,kg,0.42
+JP Nagar,Snacks,Sharief Bhai,Marinated chicken,kg,0.6
+JP Nagar,Snacks,Sharief Bhai,Raita cups,pcs,3.02
+Jayanagar,Breakfast,CakeZone,"Cake bases, 500 g",pcs,1.06
+Jayanagar,Breakfast,CakeZone,Whipped cream,kg,0.09
+Jayanagar,Dinner,CakeZone,"Cake bases, 500 g",pcs,7.92
+Jayanagar,Dinner,CakeZone,Whipped cream,kg,0.66
+Jayanagar,Late night,CakeZone,"Cake bases, 500 g",pcs,5.25
+Jayanagar,Late night,CakeZone,Whipped cream,kg,0.44
+Jayanagar,Lunch,CakeZone,"Cake bases, 500 g",pcs,1.66
+Jayanagar,Lunch,CakeZone,Whipped cream,kg,0.14
+Jayanagar,Snacks,CakeZone,"Cake bases, 500 g",pcs,4.52
+Jayanagar,Snacks,CakeZone,Whipped cream,kg,0.38
+Jayanagar,Breakfast,EatFit,Dal and sabzi base,kg,1.5
+Jayanagar,Breakfast,EatFit,Multigrain roti dough,kg,1.0
+Jayanagar,Breakfast,EatFit,"Brown rice, cooked",kg,1.25
+Jayanagar,Dinner,EatFit,Dal and sabzi base,kg,3.26
+Jayanagar,Dinner,EatFit,Multigrain roti dough,kg,2.17
+Jayanagar,Dinner,EatFit,"Brown rice, cooked",kg,2.72
+Jayanagar,Late night,EatFit,Dal and sabzi base,kg,0.13
+Jayanagar,Late night,EatFit,Multigrain roti dough,kg,0.09
+Jayanagar,Late night,EatFit,"Brown rice, cooked",kg,0.11
+Jayanagar,Lunch,EatFit,Dal and sabzi base,kg,6.06
+Jayanagar,Lunch,EatFit,Multigrain roti dough,kg,4.04
+Jayanagar,Lunch,EatFit,"Brown rice, cooked",kg,5.05
+Jayanagar,Snacks,EatFit,Dal and sabzi base,kg,0.79
+Jayanagar,Snacks,EatFit,Multigrain roti dough,kg,0.53
+Jayanagar,Snacks,EatFit,"Brown rice, cooked",kg,0.66
+Jayanagar,Breakfast,Frozen Bottle,Ice-cream mix,L,0.25
+Jayanagar,Breakfast,Frozen Bottle,Syrups,L,0.03
+Jayanagar,Dinner,Frozen Bottle,Ice-cream mix,L,1.72
+Jayanagar,Dinner,Frozen Bottle,Syrups,L,0.21
+Jayanagar,Late night,Frozen Bottle,Ice-cream mix,L,0.97
+Jayanagar,Late night,Frozen Bottle,Syrups,L,0.12
+Jayanagar,Lunch,Frozen Bottle,Ice-cream mix,L,0.39
+Jayanagar,Lunch,Frozen Bottle,Syrups,L,0.05
+Jayanagar,Snacks,Frozen Bottle,Ice-cream mix,L,1.46
+Jayanagar,Snacks,Frozen Bottle,Syrups,L,0.18
+Jayanagar,Breakfast,Millet Express,Millet dosa batter,kg,1.21
+Jayanagar,Breakfast,Millet Express,Sambar,L,1.52
+Jayanagar,Breakfast,Millet Express,Chutney cups,pcs,15.17
+Jayanagar,Dinner,Millet Express,Millet dosa batter,kg,0.73
+Jayanagar,Dinner,Millet Express,Sambar,L,0.92
+Jayanagar,Dinner,Millet Express,Chutney cups,pcs,9.16
+Jayanagar,Lunch,Millet Express,Millet dosa batter,kg,1.09
+Jayanagar,Lunch,Millet Express,Sambar,L,1.36
+Jayanagar,Lunch,Millet Express,Chutney cups,pcs,13.65
+Jayanagar,Snacks,Millet Express,Millet dosa batter,kg,0.37
+Jayanagar,Snacks,Millet Express,Sambar,L,0.47
+Jayanagar,Snacks,Millet Express,Chutney cups,pcs,4.68
+Jayanagar,Dinner,Olio Pizza,Pizza dough balls,pcs,42.08
+Jayanagar,Dinner,Olio Pizza,Pizza sauce,kg,2.59
+Jayanagar,Dinner,Olio Pizza,Garlic dip cups,pcs,32.37
+Jayanagar,Late night,Olio Pizza,Pizza dough balls,pcs,9.98
+Jayanagar,Late night,Olio Pizza,Pizza sauce,kg,0.61
+Jayanagar,Late night,Olio Pizza,Garlic dip cups,pcs,7.68
+Jayanagar,Lunch,Olio Pizza,Pizza dough balls,pcs,9.75
+Jayanagar,Lunch,Olio Pizza,Pizza sauce,kg,0.6
+Jayanagar,Lunch,Olio Pizza,Garlic dip cups,pcs,7.5
+Jayanagar,Snacks,Olio Pizza,Pizza dough balls,pcs,6.82
+Jayanagar,Snacks,Olio Pizza,Pizza sauce,kg,0.42
+Jayanagar,Snacks,Olio Pizza,Garlic dip cups,pcs,5.24
+Jayanagar,Dinner,Sharief Bhai,Biryani masala base,kg,4.85
+Jayanagar,Dinner,Sharief Bhai,Marinated chicken,kg,6.93
+Jayanagar,Dinner,Sharief Bhai,Raita cups,pcs,34.67
+Jayanagar,Late night,Sharief Bhai,Biryani masala base,kg,1.14
+Jayanagar,Late night,Sharief Bhai,Marinated chicken,kg,1.64
+Jayanagar,Late night,Sharief Bhai,Raita cups,pcs,8.18
+Jayanagar,Lunch,Sharief Bhai,Biryani masala base,kg,2.07
+Jayanagar,Lunch,Sharief Bhai,Marinated chicken,kg,2.96
+Jayanagar,Lunch,Sharief Bhai,Raita cups,pcs,14.82
+Jayanagar,Snacks,Sharief Bhai,Biryani masala base,kg,0.38
+Jayanagar,Snacks,Sharief Bhai,Marinated chicken,kg,0.54
+Jayanagar,Snacks,Sharief Bhai,Raita cups,pcs,2.69
+Koramangala,Breakfast,CakeZone,"Cake bases, 500 g",pcs,1.2
+Koramangala,Breakfast,CakeZone,Whipped cream,kg,0.1
+Koramangala,Dinner,CakeZone,"Cake bases, 500 g",pcs,9.58
+Koramangala,Dinner,CakeZone,Whipped cream,kg,0.8
+Koramangala,Late night,CakeZone,"Cake bases, 500 g",pcs,6.97
+Koramangala,Late night,CakeZone,Whipped cream,kg,0.58
+Koramangala,Lunch,CakeZone,"Cake bases, 500 g",pcs,2.91
+Koramangala,Lunch,CakeZone,Whipped cream,kg,0.24
+Koramangala,Snacks,CakeZone,"Cake bases, 500 g",pcs,6.69
+Koramangala,Snacks,CakeZone,Whipped cream,kg,0.56
+Koramangala,Breakfast,EatFit,Dal and sabzi base,kg,1.44
+Koramangala,Breakfast,EatFit,Multigrain roti dough,kg,0.96
+Koramangala,Breakfast,EatFit,"Brown rice, cooked",kg,1.2
+Koramangala,Dinner,EatFit,Dal and sabzi base,kg,4.37
+Koramangala,Dinner,EatFit,Multigrain roti dough,kg,2.92
+Koramangala,Dinner,EatFit,"Brown rice, cooked",kg,3.64
+Koramangala,Late night,EatFit,Dal and sabzi base,kg,0.16
+Koramangala,Late night,EatFit,Multigrain roti dough,kg,0.11
+Koramangala,Late night,EatFit,"Brown rice, cooked",kg,0.13
+Koramangala,Lunch,EatFit,Dal and sabzi base,kg,7.14
+Koramangala,Lunch,EatFit,Multigrain roti dough,kg,4.76
+Koramangala,Lunch,EatFit,"Brown rice, cooked",kg,5.95
+Koramangala,Snacks,EatFit,Dal and sabzi base,kg,1.12
+Koramangala,Snacks,EatFit,Multigrain roti dough,kg,0.74
+Koramangala,Snacks,EatFit,"Brown rice, cooked",kg,0.93
+Koramangala,Breakfast,Frozen Bottle,Ice-cream mix,L,0.31
+Koramangala,Breakfast,Frozen Bottle,Syrups,L,0.04
+Koramangala,Dinner,Frozen Bottle,Ice-cream mix,L,1.7
+Koramangala,Dinner,Frozen Bottle,Syrups,L,0.2
+Koramangala,Late night,Frozen Bottle,Ice-cream mix,L,1.27
+Koramangala,Late night,Frozen Bottle,Syrups,L,0.15
+Koramangala,Lunch,Frozen Bottle,Ice-cream mix,L,0.46
+Koramangala,Lunch,Frozen Bottle,Syrups,L,0.05
+Koramangala,Snacks,Frozen Bottle,Ice-cream mix,L,1.71
+Koramangala,Snacks,Frozen Bottle,Syrups,L,0.21
+Koramangala,Breakfast,Millet Express,Millet dosa batter,kg,1.29
+Koramangala,Breakfast,Millet Express,Sambar,L,1.61
+Koramangala,Breakfast,Millet Express,Chutney cups,pcs,16.08
+Koramangala,Dinner,Millet Express,Millet dosa batter,kg,0.91
+Koramangala,Dinner,Millet Express,Sambar,L,1.14
+Koramangala,Dinner,Millet Express,Chutney cups,pcs,11.39
+Koramangala,Lunch,Millet Express,Millet dosa batter,kg,1.36
+Koramangala,Lunch,Millet Express,Sambar,L,1.7
+Koramangala,Lunch,Millet Express,Chutney cups,pcs,17.05
+Koramangala,Snacks,Millet Express,Millet dosa batter,kg,0.26
+Koramangala,Snacks,Millet Express,Sambar,L,0.33
+Koramangala,Snacks,Millet Express,Chutney cups,pcs,3.3
+Koramangala,Dinner,Olio Pizza,Pizza dough balls,pcs,54.36
+Koramangala,Dinner,Olio Pizza,Pizza sauce,kg,3.35
+Koramangala,Dinner,Olio Pizza,Garlic dip cups,pcs,41.82
+Koramangala,Late night,Olio Pizza,Pizza dough balls,pcs,14.32
+Koramangala,Late night,Olio Pizza,Pizza sauce,kg,0.88
+Koramangala,Late night,Olio Pizza,Garlic dip cups,pcs,11.01
+Koramangala,Lunch,Olio Pizza,Pizza dough balls,pcs,13.24
+Koramangala,Lunch,Olio Pizza,Pizza sauce,kg,0.81
+Koramangala,Lunch,Olio Pizza,Garlic dip cups,pcs,10.19
+Koramangala,Snacks,Olio Pizza,Pizza dough balls,pcs,10.63
+Koramangala,Snacks,Olio Pizza,Pizza sauce,kg,0.65
+Koramangala,Snacks,Olio Pizza,Garlic dip cups,pcs,8.18
+Koramangala,Dinner,Sharief Bhai,Biryani masala base,kg,5.44
+Koramangala,Dinner,Sharief Bhai,Marinated chicken,kg,7.78
+Koramangala,Dinner,Sharief Bhai,Raita cups,pcs,38.88
+Koramangala,Late night,Sharief Bhai,Biryani masala base,kg,1.86
+Koramangala,Late night,Sharief Bhai,Marinated chicken,kg,2.66
+Koramangala,Late night,Sharief Bhai,Raita cups,pcs,13.29
+Koramangala,Lunch,Sharief Bhai,Biryani masala base,kg,3.04
+Koramangala,Lunch,Sharief Bhai,Marinated chicken,kg,4.35
+Koramangala,Lunch,Sharief Bhai,Raita cups,pcs,21.73
+Koramangala,Snacks,Sharief Bhai,Biryani masala base,kg,0.46
+Koramangala,Snacks,Sharief Bhai,Marinated chicken,kg,0.65
+Koramangala,Snacks,Sharief Bhai,Raita cups,pcs,3.26
+Marathahalli,Breakfast,CakeZone,"Cake bases, 500 g",pcs,0.66
+Marathahalli,Breakfast,CakeZone,Whipped cream,kg,0.06
+Marathahalli,Dinner,CakeZone,"Cake bases, 500 g",pcs,7.89
+Marathahalli,Dinner,CakeZone,Whipped cream,kg,0.66
+Marathahalli,Late night,CakeZone,"Cake bases, 500 g",pcs,5.11
+Marathahalli,Late night,CakeZone,Whipped cream,kg,0.43
+Marathahalli,Lunch,CakeZone,"Cake bases, 500 g",pcs,1.26
+Marathahalli,Lunch,CakeZone,Whipped cream,kg,0.11
+Marathahalli,Snacks,CakeZone,"Cake bases, 500 g",pcs,5.07
+Marathahalli,Snacks,CakeZone,Whipped cream,kg,0.42
+Marathahalli,Breakfast,EatFit,Dal and sabzi base,kg,1.26
+Marathahalli,Breakfast,EatFit,Multigrain roti dough,kg,0.84
+Marathahalli,Breakfast,EatFit,"Brown rice, cooked",kg,1.05
+Marathahalli,Dinner,EatFit,Dal and sabzi base,kg,3.71
+Marathahalli,Dinner,EatFit,Multigrain roti dough,kg,2.47
+Marathahalli,Dinner,EatFit,"Brown rice, cooked",kg,3.09
+Marathahalli,Late night,EatFit,Dal and sabzi base,kg,0.18
+Marathahalli,Late night,EatFit,Multigrain roti dough,kg,0.12
+Marathahalli,Late night,EatFit,"Brown rice, cooked",kg,0.15
+Marathahalli,Lunch,EatFit,Dal and sabzi base,kg,6.25
+Marathahalli,Lunch,EatFit,Multigrain roti dough,kg,4.17
+Marathahalli,Lunch,EatFit,"Brown rice, cooked",kg,5.21
+Marathahalli,Snacks,EatFit,Dal and sabzi base,kg,0.79
+Marathahalli,Snacks,EatFit,Multigrain roti dough,kg,0.53
+Marathahalli,Snacks,EatFit,"Brown rice, cooked",kg,0.66
+Marathahalli,Breakfast,Frozen Bottle,Ice-cream mix,L,0.24
+Marathahalli,Breakfast,Frozen Bottle,Syrups,L,0.03
+Marathahalli,Dinner,Frozen Bottle,Ice-cream mix,L,1.6
+Marathahalli,Dinner,Frozen Bottle,Syrups,L,0.19
+Marathahalli,Late night,Frozen Bottle,Ice-cream mix,L,1.22
+Marathahalli,Late night,Frozen Bottle,Syrups,L,0.15
+Marathahalli,Lunch,Frozen Bottle,Ice-cream mix,L,0.4
+Marathahalli,Lunch,Frozen Bottle,Syrups,L,0.05
+Marathahalli,Snacks,Frozen Bottle,Ice-cream mix,L,1.33
+Marathahalli,Snacks,Frozen Bottle,Syrups,L,0.16
+Marathahalli,Breakfast,Millet Express,Millet dosa batter,kg,0.79
+Marathahalli,Breakfast,Millet Express,Sambar,L,0.99
+Marathahalli,Breakfast,Millet Express,Chutney cups,pcs,9.9
+Marathahalli,Dinner,Millet Express,Millet dosa batter,kg,0.72
+Marathahalli,Dinner,Millet Express,Sambar,L,0.91
+Marathahalli,Dinner,Millet Express,Chutney cups,pcs,9.06
+Marathahalli,Lunch,Millet Express,Millet dosa batter,kg,1.02
+Marathahalli,Lunch,Millet Express,Sambar,L,1.28
+Marathahalli,Lunch,Millet Express,Chutney cups,pcs,12.81
+Marathahalli,Snacks,Millet Express,Millet dosa batter,kg,0.17
+Marathahalli,Snacks,Millet Express,Sambar,L,0.21
+Marathahalli,Snacks,Millet Express,Chutney cups,pcs,2.09
+Marathahalli,Dinner,Olio Pizza,Pizza dough balls,pcs,46.82
+Marathahalli,Dinner,Olio Pizza,Pizza sauce,kg,2.88
+Marathahalli,Dinner,Olio Pizza,Garlic dip cups,pcs,36.02
+Marathahalli,Late night,Olio Pizza,Pizza dough balls,pcs,8.56
+Marathahalli,Late night,Olio Pizza,Pizza sauce,kg,0.53
+Marathahalli,Late night,Olio Pizza,Garlic dip cups,pcs,6.58
+Marathahalli,Lunch,Olio Pizza,Pizza dough balls,pcs,10.43
+Marathahalli,Lunch,Olio Pizza,Pizza sauce,kg,0.64
+Marathahalli,Lunch,Olio Pizza,Garlic dip cups,pcs,8.02
+Marathahalli,Snacks,Olio Pizza,Pizza dough balls,pcs,7.9
+Marathahalli,Snacks,Olio Pizza,Pizza sauce,kg,0.49
+Marathahalli,Snacks,Olio Pizza,Garlic dip cups,pcs,6.08
+Marathahalli,Dinner,Sharief Bhai,Biryani masala base,kg,4.98
+Marathahalli,Dinner,Sharief Bhai,Marinated chicken,kg,7.12
+Marathahalli,Dinner,Sharief Bhai,Raita cups,pcs,35.58
+Marathahalli,Late night,Sharief Bhai,Biryani masala base,kg,1.22
+Marathahalli,Late night,Sharief Bhai,Marinated chicken,kg,1.74
+Marathahalli,Late night,Sharief Bhai,Raita cups,pcs,8.69
+Marathahalli,Lunch,Sharief Bhai,Biryani masala base,kg,2.79
+Marathahalli,Lunch,Sharief Bhai,Marinated chicken,kg,3.99
+Marathahalli,Lunch,Sharief Bhai,Raita cups,pcs,19.96
+Marathahalli,Snacks,Sharief Bhai,Biryani masala base,kg,0.45
+Marathahalli,Snacks,Sharief Bhai,Marinated chicken,kg,0.65
+Marathahalli,Snacks,Sharief Bhai,Raita cups,pcs,3.23
+Whitefield,Breakfast,CakeZone,"Cake bases, 500 g",pcs,0.97
+Whitefield,Breakfast,CakeZone,Whipped cream,kg,0.08
+Whitefield,Dinner,CakeZone,"Cake bases, 500 g",pcs,7.98
+Whitefield,Dinner,CakeZone,Whipped cream,kg,0.67
+Whitefield,Late night,CakeZone,"Cake bases, 500 g",pcs,5.41
+Whitefield,Late night,CakeZone,Whipped cream,kg,0.45
+Whitefield,Lunch,CakeZone,"Cake bases, 500 g",pcs,1.14
+Whitefield,Lunch,CakeZone,Whipped cream,kg,0.1
+Whitefield,Snacks,CakeZone,"Cake bases, 500 g",pcs,5.28
+Whitefield,Snacks,CakeZone,Whipped cream,kg,0.44
+Whitefield,Breakfast,EatFit,Dal and sabzi base,kg,1.48
+Whitefield,Breakfast,EatFit,Multigrain roti dough,kg,0.99
+Whitefield,Breakfast,EatFit,"Brown rice, cooked",kg,1.23
+Whitefield,Dinner,EatFit,Dal and sabzi base,kg,3.98
+Whitefield,Dinner,EatFit,Multigrain roti dough,kg,2.65
+Whitefield,Dinner,EatFit,"Brown rice, cooked",kg,3.31
+Whitefield,Late night,EatFit,Dal and sabzi base,kg,0.17
+Whitefield,Late night,EatFit,Multigrain roti dough,kg,0.11
+Whitefield,Late night,EatFit,"Brown rice, cooked",kg,0.14
+Whitefield,Lunch,EatFit,Dal and sabzi base,kg,6.95
+Whitefield,Lunch,EatFit,Multigrain roti dough,kg,4.64
+Whitefield,Lunch,EatFit,"Brown rice, cooked",kg,5.8
+Whitefield,Snacks,EatFit,Dal and sabzi base,kg,0.5
+Whitefield,Snacks,EatFit,Multigrain roti dough,kg,0.34
+Whitefield,Snacks,EatFit,"Brown rice, cooked",kg,0.42
+Whitefield,Breakfast,Frozen Bottle,Ice-cream mix,L,0.29
+Whitefield,Breakfast,Frozen Bottle,Syrups,L,0.03
+Whitefield,Dinner,Frozen Bottle,Ice-cream mix,L,1.73
+Whitefield,Dinner,Frozen Bottle,Syrups,L,0.21
+Whitefield,Late night,Frozen Bottle,Ice-cream mix,L,1.13
+Whitefield,Late night,Frozen Bottle,Syrups,L,0.14
+Whitefield,Lunch,Frozen Bottle,Ice-cream mix,L,0.27
+Whitefield,Lunch,Frozen Bottle,Syrups,L,0.03
+Whitefield,Snacks,Frozen Bottle,Ice-cream mix,L,1.64
+Whitefield,Snacks,Frozen Bottle,Syrups,L,0.2
+Whitefield,Breakfast,Millet Express,Millet dosa batter,kg,1.05
+Whitefield,Breakfast,Millet Express,Sambar,L,1.31
+Whitefield,Breakfast,Millet Express,Chutney cups,pcs,13.15
+Whitefield,Dinner,Millet Express,Millet dosa batter,kg,0.74
+Whitefield,Dinner,Millet Express,Sambar,L,0.93
+Whitefield,Dinner,Millet Express,Chutney cups,pcs,9.28
+Whitefield,Lunch,Millet Express,Millet dosa batter,kg,1.19
+Whitefield,Lunch,Millet Express,Sambar,L,1.49
+Whitefield,Lunch,Millet Express,Chutney cups,pcs,14.9
+Whitefield,Snacks,Millet Express,Millet dosa batter,kg,0.25
+Whitefield,Snacks,Millet Express,Sambar,L,0.32
+Whitefield,Snacks,Millet Express,Chutney cups,pcs,3.16
+Whitefield,Dinner,Olio Pizza,Pizza dough balls,pcs,51.53
+Whitefield,Dinner,Olio Pizza,Pizza sauce,kg,3.17
+Whitefield,Dinner,Olio Pizza,Garlic dip cups,pcs,39.64
+Whitefield,Late night,Olio Pizza,Pizza dough balls,pcs,9.89
+Whitefield,Late night,Olio Pizza,Pizza sauce,kg,0.61
+Whitefield,Late night,Olio Pizza,Garlic dip cups,pcs,7.61
+Whitefield,Lunch,Olio Pizza,Pizza dough balls,pcs,13.01
+Whitefield,Lunch,Olio Pizza,Pizza sauce,kg,0.8
+Whitefield,Lunch,Olio Pizza,Garlic dip cups,pcs,10.01
+Whitefield,Snacks,Olio Pizza,Pizza dough balls,pcs,8.96
+Whitefield,Snacks,Olio Pizza,Pizza sauce,kg,0.55
+Whitefield,Snacks,Olio Pizza,Garlic dip cups,pcs,6.9
+Whitefield,Dinner,Sharief Bhai,Biryani masala base,kg,5.37
+Whitefield,Dinner,Sharief Bhai,Marinated chicken,kg,7.67
+Whitefield,Dinner,Sharief Bhai,Raita cups,pcs,38.37
+Whitefield,Late night,Sharief Bhai,Biryani masala base,kg,1.39
+Whitefield,Late night,Sharief Bhai,Marinated chicken,kg,1.98
+Whitefield,Late night,Sharief Bhai,Raita cups,pcs,9.91
+Whitefield,Lunch,Sharief Bhai,Biryani masala base,kg,2.42
+Whitefield,Lunch,Sharief Bhai,Marinated chicken,kg,3.45
+Whitefield,Lunch,Sharief Bhai,Raita cups,pcs,17.26
+Whitefield,Snacks,Sharief Bhai,Biryani masala base,kg,0.44
+Whitefield,Snacks,Sharief Bhai,Marinated chicken,kg,0.63
+Whitefield,Snacks,Sharief Bhai,Raita cups,pcs,3.15

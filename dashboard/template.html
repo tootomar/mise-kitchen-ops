@@ -1,0 +1,915 @@
+<title>Mise Kitchen Operations</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<script src="https://unpkg.com/lucide@0.441.0/dist/umd/lucide.min.js"></script>
+<style>
+:root{
+  color-scheme: light;
+  --bg:#f2f6fc; --card:#ffffff; --line:#e3eaf6; --line-soft:#eef3fb; --hover:#f5f8ff;
+  --ink:#0a1a3f; --text:#33415c; --muted:#7383a3;
+  --blue:#1a56f0; --blue-2:#3d7bff; --blue-soft:#e8efff; --sky:#cfe0ff;
+  --navy:#0a1a3f; --navy-2:#132b66;
+  --good:#0f9d58; --good-soft:#e5f6ed; --warn:#e58a00; --warn-soft:#fff3df; --bad:#e2394b; --bad-soft:#fde8eb;
+  --radius:18px;
+  --shadow:0 1px 2px rgba(10,26,63,.04), 0 10px 30px rgba(10,26,63,.06);
+  --font:"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --num:"Sora", "Plus Jakarta Sans", system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+.num{font-family:var(--num);font-variant-numeric:tabular-nums}
+[data-lucide],svg.lucide{width:18px;height:18px;stroke-width:2;flex:none}
+
+/* ---------- shell ---------- */
+.app{display:grid;grid-template-columns:248px minmax(0,1fr);min-height:100vh}
+.side{position:sticky;top:0;height:100vh;padding:22px 16px;display:flex;flex-direction:column;gap:22px;
+  background:radial-gradient(120% 60% at 0% 0%,#1d3f99 0%,transparent 60%),linear-gradient(180deg,var(--navy-2),var(--navy));color:#dbe5ff;overflow:hidden}
+.brand{display:flex;align-items:center;gap:11px;padding:0 6px}
+.brand .mark{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#4d8bff,var(--blue));display:grid;place-items:center;box-shadow:0 6px 18px rgba(26,86,240,.45)}
+.brand b{font-family:var(--num);font-size:21px;color:#fff;letter-spacing:-.02em;display:block;line-height:1.1}
+.brand span{font-size:11.5px;color:#9fb3e6;letter-spacing:.04em}
+.nav{display:flex;flex-direction:column;gap:4px}
+.nav .lbl{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#7f95cc;padding:0 12px 6px}
+.nav button{all:unset;cursor:pointer;display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px;color:#c4d2f5;font-weight:600;font-size:14px;transition:background .15s,color .15s}
+.nav button:hover{background:rgba(255,255,255,.07);color:#fff}
+.nav button[aria-selected="true"]{background:#fff;color:var(--navy);box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.nav button[aria-selected="true"] svg{color:var(--blue)}
+.nav button:focus-visible{outline:2px solid #8fb2ff;outline-offset:2px}
+.nav .cnt{margin-left:auto;background:var(--bad);color:#fff;font-size:11px;font-weight:700;border-radius:99px;padding:1px 8px}
+.areacard{margin-top:auto;border-radius:16px;padding:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);position:relative;overflow:hidden}
+.areacard b{color:#fff;display:block;font-size:14px}
+.areacard p{margin:4px 0 0;font-size:12px;color:#9fb3e6}
+.areacard{padding-bottom:58px}
+.areacard svg.city{position:absolute;left:0;right:0;bottom:-2px;width:100%;height:50px;opacity:.28}
+main{min-width:0;padding:22px 28px 40px}
+
+/* ---------- top bar ---------- */
+.top{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.top h1{margin:0;font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.top .sub{font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.top .sub i,.top .sub svg{width:14px;height:14px}
+.filters{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.pill{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:0 4px 0 12px;height:40px;box-shadow:0 1px 2px rgba(10,26,63,.04)}
+.pill svg{width:16px;height:16px;color:var(--blue)}
+.pill select{border:0;background:transparent;height:38px;padding:0 26px 0 0;font-weight:600;font-size:13px;color:var(--ink);cursor:pointer;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237383a3' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center}
+.pill select:focus-visible{outline:none}
+.pill:focus-within{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+.btn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:12px;font-weight:700;font-size:13px}
+.btn.ghost{background:#fff;border:1px solid var(--line);color:var(--text)}
+.btn.ghost:hover{border-color:var(--blue);color:var(--blue)}
+.btn.primary{background:linear-gradient(135deg,var(--blue-2),var(--blue));color:#fff;box-shadow:0 8px 20px rgba(26,86,240,.3)}
+.btn.primary:hover{filter:brightness(1.06)}
+.btn[disabled]{opacity:.5;cursor:not-allowed;box-shadow:none}
+.btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.btn svg{width:16px;height:16px}
+
+/* ---------- panels ---------- */
+.panel{display:none;animation:fade .35s ease}
+.panel.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.grid{display:grid;gap:18px;margin-bottom:18px}
+.g2{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
+.g2e{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g23{grid-template-columns:minmax(0,2fr) minmax(0,3fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 22px;min-width:0}
+.ch{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
+.ch .ib{width:40px;height:40px;border-radius:12px;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;flex:none}
+.ch h2{margin:0;font-size:16px;line-height:1.35;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.ch p{margin:3px 0 0;font-size:12.5px;color:var(--muted)}
+.ch .act{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.src{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);font-size:11.5px;color:var(--muted)}
+.chart{width:100%;height:300px}
+.chart.tall{height:380px}
+.fallback{display:grid;place-items:center;height:100%;color:var(--muted);font-size:13px;text-align:center;padding:20px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;border-radius:24px;color:#fff;padding:30px 34px;margin-bottom:18px;min-height:250px;
+  background:radial-gradient(90% 120% at 100% 0%,#5b93ff 0%,transparent 55%),linear-gradient(120deg,#1546d6 0%,#1a56f0 45%,#2f6bff 100%);
+  box-shadow:0 18px 40px rgba(26,86,240,.28)}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1.2px,transparent 1.3px);background-size:18px 18px;mask-image:linear-gradient(90deg,#000 0%,transparent 55%);-webkit-mask-image:linear-gradient(90deg,#000 0%,transparent 55%)}
+.hero .txt{position:relative;max-width:520px;z-index:1}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);padding:5px 12px;border-radius:99px;font-size:12px;font-weight:600}
+.hero .eyebrow svg{width:14px;height:14px}
+.hero h2{font-size:27px;line-height:1.22;margin:14px 0 8px;font-weight:800;letter-spacing:-.02em}
+.hero p{margin:0;color:#dce7ff;font-size:14px;max-width:470px}
+.hstats{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+.hstat{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(6px);border-radius:14px;padding:10px 16px;min-width:130px}
+.hstat b{display:block;font-family:var(--num);font-size:22px;font-weight:700;line-height:1.2}
+.hstat span{font-size:11.5px;color:#dce7ff}
+.hero-art{position:absolute;right:0;bottom:0;width:min(58%,600px);height:auto;pointer-events:none}
+.steam path{animation:steam 2.6s ease-in-out infinite;transform-box:fill-box}
+.steam path:nth-child(2){animation-delay:.6s}.steam path:nth-child(3){animation-delay:1.2s}
+@keyframes steam{0%{opacity:0;transform:translateY(8px)}40%{opacity:.9}100%{opacity:0;transform:translateY(-14px)}}
+.wheel{animation:spin 1s linear infinite;transform-box:fill-box;transform-origin:center}
+@keyframes spin{to{transform:rotate(360deg)}}
+.rider{animation:bob 1.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-2px)}}
+.speed line{stroke-dasharray:14 10;animation:dash .8s linear infinite}
+@keyframes dash{to{stroke-dashoffset:24}}
+@media (prefers-reduced-motion: reduce){.steam path,.wheel,.rider,.speed line,.panel{animation:none}}
+
+/* ---------- KPI ---------- */
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-bottom:18px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 16px 6px;min-width:0;position:relative;overflow:hidden}
+.kpi .row{display:flex;align-items:center;gap:10px}
+.kpi .ib{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--blue-soft);color:var(--blue)}
+.kpi .ib svg{width:17px;height:17px}
+.kpi .l{font-size:12px;font-weight:600;color:var(--muted);line-height:1.3}
+.kpi .v{font-family:var(--num);font-size:26px;font-weight:700;color:var(--ink);margin-top:10px;letter-spacing:-.02em;line-height:1.1}
+.kpi .v small{font-size:13px;color:var(--muted);font-weight:500;margin-left:3px}
+.kpi .spark{height:44px;margin:0 -6px}
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:700;border-radius:99px;padding:2px 9px;white-space:nowrap}
+.chip svg{width:13px;height:13px}
+.chip.good{background:var(--good-soft);color:var(--good)} .chip.warn{background:var(--warn-soft);color:#b46a00} .chip.bad{background:var(--bad-soft);color:var(--bad)} .chip.info{background:var(--blue-soft);color:var(--blue)} .chip.mute{background:var(--line-soft);color:var(--muted)}
+.kpi .s{font-size:11.5px;color:var(--muted);margin-top:6px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+
+/* ---------- hotspots ---------- */
+.hots{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.hot{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px;border:1px solid var(--line);border-radius:16px;padding:14px 14px 12px 16px;position:relative;background:#fff;transition:transform .15s,box-shadow .15s,border-color .15s}
+.hot:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(10,26,63,.09);border-color:#c9d8f6}
+.hot:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.hot::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:4px;border-radius:0 4px 4px 0;background:var(--sev)}
+.hot .hd{display:flex;gap:10px;align-items:center}
+.hot .ib{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:var(--sevsoft);color:var(--sev)}
+.hot .k{font-weight:700;color:var(--ink);font-size:14.5px;line-height:1.2}
+.hot .d{font-size:12.5px;color:var(--muted)}
+.hot .big{margin-left:auto;text-align:right}
+.hot .big b{font-family:var(--num);font-size:24px;color:var(--ink);display:block;line-height:1}
+.hot .big span{font-size:11px;color:var(--muted);white-space:nowrap}
+.hot ul{margin:0;padding:0 0 0 16px;font-size:12.5px;color:var(--text)}
+.hot li{margin:2px 0}
+.owner{display:flex;gap:10px;background:var(--hover);border-radius:12px;padding:10px 12px;font-size:12.5px;margin-top:auto}
+.owner svg{color:var(--blue);margin-top:2px;width:16px;height:16px}
+.owner b{color:var(--ink)}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:0 -6px}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px}
+th{text-align:left;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:10px 10px;border-bottom:1px solid var(--line);white-space:nowrap;background:#fff;position:sticky;top:0}
+td{padding:11px 10px;border-bottom:1px solid var(--line-soft);vertical-align:middle}
+tbody tr:hover td{background:var(--hover)}
+tbody tr:last-child td{border-bottom:0}
+.r{text-align:right}
+.muted{color:var(--muted)}
+.neg{color:var(--bad)} .pos{color:var(--good)} .crit{color:#b46a00}
+td b{color:var(--ink)}
+.kname{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--ink)}
+.avatar{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:11px;font-weight:800;color:var(--blue);background:var(--blue-soft);flex:none;font-family:var(--num)}
+.gauge{display:flex;flex-direction:column;gap:5px;min-width:96px}
+.gauge .t span{white-space:nowrap}
+.gauge .t{display:flex;justify-content:space-between;gap:8px;font-size:12px}
+.gauge .bar{height:6px;border-radius:99px;background:var(--line-soft);overflow:hidden}
+.gauge .bar i{display:block;height:100%;border-radius:99px}
+.tag{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;border-radius:8px;padding:3px 9px;background:var(--blue-soft);color:var(--blue);white-space:nowrap}
+.tag svg{width:13px;height:13px}
+.tag.rev{background:var(--line-soft);color:var(--muted)}
+.tag.ok{background:var(--good-soft);color:var(--good)} .tag.no{background:var(--bad-soft);color:var(--bad)}
+.complaint{max-width:420px}
+.seg{display:inline-flex;background:var(--line-soft);border-radius:12px;padding:4px;gap:2px;flex-wrap:wrap}
+.seg button{all:unset;cursor:pointer;font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:9px;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:#fff;color:var(--blue);box-shadow:0 1px 4px rgba(10,26,63,.1)}
+.seg button[disabled]{opacity:.35;cursor:not-allowed}
+.seg button:focus-visible{outline:2px solid var(--blue)}
+.mini-select{border:1px solid var(--line);border-radius:10px;height:34px;padding:0 10px;background:#fff;font-weight:600;font-size:13px;color:var(--ink)}
+
+/* ---------- models / AI ---------- */
+.scores{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}
+.score{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.score .l{font-size:12px;color:var(--muted);font-weight:600}
+.score .v{font-family:var(--num);font-size:28px;font-weight:700;color:var(--ink);margin:8px 0 4px;letter-spacing:-.02em}
+.score .s{font-size:12px;color:var(--muted)}
+.score .ring{position:absolute;right:-24px;top:-24px;width:96px;height:96px;border-radius:50%;background:var(--blue-soft);opacity:.7}
+.score .ib{position:absolute;right:16px;top:16px;color:var(--blue)}
+.ai{background:linear-gradient(135deg,#0d2259 0%,#1a3f9c 100%);color:#dbe5ff;border:0;position:relative;overflow:hidden}
+.ai .ch h2{color:#fff} .ai .ch p{color:#a9bdf0}
+.ai .ch .ib{background:rgba(255,255,255,.12);color:#fff}
+.ai .src{border-color:rgba(255,255,255,.18);color:#a9bdf0}
+.ai .glow{position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(#3d7bff,transparent 70%);opacity:.55}
+.vs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:14px;position:relative}
+.vs div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px 14px;font-size:12px}
+.vs b{display:block;font-family:var(--num);font-size:22px;color:#fff}
+.ai .tw{background:#fff;border-radius:14px;margin:0;color:var(--text);position:relative}
+.ai .btn.primary{background:#fff;color:var(--blue);box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.msg{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:12.5px;position:relative}
+.msg.warn{background:rgba(229,138,0,.16);border-color:rgba(255,190,90,.4);color:#ffe2b5}
+footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);padding-top:8px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:4px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+
+/* ---------- responsive ---------- */
+@media (max-width:1280px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.hero-art{width:min(52%,520px);opacity:.9}}
+@media (max-width:1100px){.g2,.g2e,.g23{grid-template-columns:minmax(0,1fr)}.scores{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:960px){
+  .app{grid-template-columns:minmax(0,1fr)}
+  .side{position:sticky;top:0;z-index:20;height:auto;flex-direction:row;align-items:center;padding:10px 12px;gap:10px;overflow-x:auto}
+  .brand span,.nav .lbl,.areacard{display:none}
+  .brand .mark{width:34px;height:34px}
+  .nav{flex-direction:row;gap:2px}
+  .nav button{padding:8px 10px;font-size:13px;white-space:nowrap}
+  main{padding:16px 16px 32px}
+  .hero{padding:24px 20px 150px}
+  .hero-art{width:100%;max-width:440px;right:-20px;opacity:.85}
+  .clockb{display:none}
+  .hero h2{font-size:22px}
+}
+@media (max-width:640px){
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpis .kpi:first-child{grid-column:span 2}
+  .scores,.vs{grid-template-columns:minmax(0,1fr)}
+  .nav button span.t{display:none}
+  .filters{margin-left:0;width:100%}
+  .pill{flex:1 1 140px}
+  .pill select{width:100%}
+  .card{padding:16px}
+  .ch .act{margin-left:0;width:100%;justify-content:flex-start}
+  .ch{flex-wrap:wrap}
+  .chart{height:280px}
+}
+</style>
+
+<div class="app">
+<aside class="side">
+  <div class="brand">
+    <div class="mark">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18a9 9 0 0 1-18 0z"/><path d="M8 8c-1-1.5 1-2.5 0-4M12 8c-1-1.5 1-2.5 0-4M16 8c-1-1.5 1-2.5 0-4"/></svg>
+    </div>
+    <div><b>Mise</b><span>KITCHEN OPS</span></div>
+  </div>
+  <nav class="nav" id="nav" role="tablist" aria-label="Sections"></nav>
+  <div class="areacard">
+    <b id="areaName"></b>
+    <p id="areaMeta"></p>
+    <svg class="city" viewBox="0 0 150 60" preserveAspectRatio="none" fill="#fff" aria-hidden="true"><rect x="0" y="30" width="14" height="30"/><rect x="16" y="18" width="12" height="42"/><rect x="30" y="34" width="16" height="26"/><path d="M50 60V32h40v28z"/><path d="M56 32q14-22 28 0z"/><rect x="68" y="4" width="4" height="8"/><rect x="94" y="22" width="12" height="38"/><rect x="108" y="10" width="14" height="50"/><rect x="124" y="28" width="12" height="32"/><rect x="138" y="38" width="12" height="22"/></svg>
+  </div>
+</aside>
+
+<main>
+  <header class="top">
+    <div>
+      <h1 id="pageTitle">Overview</h1>
+      <div class="sub"><i data-lucide="radio"></i><span id="asof"></span></div>
+    </div>
+    <div class="filters">
+      <label class="pill"><i data-lucide="calendar-days"></i><select id="fDay" aria-label="Day"></select></label>
+      <label class="pill"><i data-lucide="store"></i><select id="fKitchen" aria-label="Kitchen"></select></label>
+      <label class="pill"><i data-lucide="clock-4"></i><select id="fSlot" aria-label="Meal slot"></select></label>
+      <button class="btn ghost" id="fReset" type="button"><i data-lucide="rotate-ccw"></i>Reset</button>
+    </div>
+  </header>
+
+  <!-- ================= OVERVIEW ================= -->
+  <section class="panel" id="p-overview">
+    <div class="hero">
+      <div class="txt">
+        <span class="eyebrow"><i data-lucide="sparkles"></i><span id="heroEyebrow"></span></span>
+        <h2 id="heroTitle"></h2>
+        <p id="heroSub"></p>
+        <div class="hstats" id="heroStats"></div>
+      </div>
+      <svg class="hero-art" viewBox="0 0 600 300" aria-hidden="true">
+        <defs>
+          <radialGradient id="halo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".28"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+          <linearGradient id="ctr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dfe9ff"/></linearGradient>
+        </defs>
+        <circle cx="400" cy="130" r="130" fill="url(#halo)"/>
+        <!-- skyline, back -->
+        <g fill="#fff" opacity=".11">
+          <rect x="40" y="120" width="34" height="140"/><rect x="78" y="86" width="28" height="174"/><rect x="88" y="70" width="8" height="16"/>
+          <rect x="110" y="132" width="44" height="128"/><path d="M160 260V112l20-16 20 16v148z"/><rect x="206" y="64" width="32" height="196"/>
+          <rect x="244" y="104" width="40" height="156"/><rect x="290" y="80" width="26" height="180"/><rect x="322" y="122" width="44" height="138"/>
+          <rect x="372" y="58" width="30" height="202"/><rect x="408" y="98" width="40" height="162"/><rect x="454" y="74" width="28" height="186"/>
+          <rect x="488" y="118" width="46" height="142"/><rect x="540" y="92" width="30" height="168"/><rect x="574" y="130" width="26" height="130"/>
+        </g>
+        <!-- skyline, front with a domed civic building -->
+        <g fill="#0a1a3f" opacity=".22">
+          <rect x="300" y="200" width="120" height="60"/><path d="M322 200q38-52 76 0z"/><rect x="357" y="140" width="6" height="12"/>
+          <rect x="300" y="194" width="120" height="6"/>
+          <rect x="430" y="176" width="36" height="84"/><rect x="470" y="150" width="30" height="110"/><rect x="504" y="186" width="44" height="74"/><rect x="552" y="164" width="48" height="96"/>
+          <rect x="250" y="182" width="44" height="78"/>
+        </g>
+        <g fill="#fff" opacity=".35">
+          <rect x="314" y="214" width="6" height="10" rx="1"/><rect x="330" y="214" width="6" height="10" rx="1"/><rect x="346" y="214" width="6" height="10" rx="1"/><rect x="362" y="214" width="6" height="10" rx="1"/><rect x="378" y="214" width="6" height="10" rx="1"/><rect x="394" y="214" width="6" height="10" rx="1"/>
+        </g>
+        <!-- location pin -->
+        <g transform="translate(468 104)"><path d="M0 0c-11 0-19 8-19 18 0 13 19 30 19 30s19-17 19-30C19 8 11 0 0 0z" fill="#fff"/><circle cy="18" r="7" fill="#1a56f0"/></g>
+        <!-- ground -->
+        <rect x="0" y="260" width="600" height="40" fill="#0a1a3f" opacity=".2"/>
+        <rect x="0" y="258" width="600" height="3" fill="#fff" opacity=".25"/>
+        <!-- ticket rail -->
+        <rect x="150" y="36" width="128" height="5" rx="2.5" fill="#fff" opacity=".9"/>
+        <g fill="#fff" transform="translate(0 -34)">
+          <path d="M158 75h28v40l-4.7-3.5-4.7 3.5-4.6-3.5-4.7 3.5-4.6-3.5-4.7 3.5z"/>
+          <path d="M196 75h28v34l-4.7-3.5-4.7 3.5-4.6-3.5-4.7 3.5-4.6-3.5-4.7 3.5z"/>
+          <path d="M234 75h28v44l-4.7-3.5-4.7 3.5-4.6-3.5-4.7 3.5-4.6-3.5-4.7 3.5z"/>
+        </g>
+        <g stroke="#1a56f0" stroke-width="2.4" stroke-linecap="round" opacity=".75" transform="translate(0 -34)">
+          <path d="M163 84h18M163 92h12M163 100h16"/><path d="M201 84h18M201 92h10"/><path d="M239 84h18M239 92h14M239 100h10M239 108h16"/>
+        </g>
+        <!-- chef -->
+        <g>
+          <path d="M176 220c0-38 14-62 36-62s36 24 36 62z" fill="#0a1a3f"/>
+          <path d="M202 162h20v58h-20z" fill="#fff" opacity=".92"/>
+          <circle cx="212" cy="140" r="15" fill="#0a1a3f"/>
+          <path d="M194 124c-11-1-13-17-2-19 1-12 17-14 21-5 7-9 23-4 21 7 11 3 8 18-3 18z" fill="#fff"/>
+          <rect x="197" y="120" width="31" height="8" rx="2" fill="#fff"/>
+          <path d="M186 180l-40 6" stroke="#0a1a3f" stroke-width="11" stroke-linecap="round"/>
+        </g>
+        <!-- counter -->
+        <rect x="30" y="214" width="250" height="46" rx="8" fill="url(#ctr)"/>
+        <rect x="30" y="214" width="250" height="7" rx="3.5" fill="#a9c4ff"/>
+        <rect x="46" y="232" width="60" height="5" rx="2.5" fill="#1a56f0" opacity=".25"/><rect x="200" y="232" width="60" height="5" rx="2.5" fill="#1a56f0" opacity=".25"/>
+        <!-- stove and pot -->
+        <rect x="64" y="204" width="80" height="10" rx="3" fill="#0a1a3f"/>
+        <path d="M74 166h60v30a10 10 0 0 1-10 10H84a10 10 0 0 1-10-10z" fill="#0b2a8a"/>
+        <rect x="68" y="161" width="72" height="9" rx="4.5" fill="#0a1a3f"/>
+        <rect x="60" y="174" width="12" height="6" rx="3" fill="#0a1a3f"/><rect x="136" y="174" width="12" height="6" rx="3" fill="#0a1a3f"/>
+        <g class="steam" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="round">
+          <path d="M90 152c-7-9 7-15 0-26"/><path d="M104 150c-7-10 7-17 0-30"/><path d="M118 152c-7-9 7-15 0-26"/>
+        </g>
+        <!-- delivery bag on counter -->
+        <g transform="translate(246 180)"><path d="M0 34V8h34v26z" fill="#fff"/><path d="M8 8V2h18v6" stroke="#fff" stroke-width="3" fill="none"/><text x="17" y="28" text-anchor="middle" font-family="Sora,sans-serif" font-weight="700" font-size="15" fill="#1a56f0">M</text></g>
+        <!-- rider on scooter -->
+        <g class="speed" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".6"><line x1="330" y1="226" x2="380" y2="226"/><line x1="346" y1="240" x2="386" y2="240"/><line x1="338" y1="212" x2="372" y2="212"/></g>
+        <g class="rider">
+          <rect x="396" y="168" width="44" height="38" rx="7" fill="#fff"/>
+          <text x="418" y="194" text-anchor="middle" font-family="Sora,sans-serif" font-weight="700" font-size="17" fill="#1a56f0">M</text>
+          <path d="M392 236h56l20-34h18l10 34h20a8 8 0 0 1 0 16H398a8 8 0 0 1-6-16z" fill="#fff"/>
+          <path d="M486 202l14-30" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+          <path d="M494 170h20" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+          <path d="M446 214c0-26 10-44 24-44s20 14 20 30l-8 16z" fill="#0a1a3f"/>
+          <path d="M470 190l26-12" stroke="#0a1a3f" stroke-width="9" stroke-linecap="round"/>
+          <path d="M452 214l26 0 8 24" stroke="#0a1a3f" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="472" cy="150" r="17" fill="#0a1a3f"/>
+          <path d="M455 150a17 17 0 0 1 34 0z" fill="#3d7bff"/>
+          <rect x="474" y="146" width="16" height="8" rx="4" fill="#cfe0ff"/>
+        </g>
+        <g class="wheel"><circle cx="412" cy="256" r="17" fill="#0a1a3f"/><circle cx="412" cy="256" r="7" fill="#fff"/><path d="M412 241v30M397 256h30" stroke="#fff" stroke-width="2" opacity=".5"/></g>
+        <g class="wheel"><circle cx="512" cy="256" r="17" fill="#0a1a3f"/><circle cx="512" cy="256" r="7" fill="#fff"/><path d="M512 241v30M497 256h30" stroke="#fff" stroke-width="2" opacity=".5"/></g>
+        <!-- clock badge -->
+        <g class="clockb" transform="translate(548 52)"><circle r="30" fill="#fff"/><circle r="24" fill="none" stroke="#cfe0ff" stroke-width="3"/><path d="M0-14V0l10 6" stroke="#0a1a3f" stroke-width="3.5" stroke-linecap="round" fill="none"/><circle r="3" fill="#1a56f0"/><text y="44" text-anchor="middle" font-family="Sora,sans-serif" font-weight="700" font-size="12" fill="#fff">15 MIN</text></g>
+      </svg>
+    </div>
+
+    <div class="kpis" id="kpis"></div>
+
+    <div class="card" style="margin-bottom:18px">
+        <div class="ch"><div class="ib"><i data-lucide="flame"></i></div><div><h2 id="t1"></h2><p>Each card is a kitchen × defect cluster far above the other kitchens. Click one to see the complaints.</p></div></div>
+        <div class="hots" id="hots"></div>
+        <div class="src" id="s1"></div>
+    </div>
+    <div class="grid g23">
+      <div class="card">
+        <div class="ch"><div class="ib"><i data-lucide="scale"></i></div><div><h2 id="t2"></h2><p>Average daily orders per kitchen against the 180-order break-even</p></div></div>
+        <div class="chart tall" id="beChart"></div>
+        <div class="src" id="s2"></div>
+      </div>
+      <div class="card">
+        <div class="ch"><div class="ib"><i data-lucide="calendar-check"></i></div><div><h2 id="t3"></h2><p>Forecast orders, dinner roster and predicted dinner prep time for tomorrow</p></div></div>
+        <div class="tw"><table id="tomTable"></table></div>
+        <div class="src" id="s3"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DEMAND ================= -->
+  <section class="panel" id="p-demand">
+    <div class="card" style="margin-bottom:18px">
+      <div class="ch"><div class="ib"><i data-lucide="trending-up"></i></div><div><h2 id="t4"></h2><p>Daily orders across the area. The shaded week was hidden from the model and forecast one day ahead.</p></div></div>
+      <div class="chart" id="trendChart"></div>
+      <div class="src" id="s4"></div>
+    </div>
+    <div class="grid g2e">
+      <div class="card">
+        <div class="ch"><div class="ib"><i data-lucide="grid-3x3"></i></div><div><h2 id="t5"></h2><p>Actual orders against forecast. Blue: busier than forecast. Red: quieter.</p></div></div>
+        <div class="chart tall" id="slotHeat"></div>
+        <div class="src" id="s5"></div>
+      </div>
+      <div class="card">
+        <div class="ch"><div class="ib"><i data-lucide="list-checks"></i></div><div><h2 id="t6"></h2><p>Forecast orders turned into prep quantities</p></div></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px"><select class="mini-select" id="pKitchen" aria-label="Kitchen for prep plan"></select><div class="seg" id="pSlot"></div></div>
+        <div class="tw"><table id="planTable"></table></div>
+        <div class="src" id="s6"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SPEED ================= -->
+  <section class="panel" id="p-speed">
+    <div class="card" style="margin-bottom:18px">
+      <div class="ch"><div class="ib"><i data-lucide="timer"></i></div><div><h2 id="t7"></h2><p>Predicted prep time per kitchen: dot is the typical order, bar runs to the bad case (9 in 10 orders beat it), diamond is the actual average.</p></div></div>
+      <div class="seg" id="sSlot"></div>
+      <div class="chart tall" id="speedChart"></div>
+      <div class="src" id="s7"></div>
+    </div>
+    <div class="card">
+      <div class="ch"><div class="ib"><i data-lucide="users"></i></div><div><h2 id="t8"></h2><p>Tomorrow's forecast replayed through the kitchen line with the rostered cooks, one more, and two more</p></div></div>
+      <div class="seg" id="wSlot" style="margin-bottom:10px"></div>
+      <div class="tw"><table id="whatTable"></table></div>
+      <div class="src" id="s8"></div>
+    </div>
+  </section>
+
+  <!-- ================= COMPLAINTS ================= -->
+  <section class="panel" id="p-complaints">
+    <div class="grid g2e">
+      <div class="card">
+        <div class="ch"><div class="ib"><i data-lucide="bar-chart-3"></i></div><div><h2 id="t9"></h2><p>Defects ranked, with the running share of complaints. Fix the few left of the 80% line first.</p></div></div>
+        <div class="chart" id="paretoChart"></div>
+        <div class="src" id="s9"></div>
+      </div>
+      <div class="card">
+        <div class="ch"><div class="ib"><i data-lucide="map"></i></div><div><h2 id="t10"></h2><p>Complaints per kitchen and defect. Click a cell to filter the list below.</p></div></div>
+        <div class="chart" id="defHeat"></div>
+        <div class="src" id="s10"></div>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:18px">
+      <div class="ch"><div class="ib"><i data-lucide="message-square-warning"></i></div><div><h2 id="t11"></h2><p id="listSub"></p></div><div class="act"><button class="btn ghost" id="clearHeat" type="button" hidden><i data-lucide="x"></i>Clear filter</button></div></div>
+      <div class="tw" style="max-height:520px;overflow:auto"><table id="compTable"></table></div>
+      <div class="src" id="s11"></div>
+    </div>
+    <div class="card ai">
+      <div class="glow"></div>
+      <div class="ch" style="position:relative"><div class="ib"><i data-lucide="brain-circuit"></i></div><div><h2 id="t12"></h2><p>Last night's 20 complaints, tagged by keyword rules and by Claude, scored against a human reviewer</p></div>
+        <div class="act"><button class="btn primary" id="tagBtn" type="button"><i data-lucide="sparkles"></i><span>Tag with Claude</span></button></div></div>
+      <div id="aiMsg"></div>
+      <div class="vs" id="score"></div>
+      <div class="tw"><table id="tagTable"></table></div>
+      <div class="src" id="s12"></div>
+    </div>
+  </section>
+
+  <!-- ================= MODELS ================= -->
+  <section class="panel" id="p-models">
+    <div class="card" style="margin-bottom:18px;background:linear-gradient(120deg,#fff 0%,#f3f7ff 100%)">
+      <div class="ch" style="margin-bottom:0"><div class="ib"><i data-lucide="shield-check"></i></div><div><h2 id="t13"></h2><p id="s13"></p></div></div>
+    </div>
+    <div class="scores" id="modelKv"></div>
+    <div class="grid g2e">
+      <div class="card">
+        <div class="ch"><div class="ib"><i data-lucide="target"></i></div><div><h2 id="t14"></h2><p>Forecast error (WAPE) per meal slot, lower is better</p></div></div>
+        <div class="chart" id="wapeChart"></div>
+        <div class="src" id="s14"></div>
+      </div>
+      <div class="card">
+        <div class="ch"><div class="ib"><i data-lucide="sliders-horizontal"></i></div><div><h2 id="t15"></h2><p>Extra error in minutes when each input is scrambled</p></div></div>
+        <div class="chart" id="impChart"></div>
+        <div class="src" id="s15"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer><span>Mise v1.1 · <span id="fBuilt"></span></span><span>All data is synthetic, generated to mirror a multi-brand cloud kitchen network</span></footer>
+</main>
+</div>
+
+<script id="mise-data" type="application/json">__MISE_DATA__</script>
+<script>
+(function(){
+"use strict";
+const D = JSON.parse(document.getElementById("mise-data").textContent);
+const M = D.meta, K = M.kitchens, B = M.brands, S = M.slots, DEF = M.defects, TAGS = M.tags, DAYS = M.dates;
+const REVIEW = TAGS.indexOf("Needs review");
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt = n => Math.round(n).toLocaleString("en-IN");
+const pct = (x, d=0) => (x*100).toFixed(d) + "%";
+const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const dl = iso => `${M.weekday[iso] || ""} ${Number(iso.slice(8))} ${MON[Number(iso.slice(5,7))-1]}`.trim();
+const short = iso => `${Number(iso.slice(8))} ${MON[Number(iso.slice(5,7))-1]}`;
+const SRC = `Source: Mise pipeline, synthetic order data for ${K.length} kitchens`;
+const and = a => a.length <= 1 ? (a[0] || "") : a.slice(0,-1).join(", ") + " and " + a[a.length-1];
+const ic = n => `<i data-lucide="${n}"></i>`;
+const initials = n => n.split(/\s+/).map(w => w[0]).join("").slice(0,2).toUpperCase();
+const ICON = {"Late delivery":"clock","Missing item":"package-x","Wrong item":"shuffle","Taste or quality":"utensils-crossed","Cold food":"snowflake","Packaging or spill":"droplets","Quantity":"scale","Needs review":"scan-search"};
+const C = {blue:"#1a56f0", blue2:"#3d7bff", sky:"#cfe0ff", navy:"#0a1a3f", grey:"#b4c0d6", good:"#0f9d58", warn:"#e58a00", bad:"#e2394b", muted:"#7383a3", line:"#eef3fb"};
+const FONT = "Plus Jakarta Sans, system-ui, sans-serif", NUMF = "Sora, Plus Jakarta Sans, sans-serif";
+
+const F = {day:0,k:1,s:2,orders:3,fc:4,base:5,p50:6,p90:7,act:8,late:9,plate:10,st:11,q:12,so:13};
+const state = {day:"all", kitchen:"all", slot:"all", tab:"overview", heat:null, pk:3, ps:3, sslot:3, wslot:3, ai:{}};
+
+/* ---------- icons ---------- */
+let iconQueued = false;
+function icons(){ if (iconQueued) return; iconQueued = true; requestAnimationFrame(() => { iconQueued = false; if (window.lucide && lucide.createIcons) { try { lucide.createIcons(); } catch(e){} } }); }
+
+/* ---------- charts ---------- */
+const BASE = {
+  textStyle:{fontFamily:FONT, color:"#42506b"}, animationDuration:650, animationEasing:"cubicOut",
+  tooltip:{backgroundColor:"#0a1a3f", borderWidth:0, padding:[8,12], textStyle:{color:"#fff", fontSize:12, fontFamily:FONT}, extraCssText:"border-radius:10px;box-shadow:0 10px 24px rgba(10,26,63,.25);"}
+};
+const charts = {};
+function chart(id, opt, onClick){
+  const el = $(id); if (!el || !el.offsetWidth) return null;
+  if (!window.echarts) { el.innerHTML = `<div class="fallback">Charts need an internet connection to load the chart library.</div>`; return null; }
+  let c = charts[id];
+  if (c && !c.isDisposed() && c.getDom() !== el) c.dispose();
+  if (!c || c.isDisposed()) { c = charts[id] = echarts.init(el, null, {renderer:"svg"}); }
+  c.resize();
+  c.setOption(Object.assign({}, BASE, opt, {tooltip: Object.assign({}, BASE.tooltip, opt.tooltip || {})}), true);
+  c.off("click"); if (onClick) c.on("click", onClick);
+  return c;
+}
+const axisLbl = {color:C.muted, fontSize:11, fontFamily:FONT};
+const split = {lineStyle:{color:C.line}};
+const narrow = () => innerWidth < 640;
+
+/* ---------- filters ---------- */
+const inDay = d => state.day === "all" || d === state.day;
+const inK = k => state.kitchen === "all" || k === state.kitchen;
+const inS = s => state.slot === "all" || s === state.slot;
+const cellsF = (o={}) => D.cells.filter(c => (o.ignoreDay || inDay(c[F.day])) && (o.ignoreK || inK(c[F.k])) && (o.ignoreS || inS(c[F.s])));
+const compF = (o={}) => D.complaints.filter(c => (o.ignoreDay || inDay(c[1])) && (o.ignoreK || inK(c[2])) && (o.ignoreS || inS(c[3])));
+const nDays = () => state.day === "all" ? DAYS.length : 1;
+const scope = () => [state.day === "all" ? `${short(DAYS[0])} to ${short(DAYS[DAYS.length-1])}` : dl(DAYS[state.day]), state.kitchen === "all" ? "all kitchens" : K[state.kitchen], state.slot === "all" ? "all meal slots" : S[state.slot]].join(", ");
+
+function initFilters(){
+  $("fDay").innerHTML = `<option value="all">Last 7 days</option>` + DAYS.map((d,i)=>`<option value="${i}">${esc(dl(d))}</option>`).join("");
+  $("fKitchen").innerHTML = `<option value="all">All kitchens</option>` + K.map((k,i)=>`<option value="${i}">${esc(k)}</option>`).join("");
+  $("fSlot").innerHTML = `<option value="all">All meal slots</option>` + S.map((s,i)=>`<option value="${i}">${esc(s)} · ${esc(M.slotHours[i])}</option>`).join("");
+  const read = v => v === "all" ? "all" : Number(v);
+  $("fDay").onchange = e => { state.day = read(e.target.value); state.heat = null; render(); };
+  $("fKitchen").onchange = e => { state.kitchen = read(e.target.value); state.heat = null; if (state.kitchen !== "all") state.pk = state.kitchen; render(); };
+  $("fSlot").onchange = e => { state.slot = read(e.target.value); state.heat = null; if (state.slot !== "all") state.sslot = state.wslot = state.ps = state.slot; render(); };
+  $("fReset").onclick = () => { state.day = state.kitchen = state.slot = "all"; state.heat = null; $("fDay").value = $("fKitchen").value = $("fSlot").value = "all"; render(); };
+  $("areaName").textContent = M.area;
+  $("areaMeta").textContent = `${K.length} kitchens · ${B.length} brands · ${S.length} meal slots`;
+}
+
+/* ---------- nav ---------- */
+const TABS = [["overview","Overview","layout-dashboard"],["demand","Demand and prep","trending-up"],["speed","Kitchen speed","timer"],["complaints","Complaints","message-square-warning"],["models","Model health","brain-circuit"]];
+function renderTabs(){
+  $("nav").innerHTML = `<div class="lbl">Workspace</div>` + TABS.map(([id,l,i]) => `<button role="tab" id="tab-${id}" aria-controls="p-${id}" aria-selected="${state.tab===id}">${ic(i)}<span class="t">${l}</span>${id==="complaints" ? `<span class="cnt">${D.hotspots.length}</span>` : ""}</button>`).join("");
+  TABS.forEach(([id]) => { $(`tab-${id}`).onclick = () => go(id); });
+  $("pageTitle").textContent = TABS.find(t => t[0] === state.tab)[1];
+  icons();
+}
+function go(id){ state.tab = id; try { history.replaceState(null, "", "#" + id); } catch(e){} renderTabs(); showPanel(); scrollTo({top:0, behavior:"smooth"}); }
+function showPanel(){ TABS.forEach(([id]) => $(`p-${id}`).classList.toggle("on", state.tab === id)); requestAnimationFrame(drawCharts); }
+
+/* ---------- per-day series for KPIs ---------- */
+function daySeries(){
+  return DAYS.map((d,i) => {
+    const cs = D.cells.filter(c => c[F.day]===i && inK(c[F.k]) && inS(c[F.s]));
+    const orders = cs.reduce((a,c)=>a+c[F.orders],0), fc = cs.reduce((a,c)=>a+c[F.fc],0);
+    const late = cs.reduce((a,c)=>a+c[F.late]*c[F.orders],0), so = cs.reduce((a,c)=>a+c[F.so],0);
+    const comp = D.complaints.filter(c => c[1]===i && inK(c[2]) && inS(c[3])).length;
+    const below = K.filter((_,k) => inK(k) && D.cells.filter(c => c[F.k]===k && c[F.day]===i).reduce((a,c)=>a+c[F.orders],0) < M.breakEven).length;
+    return {orders, fc, late, so, comp, below, onTime: 1 - late/Math.max(orders,1), per1k: comp/Math.max(orders,1)*1000};
+  });
+}
+function dayTotals(){
+  return K.map((name,k) => ({k, name, avg: D.cells.filter(c => c[F.k]===k && inDay(c[F.day])).reduce((a,c)=>a+c[F.orders],0)/nDays()})).filter(x => inK(x.k));
+}
+
+/* ---------- header + KPIs ---------- */
+function renderHeader(){
+  $("asof").textContent = `Data to ${dl(DAYS[DAYS.length-1])}, 11:58 pm IST · ${scope()}`;
+  const ser = daySeries(), pick = state.day === "all" ? ser : [ser[state.day]];
+  const sum = f => pick.reduce((a,x)=>a+x[f],0);
+  const orders = sum("orders"), fc = sum("fc"), late = sum("late"), so = sum("so"), comp = sum("comp");
+  const gap = (orders-fc)/Math.max(fc,1), onTime = 1 - late/Math.max(orders,1), per1k = comp/Math.max(orders,1)*1000;
+  const days = dayTotals(), below = days.filter(x => x.avg < M.breakEven);
+  const chip = (cls, icon, t) => `<span class="chip ${cls}">${icon ? ic(icon) : ""}${esc(t)}</span>`;
+  const K5 = [
+    {id:"orders", l:"Orders", i:"shopping-bag", v: fmt(orders), c: chip(Math.abs(gap) > .08 ? "warn" : "info", gap >= 0 ? "arrow-up-right" : "arrow-down-right", `${gap>=0?"+":""}${pct(gap,1)} vs forecast`), s:`Forecast ${fmt(fc)}`, series: ser.map(x=>x.orders), col:C.blue},
+    {id:"ontime", l:"Ready within 15 min", i:"timer", v: `${(onTime*100).toFixed(1)}<small>%</small>`, c: chip(onTime < .93 ? "bad" : onTime < .96 ? "warn" : "good", "", onTime >= .95 ? "On target" : "Target 95%"), s:`${fmt(late)} orders over 15 min`, series: ser.map(x=>+(x.onTime*100).toFixed(1)), col:C.good},
+    {id:"comp", l:"Complaints per 1,000", i:"message-square-warning", v: per1k.toFixed(1), c: chip(per1k > 18 ? "bad" : per1k > 13 ? "warn" : "good", "", per1k > 18 ? "High" : per1k > 13 ? "Watch" : "Healthy"), s:`${comp} complaints`, series: ser.map(x=>+x.per1k.toFixed(1)), col:C.bad},
+    {id:"be", l:"Below break-even", i:"store", v: `${below.length}<small>of ${days.length}</small>`, c: chip(below.length ? "bad" : "good", "", below.length ? "Losing money" : "All covered"), s: below.length ? below.map(x=>x.name).slice(0,2).join(", ") : "All at 180+ a day", series: ser.map(x=>x.below), col:C.warn},
+    {id:"so", l:"Items switched off", i:"package-x", v: String(so), c: chip(so >= 3 ? "bad" : so ? "warn" : "good", "", so ? "Stock-outs" : "None"), s: "During service", series: ser.map(x=>x.so), col:C.navy},
+  ];
+  $("kpis").innerHTML = K5.map(k => `<div class="kpi"><div class="row"><div class="ib">${ic(k.i)}</div><div class="l">${k.l}</div></div><div class="v">${k.v}</div><div class="s">${k.c}<span>${esc(k.s)}</span></div><div class="spark" id="sp-${k.id}"></div></div>`).join("");
+  state.k5 = K5;
+  icons();
+}
+function drawSparks(){
+  (state.k5 || []).forEach(k => {
+    chart(`sp-${k.id}`, {
+      grid:{left:6,right:6,top:8,bottom:4}, animation:false,
+      xAxis:{type:"category", show:false, data:DAYS.map(dl), boundaryGap:false},
+      yAxis:{type:"value", show:false, scale:true},
+      tooltip:{trigger:"axis", formatter: p => `${p[0].name}<br><b>${p[0].value}</b>`},
+      series:[{type:"line", data:k.series, smooth:true, symbol:"circle", symbolSize: (v,p) => (state.day !== "all" && p.dataIndex === state.day) ? 7 : 0, showSymbol:true,
+        lineStyle:{width:2, color:k.col}, itemStyle:{color:k.col},
+        areaStyle:{color:{type:"linear",x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:k.col+"33"},{offset:1,color:k.col+"00"}]}}}]
+    });
+  });
+}
+
+/* ---------- overview ---------- */
+const recOf = w => w[5] <= .10 ? {n:0, t:"Roster is enough"} : w[7] <= .10 ? {n:1, t:"Add 1 cook"} : {n:2, t:"Add 2 cooks"};
+function renderOverview(){
+  const hs = D.hotspots;
+  // hero
+  const tomK = K.map((name,k) => ({k, name, orders: D.tomorrow.filter(r=>r[0]===k).reduce((a,r)=>a+r[3],0), w: D.whatif.find(w=>w[0]===k && w[1]===3)}));
+  const vis = tomK.filter(x => inK(x.k));
+  const need = vis.filter(x => x.w && recOf(x.w).n > 0), low = vis.filter(x => x.orders < M.breakEven);
+  const tot = vis.reduce((a,x)=>a+x.orders,0);
+  $("heroEyebrow").textContent = `Plan for ${dl(M.tomorrow)}`;
+  $("heroTitle").textContent = state.kitchen === "all" ? `${fmt(tot)} orders expected across ${vis.length} kitchens tomorrow` : `${K[state.kitchen]} expects ${fmt(tot)} orders tomorrow`;
+  $("heroSub").textContent = (need.length ? `Add dinner cooks at ${and(need.map(x => `${x.name} (+${recOf(x.w).n})`))}. ` : "Rostered cooks cover dinner. ") + (hs.length ? `Top issue: ${hs[0].kitchen} ${hs[0].defect.toLowerCase()}, ${(hs[0].n/Math.max(hs[0].typical,1)).toFixed(0)}× a typical kitchen.` : "");
+  $("heroStats").innerHTML = [[fmt(tot), "orders forecast"], [String(need.length), need.length === 1 ? "kitchen needs a cook" : "kitchens need cooks"], [String(low.length), "below break-even"]].map(([v,l]) => `<div class="hstat"><b>${v}</b><span>${l}</span></div>`).join("");
+
+  // hotspots
+  $("t1").textContent = `${hs.length} issues need an owner this week`;
+  $("hots").innerHTML = hs.map((h,i) => { const ratio = h.n/Math.max(h.typical,1), sev = ratio >= 6 ? [C.bad,"var(--bad-soft)","Critical"] : [C.warn,"var(--warn-soft)","Watch"];
+    const up = h.n > h.prev;
+    return `<button class="hot" type="button" data-i="${i}" style="--sev:${sev[0]};--sevsoft:${sev[1]}">
+      <div class="hd"><div class="ib">${ic(ICON[h.defect] || "alert-circle")}</div><div><div class="k">${esc(h.kitchen)}</div><div class="d">${esc(h.defect)} · ${esc(h.slot)}</div></div>
+      <div class="big"><b>${h.n}</b><span>vs ${fmt(h.typical)} typical</span></div></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="chip ${ratio >= 6 ? "bad" : "warn"}">${sev[2]}</span><span class="chip ${up ? "bad" : "good"}">${ic(up ? "arrow-up-right" : "arrow-down-right")}${up ? "up" : "down"} from ${h.prev}</span><span class="chip mute">${esc(h.brand)}</span></div>
+      <ul>${h.evidence.slice(1).map(e=>`<li>${esc(e)}</li>`).join("")}</ul>
+      <div class="owner">${ic("user-round-check")}<div><b>${esc(h.owner)}</b><br>${esc(h.action)}</div></div></button>`; }).join("");
+  $("hots").querySelectorAll(".hot").forEach(b => b.onclick = () => { const h = hs[Number(b.dataset.i)]; state.heat = [K.indexOf(h.kitchen), TAGS.indexOf(h.defect)]; render(); go("complaints"); });
+  $("s1").textContent = `${SRC}; complaints ${short(DAYS[0])} to ${short(DAYS[DAYS.length-1])} tagged by ${D.models.tagger.method}, linked to their orders. Hotspot: at least 6 complaints and 2.5× the median kitchen.`;
+
+  // tomorrow table
+  $("t3").textContent = `Tomorrow: ${need.length ? "add dinner cooks at " + and(need.map(x => `${x.name} (+${recOf(x.w).n})`)) : "rosters cover dinner in every kitchen"}${low.length ? "; " + and(low.map(x=>x.name)) + (low.length > 1 ? " are" : " is") + " forecast below break-even" : ""}`;
+  const maxO = Math.max(...vis.map(x=>x.orders), M.strong);
+  $("tomTable").innerHTML = `<thead><tr><th>Kitchen</th><th>Forecast orders</th><th class="r">Cooks</th><th>Dinner prep</th><th>Action</th></tr></thead><tbody>` +
+    vis.sort((a,b) => recOf(b.w).n - recOf(a.w).n || a.orders - b.orders).map(x => { const r = recOf(x.w), below = x.orders < M.breakEven, pt = x.w[4];
+      const bc = below ? C.bad : x.orders >= M.strong ? C.blue : C.blue2;
+      return `<tr><td><div class="kname"><span class="avatar">${initials(x.name)}</span>${esc(x.name)}</div></td>
+        <td><div class="gauge"><div class="t"><b class="num">${fmt(x.orders)}</b><span class="muted">${below ? "below 180" : x.orders >= M.strong ? "strong" : "above 180"}</span></div><div class="bar"><i style="width:${(x.orders/maxO*100).toFixed(0)}%;background:${bc}"></i></div></div></td>
+        <td class="r num">${x.w[2]}</td>
+        <td><div class="gauge"><div class="t"><b class="num ${pt > M.promise ? "neg" : ""}">${pt.toFixed(1)} min</b><span class="muted">${pct(x.w[5],0)} at risk</span></div><div class="bar"><i style="width:${Math.min(100,pt/20*100).toFixed(0)}%;background:${x.w[5] > .10 ? C.bad : x.w[5] > .05 ? C.warn : C.good}"></i></div></div></td>
+        <td>${r.n ? `<span class="chip bad">${ic("user-plus")}${r.t}</span>` : below ? `<span class="chip warn">${ic("trending-down")}Below 180</span>` : `<span class="chip good">${ic("check")}On track</span>`}</td></tr>`; }).join("") + `</tbody>`;
+  $("s3").textContent = `Source: demand forecast and prep-time model for ${dl(M.tomorrow)}; roster as planned. Rule: add cooks until under 10% of orders are at risk.`;
+  icons();
+}
+function drawBreakEven(){
+  const rows = dayTotals().sort((a,b)=>a.avg-b.avg);
+  const below = rows.filter(r => r.avg < M.breakEven);
+  $("t2").textContent = below.length ? `${and(below.map(r=>r.name))} ${below.length>1?"are":"is"} below break-even; ${rows.filter(r=>r.avg>=M.strong).length} of ${rows.length} kitchens are clearly profitable` : `All ${rows.length} kitchens cover the 180-order break-even`;
+  const nw = narrow();
+  chart("beChart", {
+    grid:{left:8, right:44, top:48, bottom:8, containLabel:true},
+    tooltip:{trigger:"axis", axisPointer:{type:"shadow"}, formatter: p => `<b>${p[0].name}</b><br>${fmt(p[0].value)} orders a day`},
+    xAxis:{type:"value", splitLine:split, axisLabel:axisLbl, max: v => Math.max(350, Math.ceil(v.max*1.06/50)*50)},
+    yAxis:{type:"category", data:rows.map(r=>r.name), axisLine:{show:false}, axisTick:{show:false}, axisLabel:{color:"#33415c", fontSize:12.5, fontWeight:600}},
+    series:[{type:"bar", data:rows.map(r=>({value:Math.round(r.avg), itemStyle:{color: r.avg < M.breakEven ? {type:"linear",x:0,y:0,x2:1,y2:0,colorStops:[{offset:0,color:"#ff8a98"},{offset:1,color:C.bad}]} : {type:"linear",x:0,y:0,x2:1,y2:0,colorStops:[{offset:0,color:"#7aa6ff"},{offset:1,color:C.blue}]}}})),
+      barWidth:"56%", itemStyle:{borderRadius:[0,8,8,0]},
+      label:{show:true, position:"right", fontFamily:NUMF, fontWeight:600, color:C.navy, fontSize:12},
+      markLine:{symbol:"none", silent:true, data:[
+        {xAxis:M.breakEven, lineStyle:{color:C.bad, type:"dashed", width:1.5}, label:{formatter: nw ? "180" : "Break-even 180", color:C.bad, fontWeight:700, position:"end", distance:22}},
+        {xAxis:M.strong, lineStyle:{color:C.good, type:"dashed", width:1.5}, label:{formatter: nw ? "250" : "Profitable 250", color:C.good, fontWeight:700, position:"end", distance:5}}]}}]
+  });
+  $("s2").textContent = `${SRC}; ${scope().split(", ")[0]}. Break-even uses whole days, so the meal slot filter does not apply.`;
+}
+
+/* ---------- demand ---------- */
+function drawTrend(){
+  const T = D.trend, m = D.models.forecast;
+  $("t4").textContent = `The forecast missed by ${pct(m.wape,1)} in the test week, against ${pct(m.baseline,1)} for "same day last week": ${Math.round((1-m.wape/m.baseline)*100)}% less error`;
+  const ti = T.findIndex(t => t[2] != null);
+  chart("trendChart", {
+    grid:{left:8, right:16, top:40, bottom:8, containLabel:true},
+    legend:{top:0, left:0, icon:"roundRect", itemWidth:14, itemHeight:4, textStyle:{color:"#42506b", fontSize:12}},
+    tooltip:{trigger:"axis", axisPointer:{type:"line", lineStyle:{color:C.sky}}, valueFormatter: v => v == null ? "–" : fmt(v)},
+    xAxis:{type:"category", data:T.map(t=>short(t[0])), boundaryGap:false, axisLine:{lineStyle:{color:"#d6e0f2"}}, axisTick:{show:false}, axisLabel:Object.assign({interval:6}, axisLbl)},
+    yAxis:{type:"value", scale:true, splitLine:split, axisLabel:Object.assign({formatter: v => fmt(v)}, axisLbl)},
+    series:[
+      {name:"Actual orders", type:"line", data:T.map(t=>t[1]), smooth:.3, symbol:"none", lineStyle:{width:2.2, color:C.navy}, itemStyle:{color:C.navy},
+        areaStyle:{color:{type:"linear",x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:"rgba(26,86,240,.18)"},{offset:1,color:"rgba(26,86,240,0)"}]}},
+        markArea:{silent:true, itemStyle:{color:"rgba(26,86,240,.07)"}, label:{color:C.blue, fontWeight:700, fontSize:11.5}, data:[[{name:"Test week", xAxis:short(T[ti][0])},{xAxis:short(T[T.length-1][0])}]]}},
+      {name:"Mise forecast", type:"line", data:T.map(t=>t[2]), symbol:"circle", symbolSize:7, lineStyle:{width:2.6, color:C.blue}, itemStyle:{color:C.blue, borderColor:"#fff", borderWidth:2}},
+      {name:"Same day last week", type:"line", data:T.map(t=>t[3]), symbol:"none", lineStyle:{width:2, color:C.grey, type:"dashed"}, itemStyle:{color:C.grey}}]
+  });
+  $("s4").textContent = `${SRC}; ${fmt(T.reduce((a,t)=>a+t[1],0))} orders from ${short(T[0][0])} to ${short(T[T.length-1][0])}. Area total; filters do not apply.`;
+}
+function drawSlotHeat(){
+  const cs = cellsF({ignoreK:true, ignoreS:true}), ks = K.map((n,k)=>k).filter(inK), data = []; let worst = null;
+  ks.forEach((k,yi) => S.forEach((sl,s) => {
+    const sub = cs.filter(c=>c[F.k]===k && c[F.s]===s), a = sub.reduce((t,c)=>t+c[F.orders],0), f = sub.reduce((t,c)=>t+c[F.fc],0), g = f ? (a-f)/f : 0;
+    if (inS(s) && (!worst || g < worst.g)) worst = {g, name:K[k], sl};
+    data.push({value:[s, yi, +(g*100).toFixed(1)], a, f, dim: !inS(s)});
+  }));
+  $("t5").textContent = worst ? `${worst.name} at ${worst.sl.toLowerCase()} was furthest below forecast (${pct(worst.g,0)})` : "Actual against forecast";
+  chart("slotHeat", {
+    grid:{left:8, right:8, top:8, bottom:52, containLabel:true},
+    tooltip:{formatter: p => `<b>${K[ks[p.value[1]]]}, ${S[p.value[0]]}</b><br>Actual ${fmt(p.data.a)} · forecast ${fmt(p.data.f)}<br>${p.value[2] >= 0 ? "+" : ""}${p.value[2]}%`},
+    xAxis:{type:"category", data:S, position:"top", axisLine:{show:false}, axisTick:{show:false}, axisLabel:{color:"#33415c", fontSize:11.5, fontWeight:600, interval:0}, splitArea:{show:false}},
+    yAxis:{type:"category", data:ks.map(k=>K[k]), inverse:true, axisLine:{show:false}, axisTick:{show:false}, axisLabel:{color:"#33415c", fontSize:12, fontWeight:600}},
+    visualMap:{min:-20, max:20, calculable:false, orient:"horizontal", left:"center", bottom:0, itemWidth:12, itemHeight:160, text:["Busier","Quieter"], textStyle:{color:C.muted, fontSize:11}, inRange:{color:[C.bad,"#ffd3d9","#ffffff","#cfe0ff",C.blue]}},
+    series:[{type:"heatmap", data, itemStyle:{borderColor:"#fff", borderWidth:3, borderRadius:8},
+      label:{show:true, formatter: p => p.data.dim ? "" : fmt(p.data.a), fontFamily:NUMF, fontSize:11.5, fontWeight:600, color:C.navy},
+      emphasis:{itemStyle:{borderColor:C.navy, borderWidth:2}}}]
+  });
+  $("s5").textContent = `${SRC}; ${scope().split(", ")[0]}. Cell shows actual orders; colour shows the gap to the one-day-ahead forecast.`;
+}
+function renderPlan(){
+  $("pKitchen").innerHTML = K.map((k,i)=>`<option value="${i}">${esc(k)}</option>`).join(""); $("pKitchen").value = String(state.pk);
+  $("pKitchen").onchange = e => { state.pk = Number(e.target.value); renderPlan(); };
+  seg("pSlot", S, () => state.ps, v => { state.ps = v; renderPlan(); });
+  const k = state.pk, s = state.ps, rows = D.tomorrow.filter(r=>r[0]===k && r[1]===s), total = rows.reduce((a,r)=>a+r[3],0);
+  const items = D.plan.filter(p => p[0]===k && p[1]===s).sort((a,b)=> B[a[2]].localeCompare(B[b[2]]));
+  $("t6").textContent = `${K[k]} should prep for about ${fmt(total)} ${S[s].toLowerCase()} orders on ${dl(M.tomorrow)}`;
+  $("planTable").innerHTML = `<thead><tr><th>Brand</th><th class="r">Orders</th><th>Prep item</th><th class="r">Quantity</th></tr></thead><tbody>` +
+    (items.length ? items.map((p,i) => { const first = i === 0 || items[i-1][2] !== p[2], o = rows.find(r=>r[2]===p[2]);
+      const q = p[4] === "pcs" ? Math.ceil(p[5]) : (Math.ceil(p[5]*10)/10).toFixed(1);
+      return `<tr><td>${first ? `<b>${esc(B[p[2]])}</b>` : ""}</td><td class="r num">${first && o ? fmt(o[3]) : ""}</td><td>${esc(p[3])}</td><td class="r num"><b>${q}</b> <span class="muted">${esc(p[4])}</span></td></tr>`; }).join("") : `<tr><td colspan="4" class="muted">No orders forecast for this slot.</td></tr>`) + `</tbody>`;
+  $("s6").textContent = `Source: demand forecast for ${dl(M.tomorrow)} × recipe quantity per order. Round up for safety stock.`;
+}
+
+/* ---------- speed ---------- */
+function drawSpeed(){
+  seg("sSlot", S, () => state.sslot, v => { state.sslot = v; drawSpeed(); }, state.slot);
+  const s0 = state.sslot;
+  const rows = K.map((name,k) => { const sub = D.cells.filter(c=>c[F.k]===k && c[F.s]===s0 && inDay(c[F.day])); const n = sub.reduce((a,c)=>a+c[F.orders],0) || 1;
+    const w = f => sub.reduce((a,c)=>a+c[f]*c[F.orders],0)/n;
+    return {k, name, p50:w(F.p50), p90:w(F.p90), act:w(F.act), late:w(F.late), st: Math.round(sub.reduce((a,c)=>a+c[F.st],0)/Math.max(sub.length,1)), q: Math.max(0,...sub.map(c=>c[F.q]))}; })
+    .filter(r => inK(r.k)).sort((a,b)=>a.p90-b.p90);
+  const worst = rows[rows.length-1];
+  $("t7").textContent = worst.p90 > M.promise ? `${worst.name} is most at risk at ${S[s0].toLowerCase()}: typical ${worst.p50.toFixed(1)} min, bad case ${worst.p90.toFixed(1)} min, with ${worst.st} cooks` : `All kitchens stay inside the 15-minute promise at ${S[s0].toLowerCase()}`;
+  const col = r => r.p50 > M.promise ? C.bad : r.p90 > M.promise ? C.warn : C.blue;
+  const nw = narrow();
+  chart("speedChart", {
+    grid:{left:8, right: nw ? 28 : 90, top:24, bottom:8, containLabel:true},
+    tooltip:{trigger:"axis", axisPointer:{type:"shadow", shadowStyle:{color:"rgba(26,86,240,.05)"}}, formatter: p => { const r = rows[p[0].dataIndex];
+      return `<b>${r.name}</b> · ${S[s0]}<br>Typical ${r.p50.toFixed(1)} min · bad case ${r.p90.toFixed(1)} min<br>Actual average ${r.act.toFixed(1)} min<br>${r.st} cooks · peak queue ${r.q} orders<br>${pct(r.late,0)} of orders over 15 min`; }},
+    xAxis:{type:"value", min:0, max: v => Math.max(20, Math.ceil((v.max+1)/5)*5), interval: nw ? 10 : 5, splitLine:split, axisLabel:Object.assign({formatter: nw ? "{value}" : "{value} min"}, axisLbl), name: nw ? "min" : "", nameTextStyle:axisLbl},
+    yAxis:{type:"category", data:rows.map(r=>r.name), axisLine:{show:false}, axisTick:{show:false}, axisLabel:{color:"#33415c", fontSize:12.5, fontWeight:600}},
+    series:[
+      {type:"bar", stack:"r", data:rows.map(r=>+r.p50.toFixed(2)), itemStyle:{color:"transparent"}, barWidth:12, silent:true,
+        markArea:{silent:true, itemStyle:{color:"rgba(226,57,75,.06)"}, data:[[{xAxis:M.promise},{xAxis:"max"}]]},
+        markLine:{symbol:"none", silent:true, lineStyle:{color:C.bad, width:1.6, type:"solid"}, label:{formatter:"15-min promise", color:C.bad, fontWeight:700, position:"end"}, data:[{xAxis:M.promise}]}},
+      {type:"bar", stack:"r", data:rows.map(r=>({value:+(r.p90-r.p50).toFixed(2), itemStyle:{color:col(r)+"55", borderRadius:6}})), barWidth:12,
+        label:{show:!nw, position:"right", distance:10, formatter: p => `${pct(rows[p.dataIndex].late,0)} late`, color:C.navy, fontFamily:NUMF, fontSize:11.5, fontWeight:600}},
+      {type:"scatter", data:rows.map(r=>({value:[+r.p50.toFixed(2), r.name], itemStyle:{color:col(r)}})), symbolSize:14, itemStyle:{borderColor:"#fff", borderWidth:2.5}, z:5},
+      {type:"scatter", data:rows.map(r=>[+r.act.toFixed(2), r.name]), symbol:"diamond", symbolSize:12, itemStyle:{color:C.navy, borderColor:"#fff", borderWidth:1.5}, z:6}]
+  });
+  $("s7").textContent = `Source: prep-time model (gradient-boosted trees, median and 90th percentile), ${scope().split(", ")[0]}; order-weighted averages.`;
+}
+function renderWhatIf(){
+  seg("wSlot", S, () => state.wslot, v => { state.wslot = v; renderWhatIf(); }, state.slot);
+  const s0 = state.wslot, rows = D.whatif.filter(w => w[1]===s0 && inK(w[0])).sort((a,b)=>b[5]-a[5]);
+  const need = rows.filter(w => w[5] > .10);
+  $("t8").textContent = need.length ? `${and(need.map(w=>K[w[0]]))} ${need.length>1?"need":"needs"} extra cooks for ${S[s0].toLowerCase()} on ${dl(M.tomorrow)}; one more cook cuts ${K[need[0][0]]}'s share at risk from ${pct(need[0][5],0)} to ${pct(need[0][7],0)}` : `Rostered cooks cover ${S[s0].toLowerCase()} on ${dl(M.tomorrow)} in every kitchen`;
+  const g = (p, l) => `<td><div class="gauge"><div class="t"><b class="num ${l > .10 ? "neg" : ""}">${p.toFixed(1)} min</b><span class="${l > .10 ? "neg" : "muted"}">${pct(l,0)} at risk</span></div><div class="bar"><i style="width:${Math.min(100, l/.3*100).toFixed(0)}%;background:${l > .10 ? C.bad : l > .05 ? C.warn : C.good}"></i></div></div></td>`;
+  $("whatTable").innerHTML = `<thead><tr><th>Kitchen</th><th class="r">Forecast orders</th><th class="r">Cooks</th><th>As rostered</th><th>+1 cook</th><th>+2 cooks</th><th>Recommendation</th></tr></thead><tbody>` +
+    rows.map(w => { const r = recOf(w);
+      return `<tr><td><div class="kname"><span class="avatar">${initials(K[w[0]])}</span>${esc(K[w[0]])}</div></td><td class="r num">${fmt(w[3])}</td><td class="r num">${w[2]}</td>${g(w[4],w[5])}${g(w[6],w[7])}${g(w[8],w[9])}<td>${r.n ? `<span class="chip bad">${ic("user-plus")}${r.t}</span>` : `<span class="chip good">${ic("check")}Keep roster</span>`}</td></tr>`; }).join("") + `</tbody>`;
+  $("s8").textContent = `Source: queue simulation of tomorrow's forecast orders (12 runs per kitchen) scored by the prep-time model. Rule: add cooks until under 10% of orders are at risk.`;
+  icons();
+}
+
+/* ---------- complaints ---------- */
+function drawPareto(){
+  const all = compF(), rev = all.filter(c=>c[5]===REVIEW).length;
+  const cnt = DEF.map((d,i) => ({d, n: all.filter(c=>c[5]===i).length})).sort((a,b)=>b.n-a.n);
+  if (rev) cnt.push({d:"Needs review", n:rev, review:true});
+  const total = cnt.reduce((a,r)=>a+r.n,0) || 1, known = total - rev || 1;
+  let cum = 0; const vital = []; cnt.filter(r=>!r.review).forEach(r => { if (cum/known < .8) vital.push(r.d); cum += r.n; });
+  $("t9").textContent = `${and(vital)} make up ${pct(cnt.filter(r=>vital.includes(r.d)).reduce((a,r)=>a+r.n,0)/known,0)} of tagged complaints${rev ? `; ${rev} more need a person or AI to read them` : ""}`;
+  cum = 0; const run = cnt.map(r => { cum += r.n; return +(cum/total*100).toFixed(1); });
+  const lbl = d => d.replace(" or ", " /\n").replace(" item", "\nitem").replace(" delivery","\ndelivery").replace(" food","\nfood").replace("Needs review","Needs\nreview");
+  chart("paretoChart", {
+    grid:{left:8, right:8, top:30, bottom:8, containLabel:true},
+    tooltip:{trigger:"axis", axisPointer:{type:"shadow", shadowStyle:{color:"rgba(26,86,240,.05)"}}, formatter: p => `<b>${cnt[p[0].dataIndex].d}</b><br>${cnt[p[0].dataIndex].n} complaints, ${pct(cnt[p[0].dataIndex].n/total,0)}<br>Running share ${run[p[0].dataIndex]}%`},
+    xAxis:{type:"category", data:cnt.map(r=>lbl(r.d)), axisLine:{lineStyle:{color:"#d6e0f2"}}, axisTick:{show:false}, axisLabel:{color:C.muted, fontSize:10.5, interval:0, lineHeight:13}},
+    yAxis:[{type:"value", splitLine:split, axisLabel:axisLbl}, {type:"value", min:0, max:100, splitLine:{show:false}, axisLabel:Object.assign({formatter:"{value}%"}, axisLbl)}],
+    series:[
+      {type:"bar", barWidth:"55%", data:cnt.map(r=>({value:r.n, itemStyle: r.review ? {color:"rgba(180,192,214,.18)", borderColor:C.grey, borderType:"dashed", borderWidth:1.5, borderRadius:[8,8,0,0]} : {color: vital.includes(r.d) ? {type:"linear",x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:C.blue2},{offset:1,color:C.blue}]} : C.sky, borderRadius:[8,8,0,0]}})),
+        label:{show:true, position:"top", color:C.navy, fontFamily:NUMF, fontWeight:600, fontSize:11.5}},
+      {type:"line", yAxisIndex:1, data:run, smooth:true, symbol:"circle", symbolSize:7, lineStyle:{color:C.navy, width:2}, itemStyle:{color:"#fff", borderColor:C.navy, borderWidth:2},
+        markLine:{symbol:"none", silent:true, lineStyle:{color:C.warn, type:"dashed"}, label:{formatter:"80%", color:"#b46a00", fontWeight:700, position:"insideEndTop"}, data:[{yAxis:80}]}}]
+  });
+  $("s9").textContent = `${SRC}; ${total} complaints, ${scope()}; tagged by ${D.models.tagger.method}.`;
+}
+function drawDefHeat(){
+  const list = compF({ignoreK:true}), ks = K.map((n,k)=>k).filter(inK), m = K.map(()=>TAGS.map(()=>0));
+  list.forEach(c => m[c[2]][c[5]]++);
+  const prev = K.map(()=>TAGS.map(()=>0)); D.prevWeek.forEach(([k,d,n]) => prev[k][d] = n);
+  const weekView = state.day === "all" && state.slot === "all";
+  const abbr = ["Late","Missing","Wrong","Taste","Cold","Spill","Qty","Review"];
+  let best = {n:0}; const data = [];
+  ks.forEach((k,yi) => TAGS.forEach((d,j) => { const n = m[k][j]; if (n > best.n && j !== REVIEW) best = {n, name:K[k], d};
+    const sel = state.heat && state.heat[0]===k && state.heat[1]===j;
+    data.push({value:[j, yi, n], k, prev: prev[k][j], itemStyle: sel ? {borderColor:C.navy, borderWidth:3} : j === REVIEW && n ? {color:"#e6ebf4"} : undefined}); }));
+  $("t10").textContent = best.n ? `${best.name}: ${best.d.toLowerCase()} is the largest single cluster (${best.n} complaints)` : "No complaints for these filters";
+  const max = Math.max(4, ...data.filter(x => x.value[0] !== REVIEW).map(x=>x.value[2]));
+  chart("defHeat", {
+    grid:{left:8, right:8, top:8, bottom:8, containLabel:true},
+    tooltip:{formatter: p => `<b>${K[p.data.k]}</b> · ${TAGS[p.value[0]]}<br>${p.value[2]} complaints${weekView ? `<br>Week before: ${p.data.prev}` : ""}`},
+    xAxis:{type:"category", data:abbr, position:"top", axisLine:{show:false}, axisTick:{show:false}, axisLabel:{color:"#33415c", fontSize:11, fontWeight:600, interval:0}},
+    yAxis:{type:"category", data:ks.map(k=>K[k]), inverse:true, axisLine:{show:false}, axisTick:{show:false}, axisLabel:{color:"#33415c", fontSize:12, fontWeight:600}},
+    visualMap:{show:false, min:0, max, seriesIndex:0, inRange:{color:["#f6f9ff","#ffd3d9","#ff8a98",C.bad]}},
+    series:[{type:"heatmap", data, itemStyle:{borderColor:"#fff", borderWidth:3, borderRadius:7},
+      label:{show:true, formatter: p => p.value[2] ? p.value[2] : "·", fontFamily:NUMF, fontSize:11.5, fontWeight:600, color:C.navy},
+      emphasis:{itemStyle:{borderColor:C.blue, borderWidth:2}}}]
+  }, p => { if (!p.data) return; const k = p.data.k, d = p.value[0]; state.heat = state.heat && state.heat[0]===k && state.heat[1]===d ? null : [k,d]; drawDefHeat(); renderCompList(); });
+  $("s10").textContent = `${SRC}; ${scope().split(", ").filter((_,i)=>i!==1).join(", ")}. Change against the week before shown in the tooltip for the full week.`;
+}
+function renderCompList(){
+  let list = compF({ignoreK: !!state.heat}); if (state.heat) list = list.filter(c => c[2]===state.heat[0] && c[5]===state.heat[1]);
+  list = list.slice().sort((a,b)=>b[1]-a[1] || b[0]-a[0]);
+  $("t11").textContent = state.heat ? `${K[state.heat[0]]}: ${TAGS[state.heat[1]].toLowerCase()} (${list.length} complaints)` : `Latest complaints (${list.length} in view)`;
+  $("listSub").textContent = state.heat ? "Kitchen prep time comes from the linked order: over 15 minutes means the delay started in the kitchen." : "Click a cell in the heat map to filter. Kitchen prep time comes from the linked order.";
+  $("clearHeat").hidden = !state.heat; $("clearHeat").onclick = () => { state.heat = null; drawDefHeat(); renderCompList(); };
+  $("compTable").innerHTML = `<thead><tr><th>Date</th><th>Kitchen</th><th>Brand · slot</th><th>Tag</th><th>Complaint</th><th class="r">Kitchen prep</th><th>Source</th></tr></thead><tbody>` +
+    list.slice(0,40).map(c => `<tr><td class="num" style="white-space:nowrap">${esc(short(DAYS[c[1]]))}</td><td><b>${esc(K[c[2]])}</b></td><td>${esc(B[c[4]])}<br><span class="muted">${esc(S[c[3]])}</span></td><td><span class="tag ${c[5]===REVIEW?"rev":""}">${ic(ICON[TAGS[c[5]]])}${esc(TAGS[c[5]])}</span></td><td class="complaint">${esc(c[6])}</td><td class="r num ${c[8] > M.promise ? "neg" : ""}">${c[8]==null ? `<span class="chip warn">Cancelled</span>` : c[8].toFixed(1) + " min"}</td><td class="muted">${esc(c[7])}</td></tr>`).join("") + `</tbody>`;
+  $("s11").textContent = `${SRC}; showing up to 40 rows, newest first.`;
+  icons();
+}
+
+/* ---------- live AI tagging ---------- */
+const AIERR = {not_granted:"Claude is not allowed for this page. Allow it when asked, or use the keyword tags.", sampling_disabled:"Claude is not available on this account.", rate_limited:"Too many requests. Try again in a minute.", session_expired:"Sign in to Claude again, then retry.", refused:"Claude declined this request.", invalid_json:"Claude's reply could not be read. Try again.", upstream_error:"Connection problem. Try again."};
+let samplePromise = null;
+const getSample = () => samplePromise || (samplePromise = (window.claude && window.claude.use) ? Promise.resolve().then(() => window.claude.use("sample")).catch(() => null) : Promise.resolve(null));
+function renderTagging(){
+  const L = D.lastNight;
+  const ruleOk = L.filter(r => r[5] === r[6]).length, ai = state.ai, aiN = L.filter(r => ai[r[0]] != null).length, aiOk = L.filter(r => ai[r[0]] != null && TAGS.indexOf(ai[r[0]].defect) === r[6]).length;
+  $("t12").textContent = aiN ? `Claude matched the reviewer on ${aiOk} of ${aiN} complaints; keyword rules matched ${ruleOk} of ${L.length}` : `Keyword rules match the reviewer on ${ruleOk} of ${L.length} messy complaints; Claude can read the rest`;
+  $("score").innerHTML = `<div><b>${ruleOk}/${L.length}</b>Keyword rules, last night</div><div><b>${aiN ? `${aiOk}/${aiN}` : "–"}</b>Claude, last night</div><div><b>${pct(D.models.tagger.accuracy,1)}</b>Rules on all ${fmt(D.models.tagger.n)} complaints</div>`;
+  $("tagTable").innerHTML = `<thead><tr><th>Kitchen</th><th>Complaint</th><th>Keyword rules</th><th>Claude</th><th>Reviewer</th></tr></thead><tbody>` +
+    L.map(r => { const a = ai[r[0]]; const ok = t => t === r[6] ? "ok" : "no";
+      return `<tr><td><b>${esc(K[r[1]])}</b><br><span class="muted">${esc(B[r[3]])}</span></td><td class="complaint">${esc(r[4])}${a && a.cause ? `<br><span class="muted">Likely cause: ${esc(a.cause)}</span>` : ""}</td><td><span class="tag ${ok(r[5])}">${esc(TAGS[r[5]])}</span></td><td>${a ? `<span class="tag ${ok(TAGS.indexOf(a.defect))}">${esc(a.defect)}</span>` : `<span class="muted">Not run</span>`}</td><td>${esc(TAGS[r[6]])}</td></tr>`; }).join("") + `</tbody>`;
+  $("s12").textContent = `Source: complaints received ${dl(DAYS[DAYS.length-1])}; reviewer labels are the ground truth kept by the data generator. Claude runs on the viewer's own account.`;
+}
+function aiMessage(text, warn){ $("aiMsg").innerHTML = text ? `<div class="msg ${warn?"warn":""}">${esc(text)}</div>` : ""; }
+getSample().then(s => { if (!s) { $("tagBtn").disabled = true; aiMessage("Live tagging runs when this page is opened inside Claude. Everywhere else the page shows the pipeline's keyword tags, which are already applied to every chart.", true); } });
+$("tagBtn").onclick = async () => {
+  const sample = await getSample(); if (!sample) return;
+  const btn = $("tagBtn"), lbl = btn.querySelector("span"); btn.disabled = true; lbl.textContent = "Claude is reading 20 complaints…"; aiMessage("");
+  const items = D.lastNight.map(r => ({id:r[0], kitchen:K[r[1]], slot:S[r[2]], brand:B[r[3]], text:r[4]}));
+  const prompt = `You tag customer complaints for a multi-brand cloud kitchen in Bengaluru. Complaints can be in English or Hinglish and may have typos.\nFor each complaint choose exactly one defect from ${JSON.stringify(DEF)}. If an order was cancelled or an item never arrived, use "Missing item". If food came late AND cold, choose the one the customer stresses most.\nAlso give a likely operational cause in at most 8 words.\nReply with only a JSON array: [{"id": number, "defect": string, "cause": string}].\n\nComplaints:\n${JSON.stringify(items)}`;
+  try {
+    let out = await sample.json(prompt, {modelTier:"quick"});
+    if (out && !Array.isArray(out)) out = Object.values(out).find(Array.isArray) || [];
+    let n = 0;
+    for (const r of out || []) { const id = Number(r && r.id), d = String(r && r.defect || ""); if (D.lastNight.some(x=>x[0]===id) && DEF.includes(d)) { state.ai[id] = {defect:d, cause:String(r.cause||"").slice(0,90)}; n++; } }
+    if (!n) aiMessage("Claude replied, but no tags could be read. Try again.", true);
+    lbl.textContent = "Tag again";
+  } catch (e) { aiMessage(AIERR[e && e.code] || "Tagging did not finish. Try again.", true); lbl.textContent = "Tag with Claude"; }
+  finally { btn.disabled = false; renderTagging(); }
+};
+
+/* ---------- model health ---------- */
+function renderModels(){
+  const f = D.models.forecast, p = D.models.prep, t = D.models.tagger;
+  $("t13").textContent = `Both models beat the manager's rule of thumb: forecast error down ${Math.round((1-f.wape/f.baseline)*100)}%, prep-time error down ${Math.round((1-p.mae/p.baseline)*100)}%`;
+  const kv = [["Demand forecast error", pct(f.wape,1), `vs ${pct(f.baseline,1)} for same day last week`, "trending-up"],
+              ["Prep-time error", `${p.mae.toFixed(2)} min`, `vs ${p.baseline.toFixed(2)} min for the kitchen's usual time`, "timer"],
+              ["Late-order flags", `${pct(p.precision,0)} right`, `catches ${pct(p.recall,0)} of the ${fmt(p.lateOrders)} late orders`, "bell-ring"],
+              ["Complaint tagging", pct(t.accuracy,1), `${t.method}, on ${fmt(t.n)} complaints`, "tags"]];
+  $("modelKv").innerHTML = kv.map(([l,v,s,i]) => `<div class="score"><div class="ring"></div><div class="ib">${ic(i)}</div><div class="l">${l}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join("");
+  $("s13").textContent = `Training: ${fmt(f.trainRows)} kitchen-brand-slot days and ${fmt(p.trainRows)} orders. Test: ${short(DAYS[0])} to ${short(DAYS[DAYS.length-1])}, hidden from both models.`;
+  icons();
+}
+function drawWape(){
+  const rows = S.map(s => ({s, m: D.models.forecast.bySlot[s].model, b: D.models.forecast.bySlot[s].baseline}));
+  const best = rows.slice().sort((a,b)=>(b.b-b.m)-(a.b-a.m))[0];
+  $("t14").textContent = `The model wins in every slot; the biggest gain is at ${best.s.toLowerCase()} (${pct(best.m,0)} against ${pct(best.b,0)})`;
+  chart("wapeChart", {
+    grid:{left:8, right:40, top:34, bottom:8, containLabel:true},
+    legend:{top:0, left:0, icon:"roundRect", itemWidth:12, itemHeight:10, textStyle:{color:"#42506b", fontSize:12}},
+    tooltip:{trigger:"axis", axisPointer:{type:"shadow", shadowStyle:{color:"rgba(26,86,240,.05)"}}, valueFormatter: v => pct(v,1)},
+    xAxis:{type:"value", splitLine:split, axisLabel:Object.assign({formatter: v => pct(v,0)}, axisLbl)},
+    yAxis:{type:"category", data:S, inverse:true, axisLine:{show:false}, axisTick:{show:false}, axisLabel:{color:"#33415c", fontSize:12.5, fontWeight:600}},
+    series:[
+      {name:"Mise model", type:"bar", data:rows.map(r=>r.m), barWidth:11, barGap:"40%", itemStyle:{color:C.blue, borderRadius:[0,6,6,0]}, label:{show:true, position:"right", formatter: p => pct(p.value,1), color:C.navy, fontFamily:NUMF, fontSize:11, fontWeight:600}},
+      {name:"Same day last week", type:"bar", data:rows.map(r=>r.b), barWidth:11, itemStyle:{color:C.sky, borderRadius:[0,6,6,0]}, label:{show:true, position:"right", formatter: p => pct(p.value,1), color:C.muted, fontFamily:NUMF, fontSize:11}}]
+  });
+  $("s14").textContent = `Source: one-day-ahead forecasts for ${short(DAYS[0])} to ${short(DAYS[DAYS.length-1])}, scored per kitchen and slot.`;
+}
+function drawImp(){
+  const NAMES = {brand_c:"Brand (dish type)", load_per_station:"Orders waiting per cook", items:"Items in the order", orders_in_progress:"Orders on the line", kitchen_c:"Kitchen", recent_avg_prep_min:"Recent prep times", dow:"Day of week", slot_c:"Meal slot", minute_of_slot:"Time within slot", stations_on_shift:"Cooks on shift"};
+  const rows = Object.entries(D.models.prep.importance).map(([k,v]) => ({n: NAMES[k] || k, v: Math.max(0,v)})).sort((a,b)=>b.v-a.v).slice(0,6);
+  $("t15").textContent = `Prep time depends mostly on what is cooked and how many orders each cook is juggling`;
+  chart("impChart", {
+    grid:{left:8, right:56, top:8, bottom:8, containLabel:true},
+    tooltip:{trigger:"axis", axisPointer:{type:"shadow", shadowStyle:{color:"rgba(26,86,240,.05)"}}, valueFormatter: v => `+${v.toFixed(2)} min`},
+    xAxis:{type:"value", splitLine:split, axisLabel:Object.assign({formatter:"{value}"}, axisLbl)},
+    yAxis:{type:"category", data:rows.map(r=>r.n), inverse:true, axisLine:{show:false}, axisTick:{show:false}, axisLabel:{color:"#33415c", fontSize:12.5, fontWeight:600}},
+    series:[{type:"bar", data:rows.map((r,i)=>({value:+r.v.toFixed(3), itemStyle:{color: i < 2 ? {type:"linear",x:0,y:0,x2:1,y2:0,colorStops:[{offset:0,color:C.blue2},{offset:1,color:C.blue}]} : C.sky}})), barWidth:"52%", itemStyle:{borderRadius:[0,8,8,0]},
+      label:{show:true, position:"right", formatter: p => `+${p.value.toFixed(2)} min`, color:C.navy, fontFamily:NUMF, fontSize:11.5, fontWeight:600}}]
+  });
+  $("s15").textContent = `Source: permutation importance on test-week orders; extra average error in minutes when the input is scrambled.`;
+}
+
+/* ---------- shared ---------- */
+function seg(id, labels, get, set, lock){
+  const el = $(id);
+  el.innerHTML = labels.map((l,i)=>`<button type="button" data-i="${i}" aria-pressed="${i===get()}" ${lock !== undefined && lock !== "all" && lock !== i ? "disabled" : ""}>${esc(l)}</button>`).join("");
+  el.querySelectorAll("button").forEach(b => b.onclick = () => set(Number(b.dataset.i)));
+}
+function drawCharts(){
+  if (state.tab === "overview") { drawSparks(); drawBreakEven(); }
+  if (state.tab === "demand") { drawTrend(); drawSlotHeat(); }
+  if (state.tab === "speed") drawSpeed();
+  if (state.tab === "complaints") { drawPareto(); drawDefHeat(); }
+  if (state.tab === "models") { drawWape(); drawImp(); }
+}
+function render(){ renderHeader(); renderOverview(); renderPlan(); renderWhatIf(); renderCompList(); renderTagging(); renderModels(); drawCharts(); icons(); }
+
+const h0 = (location.hash || "").slice(1); if (TABS.some(t => t[0] === h0)) state.tab = h0;
+$("fBuilt").textContent = `Pipeline run ${M.builtAt}`;
+initFilters(); renderTabs(); render(); showPanel();
+let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(drawCharts, 150); });
+})();
+</script>

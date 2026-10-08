@@ -1,0 +1,86 @@
+[
+  {
+    "kitchen": "HSR Layout",
+    "defect": "Missing item",
+    "n": 22,
+    "typical": 3.0,
+    "prev": 20,
+    "evidence": [
+      "22 complaints this week vs 3 at a typical kitchen; 20 the week before",
+      "82% at Dinner, 95% on Olio Pizza",
+      "Orders were delivered; the items were left out at packing"
+    ],
+    "owner": "Packing lead",
+    "action": "Brand-wise checklist at the pass; dips and sachets pre-kitted per order",
+    "slot": "Dinner",
+    "brand": "Olio Pizza"
+  },
+  {
+    "kitchen": "Whitefield",
+    "defect": "Late delivery",
+    "n": 19,
+    "typical": 2.0,
+    "prev": 16,
+    "evidence": [
+      "19 complaints this week vs 2 at a typical kitchen; 16 the week before",
+      "95% at Dinner, 42% on Sharief Bhai",
+      "100% of these orders took over 15 min in the kitchen (so the delay is in the kitchen)",
+      "Cooks on shift for these orders: 5 (usually 7)"
+    ],
+    "owner": "Kitchen manager",
+    "action": "Restore the missing cooks at dinner; see the staffing what-if",
+    "slot": "Dinner",
+    "brand": "Sharief Bhai"
+  },
+  {
+    "kitchen": "Koramangala",
+    "defect": "Cold food",
+    "n": 16,
+    "typical": 2.0,
+    "prev": 18,
+    "evidence": [
+      "16 complaints this week vs 2 at a typical kitchen; 18 the week before",
+      "94% at Late night, 94% on Sharief Bhai",
+      "6% of these orders took over 15 min in the kitchen (so the delay is after the kitchen: rider wait)",
+      "Cooks on shift: 4, the normal level"
+    ],
+    "owner": "Area manager with platform",
+    "action": "Check rider wait at pickup; hot bags; hold orders until rider is near",
+    "slot": "Late night",
+    "brand": "Sharief Bhai"
+  },
+  {
+    "kitchen": "Jayanagar",
+    "defect": "Late delivery",
+    "n": 9,
+    "typical": 2.0,
+    "prev": 8,
+    "evidence": [
+      "9 complaints this week vs 2 at a typical kitchen; 8 the week before",
+      "67% at Dinner, 56% on Olio Pizza",
+      "100% of these orders took over 15 min in the kitchen (so the delay is in the kitchen)",
+      "Cooks on shift: 7, the normal level"
+    ],
+    "owner": "Kitchen manager",
+    "action": "Add a line cook or station for the slot; simplify the peak menu",
+    "slot": "Dinner",
+    "brand": "Olio Pizza"
+  },
+  {
+    "kitchen": "Jayanagar",
+    "defect": "Missing item",
+    "n": 10,
+    "typical": 3.0,
+    "prev": 3,
+    "evidence": [
+      "10 complaints this week vs 3 at a typical kitchen; 3 the week before",
+      "100% at Dinner, 90% on CakeZone",
+      "9 of 10 are orders cancelled after acceptance",
+      "2 stock-outs this week (Cake bases, 500 g): Central kitchen dispatch short by 18 bases"
+    ],
+    "owner": "Central kitchen dispatch",
+    "action": "Fix the dispatch count for the brand; do not accept orders for items switched off",
+    "slot": "Dinner",
+    "brand": "CakeZone"
+  }
+]

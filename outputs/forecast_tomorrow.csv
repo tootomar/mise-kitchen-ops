@@ -1,0 +1,271 @@
+date,kitchen,brand,slot,forecast_orders
+2026-10-09,Bellandur,CakeZone,Breakfast,1
+2026-10-09,Bellandur,CakeZone,Dinner,12
+2026-10-09,Bellandur,CakeZone,Late night,8
+2026-10-09,Bellandur,CakeZone,Lunch,2
+2026-10-09,Bellandur,CakeZone,Snacks,8
+2026-10-09,Bellandur,EatFit,Breakfast,8
+2026-10-09,Bellandur,EatFit,Dinner,19
+2026-10-09,Bellandur,EatFit,Late night,1
+2026-10-09,Bellandur,EatFit,Lunch,28
+2026-10-09,Bellandur,EatFit,Snacks,4
+2026-10-09,Bellandur,Frozen Bottle,Breakfast,1
+2026-10-09,Bellandur,Frozen Bottle,Dinner,7
+2026-10-09,Bellandur,Frozen Bottle,Late night,4
+2026-10-09,Bellandur,Frozen Bottle,Lunch,1
+2026-10-09,Bellandur,Frozen Bottle,Snacks,5
+2026-10-09,Bellandur,Millet Express,Breakfast,7
+2026-10-09,Bellandur,Millet Express,Dinner,5
+2026-10-09,Bellandur,Millet Express,Lunch,8
+2026-10-09,Bellandur,Millet Express,Snacks,2
+2026-10-09,Bellandur,Olio Pizza,Dinner,35
+2026-10-09,Bellandur,Olio Pizza,Late night,8
+2026-10-09,Bellandur,Olio Pizza,Lunch,8
+2026-10-09,Bellandur,Olio Pizza,Snacks,7
+2026-10-09,Bellandur,Sharief Bhai,Dinner,38
+2026-10-09,Bellandur,Sharief Bhai,Late night,9
+2026-10-09,Bellandur,Sharief Bhai,Lunch,20
+2026-10-09,Bellandur,Sharief Bhai,Snacks,2
+2026-10-09,Electronic City,CakeZone,Breakfast,1
+2026-10-09,Electronic City,CakeZone,Dinner,9
+2026-10-09,Electronic City,CakeZone,Late night,6
+2026-10-09,Electronic City,CakeZone,Lunch,1
+2026-10-09,Electronic City,CakeZone,Snacks,5
+2026-10-09,Electronic City,EatFit,Breakfast,5
+2026-10-09,Electronic City,EatFit,Dinner,11
+2026-10-09,Electronic City,EatFit,Late night,1
+2026-10-09,Electronic City,EatFit,Lunch,19
+2026-10-09,Electronic City,EatFit,Snacks,4
+2026-10-09,Electronic City,Frozen Bottle,Breakfast,1
+2026-10-09,Electronic City,Frozen Bottle,Dinner,4
+2026-10-09,Electronic City,Frozen Bottle,Late night,4
+2026-10-09,Electronic City,Frozen Bottle,Lunch,1
+2026-10-09,Electronic City,Frozen Bottle,Snacks,4
+2026-10-09,Electronic City,Millet Express,Breakfast,5
+2026-10-09,Electronic City,Millet Express,Dinner,3
+2026-10-09,Electronic City,Millet Express,Lunch,4
+2026-10-09,Electronic City,Millet Express,Snacks,1
+2026-10-09,Electronic City,Olio Pizza,Dinner,21
+2026-10-09,Electronic City,Olio Pizza,Late night,4
+2026-10-09,Electronic City,Olio Pizza,Lunch,5
+2026-10-09,Electronic City,Olio Pizza,Snacks,4
+2026-10-09,Electronic City,Sharief Bhai,Dinner,20
+2026-10-09,Electronic City,Sharief Bhai,Late night,4
+2026-10-09,Electronic City,Sharief Bhai,Lunch,12
+2026-10-09,Electronic City,Sharief Bhai,Snacks,1
+2026-10-09,HSR Layout,CakeZone,Breakfast,2
+2026-10-09,HSR Layout,CakeZone,Dinner,15
+2026-10-09,HSR Layout,CakeZone,Late night,10
+2026-10-09,HSR Layout,CakeZone,Lunch,2
+2026-10-09,HSR Layout,CakeZone,Snacks,10
+2026-10-09,HSR Layout,EatFit,Breakfast,7
+2026-10-09,HSR Layout,EatFit,Dinner,21
+2026-10-09,HSR Layout,EatFit,Late night,1
+2026-10-09,HSR Layout,EatFit,Lunch,44
+2026-10-09,HSR Layout,EatFit,Snacks,4
+2026-10-09,HSR Layout,Frozen Bottle,Breakfast,1
+2026-10-09,HSR Layout,Frozen Bottle,Dinner,7
+2026-10-09,HSR Layout,Frozen Bottle,Late night,4
+2026-10-09,HSR Layout,Frozen Bottle,Lunch,2
+2026-10-09,HSR Layout,Frozen Bottle,Snacks,6
+2026-10-09,HSR Layout,Millet Express,Breakfast,6
+2026-10-09,HSR Layout,Millet Express,Dinner,6
+2026-10-09,HSR Layout,Millet Express,Lunch,7
+2026-10-09,HSR Layout,Millet Express,Snacks,2
+2026-10-09,HSR Layout,Olio Pizza,Dinner,39
+2026-10-09,HSR Layout,Olio Pizza,Late night,9
+2026-10-09,HSR Layout,Olio Pizza,Lunch,11
+2026-10-09,HSR Layout,Olio Pizza,Snacks,7
+2026-10-09,HSR Layout,Sharief Bhai,Dinner,37
+2026-10-09,HSR Layout,Sharief Bhai,Late night,11
+2026-10-09,HSR Layout,Sharief Bhai,Lunch,21
+2026-10-09,HSR Layout,Sharief Bhai,Snacks,2
+2026-10-09,Hebbal,CakeZone,Breakfast,1
+2026-10-09,Hebbal,CakeZone,Dinner,13
+2026-10-09,Hebbal,CakeZone,Late night,8
+2026-10-09,Hebbal,CakeZone,Lunch,1
+2026-10-09,Hebbal,CakeZone,Snacks,8
+2026-10-09,Hebbal,EatFit,Breakfast,7
+2026-10-09,Hebbal,EatFit,Dinner,21
+2026-10-09,Hebbal,EatFit,Late night,1
+2026-10-09,Hebbal,EatFit,Lunch,29
+2026-10-09,Hebbal,EatFit,Snacks,3
+2026-10-09,Hebbal,Frozen Bottle,Breakfast,1
+2026-10-09,Hebbal,Frozen Bottle,Dinner,6
+2026-10-09,Hebbal,Frozen Bottle,Late night,5
+2026-10-09,Hebbal,Frozen Bottle,Lunch,1
+2026-10-09,Hebbal,Frozen Bottle,Snacks,5
+2026-10-09,Hebbal,Millet Express,Breakfast,7
+2026-10-09,Hebbal,Millet Express,Dinner,4
+2026-10-09,Hebbal,Millet Express,Lunch,7
+2026-10-09,Hebbal,Millet Express,Snacks,2
+2026-10-09,Hebbal,Olio Pizza,Dinner,28
+2026-10-09,Hebbal,Olio Pizza,Late night,7
+2026-10-09,Hebbal,Olio Pizza,Lunch,8
+2026-10-09,Hebbal,Olio Pizza,Snacks,7
+2026-10-09,Hebbal,Sharief Bhai,Dinner,29
+2026-10-09,Hebbal,Sharief Bhai,Late night,9
+2026-10-09,Hebbal,Sharief Bhai,Lunch,13
+2026-10-09,Hebbal,Sharief Bhai,Snacks,2
+2026-10-09,Indiranagar,CakeZone,Breakfast,2
+2026-10-09,Indiranagar,CakeZone,Dinner,14
+2026-10-09,Indiranagar,CakeZone,Late night,10
+2026-10-09,Indiranagar,CakeZone,Lunch,2
+2026-10-09,Indiranagar,CakeZone,Snacks,9
+2026-10-09,Indiranagar,EatFit,Breakfast,7
+2026-10-09,Indiranagar,EatFit,Dinner,22
+2026-10-09,Indiranagar,EatFit,Late night,1
+2026-10-09,Indiranagar,EatFit,Lunch,34
+2026-10-09,Indiranagar,EatFit,Snacks,5
+2026-10-09,Indiranagar,Frozen Bottle,Breakfast,1
+2026-10-09,Indiranagar,Frozen Bottle,Dinner,7
+2026-10-09,Indiranagar,Frozen Bottle,Late night,6
+2026-10-09,Indiranagar,Frozen Bottle,Lunch,2
+2026-10-09,Indiranagar,Frozen Bottle,Snacks,6
+2026-10-09,Indiranagar,Millet Express,Breakfast,6
+2026-10-09,Indiranagar,Millet Express,Dinner,6
+2026-10-09,Indiranagar,Millet Express,Lunch,9
+2026-10-09,Indiranagar,Millet Express,Snacks,1
+2026-10-09,Indiranagar,Olio Pizza,Dinner,40
+2026-10-09,Indiranagar,Olio Pizza,Late night,9
+2026-10-09,Indiranagar,Olio Pizza,Lunch,13
+2026-10-09,Indiranagar,Olio Pizza,Snacks,8
+2026-10-09,Indiranagar,Sharief Bhai,Dinner,46
+2026-10-09,Indiranagar,Sharief Bhai,Late night,11
+2026-10-09,Indiranagar,Sharief Bhai,Lunch,22
+2026-10-09,Indiranagar,Sharief Bhai,Snacks,4
+2026-10-09,JP Nagar,CakeZone,Breakfast,1
+2026-10-09,JP Nagar,CakeZone,Dinner,12
+2026-10-09,JP Nagar,CakeZone,Late night,9
+2026-10-09,JP Nagar,CakeZone,Lunch,2
+2026-10-09,JP Nagar,CakeZone,Snacks,11
+2026-10-09,JP Nagar,EatFit,Breakfast,7
+2026-10-09,JP Nagar,EatFit,Dinner,19
+2026-10-09,JP Nagar,EatFit,Late night,1
+2026-10-09,JP Nagar,EatFit,Lunch,39
+2026-10-09,JP Nagar,EatFit,Snacks,4
+2026-10-09,JP Nagar,Frozen Bottle,Breakfast,1
+2026-10-09,JP Nagar,Frozen Bottle,Dinner,7
+2026-10-09,JP Nagar,Frozen Bottle,Late night,5
+2026-10-09,JP Nagar,Frozen Bottle,Lunch,1
+2026-10-09,JP Nagar,Frozen Bottle,Snacks,4
+2026-10-09,JP Nagar,Millet Express,Breakfast,5
+2026-10-09,JP Nagar,Millet Express,Dinner,4
+2026-10-09,JP Nagar,Millet Express,Lunch,6
+2026-10-09,JP Nagar,Millet Express,Snacks,2
+2026-10-09,JP Nagar,Olio Pizza,Dinner,35
+2026-10-09,JP Nagar,Olio Pizza,Late night,9
+2026-10-09,JP Nagar,Olio Pizza,Lunch,8
+2026-10-09,JP Nagar,Olio Pizza,Snacks,5
+2026-10-09,JP Nagar,Sharief Bhai,Dinner,29
+2026-10-09,JP Nagar,Sharief Bhai,Late night,10
+2026-10-09,JP Nagar,Sharief Bhai,Lunch,18
+2026-10-09,JP Nagar,Sharief Bhai,Snacks,3
+2026-10-09,Jayanagar,CakeZone,Breakfast,2
+2026-10-09,Jayanagar,CakeZone,Dinner,13
+2026-10-09,Jayanagar,CakeZone,Late night,9
+2026-10-09,Jayanagar,CakeZone,Lunch,3
+2026-10-09,Jayanagar,CakeZone,Snacks,8
+2026-10-09,Jayanagar,EatFit,Breakfast,8
+2026-10-09,Jayanagar,EatFit,Dinner,18
+2026-10-09,Jayanagar,EatFit,Late night,1
+2026-10-09,Jayanagar,EatFit,Lunch,34
+2026-10-09,Jayanagar,EatFit,Snacks,4
+2026-10-09,Jayanagar,Frozen Bottle,Breakfast,1
+2026-10-09,Jayanagar,Frozen Bottle,Dinner,7
+2026-10-09,Jayanagar,Frozen Bottle,Late night,4
+2026-10-09,Jayanagar,Frozen Bottle,Lunch,2
+2026-10-09,Jayanagar,Frozen Bottle,Snacks,6
+2026-10-09,Jayanagar,Millet Express,Breakfast,8
+2026-10-09,Jayanagar,Millet Express,Dinner,5
+2026-10-09,Jayanagar,Millet Express,Lunch,7
+2026-10-09,Jayanagar,Millet Express,Snacks,2
+2026-10-09,Jayanagar,Olio Pizza,Dinner,32
+2026-10-09,Jayanagar,Olio Pizza,Late night,8
+2026-10-09,Jayanagar,Olio Pizza,Lunch,7
+2026-10-09,Jayanagar,Olio Pizza,Snacks,5
+2026-10-09,Jayanagar,Sharief Bhai,Dinner,35
+2026-10-09,Jayanagar,Sharief Bhai,Late night,8
+2026-10-09,Jayanagar,Sharief Bhai,Lunch,15
+2026-10-09,Jayanagar,Sharief Bhai,Snacks,3
+2026-10-09,Koramangala,CakeZone,Breakfast,2
+2026-10-09,Koramangala,CakeZone,Dinner,16
+2026-10-09,Koramangala,CakeZone,Late night,12
+2026-10-09,Koramangala,CakeZone,Lunch,5
+2026-10-09,Koramangala,CakeZone,Snacks,11
+2026-10-09,Koramangala,EatFit,Breakfast,8
+2026-10-09,Koramangala,EatFit,Dinner,24
+2026-10-09,Koramangala,EatFit,Late night,1
+2026-10-09,Koramangala,EatFit,Lunch,40
+2026-10-09,Koramangala,EatFit,Snacks,6
+2026-10-09,Koramangala,Frozen Bottle,Breakfast,1
+2026-10-09,Koramangala,Frozen Bottle,Dinner,7
+2026-10-09,Koramangala,Frozen Bottle,Late night,5
+2026-10-09,Koramangala,Frozen Bottle,Lunch,2
+2026-10-09,Koramangala,Frozen Bottle,Snacks,7
+2026-10-09,Koramangala,Millet Express,Breakfast,8
+2026-10-09,Koramangala,Millet Express,Dinner,6
+2026-10-09,Koramangala,Millet Express,Lunch,9
+2026-10-09,Koramangala,Millet Express,Snacks,2
+2026-10-09,Koramangala,Olio Pizza,Dinner,42
+2026-10-09,Koramangala,Olio Pizza,Late night,11
+2026-10-09,Koramangala,Olio Pizza,Lunch,10
+2026-10-09,Koramangala,Olio Pizza,Snacks,8
+2026-10-09,Koramangala,Sharief Bhai,Dinner,39
+2026-10-09,Koramangala,Sharief Bhai,Late night,13
+2026-10-09,Koramangala,Sharief Bhai,Lunch,22
+2026-10-09,Koramangala,Sharief Bhai,Snacks,3
+2026-10-09,Marathahalli,CakeZone,Breakfast,1
+2026-10-09,Marathahalli,CakeZone,Dinner,13
+2026-10-09,Marathahalli,CakeZone,Late night,9
+2026-10-09,Marathahalli,CakeZone,Lunch,2
+2026-10-09,Marathahalli,CakeZone,Snacks,8
+2026-10-09,Marathahalli,EatFit,Breakfast,7
+2026-10-09,Marathahalli,EatFit,Dinner,21
+2026-10-09,Marathahalli,EatFit,Late night,1
+2026-10-09,Marathahalli,EatFit,Lunch,35
+2026-10-09,Marathahalli,EatFit,Snacks,4
+2026-10-09,Marathahalli,Frozen Bottle,Breakfast,1
+2026-10-09,Marathahalli,Frozen Bottle,Dinner,6
+2026-10-09,Marathahalli,Frozen Bottle,Late night,5
+2026-10-09,Marathahalli,Frozen Bottle,Lunch,2
+2026-10-09,Marathahalli,Frozen Bottle,Snacks,5
+2026-10-09,Marathahalli,Millet Express,Breakfast,5
+2026-10-09,Marathahalli,Millet Express,Dinner,5
+2026-10-09,Marathahalli,Millet Express,Lunch,6
+2026-10-09,Marathahalli,Millet Express,Snacks,1
+2026-10-09,Marathahalli,Olio Pizza,Dinner,36
+2026-10-09,Marathahalli,Olio Pizza,Late night,7
+2026-10-09,Marathahalli,Olio Pizza,Lunch,8
+2026-10-09,Marathahalli,Olio Pizza,Snacks,6
+2026-10-09,Marathahalli,Sharief Bhai,Dinner,36
+2026-10-09,Marathahalli,Sharief Bhai,Late night,9
+2026-10-09,Marathahalli,Sharief Bhai,Lunch,20
+2026-10-09,Marathahalli,Sharief Bhai,Snacks,3
+2026-10-09,Whitefield,CakeZone,Breakfast,2
+2026-10-09,Whitefield,CakeZone,Dinner,13
+2026-10-09,Whitefield,CakeZone,Late night,9
+2026-10-09,Whitefield,CakeZone,Lunch,2
+2026-10-09,Whitefield,CakeZone,Snacks,9
+2026-10-09,Whitefield,EatFit,Breakfast,8
+2026-10-09,Whitefield,EatFit,Dinner,22
+2026-10-09,Whitefield,EatFit,Late night,1
+2026-10-09,Whitefield,EatFit,Lunch,39
+2026-10-09,Whitefield,EatFit,Snacks,3
+2026-10-09,Whitefield,Frozen Bottle,Breakfast,1
+2026-10-09,Whitefield,Frozen Bottle,Dinner,7
+2026-10-09,Whitefield,Frozen Bottle,Late night,5
+2026-10-09,Whitefield,Frozen Bottle,Lunch,1
+2026-10-09,Whitefield,Frozen Bottle,Snacks,7
+2026-10-09,Whitefield,Millet Express,Breakfast,7
+2026-10-09,Whitefield,Millet Express,Dinner,5
+2026-10-09,Whitefield,Millet Express,Lunch,7
+2026-10-09,Whitefield,Millet Express,Snacks,2
+2026-10-09,Whitefield,Olio Pizza,Dinner,40
+2026-10-09,Whitefield,Olio Pizza,Late night,8
+2026-10-09,Whitefield,Olio Pizza,Lunch,10
+2026-10-09,Whitefield,Olio Pizza,Snacks,7
+2026-10-09,Whitefield,Sharief Bhai,Dinner,38
+2026-10-09,Whitefield,Sharief Bhai,Late night,10
+2026-10-09,Whitefield,Sharief Bhai,Lunch,17
+2026-10-09,Whitefield,Sharief Bhai,Snacks,3

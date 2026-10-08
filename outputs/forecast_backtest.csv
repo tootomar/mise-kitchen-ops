@@ -1,0 +1,1891 @@
+date,kitchen,brand,slot,orders,forecast,baseline
+2026-10-02,Bellandur,CakeZone,Breakfast,3.0,1.78,2.0
+2026-10-03,Bellandur,CakeZone,Breakfast,0.0,1.17,1.0
+2026-10-04,Bellandur,CakeZone,Breakfast,1.0,0.98,0.0
+2026-10-05,Bellandur,CakeZone,Breakfast,2.0,2.26,5.0
+2026-10-06,Bellandur,CakeZone,Breakfast,2.0,1.58,0.0
+2026-10-07,Bellandur,CakeZone,Breakfast,2.0,2.17,1.0
+2026-10-08,Bellandur,CakeZone,Breakfast,1.0,1.63,6.0
+2026-10-02,Bellandur,CakeZone,Dinner,18.0,13.06,10.0
+2026-10-03,Bellandur,CakeZone,Dinner,14.0,13.88,7.0
+2026-10-04,Bellandur,CakeZone,Dinner,17.0,12.94,11.0
+2026-10-05,Bellandur,CakeZone,Dinner,14.0,11.5,9.0
+2026-10-06,Bellandur,CakeZone,Dinner,9.0,13.28,16.0
+2026-10-07,Bellandur,CakeZone,Dinner,9.0,9.65,10.0
+2026-10-08,Bellandur,CakeZone,Dinner,7.0,11.76,11.0
+2026-10-02,Bellandur,CakeZone,Late night,12.0,8.15,6.0
+2026-10-03,Bellandur,CakeZone,Late night,15.0,8.27,5.0
+2026-10-04,Bellandur,CakeZone,Late night,8.0,8.76,8.0
+2026-10-05,Bellandur,CakeZone,Late night,6.0,6.64,5.0
+2026-10-06,Bellandur,CakeZone,Late night,6.0,6.78,9.0
+2026-10-07,Bellandur,CakeZone,Late night,5.0,6.21,2.0
+2026-10-08,Bellandur,CakeZone,Late night,8.0,7.49,3.0
+2026-10-02,Bellandur,CakeZone,Lunch,1.0,2.16,3.0
+2026-10-03,Bellandur,CakeZone,Lunch,1.0,1.8,4.0
+2026-10-04,Bellandur,CakeZone,Lunch,2.0,1.81,3.0
+2026-10-05,Bellandur,CakeZone,Lunch,2.0,2.2,2.0
+2026-10-06,Bellandur,CakeZone,Lunch,3.0,2.32,3.0
+2026-10-07,Bellandur,CakeZone,Lunch,0.0,2.93,2.0
+2026-10-08,Bellandur,CakeZone,Lunch,1.0,2.3,2.0
+2026-10-02,Bellandur,CakeZone,Snacks,11.0,8.76,12.0
+2026-10-03,Bellandur,CakeZone,Snacks,11.0,8.82,11.0
+2026-10-04,Bellandur,CakeZone,Snacks,13.0,10.27,4.0
+2026-10-05,Bellandur,CakeZone,Snacks,2.0,7.78,7.0
+2026-10-06,Bellandur,CakeZone,Snacks,11.0,8.33,7.0
+2026-10-07,Bellandur,CakeZone,Snacks,9.0,8.02,10.0
+2026-10-08,Bellandur,CakeZone,Snacks,4.0,7.08,13.0
+2026-10-02,Bellandur,EatFit,Breakfast,5.0,6.85,4.0
+2026-10-03,Bellandur,EatFit,Breakfast,8.0,5.59,5.0
+2026-10-04,Bellandur,EatFit,Breakfast,7.0,6.56,9.0
+2026-10-05,Bellandur,EatFit,Breakfast,4.0,7.91,9.0
+2026-10-06,Bellandur,EatFit,Breakfast,5.0,6.64,9.0
+2026-10-07,Bellandur,EatFit,Breakfast,8.0,8.23,10.0
+2026-10-08,Bellandur,EatFit,Breakfast,4.0,8.69,11.0
+2026-10-02,Bellandur,EatFit,Dinner,27.0,20.53,12.0
+2026-10-03,Bellandur,EatFit,Dinner,19.0,23.67,21.0
+2026-10-04,Bellandur,EatFit,Dinner,24.0,23.14,26.0
+2026-10-05,Bellandur,EatFit,Dinner,19.0,17.78,20.0
+2026-10-06,Bellandur,EatFit,Dinner,20.0,16.38,13.0
+2026-10-07,Bellandur,EatFit,Dinner,23.0,16.42,14.0
+2026-10-08,Bellandur,EatFit,Dinner,16.0,19.45,13.0
+2026-10-02,Bellandur,EatFit,Late night,2.0,0.8,1.0
+2026-10-03,Bellandur,EatFit,Late night,0.0,0.78,1.0
+2026-10-04,Bellandur,EatFit,Late night,1.0,0.85,0.0
+2026-10-05,Bellandur,EatFit,Late night,0.0,0.56,0.0
+2026-10-06,Bellandur,EatFit,Late night,1.0,0.65,1.0
+2026-10-07,Bellandur,EatFit,Late night,0.0,0.33,1.0
+2026-10-08,Bellandur,EatFit,Late night,0.0,0.68,0.0
+2026-10-02,Bellandur,EatFit,Lunch,26.0,30.77,35.0
+2026-10-03,Bellandur,EatFit,Lunch,19.0,24.24,23.0
+2026-10-04,Bellandur,EatFit,Lunch,20.0,25.16,22.0
+2026-10-05,Bellandur,EatFit,Lunch,43.0,36.93,41.0
+2026-10-06,Bellandur,EatFit,Lunch,35.0,35.48,43.0
+2026-10-07,Bellandur,EatFit,Lunch,42.0,37.54,25.0
+2026-10-08,Bellandur,EatFit,Lunch,41.0,39.89,30.0
+2026-10-02,Bellandur,EatFit,Snacks,11.0,3.84,4.0
+2026-10-03,Bellandur,EatFit,Snacks,3.0,4.08,4.0
+2026-10-04,Bellandur,EatFit,Snacks,2.0,4.85,10.0
+2026-10-05,Bellandur,EatFit,Snacks,6.0,3.08,1.0
+2026-10-06,Bellandur,EatFit,Snacks,2.0,3.73,3.0
+2026-10-07,Bellandur,EatFit,Snacks,4.0,3.81,5.0
+2026-10-08,Bellandur,EatFit,Snacks,4.0,3.63,4.0
+2026-10-02,Bellandur,Frozen Bottle,Breakfast,0.0,1.04,2.0
+2026-10-03,Bellandur,Frozen Bottle,Breakfast,1.0,0.47,0.0
+2026-10-04,Bellandur,Frozen Bottle,Breakfast,0.0,0.47,0.0
+2026-10-05,Bellandur,Frozen Bottle,Breakfast,1.0,1.17,0.0
+2026-10-06,Bellandur,Frozen Bottle,Breakfast,0.0,1.1,0.0
+2026-10-07,Bellandur,Frozen Bottle,Breakfast,1.0,0.82,2.0
+2026-10-08,Bellandur,Frozen Bottle,Breakfast,1.0,0.8,3.0
+2026-10-02,Bellandur,Frozen Bottle,Dinner,8.0,6.36,4.0
+2026-10-03,Bellandur,Frozen Bottle,Dinner,9.0,7.51,13.0
+2026-10-04,Bellandur,Frozen Bottle,Dinner,7.0,8.08,9.0
+2026-10-05,Bellandur,Frozen Bottle,Dinner,8.0,5.78,7.0
+2026-10-06,Bellandur,Frozen Bottle,Dinner,4.0,5.36,6.0
+2026-10-07,Bellandur,Frozen Bottle,Dinner,7.0,5.95,6.0
+2026-10-08,Bellandur,Frozen Bottle,Dinner,7.0,6.8,6.0
+2026-10-02,Bellandur,Frozen Bottle,Late night,11.0,5.7,1.0
+2026-10-03,Bellandur,Frozen Bottle,Late night,4.0,4.68,1.0
+2026-10-04,Bellandur,Frozen Bottle,Late night,3.0,4.43,4.0
+2026-10-05,Bellandur,Frozen Bottle,Late night,6.0,4.26,4.0
+2026-10-06,Bellandur,Frozen Bottle,Late night,2.0,3.59,3.0
+2026-10-07,Bellandur,Frozen Bottle,Late night,7.0,4.27,5.0
+2026-10-08,Bellandur,Frozen Bottle,Late night,3.0,4.15,4.0
+2026-10-02,Bellandur,Frozen Bottle,Lunch,0.0,0.97,1.0
+2026-10-03,Bellandur,Frozen Bottle,Lunch,1.0,1.33,1.0
+2026-10-04,Bellandur,Frozen Bottle,Lunch,1.0,1.52,3.0
+2026-10-05,Bellandur,Frozen Bottle,Lunch,1.0,2.38,0.0
+2026-10-06,Bellandur,Frozen Bottle,Lunch,3.0,1.64,1.0
+2026-10-07,Bellandur,Frozen Bottle,Lunch,0.0,1.7,0.0
+2026-10-08,Bellandur,Frozen Bottle,Lunch,2.0,1.72,2.0
+2026-10-02,Bellandur,Frozen Bottle,Snacks,5.0,5.73,8.0
+2026-10-03,Bellandur,Frozen Bottle,Snacks,7.0,5.96,1.0
+2026-10-04,Bellandur,Frozen Bottle,Snacks,7.0,7.04,8.0
+2026-10-05,Bellandur,Frozen Bottle,Snacks,5.0,4.67,5.0
+2026-10-06,Bellandur,Frozen Bottle,Snacks,3.0,4.65,7.0
+2026-10-07,Bellandur,Frozen Bottle,Snacks,5.0,4.84,4.0
+2026-10-08,Bellandur,Frozen Bottle,Snacks,5.0,4.36,4.0
+2026-10-02,Bellandur,Millet Express,Breakfast,6.0,6.04,11.0
+2026-10-03,Bellandur,Millet Express,Breakfast,2.0,4.93,2.0
+2026-10-04,Bellandur,Millet Express,Breakfast,3.0,5.67,8.0
+2026-10-05,Bellandur,Millet Express,Breakfast,11.0,6.77,4.0
+2026-10-06,Bellandur,Millet Express,Breakfast,10.0,6.08,5.0
+2026-10-07,Bellandur,Millet Express,Breakfast,7.0,6.82,16.0
+2026-10-08,Bellandur,Millet Express,Breakfast,5.0,8.16,10.0
+2026-10-02,Bellandur,Millet Express,Dinner,5.0,4.91,6.0
+2026-10-03,Bellandur,Millet Express,Dinner,2.0,5.4,10.0
+2026-10-04,Bellandur,Millet Express,Dinner,5.0,6.64,5.0
+2026-10-05,Bellandur,Millet Express,Dinner,1.0,3.67,5.0
+2026-10-06,Bellandur,Millet Express,Dinner,2.0,4.97,2.0
+2026-10-07,Bellandur,Millet Express,Dinner,6.0,4.01,5.0
+2026-10-08,Bellandur,Millet Express,Dinner,6.0,3.83,5.0
+2026-10-02,Bellandur,Millet Express,Lunch,9.0,7.05,9.0
+2026-10-03,Bellandur,Millet Express,Lunch,7.0,5.6,4.0
+2026-10-04,Bellandur,Millet Express,Lunch,3.0,6.08,3.0
+2026-10-05,Bellandur,Millet Express,Lunch,2.0,8.15,5.0
+2026-10-06,Bellandur,Millet Express,Lunch,7.0,7.94,7.0
+2026-10-07,Bellandur,Millet Express,Lunch,7.0,7.54,6.0
+2026-10-08,Bellandur,Millet Express,Lunch,12.0,7.99,11.0
+2026-10-02,Bellandur,Millet Express,Snacks,1.0,1.22,1.0
+2026-10-03,Bellandur,Millet Express,Snacks,2.0,1.85,1.0
+2026-10-04,Bellandur,Millet Express,Snacks,2.0,1.72,6.0
+2026-10-05,Bellandur,Millet Express,Snacks,2.0,1.69,2.0
+2026-10-06,Bellandur,Millet Express,Snacks,2.0,1.41,1.0
+2026-10-07,Bellandur,Millet Express,Snacks,1.0,1.88,2.0
+2026-10-08,Bellandur,Millet Express,Snacks,1.0,1.35,0.0
+2026-10-02,Bellandur,Olio Pizza,Dinner,42.0,37.92,32.0
+2026-10-03,Bellandur,Olio Pizza,Dinner,35.0,37.46,43.0
+2026-10-04,Bellandur,Olio Pizza,Dinner,45.0,34.19,34.0
+2026-10-05,Bellandur,Olio Pizza,Dinner,38.0,28.59,32.0
+2026-10-06,Bellandur,Olio Pizza,Dinner,29.0,28.26,25.0
+2026-10-07,Bellandur,Olio Pizza,Dinner,35.0,24.56,24.0
+2026-10-08,Bellandur,Olio Pizza,Dinner,27.0,29.51,20.0
+2026-10-02,Bellandur,Olio Pizza,Late night,6.0,7.58,11.0
+2026-10-03,Bellandur,Olio Pizza,Late night,8.0,8.35,11.0
+2026-10-04,Bellandur,Olio Pizza,Late night,10.0,8.22,10.0
+2026-10-05,Bellandur,Olio Pizza,Late night,9.0,6.59,9.0
+2026-10-06,Bellandur,Olio Pizza,Late night,6.0,6.29,8.0
+2026-10-07,Bellandur,Olio Pizza,Late night,8.0,5.43,3.0
+2026-10-08,Bellandur,Olio Pizza,Late night,9.0,6.18,8.0
+2026-10-02,Bellandur,Olio Pizza,Lunch,6.0,7.17,10.0
+2026-10-03,Bellandur,Olio Pizza,Lunch,5.0,6.2,5.0
+2026-10-04,Bellandur,Olio Pizza,Lunch,4.0,6.59,1.0
+2026-10-05,Bellandur,Olio Pizza,Lunch,10.0,8.36,10.0
+2026-10-06,Bellandur,Olio Pizza,Lunch,6.0,8.25,9.0
+2026-10-07,Bellandur,Olio Pizza,Lunch,8.0,7.16,6.0
+2026-10-08,Bellandur,Olio Pizza,Lunch,12.0,8.46,7.0
+2026-10-02,Bellandur,Olio Pizza,Snacks,6.0,6.34,5.0
+2026-10-03,Bellandur,Olio Pizza,Snacks,7.0,6.58,4.0
+2026-10-04,Bellandur,Olio Pizza,Snacks,8.0,6.58,6.0
+2026-10-05,Bellandur,Olio Pizza,Snacks,8.0,5.43,9.0
+2026-10-06,Bellandur,Olio Pizza,Snacks,6.0,6.09,5.0
+2026-10-07,Bellandur,Olio Pizza,Snacks,8.0,5.44,6.0
+2026-10-08,Bellandur,Olio Pizza,Snacks,6.0,5.39,6.0
+2026-10-02,Bellandur,Sharief Bhai,Dinner,39.0,40.19,36.0
+2026-10-03,Bellandur,Sharief Bhai,Dinner,35.0,44.92,39.0
+2026-10-04,Bellandur,Sharief Bhai,Dinner,29.0,41.19,35.0
+2026-10-05,Bellandur,Sharief Bhai,Dinner,36.0,28.73,30.0
+2026-10-06,Bellandur,Sharief Bhai,Dinner,16.0,29.04,34.0
+2026-10-07,Bellandur,Sharief Bhai,Dinner,27.0,26.16,37.0
+2026-10-08,Bellandur,Sharief Bhai,Dinner,35.0,27.34,26.0
+2026-10-02,Bellandur,Sharief Bhai,Late night,18.0,7.6,12.0
+2026-10-03,Bellandur,Sharief Bhai,Late night,9.0,8.06,10.0
+2026-10-04,Bellandur,Sharief Bhai,Late night,7.0,8.21,9.0
+2026-10-05,Bellandur,Sharief Bhai,Late night,3.0,7.52,8.0
+2026-10-06,Bellandur,Sharief Bhai,Late night,6.0,7.18,5.0
+2026-10-07,Bellandur,Sharief Bhai,Late night,8.0,7.07,6.0
+2026-10-08,Bellandur,Sharief Bhai,Late night,11.0,6.13,3.0
+2026-10-02,Bellandur,Sharief Bhai,Lunch,18.0,18.99,21.0
+2026-10-03,Bellandur,Sharief Bhai,Lunch,12.0,14.46,14.0
+2026-10-04,Bellandur,Sharief Bhai,Lunch,14.0,16.46,20.0
+2026-10-05,Bellandur,Sharief Bhai,Lunch,16.0,20.18,14.0
+2026-10-06,Bellandur,Sharief Bhai,Lunch,13.0,17.7,29.0
+2026-10-07,Bellandur,Sharief Bhai,Lunch,26.0,14.33,17.0
+2026-10-08,Bellandur,Sharief Bhai,Lunch,24.0,20.15,17.0
+2026-10-02,Bellandur,Sharief Bhai,Snacks,1.0,3.33,6.0
+2026-10-03,Bellandur,Sharief Bhai,Snacks,2.0,3.13,2.0
+2026-10-04,Bellandur,Sharief Bhai,Snacks,1.0,3.6,5.0
+2026-10-05,Bellandur,Sharief Bhai,Snacks,1.0,2.77,2.0
+2026-10-06,Bellandur,Sharief Bhai,Snacks,0.0,2.51,3.0
+2026-10-07,Bellandur,Sharief Bhai,Snacks,1.0,2.58,6.0
+2026-10-08,Bellandur,Sharief Bhai,Snacks,2.0,2.15,2.0
+2026-10-02,Electronic City,CakeZone,Breakfast,2.0,0.39,0.0
+2026-10-03,Electronic City,CakeZone,Breakfast,1.0,0.36,0.0
+2026-10-04,Electronic City,CakeZone,Breakfast,1.0,0.33,0.0
+2026-10-05,Electronic City,CakeZone,Breakfast,3.0,0.32,0.0
+2026-10-06,Electronic City,CakeZone,Breakfast,1.0,0.45,0.0
+2026-10-07,Electronic City,CakeZone,Breakfast,1.0,0.35,0.0
+2026-10-08,Electronic City,CakeZone,Breakfast,2.0,0.54,0.0
+2026-10-02,Electronic City,CakeZone,Dinner,11.0,9.02,8.0
+2026-10-03,Electronic City,CakeZone,Dinner,8.0,6.76,6.0
+2026-10-04,Electronic City,CakeZone,Dinner,4.0,8.44,8.0
+2026-10-05,Electronic City,CakeZone,Dinner,5.0,6.07,9.0
+2026-10-06,Electronic City,CakeZone,Dinner,5.0,4.7,5.0
+2026-10-07,Electronic City,CakeZone,Dinner,6.0,5.02,4.0
+2026-10-08,Electronic City,CakeZone,Dinner,6.0,7.06,5.0
+2026-10-02,Electronic City,CakeZone,Late night,3.0,5.27,4.0
+2026-10-03,Electronic City,CakeZone,Late night,5.0,5.25,7.0
+2026-10-04,Electronic City,CakeZone,Late night,9.0,4.69,0.0
+2026-10-05,Electronic City,CakeZone,Late night,4.0,4.95,6.0
+2026-10-06,Electronic City,CakeZone,Late night,0.0,3.74,6.0
+2026-10-07,Electronic City,CakeZone,Late night,3.0,4.43,3.0
+2026-10-08,Electronic City,CakeZone,Late night,7.0,5.99,5.0
+2026-10-02,Electronic City,CakeZone,Lunch,0.0,1.41,3.0
+2026-10-03,Electronic City,CakeZone,Lunch,0.0,1.12,1.0
+2026-10-04,Electronic City,CakeZone,Lunch,3.0,1.01,1.0
+2026-10-05,Electronic City,CakeZone,Lunch,3.0,1.85,4.0
+2026-10-06,Electronic City,CakeZone,Lunch,1.0,1.62,1.0
+2026-10-07,Electronic City,CakeZone,Lunch,2.0,1.64,1.0
+2026-10-08,Electronic City,CakeZone,Lunch,0.0,2.43,2.0
+2026-10-02,Electronic City,CakeZone,Snacks,5.0,4.6,5.0
+2026-10-03,Electronic City,CakeZone,Snacks,5.0,4.6,4.0
+2026-10-04,Electronic City,CakeZone,Snacks,0.0,4.36,4.0
+2026-10-05,Electronic City,CakeZone,Snacks,5.0,4.09,7.0
+2026-10-06,Electronic City,CakeZone,Snacks,9.0,3.63,6.0
+2026-10-07,Electronic City,CakeZone,Snacks,6.0,3.26,3.0
+2026-10-08,Electronic City,CakeZone,Snacks,5.0,5.14,2.0
+2026-10-02,Electronic City,EatFit,Breakfast,4.0,5.62,7.0
+2026-10-03,Electronic City,EatFit,Breakfast,3.0,3.65,4.0
+2026-10-04,Electronic City,EatFit,Breakfast,6.0,3.46,3.0
+2026-10-05,Electronic City,EatFit,Breakfast,7.0,5.06,7.0
+2026-10-06,Electronic City,EatFit,Breakfast,4.0,4.29,2.0
+2026-10-07,Electronic City,EatFit,Breakfast,3.0,3.86,1.0
+2026-10-08,Electronic City,EatFit,Breakfast,4.0,5.26,6.0
+2026-10-02,Electronic City,EatFit,Dinner,17.0,11.57,11.0
+2026-10-03,Electronic City,EatFit,Dinner,13.0,11.06,13.0
+2026-10-04,Electronic City,EatFit,Dinner,16.0,10.68,15.0
+2026-10-05,Electronic City,EatFit,Dinner,10.0,7.57,3.0
+2026-10-06,Electronic City,EatFit,Dinner,14.0,9.57,6.0
+2026-10-07,Electronic City,EatFit,Dinner,7.0,8.69,9.0
+2026-10-08,Electronic City,EatFit,Dinner,8.0,11.53,17.0
+2026-10-02,Electronic City,EatFit,Late night,0.0,0.62,0.0
+2026-10-03,Electronic City,EatFit,Late night,0.0,0.6,0.0
+2026-10-04,Electronic City,EatFit,Late night,0.0,0.88,1.0
+2026-10-05,Electronic City,EatFit,Late night,0.0,0.67,0.0
+2026-10-06,Electronic City,EatFit,Late night,0.0,0.7,1.0
+2026-10-07,Electronic City,EatFit,Late night,0.0,0.54,0.0
+2026-10-08,Electronic City,EatFit,Late night,0.0,0.95,0.0
+2026-10-02,Electronic City,EatFit,Lunch,22.0,21.8,16.0
+2026-10-03,Electronic City,EatFit,Lunch,16.0,12.51,11.0
+2026-10-04,Electronic City,EatFit,Lunch,11.0,13.76,16.0
+2026-10-05,Electronic City,EatFit,Lunch,27.0,20.87,27.0
+2026-10-06,Electronic City,EatFit,Lunch,20.0,19.86,26.0
+2026-10-07,Electronic City,EatFit,Lunch,20.0,20.33,20.0
+2026-10-08,Electronic City,EatFit,Lunch,25.0,19.71,30.0
+2026-10-02,Electronic City,EatFit,Snacks,5.0,2.2,3.0
+2026-10-03,Electronic City,EatFit,Snacks,3.0,1.39,2.0
+2026-10-04,Electronic City,EatFit,Snacks,1.0,1.95,1.0
+2026-10-05,Electronic City,EatFit,Snacks,6.0,1.34,0.0
+2026-10-06,Electronic City,EatFit,Snacks,4.0,2.46,1.0
+2026-10-07,Electronic City,EatFit,Snacks,2.0,2.34,3.0
+2026-10-08,Electronic City,EatFit,Snacks,2.0,3.51,3.0
+2026-10-02,Electronic City,Frozen Bottle,Breakfast,0.0,0.41,0.0
+2026-10-03,Electronic City,Frozen Bottle,Breakfast,0.0,0.41,0.0
+2026-10-04,Electronic City,Frozen Bottle,Breakfast,0.0,0.32,0.0
+2026-10-05,Electronic City,Frozen Bottle,Breakfast,1.0,0.36,0.0
+2026-10-06,Electronic City,Frozen Bottle,Breakfast,1.0,0.48,0.0
+2026-10-07,Electronic City,Frozen Bottle,Breakfast,0.0,0.39,3.0
+2026-10-08,Electronic City,Frozen Bottle,Breakfast,0.0,0.72,0.0
+2026-10-02,Electronic City,Frozen Bottle,Dinner,5.0,3.31,3.0
+2026-10-03,Electronic City,Frozen Bottle,Dinner,4.0,3.18,4.0
+2026-10-04,Electronic City,Frozen Bottle,Dinner,5.0,3.25,4.0
+2026-10-05,Electronic City,Frozen Bottle,Dinner,6.0,3.96,2.0
+2026-10-06,Electronic City,Frozen Bottle,Dinner,6.0,2.68,3.0
+2026-10-07,Electronic City,Frozen Bottle,Dinner,1.0,2.35,1.0
+2026-10-08,Electronic City,Frozen Bottle,Dinner,6.0,3.97,1.0
+2026-10-02,Electronic City,Frozen Bottle,Late night,3.0,1.8,4.0
+2026-10-03,Electronic City,Frozen Bottle,Late night,3.0,2.15,3.0
+2026-10-04,Electronic City,Frozen Bottle,Late night,4.0,2.49,2.0
+2026-10-05,Electronic City,Frozen Bottle,Late night,3.0,1.39,2.0
+2026-10-06,Electronic City,Frozen Bottle,Late night,1.0,0.78,2.0
+2026-10-07,Electronic City,Frozen Bottle,Late night,5.0,1.0,1.0
+2026-10-08,Electronic City,Frozen Bottle,Late night,3.0,2.85,2.0
+2026-10-02,Electronic City,Frozen Bottle,Lunch,0.0,1.91,0.0
+2026-10-03,Electronic City,Frozen Bottle,Lunch,0.0,0.96,1.0
+2026-10-04,Electronic City,Frozen Bottle,Lunch,0.0,1.41,1.0
+2026-10-05,Electronic City,Frozen Bottle,Lunch,0.0,1.34,2.0
+2026-10-06,Electronic City,Frozen Bottle,Lunch,2.0,1.47,2.0
+2026-10-07,Electronic City,Frozen Bottle,Lunch,1.0,1.9,0.0
+2026-10-08,Electronic City,Frozen Bottle,Lunch,2.0,1.29,2.0
+2026-10-02,Electronic City,Frozen Bottle,Snacks,3.0,3.12,2.0
+2026-10-03,Electronic City,Frozen Bottle,Snacks,4.0,3.43,0.0
+2026-10-04,Electronic City,Frozen Bottle,Snacks,4.0,3.13,8.0
+2026-10-05,Electronic City,Frozen Bottle,Snacks,4.0,2.25,1.0
+2026-10-06,Electronic City,Frozen Bottle,Snacks,5.0,2.06,3.0
+2026-10-07,Electronic City,Frozen Bottle,Snacks,2.0,2.24,2.0
+2026-10-08,Electronic City,Frozen Bottle,Snacks,7.0,2.64,4.0
+2026-10-02,Electronic City,Millet Express,Breakfast,2.0,4.33,5.0
+2026-10-03,Electronic City,Millet Express,Breakfast,6.0,3.1,2.0
+2026-10-04,Electronic City,Millet Express,Breakfast,1.0,2.26,1.0
+2026-10-05,Electronic City,Millet Express,Breakfast,6.0,5.31,4.0
+2026-10-06,Electronic City,Millet Express,Breakfast,2.0,5.89,10.0
+2026-10-07,Electronic City,Millet Express,Breakfast,4.0,4.54,3.0
+2026-10-08,Electronic City,Millet Express,Breakfast,8.0,6.09,3.0
+2026-10-02,Electronic City,Millet Express,Dinner,2.0,3.84,2.0
+2026-10-03,Electronic City,Millet Express,Dinner,5.0,3.79,6.0
+2026-10-04,Electronic City,Millet Express,Dinner,4.0,2.93,1.0
+2026-10-05,Electronic City,Millet Express,Dinner,5.0,3.1,2.0
+2026-10-06,Electronic City,Millet Express,Dinner,3.0,3.06,4.0
+2026-10-07,Electronic City,Millet Express,Dinner,2.0,2.93,2.0
+2026-10-08,Electronic City,Millet Express,Dinner,1.0,4.47,3.0
+2026-10-02,Electronic City,Millet Express,Lunch,6.0,4.53,4.0
+2026-10-03,Electronic City,Millet Express,Lunch,3.0,4.43,7.0
+2026-10-04,Electronic City,Millet Express,Lunch,3.0,3.15,2.0
+2026-10-05,Electronic City,Millet Express,Lunch,6.0,6.05,5.0
+2026-10-06,Electronic City,Millet Express,Lunch,0.0,3.85,6.0
+2026-10-07,Electronic City,Millet Express,Lunch,5.0,4.62,3.0
+2026-10-08,Electronic City,Millet Express,Lunch,3.0,5.58,6.0
+2026-10-02,Electronic City,Millet Express,Snacks,0.0,1.39,2.0
+2026-10-03,Electronic City,Millet Express,Snacks,0.0,1.29,4.0
+2026-10-04,Electronic City,Millet Express,Snacks,0.0,1.17,1.0
+2026-10-05,Electronic City,Millet Express,Snacks,0.0,1.25,0.0
+2026-10-06,Electronic City,Millet Express,Snacks,0.0,0.81,3.0
+2026-10-07,Electronic City,Millet Express,Snacks,0.0,1.1,0.0
+2026-10-08,Electronic City,Millet Express,Snacks,0.0,1.16,3.0
+2026-10-02,Electronic City,Olio Pizza,Dinner,40.0,20.15,29.0
+2026-10-03,Electronic City,Olio Pizza,Dinner,19.0,20.24,17.0
+2026-10-04,Electronic City,Olio Pizza,Dinner,21.0,20.21,19.0
+2026-10-05,Electronic City,Olio Pizza,Dinner,16.0,21.66,19.0
+2026-10-06,Electronic City,Olio Pizza,Dinner,12.0,15.26,9.0
+2026-10-07,Electronic City,Olio Pizza,Dinner,14.0,17.64,16.0
+2026-10-08,Electronic City,Olio Pizza,Dinner,11.0,20.72,21.0
+2026-10-02,Electronic City,Olio Pizza,Late night,5.0,4.7,6.0
+2026-10-03,Electronic City,Olio Pizza,Late night,6.0,5.6,7.0
+2026-10-04,Electronic City,Olio Pizza,Late night,2.0,5.04,6.0
+2026-10-05,Electronic City,Olio Pizza,Late night,4.0,4.98,5.0
+2026-10-06,Electronic City,Olio Pizza,Late night,2.0,4.63,6.0
+2026-10-07,Electronic City,Olio Pizza,Late night,4.0,4.57,5.0
+2026-10-08,Electronic City,Olio Pizza,Late night,2.0,4.84,4.0
+2026-10-02,Electronic City,Olio Pizza,Lunch,9.0,5.25,2.0
+2026-10-03,Electronic City,Olio Pizza,Lunch,2.0,5.21,4.0
+2026-10-04,Electronic City,Olio Pizza,Lunch,6.0,5.02,6.0
+2026-10-05,Electronic City,Olio Pizza,Lunch,5.0,6.93,5.0
+2026-10-06,Electronic City,Olio Pizza,Lunch,1.0,5.0,8.0
+2026-10-07,Electronic City,Olio Pizza,Lunch,3.0,5.31,8.0
+2026-10-08,Electronic City,Olio Pizza,Lunch,5.0,5.23,6.0
+2026-10-02,Electronic City,Olio Pizza,Snacks,4.0,3.97,5.0
+2026-10-03,Electronic City,Olio Pizza,Snacks,4.0,3.0,4.0
+2026-10-04,Electronic City,Olio Pizza,Snacks,7.0,3.47,3.0
+2026-10-05,Electronic City,Olio Pizza,Snacks,5.0,4.85,4.0
+2026-10-06,Electronic City,Olio Pizza,Snacks,4.0,3.85,4.0
+2026-10-07,Electronic City,Olio Pizza,Snacks,4.0,3.9,1.0
+2026-10-08,Electronic City,Olio Pizza,Snacks,3.0,3.8,3.0
+2026-10-02,Electronic City,Sharief Bhai,Dinner,20.0,21.48,19.0
+2026-10-03,Electronic City,Sharief Bhai,Dinner,26.0,21.49,25.0
+2026-10-04,Electronic City,Sharief Bhai,Dinner,24.0,20.35,15.0
+2026-10-05,Electronic City,Sharief Bhai,Dinner,20.0,22.62,20.0
+2026-10-06,Electronic City,Sharief Bhai,Dinner,12.0,18.81,33.0
+2026-10-07,Electronic City,Sharief Bhai,Dinner,24.0,18.63,21.0
+2026-10-08,Electronic City,Sharief Bhai,Dinner,27.0,22.76,19.0
+2026-10-02,Electronic City,Sharief Bhai,Late night,6.0,5.52,10.0
+2026-10-03,Electronic City,Sharief Bhai,Late night,2.0,5.93,7.0
+2026-10-04,Electronic City,Sharief Bhai,Late night,5.0,5.77,8.0
+2026-10-05,Electronic City,Sharief Bhai,Late night,2.0,4.68,1.0
+2026-10-06,Electronic City,Sharief Bhai,Late night,5.0,2.44,5.0
+2026-10-07,Electronic City,Sharief Bhai,Late night,4.0,3.89,3.0
+2026-10-08,Electronic City,Sharief Bhai,Late night,5.0,3.15,2.0
+2026-10-02,Electronic City,Sharief Bhai,Lunch,13.0,10.57,12.0
+2026-10-03,Electronic City,Sharief Bhai,Lunch,17.0,8.5,16.0
+2026-10-04,Electronic City,Sharief Bhai,Lunch,4.0,10.36,7.0
+2026-10-05,Electronic City,Sharief Bhai,Lunch,15.0,9.61,11.0
+2026-10-06,Electronic City,Sharief Bhai,Lunch,12.0,9.22,10.0
+2026-10-07,Electronic City,Sharief Bhai,Lunch,15.0,10.15,4.0
+2026-10-08,Electronic City,Sharief Bhai,Lunch,12.0,10.02,14.0
+2026-10-02,Electronic City,Sharief Bhai,Snacks,1.0,1.2,1.0
+2026-10-03,Electronic City,Sharief Bhai,Snacks,2.0,1.42,1.0
+2026-10-04,Electronic City,Sharief Bhai,Snacks,0.0,1.09,1.0
+2026-10-05,Electronic City,Sharief Bhai,Snacks,0.0,1.4,1.0
+2026-10-06,Electronic City,Sharief Bhai,Snacks,0.0,1.07,1.0
+2026-10-07,Electronic City,Sharief Bhai,Snacks,1.0,1.02,0.0
+2026-10-08,Electronic City,Sharief Bhai,Snacks,1.0,1.21,3.0
+2026-10-02,HSR Layout,CakeZone,Breakfast,1.0,1.71,3.0
+2026-10-03,HSR Layout,CakeZone,Breakfast,2.0,1.28,1.0
+2026-10-04,HSR Layout,CakeZone,Breakfast,0.0,1.41,3.0
+2026-10-05,HSR Layout,CakeZone,Breakfast,2.0,2.02,1.0
+2026-10-06,HSR Layout,CakeZone,Breakfast,5.0,1.76,0.0
+2026-10-07,HSR Layout,CakeZone,Breakfast,1.0,1.56,4.0
+2026-10-08,HSR Layout,CakeZone,Breakfast,3.0,2.54,0.0
+2026-10-02,HSR Layout,CakeZone,Dinner,9.0,14.34,12.0
+2026-10-03,HSR Layout,CakeZone,Dinner,22.0,12.32,14.0
+2026-10-04,HSR Layout,CakeZone,Dinner,13.0,11.89,15.0
+2026-10-05,HSR Layout,CakeZone,Dinner,11.0,9.71,4.0
+2026-10-06,HSR Layout,CakeZone,Dinner,12.0,9.84,15.0
+2026-10-07,HSR Layout,CakeZone,Dinner,11.0,10.11,8.0
+2026-10-08,HSR Layout,CakeZone,Dinner,10.0,10.79,11.0
+2026-10-02,HSR Layout,CakeZone,Late night,12.0,9.52,12.0
+2026-10-03,HSR Layout,CakeZone,Late night,15.0,10.58,11.0
+2026-10-04,HSR Layout,CakeZone,Late night,7.0,10.06,15.0
+2026-10-05,HSR Layout,CakeZone,Late night,7.0,9.07,12.0
+2026-10-06,HSR Layout,CakeZone,Late night,6.0,7.5,10.0
+2026-10-07,HSR Layout,CakeZone,Late night,8.0,7.29,8.0
+2026-10-08,HSR Layout,CakeZone,Late night,8.0,8.16,3.0
+2026-10-02,HSR Layout,CakeZone,Lunch,5.0,2.13,3.0
+2026-10-03,HSR Layout,CakeZone,Lunch,1.0,1.32,1.0
+2026-10-04,HSR Layout,CakeZone,Lunch,1.0,1.48,0.0
+2026-10-05,HSR Layout,CakeZone,Lunch,4.0,2.66,2.0
+2026-10-06,HSR Layout,CakeZone,Lunch,1.0,2.3,6.0
+2026-10-07,HSR Layout,CakeZone,Lunch,1.0,2.66,2.0
+2026-10-08,HSR Layout,CakeZone,Lunch,1.0,2.83,0.0
+2026-10-02,HSR Layout,CakeZone,Snacks,12.0,7.32,12.0
+2026-10-03,HSR Layout,CakeZone,Snacks,11.0,8.82,12.0
+2026-10-04,HSR Layout,CakeZone,Snacks,13.0,10.6,8.0
+2026-10-05,HSR Layout,CakeZone,Snacks,7.0,7.44,6.0
+2026-10-06,HSR Layout,CakeZone,Snacks,8.0,7.72,11.0
+2026-10-07,HSR Layout,CakeZone,Snacks,16.0,7.64,14.0
+2026-10-08,HSR Layout,CakeZone,Snacks,11.0,8.65,7.0
+2026-10-02,HSR Layout,EatFit,Breakfast,10.0,7.43,7.0
+2026-10-03,HSR Layout,EatFit,Breakfast,7.0,6.98,6.0
+2026-10-04,HSR Layout,EatFit,Breakfast,1.0,6.73,11.0
+2026-10-05,HSR Layout,EatFit,Breakfast,10.0,7.4,14.0
+2026-10-06,HSR Layout,EatFit,Breakfast,10.0,7.82,10.0
+2026-10-07,HSR Layout,EatFit,Breakfast,6.0,7.13,5.0
+2026-10-08,HSR Layout,EatFit,Breakfast,7.0,8.87,6.0
+2026-10-02,HSR Layout,EatFit,Dinner,31.0,22.37,23.0
+2026-10-03,HSR Layout,EatFit,Dinner,23.0,22.6,27.0
+2026-10-04,HSR Layout,EatFit,Dinner,21.0,23.03,25.0
+2026-10-05,HSR Layout,EatFit,Dinner,18.0,16.21,12.0
+2026-10-06,HSR Layout,EatFit,Dinner,19.0,16.49,18.0
+2026-10-07,HSR Layout,EatFit,Dinner,16.0,16.87,20.0
+2026-10-08,HSR Layout,EatFit,Dinner,22.0,20.19,16.0
+2026-10-02,HSR Layout,EatFit,Late night,2.0,0.38,0.0
+2026-10-03,HSR Layout,EatFit,Late night,1.0,0.52,0.0
+2026-10-04,HSR Layout,EatFit,Late night,3.0,0.53,1.0
+2026-10-05,HSR Layout,EatFit,Late night,0.0,0.71,0.0
+2026-10-06,HSR Layout,EatFit,Late night,2.0,0.52,3.0
+2026-10-07,HSR Layout,EatFit,Late night,0.0,0.28,0.0
+2026-10-08,HSR Layout,EatFit,Late night,0.0,0.45,0.0
+2026-10-02,HSR Layout,EatFit,Lunch,31.0,44.41,50.0
+2026-10-03,HSR Layout,EatFit,Lunch,27.0,32.68,30.0
+2026-10-04,HSR Layout,EatFit,Lunch,37.0,30.8,33.0
+2026-10-05,HSR Layout,EatFit,Lunch,42.0,38.79,35.0
+2026-10-06,HSR Layout,EatFit,Lunch,28.0,36.3,37.0
+2026-10-07,HSR Layout,EatFit,Lunch,35.0,40.14,35.0
+2026-10-08,HSR Layout,EatFit,Lunch,53.0,41.32,46.0
+2026-10-02,HSR Layout,EatFit,Snacks,2.0,3.6,2.0
+2026-10-03,HSR Layout,EatFit,Snacks,7.0,4.3,5.0
+2026-10-04,HSR Layout,EatFit,Snacks,5.0,6.17,10.0
+2026-10-05,HSR Layout,EatFit,Snacks,9.0,3.71,6.0
+2026-10-06,HSR Layout,EatFit,Snacks,5.0,3.88,6.0
+2026-10-07,HSR Layout,EatFit,Snacks,4.0,3.9,3.0
+2026-10-08,HSR Layout,EatFit,Snacks,3.0,3.86,3.0
+2026-10-02,HSR Layout,Frozen Bottle,Breakfast,0.0,1.03,1.0
+2026-10-03,HSR Layout,Frozen Bottle,Breakfast,1.0,0.74,1.0
+2026-10-04,HSR Layout,Frozen Bottle,Breakfast,1.0,1.14,1.0
+2026-10-05,HSR Layout,Frozen Bottle,Breakfast,0.0,0.67,1.0
+2026-10-06,HSR Layout,Frozen Bottle,Breakfast,1.0,0.78,0.0
+2026-10-07,HSR Layout,Frozen Bottle,Breakfast,1.0,0.76,0.0
+2026-10-08,HSR Layout,Frozen Bottle,Breakfast,0.0,0.83,1.0
+2026-10-02,HSR Layout,Frozen Bottle,Dinner,8.0,6.32,6.0
+2026-10-03,HSR Layout,Frozen Bottle,Dinner,11.0,7.96,7.0
+2026-10-04,HSR Layout,Frozen Bottle,Dinner,5.0,7.08,6.0
+2026-10-05,HSR Layout,Frozen Bottle,Dinner,11.0,4.22,6.0
+2026-10-06,HSR Layout,Frozen Bottle,Dinner,6.0,5.51,3.0
+2026-10-07,HSR Layout,Frozen Bottle,Dinner,6.0,4.86,5.0
+2026-10-08,HSR Layout,Frozen Bottle,Dinner,8.0,7.22,2.0
+2026-10-02,HSR Layout,Frozen Bottle,Late night,7.0,4.06,4.0
+2026-10-03,HSR Layout,Frozen Bottle,Late night,9.0,4.4,4.0
+2026-10-04,HSR Layout,Frozen Bottle,Late night,9.0,4.38,7.0
+2026-10-05,HSR Layout,Frozen Bottle,Late night,1.0,4.43,7.0
+2026-10-06,HSR Layout,Frozen Bottle,Late night,3.0,3.71,5.0
+2026-10-07,HSR Layout,Frozen Bottle,Late night,2.0,3.58,1.0
+2026-10-08,HSR Layout,Frozen Bottle,Late night,3.0,4.73,1.0
+2026-10-02,HSR Layout,Frozen Bottle,Lunch,0.0,1.79,1.0
+2026-10-03,HSR Layout,Frozen Bottle,Lunch,1.0,1.5,3.0
+2026-10-04,HSR Layout,Frozen Bottle,Lunch,1.0,1.48,3.0
+2026-10-05,HSR Layout,Frozen Bottle,Lunch,2.0,1.51,3.0
+2026-10-06,HSR Layout,Frozen Bottle,Lunch,2.0,1.5,3.0
+2026-10-07,HSR Layout,Frozen Bottle,Lunch,2.0,1.49,1.0
+2026-10-08,HSR Layout,Frozen Bottle,Lunch,0.0,1.76,3.0
+2026-10-02,HSR Layout,Frozen Bottle,Snacks,13.0,4.93,4.0
+2026-10-03,HSR Layout,Frozen Bottle,Snacks,9.0,7.07,8.0
+2026-10-04,HSR Layout,Frozen Bottle,Snacks,3.0,6.56,5.0
+2026-10-05,HSR Layout,Frozen Bottle,Snacks,7.0,4.26,5.0
+2026-10-06,HSR Layout,Frozen Bottle,Snacks,5.0,5.22,5.0
+2026-10-07,HSR Layout,Frozen Bottle,Snacks,6.0,4.76,6.0
+2026-10-08,HSR Layout,Frozen Bottle,Snacks,6.0,6.03,6.0
+2026-10-02,HSR Layout,Millet Express,Breakfast,4.0,6.45,5.0
+2026-10-03,HSR Layout,Millet Express,Breakfast,7.0,3.85,2.0
+2026-10-04,HSR Layout,Millet Express,Breakfast,11.0,4.8,7.0
+2026-10-05,HSR Layout,Millet Express,Breakfast,7.0,6.49,2.0
+2026-10-06,HSR Layout,Millet Express,Breakfast,8.0,6.29,13.0
+2026-10-07,HSR Layout,Millet Express,Breakfast,6.0,6.34,11.0
+2026-10-08,HSR Layout,Millet Express,Breakfast,5.0,7.45,12.0
+2026-10-02,HSR Layout,Millet Express,Dinner,8.0,3.94,4.0
+2026-10-03,HSR Layout,Millet Express,Dinner,6.0,5.81,3.0
+2026-10-04,HSR Layout,Millet Express,Dinner,11.0,4.75,2.0
+2026-10-05,HSR Layout,Millet Express,Dinner,6.0,6.47,4.0
+2026-10-06,HSR Layout,Millet Express,Dinner,9.0,4.04,7.0
+2026-10-07,HSR Layout,Millet Express,Dinner,10.0,5.76,2.0
+2026-10-08,HSR Layout,Millet Express,Dinner,5.0,5.51,3.0
+2026-10-02,HSR Layout,Millet Express,Lunch,6.0,7.55,6.0
+2026-10-03,HSR Layout,Millet Express,Lunch,6.0,5.08,3.0
+2026-10-04,HSR Layout,Millet Express,Lunch,8.0,5.33,7.0
+2026-10-05,HSR Layout,Millet Express,Lunch,7.0,9.47,2.0
+2026-10-06,HSR Layout,Millet Express,Lunch,12.0,8.1,8.0
+2026-10-07,HSR Layout,Millet Express,Lunch,8.0,8.09,4.0
+2026-10-08,HSR Layout,Millet Express,Lunch,10.0,9.24,10.0
+2026-10-02,HSR Layout,Millet Express,Snacks,4.0,1.15,0.0
+2026-10-03,HSR Layout,Millet Express,Snacks,6.0,1.17,1.0
+2026-10-04,HSR Layout,Millet Express,Snacks,4.0,1.62,1.0
+2026-10-05,HSR Layout,Millet Express,Snacks,1.0,1.74,1.0
+2026-10-06,HSR Layout,Millet Express,Snacks,2.0,1.62,1.0
+2026-10-07,HSR Layout,Millet Express,Snacks,2.0,1.6,1.0
+2026-10-08,HSR Layout,Millet Express,Snacks,3.0,2.7,2.0
+2026-10-02,HSR Layout,Olio Pizza,Dinner,48.0,37.82,45.0
+2026-10-03,HSR Layout,Olio Pizza,Dinner,41.0,43.93,38.0
+2026-10-04,HSR Layout,Olio Pizza,Dinner,30.0,46.01,42.0
+2026-10-05,HSR Layout,Olio Pizza,Dinner,33.0,34.29,31.0
+2026-10-06,HSR Layout,Olio Pizza,Dinner,38.0,32.36,31.0
+2026-10-07,HSR Layout,Olio Pizza,Dinner,30.0,30.93,33.0
+2026-10-08,HSR Layout,Olio Pizza,Dinner,37.0,33.33,35.0
+2026-10-02,HSR Layout,Olio Pizza,Late night,12.0,10.58,7.0
+2026-10-03,HSR Layout,Olio Pizza,Late night,13.0,9.39,9.0
+2026-10-04,HSR Layout,Olio Pizza,Late night,7.0,11.7,9.0
+2026-10-05,HSR Layout,Olio Pizza,Late night,12.0,9.75,6.0
+2026-10-06,HSR Layout,Olio Pizza,Late night,8.0,6.8,7.0
+2026-10-07,HSR Layout,Olio Pizza,Late night,3.0,8.93,6.0
+2026-10-08,HSR Layout,Olio Pizza,Late night,5.0,8.32,10.0
+2026-10-02,HSR Layout,Olio Pizza,Lunch,5.0,9.98,12.0
+2026-10-03,HSR Layout,Olio Pizza,Lunch,11.0,9.27,8.0
+2026-10-04,HSR Layout,Olio Pizza,Lunch,9.0,11.09,9.0
+2026-10-05,HSR Layout,Olio Pizza,Lunch,10.0,9.4,14.0
+2026-10-06,HSR Layout,Olio Pizza,Lunch,11.0,10.41,7.0
+2026-10-07,HSR Layout,Olio Pizza,Lunch,15.0,8.67,14.0
+2026-10-08,HSR Layout,Olio Pizza,Lunch,4.0,10.17,9.0
+2026-10-02,HSR Layout,Olio Pizza,Snacks,11.0,5.32,7.0
+2026-10-03,HSR Layout,Olio Pizza,Snacks,3.0,5.92,3.0
+2026-10-04,HSR Layout,Olio Pizza,Snacks,5.0,5.47,4.0
+2026-10-05,HSR Layout,Olio Pizza,Snacks,3.0,4.62,4.0
+2026-10-06,HSR Layout,Olio Pizza,Snacks,4.0,4.77,3.0
+2026-10-07,HSR Layout,Olio Pizza,Snacks,9.0,4.7,5.0
+2026-10-08,HSR Layout,Olio Pizza,Snacks,8.0,5.6,6.0
+2026-10-02,HSR Layout,Sharief Bhai,Dinner,40.0,37.24,38.0
+2026-10-03,HSR Layout,Sharief Bhai,Dinner,39.0,46.13,55.0
+2026-10-04,HSR Layout,Sharief Bhai,Dinner,44.0,43.4,55.0
+2026-10-05,HSR Layout,Sharief Bhai,Dinner,30.0,36.24,39.0
+2026-10-06,HSR Layout,Sharief Bhai,Dinner,36.0,32.84,34.0
+2026-10-07,HSR Layout,Sharief Bhai,Dinner,35.0,29.89,34.0
+2026-10-08,HSR Layout,Sharief Bhai,Dinner,36.0,36.73,36.0
+2026-10-02,HSR Layout,Sharief Bhai,Late night,10.0,9.37,16.0
+2026-10-03,HSR Layout,Sharief Bhai,Late night,11.0,10.33,11.0
+2026-10-04,HSR Layout,Sharief Bhai,Late night,6.0,9.42,12.0
+2026-10-05,HSR Layout,Sharief Bhai,Late night,8.0,8.71,9.0
+2026-10-06,HSR Layout,Sharief Bhai,Late night,10.0,7.78,5.0
+2026-10-07,HSR Layout,Sharief Bhai,Late night,3.0,8.03,3.0
+2026-10-08,HSR Layout,Sharief Bhai,Late night,7.0,8.11,6.0
+2026-10-02,HSR Layout,Sharief Bhai,Lunch,15.0,20.14,23.0
+2026-10-03,HSR Layout,Sharief Bhai,Lunch,12.0,14.69,13.0
+2026-10-04,HSR Layout,Sharief Bhai,Lunch,13.0,15.56,12.0
+2026-10-05,HSR Layout,Sharief Bhai,Lunch,25.0,19.98,26.0
+2026-10-06,HSR Layout,Sharief Bhai,Lunch,24.0,21.37,20.0
+2026-10-07,HSR Layout,Sharief Bhai,Lunch,24.0,18.95,16.0
+2026-10-08,HSR Layout,Sharief Bhai,Lunch,26.0,17.12,15.0
+2026-10-02,HSR Layout,Sharief Bhai,Snacks,0.0,2.68,1.0
+2026-10-03,HSR Layout,Sharief Bhai,Snacks,3.0,2.68,2.0
+2026-10-04,HSR Layout,Sharief Bhai,Snacks,2.0,3.98,6.0
+2026-10-05,HSR Layout,Sharief Bhai,Snacks,3.0,2.8,3.0
+2026-10-06,HSR Layout,Sharief Bhai,Snacks,4.0,2.59,3.0
+2026-10-07,HSR Layout,Sharief Bhai,Snacks,3.0,2.47,0.0
+2026-10-08,HSR Layout,Sharief Bhai,Snacks,2.0,2.61,3.0
+2026-10-02,Hebbal,CakeZone,Breakfast,1.0,1.35,1.0
+2026-10-03,Hebbal,CakeZone,Breakfast,0.0,0.63,2.0
+2026-10-04,Hebbal,CakeZone,Breakfast,0.0,1.48,3.0
+2026-10-05,Hebbal,CakeZone,Breakfast,0.0,1.88,1.0
+2026-10-06,Hebbal,CakeZone,Breakfast,4.0,0.97,2.0
+2026-10-07,Hebbal,CakeZone,Breakfast,1.0,1.46,6.0
+2026-10-08,Hebbal,CakeZone,Breakfast,0.0,0.86,0.0
+2026-10-02,Hebbal,CakeZone,Dinner,10.0,13.44,8.0
+2026-10-03,Hebbal,CakeZone,Dinner,11.0,12.67,9.0
+2026-10-04,Hebbal,CakeZone,Dinner,12.0,12.34,16.0
+2026-10-05,Hebbal,CakeZone,Dinner,9.0,8.18,7.0
+2026-10-06,Hebbal,CakeZone,Dinner,9.0,9.38,10.0
+2026-10-07,Hebbal,CakeZone,Dinner,13.0,8.51,12.0
+2026-10-08,Hebbal,CakeZone,Dinner,7.0,10.36,9.0
+2026-10-02,Hebbal,CakeZone,Late night,8.0,7.59,11.0
+2026-10-03,Hebbal,CakeZone,Late night,9.0,8.98,7.0
+2026-10-04,Hebbal,CakeZone,Late night,10.0,9.12,13.0
+2026-10-05,Hebbal,CakeZone,Late night,4.0,7.7,5.0
+2026-10-06,Hebbal,CakeZone,Late night,3.0,6.77,8.0
+2026-10-07,Hebbal,CakeZone,Late night,4.0,5.38,6.0
+2026-10-08,Hebbal,CakeZone,Late night,13.0,5.12,1.0
+2026-10-02,Hebbal,CakeZone,Lunch,4.0,1.72,1.0
+2026-10-03,Hebbal,CakeZone,Lunch,0.0,1.8,2.0
+2026-10-04,Hebbal,CakeZone,Lunch,0.0,1.63,0.0
+2026-10-05,Hebbal,CakeZone,Lunch,1.0,1.81,5.0
+2026-10-06,Hebbal,CakeZone,Lunch,1.0,2.3,3.0
+2026-10-07,Hebbal,CakeZone,Lunch,1.0,1.83,3.0
+2026-10-08,Hebbal,CakeZone,Lunch,2.0,1.97,0.0
+2026-10-02,Hebbal,CakeZone,Snacks,10.0,8.87,8.0
+2026-10-03,Hebbal,CakeZone,Snacks,5.0,8.93,6.0
+2026-10-04,Hebbal,CakeZone,Snacks,7.0,8.5,8.0
+2026-10-05,Hebbal,CakeZone,Snacks,6.0,7.74,7.0
+2026-10-06,Hebbal,CakeZone,Snacks,4.0,6.69,10.0
+2026-10-07,Hebbal,CakeZone,Snacks,8.0,7.06,8.0
+2026-10-08,Hebbal,CakeZone,Snacks,7.0,8.22,5.0
+2026-10-02,Hebbal,EatFit,Breakfast,6.0,6.63,7.0
+2026-10-03,Hebbal,EatFit,Breakfast,3.0,3.96,5.0
+2026-10-04,Hebbal,EatFit,Breakfast,4.0,5.46,5.0
+2026-10-05,Hebbal,EatFit,Breakfast,5.0,4.48,12.0
+2026-10-06,Hebbal,EatFit,Breakfast,5.0,5.77,5.0
+2026-10-07,Hebbal,EatFit,Breakfast,4.0,5.61,7.0
+2026-10-08,Hebbal,EatFit,Breakfast,7.0,10.41,6.0
+2026-10-02,Hebbal,EatFit,Dinner,19.0,21.51,25.0
+2026-10-03,Hebbal,EatFit,Dinner,26.0,21.85,21.0
+2026-10-04,Hebbal,EatFit,Dinner,24.0,20.15,17.0
+2026-10-05,Hebbal,EatFit,Dinner,19.0,16.6,16.0
+2026-10-06,Hebbal,EatFit,Dinner,10.0,15.32,14.0
+2026-10-07,Hebbal,EatFit,Dinner,19.0,15.75,15.0
+2026-10-08,Hebbal,EatFit,Dinner,14.0,19.53,16.0
+2026-10-02,Hebbal,EatFit,Late night,1.0,0.49,0.0
+2026-10-03,Hebbal,EatFit,Late night,0.0,0.51,1.0
+2026-10-04,Hebbal,EatFit,Late night,2.0,0.57,1.0
+2026-10-05,Hebbal,EatFit,Late night,0.0,0.47,1.0
+2026-10-06,Hebbal,EatFit,Late night,0.0,0.43,0.0
+2026-10-07,Hebbal,EatFit,Late night,0.0,0.31,0.0
+2026-10-08,Hebbal,EatFit,Late night,0.0,0.77,0.0
+2026-10-02,Hebbal,EatFit,Lunch,25.0,32.43,28.0
+2026-10-03,Hebbal,EatFit,Lunch,21.0,20.82,28.0
+2026-10-04,Hebbal,EatFit,Lunch,18.0,19.55,22.0
+2026-10-05,Hebbal,EatFit,Lunch,38.0,24.24,31.0
+2026-10-06,Hebbal,EatFit,Lunch,38.0,35.71,27.0
+2026-10-07,Hebbal,EatFit,Lunch,30.0,30.39,29.0
+2026-10-08,Hebbal,EatFit,Lunch,34.0,32.67,29.0
+2026-10-02,Hebbal,EatFit,Snacks,3.0,3.18,1.0
+2026-10-03,Hebbal,EatFit,Snacks,7.0,4.31,6.0
+2026-10-04,Hebbal,EatFit,Snacks,4.0,4.5,6.0
+2026-10-05,Hebbal,EatFit,Snacks,1.0,3.63,4.0
+2026-10-06,Hebbal,EatFit,Snacks,1.0,3.36,3.0
+2026-10-07,Hebbal,EatFit,Snacks,3.0,2.51,4.0
+2026-10-08,Hebbal,EatFit,Snacks,3.0,2.59,2.0
+2026-10-02,Hebbal,Frozen Bottle,Breakfast,1.0,0.83,0.0
+2026-10-03,Hebbal,Frozen Bottle,Breakfast,1.0,0.56,2.0
+2026-10-04,Hebbal,Frozen Bottle,Breakfast,1.0,0.58,1.0
+2026-10-05,Hebbal,Frozen Bottle,Breakfast,1.0,0.72,1.0
+2026-10-06,Hebbal,Frozen Bottle,Breakfast,1.0,0.82,1.0
+2026-10-07,Hebbal,Frozen Bottle,Breakfast,3.0,0.97,1.0
+2026-10-08,Hebbal,Frozen Bottle,Breakfast,0.0,0.59,0.0
+2026-10-02,Hebbal,Frozen Bottle,Dinner,7.0,4.82,4.0
+2026-10-03,Hebbal,Frozen Bottle,Dinner,8.0,6.66,9.0
+2026-10-04,Hebbal,Frozen Bottle,Dinner,6.0,7.14,6.0
+2026-10-05,Hebbal,Frozen Bottle,Dinner,4.0,6.27,7.0
+2026-10-06,Hebbal,Frozen Bottle,Dinner,6.0,3.82,4.0
+2026-10-07,Hebbal,Frozen Bottle,Dinner,4.0,3.81,4.0
+2026-10-08,Hebbal,Frozen Bottle,Dinner,5.0,5.46,2.0
+2026-10-02,Hebbal,Frozen Bottle,Late night,9.0,4.87,4.0
+2026-10-03,Hebbal,Frozen Bottle,Late night,3.0,4.01,3.0
+2026-10-04,Hebbal,Frozen Bottle,Late night,7.0,4.32,7.0
+2026-10-05,Hebbal,Frozen Bottle,Late night,4.0,3.74,2.0
+2026-10-06,Hebbal,Frozen Bottle,Late night,4.0,3.89,2.0
+2026-10-07,Hebbal,Frozen Bottle,Late night,0.0,3.83,3.0
+2026-10-08,Hebbal,Frozen Bottle,Late night,3.0,3.9,4.0
+2026-10-02,Hebbal,Frozen Bottle,Lunch,2.0,1.55,1.0
+2026-10-03,Hebbal,Frozen Bottle,Lunch,0.0,1.49,2.0
+2026-10-04,Hebbal,Frozen Bottle,Lunch,0.0,1.38,1.0
+2026-10-05,Hebbal,Frozen Bottle,Lunch,0.0,1.96,1.0
+2026-10-06,Hebbal,Frozen Bottle,Lunch,2.0,1.56,1.0
+2026-10-07,Hebbal,Frozen Bottle,Lunch,2.0,2.14,2.0
+2026-10-08,Hebbal,Frozen Bottle,Lunch,1.0,1.51,4.0
+2026-10-02,Hebbal,Frozen Bottle,Snacks,6.0,4.16,6.0
+2026-10-03,Hebbal,Frozen Bottle,Snacks,4.0,3.74,3.0
+2026-10-04,Hebbal,Frozen Bottle,Snacks,6.0,5.52,5.0
+2026-10-05,Hebbal,Frozen Bottle,Snacks,3.0,4.11,4.0
+2026-10-06,Hebbal,Frozen Bottle,Snacks,3.0,3.31,3.0
+2026-10-07,Hebbal,Frozen Bottle,Snacks,3.0,2.92,3.0
+2026-10-08,Hebbal,Frozen Bottle,Snacks,3.0,3.18,3.0
+2026-10-02,Hebbal,Millet Express,Breakfast,3.0,6.18,1.0
+2026-10-03,Hebbal,Millet Express,Breakfast,3.0,2.58,4.0
+2026-10-04,Hebbal,Millet Express,Breakfast,4.0,4.74,6.0
+2026-10-05,Hebbal,Millet Express,Breakfast,7.0,4.67,5.0
+2026-10-06,Hebbal,Millet Express,Breakfast,5.0,7.36,3.0
+2026-10-07,Hebbal,Millet Express,Breakfast,8.0,6.52,6.0
+2026-10-08,Hebbal,Millet Express,Breakfast,6.0,7.08,6.0
+2026-10-02,Hebbal,Millet Express,Dinner,3.0,3.29,6.0
+2026-10-03,Hebbal,Millet Express,Dinner,3.0,4.05,5.0
+2026-10-04,Hebbal,Millet Express,Dinner,1.0,4.0,3.0
+2026-10-05,Hebbal,Millet Express,Dinner,8.0,3.27,1.0
+2026-10-06,Hebbal,Millet Express,Dinner,6.0,2.9,4.0
+2026-10-07,Hebbal,Millet Express,Dinner,3.0,2.97,5.0
+2026-10-08,Hebbal,Millet Express,Dinner,5.0,4.86,3.0
+2026-10-02,Hebbal,Millet Express,Lunch,5.0,6.47,8.0
+2026-10-03,Hebbal,Millet Express,Lunch,3.0,4.76,6.0
+2026-10-04,Hebbal,Millet Express,Lunch,6.0,6.59,9.0
+2026-10-05,Hebbal,Millet Express,Lunch,7.0,5.93,8.0
+2026-10-06,Hebbal,Millet Express,Lunch,4.0,7.39,8.0
+2026-10-07,Hebbal,Millet Express,Lunch,2.0,7.61,5.0
+2026-10-08,Hebbal,Millet Express,Lunch,10.0,8.26,10.0
+2026-10-02,Hebbal,Millet Express,Snacks,1.0,1.72,3.0
+2026-10-03,Hebbal,Millet Express,Snacks,0.0,1.38,6.0
+2026-10-04,Hebbal,Millet Express,Snacks,2.0,1.43,3.0
+2026-10-05,Hebbal,Millet Express,Snacks,0.0,1.66,2.0
+2026-10-06,Hebbal,Millet Express,Snacks,0.0,1.2,0.0
+2026-10-07,Hebbal,Millet Express,Snacks,1.0,1.21,0.0
+2026-10-08,Hebbal,Millet Express,Snacks,0.0,1.98,2.0
+2026-10-02,Hebbal,Olio Pizza,Dinner,40.0,31.89,25.0
+2026-10-03,Hebbal,Olio Pizza,Dinner,33.0,35.46,35.0
+2026-10-04,Hebbal,Olio Pizza,Dinner,26.0,31.33,23.0
+2026-10-05,Hebbal,Olio Pizza,Dinner,27.0,30.34,24.0
+2026-10-06,Hebbal,Olio Pizza,Dinner,13.0,28.26,22.0
+2026-10-07,Hebbal,Olio Pizza,Dinner,22.0,24.56,36.0
+2026-10-08,Hebbal,Olio Pizza,Dinner,24.0,25.92,28.0
+2026-10-02,Hebbal,Olio Pizza,Late night,9.0,6.87,5.0
+2026-10-03,Hebbal,Olio Pizza,Late night,4.0,5.62,10.0
+2026-10-04,Hebbal,Olio Pizza,Late night,4.0,7.43,9.0
+2026-10-05,Hebbal,Olio Pizza,Late night,7.0,6.32,9.0
+2026-10-06,Hebbal,Olio Pizza,Late night,4.0,5.31,6.0
+2026-10-07,Hebbal,Olio Pizza,Late night,4.0,5.0,5.0
+2026-10-08,Hebbal,Olio Pizza,Late night,4.0,6.7,5.0
+2026-10-02,Hebbal,Olio Pizza,Lunch,12.0,6.96,7.0
+2026-10-03,Hebbal,Olio Pizza,Lunch,7.0,4.82,2.0
+2026-10-04,Hebbal,Olio Pizza,Lunch,5.0,6.82,7.0
+2026-10-05,Hebbal,Olio Pizza,Lunch,8.0,7.8,9.0
+2026-10-06,Hebbal,Olio Pizza,Lunch,10.0,6.73,11.0
+2026-10-07,Hebbal,Olio Pizza,Lunch,14.0,7.48,6.0
+2026-10-08,Hebbal,Olio Pizza,Lunch,7.0,8.75,5.0
+2026-10-02,Hebbal,Olio Pizza,Snacks,9.0,5.5,5.0
+2026-10-03,Hebbal,Olio Pizza,Snacks,5.0,6.74,7.0
+2026-10-04,Hebbal,Olio Pizza,Snacks,3.0,4.66,4.0
+2026-10-05,Hebbal,Olio Pizza,Snacks,4.0,3.87,5.0
+2026-10-06,Hebbal,Olio Pizza,Snacks,4.0,4.83,4.0
+2026-10-07,Hebbal,Olio Pizza,Snacks,12.0,4.82,4.0
+2026-10-08,Hebbal,Olio Pizza,Snacks,5.0,5.86,7.0
+2026-10-02,Hebbal,Sharief Bhai,Dinner,43.0,32.2,32.0
+2026-10-03,Hebbal,Sharief Bhai,Dinner,33.0,40.84,44.0
+2026-10-04,Hebbal,Sharief Bhai,Dinner,43.0,35.99,30.0
+2026-10-05,Hebbal,Sharief Bhai,Dinner,27.0,28.99,31.0
+2026-10-06,Hebbal,Sharief Bhai,Dinner,26.0,25.32,21.0
+2026-10-07,Hebbal,Sharief Bhai,Dinner,30.0,21.35,25.0
+2026-10-08,Hebbal,Sharief Bhai,Dinner,23.0,27.3,25.0
+2026-10-02,Hebbal,Sharief Bhai,Late night,12.0,8.4,5.0
+2026-10-03,Hebbal,Sharief Bhai,Late night,6.0,8.96,5.0
+2026-10-04,Hebbal,Sharief Bhai,Late night,5.0,9.08,12.0
+2026-10-05,Hebbal,Sharief Bhai,Late night,7.0,5.74,5.0
+2026-10-06,Hebbal,Sharief Bhai,Late night,7.0,6.36,7.0
+2026-10-07,Hebbal,Sharief Bhai,Late night,5.0,4.76,1.0
+2026-10-08,Hebbal,Sharief Bhai,Late night,9.0,5.97,5.0
+2026-10-02,Hebbal,Sharief Bhai,Lunch,11.0,12.58,9.0
+2026-10-03,Hebbal,Sharief Bhai,Lunch,14.0,11.41,10.0
+2026-10-04,Hebbal,Sharief Bhai,Lunch,10.0,11.93,8.0
+2026-10-05,Hebbal,Sharief Bhai,Lunch,18.0,15.33,13.0
+2026-10-06,Hebbal,Sharief Bhai,Lunch,26.0,17.91,20.0
+2026-10-07,Hebbal,Sharief Bhai,Lunch,13.0,13.85,14.0
+2026-10-08,Hebbal,Sharief Bhai,Lunch,14.0,14.26,13.0
+2026-10-02,Hebbal,Sharief Bhai,Snacks,4.0,2.32,3.0
+2026-10-03,Hebbal,Sharief Bhai,Snacks,3.0,2.19,6.0
+2026-10-04,Hebbal,Sharief Bhai,Snacks,2.0,2.5,1.0
+2026-10-05,Hebbal,Sharief Bhai,Snacks,1.0,2.61,1.0
+2026-10-06,Hebbal,Sharief Bhai,Snacks,3.0,2.43,1.0
+2026-10-07,Hebbal,Sharief Bhai,Snacks,2.0,2.28,0.0
+2026-10-08,Hebbal,Sharief Bhai,Snacks,3.0,2.16,3.0
+2026-10-02,Indiranagar,CakeZone,Breakfast,3.0,2.55,2.0
+2026-10-03,Indiranagar,CakeZone,Breakfast,4.0,1.25,0.0
+2026-10-04,Indiranagar,CakeZone,Breakfast,2.0,1.89,3.0
+2026-10-05,Indiranagar,CakeZone,Breakfast,3.0,2.54,1.0
+2026-10-06,Indiranagar,CakeZone,Breakfast,1.0,2.41,1.0
+2026-10-07,Indiranagar,CakeZone,Breakfast,2.0,2.33,2.0
+2026-10-08,Indiranagar,CakeZone,Breakfast,5.0,2.52,3.0
+2026-10-02,Indiranagar,CakeZone,Dinner,12.0,14.83,13.0
+2026-10-03,Indiranagar,CakeZone,Dinner,14.0,12.06,19.0
+2026-10-04,Indiranagar,CakeZone,Dinner,9.0,14.15,14.0
+2026-10-05,Indiranagar,CakeZone,Dinner,6.0,10.03,9.0
+2026-10-06,Indiranagar,CakeZone,Dinner,9.0,13.41,14.0
+2026-10-07,Indiranagar,CakeZone,Dinner,13.0,8.66,8.0
+2026-10-08,Indiranagar,CakeZone,Dinner,8.0,10.54,6.0
+2026-10-02,Indiranagar,CakeZone,Late night,9.0,10.15,9.0
+2026-10-03,Indiranagar,CakeZone,Late night,9.0,10.09,12.0
+2026-10-04,Indiranagar,CakeZone,Late night,4.0,9.99,13.0
+2026-10-05,Indiranagar,CakeZone,Late night,5.0,8.08,7.0
+2026-10-06,Indiranagar,CakeZone,Late night,6.0,7.95,9.0
+2026-10-07,Indiranagar,CakeZone,Late night,10.0,7.64,5.0
+2026-10-08,Indiranagar,CakeZone,Late night,10.0,9.49,6.0
+2026-10-02,Indiranagar,CakeZone,Lunch,2.0,2.28,2.0
+2026-10-03,Indiranagar,CakeZone,Lunch,0.0,1.89,1.0
+2026-10-04,Indiranagar,CakeZone,Lunch,2.0,1.9,3.0
+2026-10-05,Indiranagar,CakeZone,Lunch,1.0,2.28,3.0
+2026-10-06,Indiranagar,CakeZone,Lunch,3.0,2.43,4.0
+2026-10-07,Indiranagar,CakeZone,Lunch,3.0,2.43,1.0
+2026-10-08,Indiranagar,CakeZone,Lunch,1.0,2.75,4.0
+2026-10-02,Indiranagar,CakeZone,Snacks,14.0,9.58,10.0
+2026-10-03,Indiranagar,CakeZone,Snacks,13.0,10.08,8.0
+2026-10-04,Indiranagar,CakeZone,Snacks,11.0,11.69,7.0
+2026-10-05,Indiranagar,CakeZone,Snacks,9.0,8.65,14.0
+2026-10-06,Indiranagar,CakeZone,Snacks,7.0,8.66,10.0
+2026-10-07,Indiranagar,CakeZone,Snacks,10.0,8.87,9.0
+2026-10-08,Indiranagar,CakeZone,Snacks,10.0,9.38,14.0
+2026-10-02,Indiranagar,EatFit,Breakfast,3.0,7.3,10.0
+2026-10-03,Indiranagar,EatFit,Breakfast,5.0,7.54,7.0
+2026-10-04,Indiranagar,EatFit,Breakfast,5.0,5.97,5.0
+2026-10-05,Indiranagar,EatFit,Breakfast,6.0,10.5,6.0
+2026-10-06,Indiranagar,EatFit,Breakfast,9.0,9.78,10.0
+2026-10-07,Indiranagar,EatFit,Breakfast,9.0,9.32,7.0
+2026-10-08,Indiranagar,EatFit,Breakfast,6.0,9.16,14.0
+2026-10-02,Indiranagar,EatFit,Dinner,22.0,21.26,23.0
+2026-10-03,Indiranagar,EatFit,Dinner,25.0,25.51,19.0
+2026-10-04,Indiranagar,EatFit,Dinner,32.0,22.97,25.0
+2026-10-05,Indiranagar,EatFit,Dinner,18.0,24.54,19.0
+2026-10-06,Indiranagar,EatFit,Dinner,21.0,18.36,21.0
+2026-10-07,Indiranagar,EatFit,Dinner,19.0,21.65,27.0
+2026-10-08,Indiranagar,EatFit,Dinner,21.0,22.08,25.0
+2026-10-02,Indiranagar,EatFit,Late night,0.0,0.57,1.0
+2026-10-03,Indiranagar,EatFit,Late night,1.0,0.58,0.0
+2026-10-04,Indiranagar,EatFit,Late night,3.0,0.48,0.0
+2026-10-05,Indiranagar,EatFit,Late night,0.0,0.49,0.0
+2026-10-06,Indiranagar,EatFit,Late night,0.0,0.5,0.0
+2026-10-07,Indiranagar,EatFit,Late night,0.0,0.34,0.0
+2026-10-08,Indiranagar,EatFit,Late night,0.0,0.54,0.0
+2026-10-02,Indiranagar,EatFit,Lunch,38.0,41.49,39.0
+2026-10-03,Indiranagar,EatFit,Lunch,35.0,27.16,25.0
+2026-10-04,Indiranagar,EatFit,Lunch,38.0,39.33,34.0
+2026-10-05,Indiranagar,EatFit,Lunch,55.0,39.17,40.0
+2026-10-06,Indiranagar,EatFit,Lunch,44.0,39.13,46.0
+2026-10-07,Indiranagar,EatFit,Lunch,37.0,34.23,38.0
+2026-10-08,Indiranagar,EatFit,Lunch,62.0,39.01,44.0
+2026-10-02,Indiranagar,EatFit,Snacks,5.0,4.23,7.0
+2026-10-03,Indiranagar,EatFit,Snacks,3.0,4.18,5.0
+2026-10-04,Indiranagar,EatFit,Snacks,5.0,5.48,3.0
+2026-10-05,Indiranagar,EatFit,Snacks,2.0,4.38,4.0
+2026-10-06,Indiranagar,EatFit,Snacks,7.0,5.18,5.0
+2026-10-07,Indiranagar,EatFit,Snacks,3.0,3.66,3.0
+2026-10-08,Indiranagar,EatFit,Snacks,2.0,3.57,3.0
+2026-10-02,Indiranagar,Frozen Bottle,Breakfast,0.0,1.32,0.0
+2026-10-03,Indiranagar,Frozen Bottle,Breakfast,1.0,0.67,1.0
+2026-10-04,Indiranagar,Frozen Bottle,Breakfast,1.0,1.04,0.0
+2026-10-05,Indiranagar,Frozen Bottle,Breakfast,0.0,1.31,0.0
+2026-10-06,Indiranagar,Frozen Bottle,Breakfast,1.0,1.19,1.0
+2026-10-07,Indiranagar,Frozen Bottle,Breakfast,0.0,1.29,1.0
+2026-10-08,Indiranagar,Frozen Bottle,Breakfast,0.0,1.2,1.0
+2026-10-02,Indiranagar,Frozen Bottle,Dinner,10.0,7.74,7.0
+2026-10-03,Indiranagar,Frozen Bottle,Dinner,9.0,8.09,9.0
+2026-10-04,Indiranagar,Frozen Bottle,Dinner,4.0,7.63,6.0
+2026-10-05,Indiranagar,Frozen Bottle,Dinner,2.0,8.17,7.0
+2026-10-06,Indiranagar,Frozen Bottle,Dinner,13.0,7.97,13.0
+2026-10-07,Indiranagar,Frozen Bottle,Dinner,4.0,7.37,8.0
+2026-10-08,Indiranagar,Frozen Bottle,Dinner,9.0,7.66,11.0
+2026-10-02,Indiranagar,Frozen Bottle,Late night,9.0,5.5,5.0
+2026-10-03,Indiranagar,Frozen Bottle,Late night,5.0,3.45,1.0
+2026-10-04,Indiranagar,Frozen Bottle,Late night,10.0,5.46,1.0
+2026-10-05,Indiranagar,Frozen Bottle,Late night,2.0,5.01,3.0
+2026-10-06,Indiranagar,Frozen Bottle,Late night,4.0,4.31,2.0
+2026-10-07,Indiranagar,Frozen Bottle,Late night,4.0,6.63,5.0
+2026-10-08,Indiranagar,Frozen Bottle,Late night,7.0,6.37,8.0
+2026-10-02,Indiranagar,Frozen Bottle,Lunch,0.0,1.77,1.0
+2026-10-03,Indiranagar,Frozen Bottle,Lunch,2.0,1.31,3.0
+2026-10-04,Indiranagar,Frozen Bottle,Lunch,0.0,1.26,1.0
+2026-10-05,Indiranagar,Frozen Bottle,Lunch,1.0,1.88,3.0
+2026-10-06,Indiranagar,Frozen Bottle,Lunch,2.0,1.56,5.0
+2026-10-07,Indiranagar,Frozen Bottle,Lunch,0.0,2.53,0.0
+2026-10-08,Indiranagar,Frozen Bottle,Lunch,2.0,1.6,1.0
+2026-10-02,Indiranagar,Frozen Bottle,Snacks,11.0,5.59,6.0
+2026-10-03,Indiranagar,Frozen Bottle,Snacks,6.0,7.15,7.0
+2026-10-04,Indiranagar,Frozen Bottle,Snacks,9.0,7.37,3.0
+2026-10-05,Indiranagar,Frozen Bottle,Snacks,5.0,4.85,4.0
+2026-10-06,Indiranagar,Frozen Bottle,Snacks,6.0,5.64,6.0
+2026-10-07,Indiranagar,Frozen Bottle,Snacks,3.0,4.88,4.0
+2026-10-08,Indiranagar,Frozen Bottle,Snacks,6.0,6.72,6.0
+2026-10-02,Indiranagar,Millet Express,Breakfast,2.0,7.13,7.0
+2026-10-03,Indiranagar,Millet Express,Breakfast,6.0,5.95,4.0
+2026-10-04,Indiranagar,Millet Express,Breakfast,6.0,5.14,6.0
+2026-10-05,Indiranagar,Millet Express,Breakfast,9.0,8.39,7.0
+2026-10-06,Indiranagar,Millet Express,Breakfast,3.0,8.71,9.0
+2026-10-07,Indiranagar,Millet Express,Breakfast,11.0,9.43,4.0
+2026-10-08,Indiranagar,Millet Express,Breakfast,3.0,7.96,11.0
+2026-10-02,Indiranagar,Millet Express,Dinner,9.0,6.37,3.0
+2026-10-03,Indiranagar,Millet Express,Dinner,8.0,4.55,8.0
+2026-10-04,Indiranagar,Millet Express,Dinner,7.0,6.08,5.0
+2026-10-05,Indiranagar,Millet Express,Dinner,6.0,4.69,4.0
+2026-10-06,Indiranagar,Millet Express,Dinner,6.0,5.78,6.0
+2026-10-07,Indiranagar,Millet Express,Dinner,7.0,3.94,5.0
+2026-10-08,Indiranagar,Millet Express,Dinner,1.0,6.59,2.0
+2026-10-02,Indiranagar,Millet Express,Lunch,5.0,8.36,12.0
+2026-10-03,Indiranagar,Millet Express,Lunch,5.0,7.01,6.0
+2026-10-04,Indiranagar,Millet Express,Lunch,5.0,6.48,6.0
+2026-10-05,Indiranagar,Millet Express,Lunch,12.0,7.55,14.0
+2026-10-06,Indiranagar,Millet Express,Lunch,5.0,7.63,16.0
+2026-10-07,Indiranagar,Millet Express,Lunch,9.0,6.82,11.0
+2026-10-08,Indiranagar,Millet Express,Lunch,9.0,8.71,9.0
+2026-10-02,Indiranagar,Millet Express,Snacks,0.0,1.55,0.0
+2026-10-03,Indiranagar,Millet Express,Snacks,2.0,1.33,2.0
+2026-10-04,Indiranagar,Millet Express,Snacks,2.0,1.36,2.0
+2026-10-05,Indiranagar,Millet Express,Snacks,2.0,1.5,2.0
+2026-10-06,Indiranagar,Millet Express,Snacks,2.0,1.42,2.0
+2026-10-07,Indiranagar,Millet Express,Snacks,1.0,1.0,2.0
+2026-10-08,Indiranagar,Millet Express,Snacks,1.0,1.23,2.0
+2026-10-02,Indiranagar,Olio Pizza,Dinner,38.0,42.58,43.0
+2026-10-03,Indiranagar,Olio Pizza,Dinner,57.0,42.25,31.0
+2026-10-04,Indiranagar,Olio Pizza,Dinner,42.0,41.58,53.0
+2026-10-05,Indiranagar,Olio Pizza,Dinner,41.0,31.12,22.0
+2026-10-06,Indiranagar,Olio Pizza,Dinner,33.0,33.17,28.0
+2026-10-07,Indiranagar,Olio Pizza,Dinner,38.0,30.84,34.0
+2026-10-08,Indiranagar,Olio Pizza,Dinner,49.0,33.42,40.0
+2026-10-02,Indiranagar,Olio Pizza,Late night,10.0,9.25,10.0
+2026-10-03,Indiranagar,Olio Pizza,Late night,8.0,9.0,7.0
+2026-10-04,Indiranagar,Olio Pizza,Late night,12.0,9.46,11.0
+2026-10-05,Indiranagar,Olio Pizza,Late night,10.0,7.04,6.0
+2026-10-06,Indiranagar,Olio Pizza,Late night,9.0,6.02,8.0
+2026-10-07,Indiranagar,Olio Pizza,Late night,7.0,6.66,8.0
+2026-10-08,Indiranagar,Olio Pizza,Late night,5.0,8.76,5.0
+2026-10-02,Indiranagar,Olio Pizza,Lunch,10.0,13.03,11.0
+2026-10-03,Indiranagar,Olio Pizza,Lunch,8.0,9.06,11.0
+2026-10-04,Indiranagar,Olio Pizza,Lunch,10.0,9.14,6.0
+2026-10-05,Indiranagar,Olio Pizza,Lunch,7.0,8.64,12.0
+2026-10-06,Indiranagar,Olio Pizza,Lunch,13.0,11.91,12.0
+2026-10-07,Indiranagar,Olio Pizza,Lunch,7.0,9.49,7.0
+2026-10-08,Indiranagar,Olio Pizza,Lunch,11.0,12.24,12.0
+2026-10-02,Indiranagar,Olio Pizza,Snacks,10.0,6.54,6.0
+2026-10-03,Indiranagar,Olio Pizza,Snacks,8.0,6.0,7.0
+2026-10-04,Indiranagar,Olio Pizza,Snacks,6.0,7.1,6.0
+2026-10-05,Indiranagar,Olio Pizza,Snacks,11.0,5.41,10.0
+2026-10-06,Indiranagar,Olio Pizza,Snacks,3.0,5.66,3.0
+2026-10-07,Indiranagar,Olio Pizza,Snacks,7.0,5.85,7.0
+2026-10-08,Indiranagar,Olio Pizza,Snacks,5.0,5.42,4.0
+2026-10-02,Indiranagar,Sharief Bhai,Dinner,54.0,38.49,48.0
+2026-10-03,Indiranagar,Sharief Bhai,Dinner,50.0,44.91,65.0
+2026-10-04,Indiranagar,Sharief Bhai,Dinner,41.0,45.55,40.0
+2026-10-05,Indiranagar,Sharief Bhai,Dinner,35.0,34.38,30.0
+2026-10-06,Indiranagar,Sharief Bhai,Dinner,34.0,37.96,40.0
+2026-10-07,Indiranagar,Sharief Bhai,Dinner,37.0,33.74,34.0
+2026-10-08,Indiranagar,Sharief Bhai,Dinner,37.0,30.9,23.0
+2026-10-02,Indiranagar,Sharief Bhai,Late night,11.0,9.47,7.0
+2026-10-03,Indiranagar,Sharief Bhai,Late night,10.0,8.54,10.0
+2026-10-04,Indiranagar,Sharief Bhai,Late night,18.0,9.9,19.0
+2026-10-05,Indiranagar,Sharief Bhai,Late night,11.0,7.53,6.0
+2026-10-06,Indiranagar,Sharief Bhai,Late night,8.0,6.65,8.0
+2026-10-07,Indiranagar,Sharief Bhai,Late night,12.0,6.71,11.0
+2026-10-08,Indiranagar,Sharief Bhai,Late night,16.0,8.11,8.0
+2026-10-02,Indiranagar,Sharief Bhai,Lunch,16.0,21.67,22.0
+2026-10-03,Indiranagar,Sharief Bhai,Lunch,24.0,17.5,10.0
+2026-10-04,Indiranagar,Sharief Bhai,Lunch,16.0,19.37,17.0
+2026-10-05,Indiranagar,Sharief Bhai,Lunch,27.0,20.79,21.0
+2026-10-06,Indiranagar,Sharief Bhai,Lunch,19.0,19.76,29.0
+2026-10-07,Indiranagar,Sharief Bhai,Lunch,26.0,19.92,21.0
+2026-10-08,Indiranagar,Sharief Bhai,Lunch,25.0,23.53,14.0
+2026-10-02,Indiranagar,Sharief Bhai,Snacks,3.0,4.84,4.0
+2026-10-03,Indiranagar,Sharief Bhai,Snacks,2.0,3.01,2.0
+2026-10-04,Indiranagar,Sharief Bhai,Snacks,3.0,3.5,3.0
+2026-10-05,Indiranagar,Sharief Bhai,Snacks,4.0,2.58,3.0
+2026-10-06,Indiranagar,Sharief Bhai,Snacks,3.0,2.67,1.0
+2026-10-07,Indiranagar,Sharief Bhai,Snacks,1.0,2.58,1.0
+2026-10-08,Indiranagar,Sharief Bhai,Snacks,1.0,3.07,3.0
+2026-10-02,JP Nagar,CakeZone,Breakfast,1.0,1.75,1.0
+2026-10-03,JP Nagar,CakeZone,Breakfast,2.0,1.5,1.0
+2026-10-04,JP Nagar,CakeZone,Breakfast,2.0,1.19,1.0
+2026-10-05,JP Nagar,CakeZone,Breakfast,2.0,1.83,1.0
+2026-10-06,JP Nagar,CakeZone,Breakfast,2.0,1.58,2.0
+2026-10-07,JP Nagar,CakeZone,Breakfast,0.0,1.32,1.0
+2026-10-08,JP Nagar,CakeZone,Breakfast,3.0,2.15,2.0
+2026-10-02,JP Nagar,CakeZone,Dinner,14.0,9.94,8.0
+2026-10-03,JP Nagar,CakeZone,Dinner,13.0,12.6,10.0
+2026-10-04,JP Nagar,CakeZone,Dinner,12.0,12.97,13.0
+2026-10-05,JP Nagar,CakeZone,Dinner,10.0,11.24,13.0
+2026-10-06,JP Nagar,CakeZone,Dinner,11.0,9.51,9.0
+2026-10-07,JP Nagar,CakeZone,Dinner,8.0,10.57,6.0
+2026-10-08,JP Nagar,CakeZone,Dinner,11.0,10.43,9.0
+2026-10-02,JP Nagar,CakeZone,Late night,11.0,10.21,5.0
+2026-10-03,JP Nagar,CakeZone,Late night,10.0,8.86,12.0
+2026-10-04,JP Nagar,CakeZone,Late night,10.0,9.91,7.0
+2026-10-05,JP Nagar,CakeZone,Late night,4.0,7.63,5.0
+2026-10-06,JP Nagar,CakeZone,Late night,8.0,6.86,8.0
+2026-10-07,JP Nagar,CakeZone,Late night,10.0,5.15,5.0
+2026-10-08,JP Nagar,CakeZone,Late night,9.0,6.34,6.0
+2026-10-02,JP Nagar,CakeZone,Lunch,2.0,2.66,7.0
+2026-10-03,JP Nagar,CakeZone,Lunch,0.0,1.47,0.0
+2026-10-04,JP Nagar,CakeZone,Lunch,1.0,1.67,0.0
+2026-10-05,JP Nagar,CakeZone,Lunch,3.0,2.46,0.0
+2026-10-06,JP Nagar,CakeZone,Lunch,6.0,2.15,4.0
+2026-10-07,JP Nagar,CakeZone,Lunch,1.0,2.11,3.0
+2026-10-08,JP Nagar,CakeZone,Lunch,3.0,2.65,4.0
+2026-10-02,JP Nagar,CakeZone,Snacks,7.0,9.27,6.0
+2026-10-03,JP Nagar,CakeZone,Snacks,10.0,8.51,5.0
+2026-10-04,JP Nagar,CakeZone,Snacks,9.0,9.84,9.0
+2026-10-05,JP Nagar,CakeZone,Snacks,6.0,5.51,9.0
+2026-10-06,JP Nagar,CakeZone,Snacks,6.0,6.56,3.0
+2026-10-07,JP Nagar,CakeZone,Snacks,4.0,5.83,10.0
+2026-10-08,JP Nagar,CakeZone,Snacks,4.0,7.41,13.0
+2026-10-02,JP Nagar,EatFit,Breakfast,7.0,6.07,8.0
+2026-10-03,JP Nagar,EatFit,Breakfast,5.0,3.59,1.0
+2026-10-04,JP Nagar,EatFit,Breakfast,4.0,5.23,6.0
+2026-10-05,JP Nagar,EatFit,Breakfast,10.0,5.45,2.0
+2026-10-06,JP Nagar,EatFit,Breakfast,9.0,6.33,9.0
+2026-10-07,JP Nagar,EatFit,Breakfast,10.0,6.52,4.0
+2026-10-08,JP Nagar,EatFit,Breakfast,5.0,7.24,9.0
+2026-10-02,JP Nagar,EatFit,Dinner,27.0,16.85,13.0
+2026-10-03,JP Nagar,EatFit,Dinner,16.0,23.44,28.0
+2026-10-04,JP Nagar,EatFit,Dinner,14.0,20.1,15.0
+2026-10-05,JP Nagar,EatFit,Dinner,14.0,16.44,10.0
+2026-10-06,JP Nagar,EatFit,Dinner,22.0,15.26,12.0
+2026-10-07,JP Nagar,EatFit,Dinner,18.0,14.32,18.0
+2026-10-08,JP Nagar,EatFit,Dinner,19.0,18.23,15.0
+2026-10-02,JP Nagar,EatFit,Late night,0.0,0.5,1.0
+2026-10-03,JP Nagar,EatFit,Late night,1.0,0.94,2.0
+2026-10-04,JP Nagar,EatFit,Late night,1.0,0.61,0.0
+2026-10-05,JP Nagar,EatFit,Late night,0.0,0.48,1.0
+2026-10-06,JP Nagar,EatFit,Late night,0.0,0.33,0.0
+2026-10-07,JP Nagar,EatFit,Late night,0.0,0.34,0.0
+2026-10-08,JP Nagar,EatFit,Late night,1.0,0.62,1.0
+2026-10-02,JP Nagar,EatFit,Lunch,36.0,34.4,32.0
+2026-10-03,JP Nagar,EatFit,Lunch,19.0,27.81,37.0
+2026-10-04,JP Nagar,EatFit,Lunch,27.0,27.9,23.0
+2026-10-05,JP Nagar,EatFit,Lunch,25.0,39.04,30.0
+2026-10-06,JP Nagar,EatFit,Lunch,31.0,33.08,46.0
+2026-10-07,JP Nagar,EatFit,Lunch,39.0,33.53,46.0
+2026-10-08,JP Nagar,EatFit,Lunch,32.0,38.12,38.0
+2026-10-02,JP Nagar,EatFit,Snacks,4.0,4.41,3.0
+2026-10-03,JP Nagar,EatFit,Snacks,1.0,4.52,6.0
+2026-10-04,JP Nagar,EatFit,Snacks,5.0,4.57,4.0
+2026-10-05,JP Nagar,EatFit,Snacks,2.0,2.59,1.0
+2026-10-06,JP Nagar,EatFit,Snacks,4.0,4.4,3.0
+2026-10-07,JP Nagar,EatFit,Snacks,4.0,3.35,2.0
+2026-10-08,JP Nagar,EatFit,Snacks,3.0,3.27,5.0
+2026-10-02,JP Nagar,Frozen Bottle,Breakfast,1.0,1.33,0.0
+2026-10-03,JP Nagar,Frozen Bottle,Breakfast,2.0,1.07,1.0
+2026-10-04,JP Nagar,Frozen Bottle,Breakfast,1.0,0.84,0.0
+2026-10-05,JP Nagar,Frozen Bottle,Breakfast,0.0,0.98,3.0
+2026-10-06,JP Nagar,Frozen Bottle,Breakfast,2.0,1.25,1.0
+2026-10-07,JP Nagar,Frozen Bottle,Breakfast,0.0,0.69,1.0
+2026-10-08,JP Nagar,Frozen Bottle,Breakfast,0.0,0.84,0.0
+2026-10-02,JP Nagar,Frozen Bottle,Dinner,4.0,6.95,8.0
+2026-10-03,JP Nagar,Frozen Bottle,Dinner,12.0,7.92,8.0
+2026-10-04,JP Nagar,Frozen Bottle,Dinner,9.0,7.71,5.0
+2026-10-05,JP Nagar,Frozen Bottle,Dinner,8.0,5.21,5.0
+2026-10-06,JP Nagar,Frozen Bottle,Dinner,6.0,4.7,6.0
+2026-10-07,JP Nagar,Frozen Bottle,Dinner,4.0,6.22,9.0
+2026-10-08,JP Nagar,Frozen Bottle,Dinner,7.0,7.19,5.0
+2026-10-02,JP Nagar,Frozen Bottle,Late night,5.0,4.64,4.0
+2026-10-03,JP Nagar,Frozen Bottle,Late night,7.0,4.53,3.0
+2026-10-04,JP Nagar,Frozen Bottle,Late night,0.0,4.52,6.0
+2026-10-05,JP Nagar,Frozen Bottle,Late night,7.0,3.75,3.0
+2026-10-06,JP Nagar,Frozen Bottle,Late night,7.0,3.29,5.0
+2026-10-07,JP Nagar,Frozen Bottle,Late night,0.0,3.2,1.0
+2026-10-08,JP Nagar,Frozen Bottle,Late night,3.0,3.37,3.0
+2026-10-02,JP Nagar,Frozen Bottle,Lunch,2.0,2.02,0.0
+2026-10-03,JP Nagar,Frozen Bottle,Lunch,1.0,1.64,1.0
+2026-10-04,JP Nagar,Frozen Bottle,Lunch,1.0,1.47,0.0
+2026-10-05,JP Nagar,Frozen Bottle,Lunch,2.0,1.24,2.0
+2026-10-06,JP Nagar,Frozen Bottle,Lunch,1.0,1.86,0.0
+2026-10-07,JP Nagar,Frozen Bottle,Lunch,0.0,1.4,2.0
+2026-10-08,JP Nagar,Frozen Bottle,Lunch,2.0,1.58,1.0
+2026-10-02,JP Nagar,Frozen Bottle,Snacks,8.0,5.83,3.0
+2026-10-03,JP Nagar,Frozen Bottle,Snacks,9.0,5.67,2.0
+2026-10-04,JP Nagar,Frozen Bottle,Snacks,5.0,6.15,13.0
+2026-10-05,JP Nagar,Frozen Bottle,Snacks,4.0,4.71,2.0
+2026-10-06,JP Nagar,Frozen Bottle,Snacks,3.0,5.64,7.0
+2026-10-07,JP Nagar,Frozen Bottle,Snacks,6.0,4.85,6.0
+2026-10-08,JP Nagar,Frozen Bottle,Snacks,2.0,6.44,8.0
+2026-10-02,JP Nagar,Millet Express,Breakfast,3.0,6.12,6.0
+2026-10-03,JP Nagar,Millet Express,Breakfast,4.0,3.98,2.0
+2026-10-04,JP Nagar,Millet Express,Breakfast,6.0,4.73,1.0
+2026-10-05,JP Nagar,Millet Express,Breakfast,6.0,6.28,4.0
+2026-10-06,JP Nagar,Millet Express,Breakfast,6.0,6.01,7.0
+2026-10-07,JP Nagar,Millet Express,Breakfast,6.0,5.41,4.0
+2026-10-08,JP Nagar,Millet Express,Breakfast,4.0,6.84,11.0
+2026-10-02,JP Nagar,Millet Express,Dinner,3.0,4.49,5.0
+2026-10-03,JP Nagar,Millet Express,Dinner,6.0,5.31,4.0
+2026-10-04,JP Nagar,Millet Express,Dinner,4.0,5.41,1.0
+2026-10-05,JP Nagar,Millet Express,Dinner,5.0,3.89,2.0
+2026-10-06,JP Nagar,Millet Express,Dinner,7.0,3.56,1.0
+2026-10-07,JP Nagar,Millet Express,Dinner,6.0,3.75,5.0
+2026-10-08,JP Nagar,Millet Express,Dinner,4.0,6.49,9.0
+2026-10-02,JP Nagar,Millet Express,Lunch,8.0,6.54,3.0
+2026-10-03,JP Nagar,Millet Express,Lunch,7.0,5.38,2.0
+2026-10-04,JP Nagar,Millet Express,Lunch,4.0,5.4,5.0
+2026-10-05,JP Nagar,Millet Express,Lunch,9.0,8.4,9.0
+2026-10-06,JP Nagar,Millet Express,Lunch,8.0,8.06,7.0
+2026-10-07,JP Nagar,Millet Express,Lunch,4.0,8.03,8.0
+2026-10-08,JP Nagar,Millet Express,Lunch,8.0,7.41,6.0
+2026-10-02,JP Nagar,Millet Express,Snacks,2.0,1.58,3.0
+2026-10-03,JP Nagar,Millet Express,Snacks,3.0,2.01,1.0
+2026-10-04,JP Nagar,Millet Express,Snacks,2.0,1.21,1.0
+2026-10-05,JP Nagar,Millet Express,Snacks,0.0,1.31,1.0
+2026-10-06,JP Nagar,Millet Express,Snacks,0.0,1.62,0.0
+2026-10-07,JP Nagar,Millet Express,Snacks,0.0,1.11,1.0
+2026-10-08,JP Nagar,Millet Express,Snacks,2.0,1.27,1.0
+2026-10-02,JP Nagar,Olio Pizza,Dinner,31.0,31.18,46.0
+2026-10-03,JP Nagar,Olio Pizza,Dinner,45.0,37.55,42.0
+2026-10-04,JP Nagar,Olio Pizza,Dinner,33.0,35.76,30.0
+2026-10-05,JP Nagar,Olio Pizza,Dinner,37.0,30.59,30.0
+2026-10-06,JP Nagar,Olio Pizza,Dinner,26.0,29.44,27.0
+2026-10-07,JP Nagar,Olio Pizza,Dinner,23.0,26.25,28.0
+2026-10-08,JP Nagar,Olio Pizza,Dinner,29.0,28.84,25.0
+2026-10-02,JP Nagar,Olio Pizza,Late night,2.0,6.72,4.0
+2026-10-03,JP Nagar,Olio Pizza,Late night,13.0,8.63,8.0
+2026-10-04,JP Nagar,Olio Pizza,Late night,11.0,9.29,8.0
+2026-10-05,JP Nagar,Olio Pizza,Late night,6.0,4.98,11.0
+2026-10-06,JP Nagar,Olio Pizza,Late night,7.0,6.66,11.0
+2026-10-07,JP Nagar,Olio Pizza,Late night,3.0,6.14,6.0
+2026-10-08,JP Nagar,Olio Pizza,Late night,6.0,6.83,6.0
+2026-10-02,JP Nagar,Olio Pizza,Lunch,8.0,5.84,5.0
+2026-10-03,JP Nagar,Olio Pizza,Lunch,6.0,6.37,2.0
+2026-10-04,JP Nagar,Olio Pizza,Lunch,5.0,7.22,6.0
+2026-10-05,JP Nagar,Olio Pizza,Lunch,11.0,8.54,8.0
+2026-10-06,JP Nagar,Olio Pizza,Lunch,8.0,7.94,9.0
+2026-10-07,JP Nagar,Olio Pizza,Lunch,13.0,8.26,5.0
+2026-10-08,JP Nagar,Olio Pizza,Lunch,11.0,8.31,7.0
+2026-10-02,JP Nagar,Olio Pizza,Snacks,5.0,6.93,7.0
+2026-10-03,JP Nagar,Olio Pizza,Snacks,1.0,6.87,7.0
+2026-10-04,JP Nagar,Olio Pizza,Snacks,6.0,5.47,6.0
+2026-10-05,JP Nagar,Olio Pizza,Snacks,3.0,4.76,3.0
+2026-10-06,JP Nagar,Olio Pizza,Snacks,5.0,5.71,7.0
+2026-10-07,JP Nagar,Olio Pizza,Snacks,4.0,5.17,10.0
+2026-10-08,JP Nagar,Olio Pizza,Snacks,2.0,4.73,3.0
+2026-10-02,JP Nagar,Sharief Bhai,Dinner,38.0,31.43,28.0
+2026-10-03,JP Nagar,Sharief Bhai,Dinner,36.0,37.35,45.0
+2026-10-04,JP Nagar,Sharief Bhai,Dinner,33.0,35.69,38.0
+2026-10-05,JP Nagar,Sharief Bhai,Dinner,27.0,32.06,32.0
+2026-10-06,JP Nagar,Sharief Bhai,Dinner,27.0,28.89,30.0
+2026-10-07,JP Nagar,Sharief Bhai,Dinner,25.0,29.33,24.0
+2026-10-08,JP Nagar,Sharief Bhai,Dinner,23.0,31.78,24.0
+2026-10-02,JP Nagar,Sharief Bhai,Late night,6.0,7.25,6.0
+2026-10-03,JP Nagar,Sharief Bhai,Late night,5.0,9.7,13.0
+2026-10-04,JP Nagar,Sharief Bhai,Late night,9.0,8.81,13.0
+2026-10-05,JP Nagar,Sharief Bhai,Late night,6.0,5.7,4.0
+2026-10-06,JP Nagar,Sharief Bhai,Late night,4.0,5.16,5.0
+2026-10-07,JP Nagar,Sharief Bhai,Late night,5.0,6.29,8.0
+2026-10-08,JP Nagar,Sharief Bhai,Late night,8.0,9.03,5.0
+2026-10-02,JP Nagar,Sharief Bhai,Lunch,24.0,15.67,13.0
+2026-10-03,JP Nagar,Sharief Bhai,Lunch,21.0,11.69,12.0
+2026-10-04,JP Nagar,Sharief Bhai,Lunch,13.0,14.44,14.0
+2026-10-05,JP Nagar,Sharief Bhai,Lunch,27.0,16.69,12.0
+2026-10-06,JP Nagar,Sharief Bhai,Lunch,17.0,15.89,15.0
+2026-10-07,JP Nagar,Sharief Bhai,Lunch,17.0,17.75,19.0
+2026-10-08,JP Nagar,Sharief Bhai,Lunch,16.0,19.38,22.0
+2026-10-02,JP Nagar,Sharief Bhai,Snacks,4.0,3.59,3.0
+2026-10-03,JP Nagar,Sharief Bhai,Snacks,1.0,3.29,5.0
+2026-10-04,JP Nagar,Sharief Bhai,Snacks,3.0,3.49,3.0
+2026-10-05,JP Nagar,Sharief Bhai,Snacks,2.0,2.92,1.0
+2026-10-06,JP Nagar,Sharief Bhai,Snacks,4.0,2.8,5.0
+2026-10-07,JP Nagar,Sharief Bhai,Snacks,3.0,2.7,2.0
+2026-10-08,JP Nagar,Sharief Bhai,Snacks,3.0,2.92,2.0
+2026-10-02,Jayanagar,CakeZone,Breakfast,2.0,1.09,0.0
+2026-10-03,Jayanagar,CakeZone,Breakfast,2.0,0.91,1.0
+2026-10-04,Jayanagar,CakeZone,Breakfast,0.0,0.7,1.0
+2026-10-05,Jayanagar,CakeZone,Breakfast,1.0,1.3,3.0
+2026-10-06,Jayanagar,CakeZone,Breakfast,6.0,1.57,1.0
+2026-10-07,Jayanagar,CakeZone,Breakfast,3.0,1.87,0.0
+2026-10-08,Jayanagar,CakeZone,Breakfast,1.0,2.19,1.0
+2026-10-02,Jayanagar,CakeZone,Dinner,12.0,13.38,10.0
+2026-10-03,Jayanagar,CakeZone,Dinner,10.0,14.93,11.0
+2026-10-04,Jayanagar,CakeZone,Dinner,12.0,14.0,14.0
+2026-10-05,Jayanagar,CakeZone,Dinner,9.0,12.55,14.0
+2026-10-06,Jayanagar,CakeZone,Dinner,10.0,10.24,16.0
+2026-10-07,Jayanagar,CakeZone,Dinner,13.0,10.17,13.0
+2026-10-08,Jayanagar,CakeZone,Dinner,13.0,11.53,12.0
+2026-10-02,Jayanagar,CakeZone,Late night,11.0,7.56,12.0
+2026-10-03,Jayanagar,CakeZone,Late night,9.0,8.67,11.0
+2026-10-04,Jayanagar,CakeZone,Late night,7.0,7.26,5.0
+2026-10-05,Jayanagar,CakeZone,Late night,7.0,7.35,7.0
+2026-10-06,Jayanagar,CakeZone,Late night,9.0,7.25,11.0
+2026-10-07,Jayanagar,CakeZone,Late night,6.0,7.45,6.0
+2026-10-08,Jayanagar,CakeZone,Late night,8.0,8.3,15.0
+2026-10-02,Jayanagar,CakeZone,Lunch,1.0,1.79,1.0
+2026-10-03,Jayanagar,CakeZone,Lunch,3.0,1.44,3.0
+2026-10-04,Jayanagar,CakeZone,Lunch,2.0,1.37,1.0
+2026-10-05,Jayanagar,CakeZone,Lunch,4.0,3.13,2.0
+2026-10-06,Jayanagar,CakeZone,Lunch,2.0,2.01,1.0
+2026-10-07,Jayanagar,CakeZone,Lunch,6.0,2.01,3.0
+2026-10-08,Jayanagar,CakeZone,Lunch,5.0,2.12,1.0
+2026-10-02,Jayanagar,CakeZone,Snacks,8.0,6.77,4.0
+2026-10-03,Jayanagar,CakeZone,Snacks,8.0,8.18,8.0
+2026-10-04,Jayanagar,CakeZone,Snacks,12.0,8.05,6.0
+2026-10-05,Jayanagar,CakeZone,Snacks,3.0,8.09,4.0
+2026-10-06,Jayanagar,CakeZone,Snacks,9.0,6.74,10.0
+2026-10-07,Jayanagar,CakeZone,Snacks,12.0,6.21,5.0
+2026-10-08,Jayanagar,CakeZone,Snacks,8.0,6.93,7.0
+2026-10-02,Jayanagar,EatFit,Breakfast,7.0,6.55,6.0
+2026-10-03,Jayanagar,EatFit,Breakfast,6.0,5.05,3.0
+2026-10-04,Jayanagar,EatFit,Breakfast,4.0,4.48,3.0
+2026-10-05,Jayanagar,EatFit,Breakfast,11.0,6.94,12.0
+2026-10-06,Jayanagar,EatFit,Breakfast,5.0,8.21,10.0
+2026-10-07,Jayanagar,EatFit,Breakfast,7.0,8.3,7.0
+2026-10-08,Jayanagar,EatFit,Breakfast,4.0,8.86,10.0
+2026-10-02,Jayanagar,EatFit,Dinner,21.0,19.03,15.0
+2026-10-03,Jayanagar,EatFit,Dinner,22.0,18.05,17.0
+2026-10-04,Jayanagar,EatFit,Dinner,19.0,22.57,22.0
+2026-10-05,Jayanagar,EatFit,Dinner,27.0,18.92,18.0
+2026-10-06,Jayanagar,EatFit,Dinner,22.0,17.18,18.0
+2026-10-07,Jayanagar,EatFit,Dinner,15.0,17.36,14.0
+2026-10-08,Jayanagar,EatFit,Dinner,17.0,19.99,14.0
+2026-10-02,Jayanagar,EatFit,Late night,0.0,0.61,0.0
+2026-10-03,Jayanagar,EatFit,Late night,1.0,0.59,0.0
+2026-10-04,Jayanagar,EatFit,Late night,1.0,0.68,1.0
+2026-10-05,Jayanagar,EatFit,Late night,1.0,0.39,0.0
+2026-10-06,Jayanagar,EatFit,Late night,0.0,0.4,0.0
+2026-10-07,Jayanagar,EatFit,Late night,0.0,0.3,0.0
+2026-10-08,Jayanagar,EatFit,Late night,0.0,0.39,1.0
+2026-10-02,Jayanagar,EatFit,Lunch,29.0,33.64,31.0
+2026-10-03,Jayanagar,EatFit,Lunch,19.0,22.46,20.0
+2026-10-04,Jayanagar,EatFit,Lunch,33.0,23.82,26.0
+2026-10-05,Jayanagar,EatFit,Lunch,37.0,34.84,33.0
+2026-10-06,Jayanagar,EatFit,Lunch,47.0,30.3,37.0
+2026-10-07,Jayanagar,EatFit,Lunch,32.0,32.74,32.0
+2026-10-08,Jayanagar,EatFit,Lunch,49.0,35.81,37.0
+2026-10-02,Jayanagar,EatFit,Snacks,3.0,4.86,7.0
+2026-10-03,Jayanagar,EatFit,Snacks,8.0,3.54,4.0
+2026-10-04,Jayanagar,EatFit,Snacks,3.0,3.79,4.0
+2026-10-05,Jayanagar,EatFit,Snacks,3.0,3.88,5.0
+2026-10-06,Jayanagar,EatFit,Snacks,2.0,3.36,2.0
+2026-10-07,Jayanagar,EatFit,Snacks,6.0,3.67,6.0
+2026-10-08,Jayanagar,EatFit,Snacks,9.0,3.58,4.0
+2026-10-02,Jayanagar,Frozen Bottle,Breakfast,0.0,0.6,1.0
+2026-10-03,Jayanagar,Frozen Bottle,Breakfast,0.0,1.0,0.0
+2026-10-04,Jayanagar,Frozen Bottle,Breakfast,0.0,0.63,0.0
+2026-10-05,Jayanagar,Frozen Bottle,Breakfast,2.0,0.78,1.0
+2026-10-06,Jayanagar,Frozen Bottle,Breakfast,4.0,0.71,0.0
+2026-10-07,Jayanagar,Frozen Bottle,Breakfast,2.0,0.88,0.0
+2026-10-08,Jayanagar,Frozen Bottle,Breakfast,1.0,0.71,3.0
+2026-10-02,Jayanagar,Frozen Bottle,Dinner,7.0,6.91,8.0
+2026-10-03,Jayanagar,Frozen Bottle,Dinner,9.0,7.2,9.0
+2026-10-04,Jayanagar,Frozen Bottle,Dinner,8.0,6.93,5.0
+2026-10-05,Jayanagar,Frozen Bottle,Dinner,4.0,4.39,5.0
+2026-10-06,Jayanagar,Frozen Bottle,Dinner,4.0,5.97,5.0
+2026-10-07,Jayanagar,Frozen Bottle,Dinner,3.0,3.52,4.0
+2026-10-08,Jayanagar,Frozen Bottle,Dinner,14.0,4.55,3.0
+2026-10-02,Jayanagar,Frozen Bottle,Late night,9.0,4.68,1.0
+2026-10-03,Jayanagar,Frozen Bottle,Late night,3.0,5.85,3.0
+2026-10-04,Jayanagar,Frozen Bottle,Late night,6.0,5.28,4.0
+2026-10-05,Jayanagar,Frozen Bottle,Late night,4.0,5.55,4.0
+2026-10-06,Jayanagar,Frozen Bottle,Late night,5.0,3.91,4.0
+2026-10-07,Jayanagar,Frozen Bottle,Late night,2.0,3.57,2.0
+2026-10-08,Jayanagar,Frozen Bottle,Late night,4.0,5.54,3.0
+2026-10-02,Jayanagar,Frozen Bottle,Lunch,3.0,1.19,5.0
+2026-10-03,Jayanagar,Frozen Bottle,Lunch,0.0,1.2,1.0
+2026-10-04,Jayanagar,Frozen Bottle,Lunch,0.0,1.14,1.0
+2026-10-05,Jayanagar,Frozen Bottle,Lunch,1.0,1.48,3.0
+2026-10-06,Jayanagar,Frozen Bottle,Lunch,2.0,1.42,1.0
+2026-10-07,Jayanagar,Frozen Bottle,Lunch,3.0,1.27,3.0
+2026-10-08,Jayanagar,Frozen Bottle,Lunch,3.0,1.27,2.0
+2026-10-02,Jayanagar,Frozen Bottle,Snacks,8.0,5.81,5.0
+2026-10-03,Jayanagar,Frozen Bottle,Snacks,4.0,4.94,8.0
+2026-10-04,Jayanagar,Frozen Bottle,Snacks,5.0,4.85,3.0
+2026-10-05,Jayanagar,Frozen Bottle,Snacks,4.0,4.13,3.0
+2026-10-06,Jayanagar,Frozen Bottle,Snacks,7.0,4.48,3.0
+2026-10-07,Jayanagar,Frozen Bottle,Snacks,6.0,6.48,10.0
+2026-10-08,Jayanagar,Frozen Bottle,Snacks,8.0,3.71,3.0
+2026-10-02,Jayanagar,Millet Express,Breakfast,8.0,6.31,6.0
+2026-10-03,Jayanagar,Millet Express,Breakfast,2.0,6.56,8.0
+2026-10-04,Jayanagar,Millet Express,Breakfast,3.0,4.33,2.0
+2026-10-05,Jayanagar,Millet Express,Breakfast,11.0,5.57,11.0
+2026-10-06,Jayanagar,Millet Express,Breakfast,8.0,7.18,6.0
+2026-10-07,Jayanagar,Millet Express,Breakfast,6.0,6.6,5.0
+2026-10-08,Jayanagar,Millet Express,Breakfast,8.0,8.06,7.0
+2026-10-02,Jayanagar,Millet Express,Dinner,6.0,5.09,5.0
+2026-10-03,Jayanagar,Millet Express,Dinner,5.0,3.72,6.0
+2026-10-04,Jayanagar,Millet Express,Dinner,3.0,6.43,2.0
+2026-10-05,Jayanagar,Millet Express,Dinner,0.0,4.61,2.0
+2026-10-06,Jayanagar,Millet Express,Dinner,4.0,3.74,3.0
+2026-10-07,Jayanagar,Millet Express,Dinner,11.0,4.36,2.0
+2026-10-08,Jayanagar,Millet Express,Dinner,2.0,5.44,5.0
+2026-10-02,Jayanagar,Millet Express,Lunch,7.0,7.21,7.0
+2026-10-03,Jayanagar,Millet Express,Lunch,4.0,5.65,4.0
+2026-10-04,Jayanagar,Millet Express,Lunch,3.0,5.15,3.0
+2026-10-05,Jayanagar,Millet Express,Lunch,8.0,8.12,3.0
+2026-10-06,Jayanagar,Millet Express,Lunch,7.0,6.63,13.0
+2026-10-07,Jayanagar,Millet Express,Lunch,6.0,6.52,7.0
+2026-10-08,Jayanagar,Millet Express,Lunch,12.0,8.61,7.0
+2026-10-02,Jayanagar,Millet Express,Snacks,7.0,1.74,2.0
+2026-10-03,Jayanagar,Millet Express,Snacks,0.0,1.12,0.0
+2026-10-04,Jayanagar,Millet Express,Snacks,3.0,1.68,2.0
+2026-10-05,Jayanagar,Millet Express,Snacks,1.0,1.53,1.0
+2026-10-06,Jayanagar,Millet Express,Snacks,1.0,1.35,0.0
+2026-10-07,Jayanagar,Millet Express,Snacks,1.0,1.19,1.0
+2026-10-08,Jayanagar,Millet Express,Snacks,2.0,1.22,0.0
+2026-10-02,Jayanagar,Olio Pizza,Dinner,54.0,31.55,22.0
+2026-10-03,Jayanagar,Olio Pizza,Dinner,29.0,32.44,29.0
+2026-10-04,Jayanagar,Olio Pizza,Dinner,36.0,32.73,36.0
+2026-10-05,Jayanagar,Olio Pizza,Dinner,21.0,28.56,21.0
+2026-10-06,Jayanagar,Olio Pizza,Dinner,14.0,25.28,30.0
+2026-10-07,Jayanagar,Olio Pizza,Dinner,39.0,26.74,28.0
+2026-10-08,Jayanagar,Olio Pizza,Dinner,23.0,29.8,22.0
+2026-10-02,Jayanagar,Olio Pizza,Late night,13.0,7.25,10.0
+2026-10-03,Jayanagar,Olio Pizza,Late night,11.0,7.49,6.0
+2026-10-04,Jayanagar,Olio Pizza,Late night,11.0,8.15,7.0
+2026-10-05,Jayanagar,Olio Pizza,Late night,8.0,7.33,6.0
+2026-10-06,Jayanagar,Olio Pizza,Late night,5.0,6.89,4.0
+2026-10-07,Jayanagar,Olio Pizza,Late night,4.0,4.86,4.0
+2026-10-08,Jayanagar,Olio Pizza,Late night,8.0,6.66,4.0
+2026-10-02,Jayanagar,Olio Pizza,Lunch,8.0,7.45,8.0
+2026-10-03,Jayanagar,Olio Pizza,Lunch,1.0,6.81,10.0
+2026-10-04,Jayanagar,Olio Pizza,Lunch,7.0,5.88,4.0
+2026-10-05,Jayanagar,Olio Pizza,Lunch,6.0,8.24,3.0
+2026-10-06,Jayanagar,Olio Pizza,Lunch,10.0,7.27,9.0
+2026-10-07,Jayanagar,Olio Pizza,Lunch,6.0,7.86,8.0
+2026-10-08,Jayanagar,Olio Pizza,Lunch,9.0,8.87,9.0
+2026-10-02,Jayanagar,Olio Pizza,Snacks,5.0,5.53,7.0
+2026-10-03,Jayanagar,Olio Pizza,Snacks,2.0,5.6,3.0
+2026-10-04,Jayanagar,Olio Pizza,Snacks,4.0,6.71,7.0
+2026-10-05,Jayanagar,Olio Pizza,Snacks,4.0,5.17,6.0
+2026-10-06,Jayanagar,Olio Pizza,Snacks,3.0,4.69,6.0
+2026-10-07,Jayanagar,Olio Pizza,Snacks,5.0,4.59,5.0
+2026-10-08,Jayanagar,Olio Pizza,Snacks,4.0,4.87,3.0
+2026-10-02,Jayanagar,Sharief Bhai,Dinner,39.0,35.95,42.0
+2026-10-03,Jayanagar,Sharief Bhai,Dinner,42.0,40.31,49.0
+2026-10-04,Jayanagar,Sharief Bhai,Dinner,30.0,41.65,41.0
+2026-10-05,Jayanagar,Sharief Bhai,Dinner,31.0,36.61,34.0
+2026-10-06,Jayanagar,Sharief Bhai,Dinner,22.0,30.42,38.0
+2026-10-07,Jayanagar,Sharief Bhai,Dinner,32.0,26.56,30.0
+2026-10-08,Jayanagar,Sharief Bhai,Dinner,32.0,30.95,33.0
+2026-10-02,Jayanagar,Sharief Bhai,Late night,9.0,7.75,6.0
+2026-10-03,Jayanagar,Sharief Bhai,Late night,12.0,7.23,5.0
+2026-10-04,Jayanagar,Sharief Bhai,Late night,7.0,8.84,11.0
+2026-10-05,Jayanagar,Sharief Bhai,Late night,9.0,7.48,4.0
+2026-10-06,Jayanagar,Sharief Bhai,Late night,3.0,6.38,9.0
+2026-10-07,Jayanagar,Sharief Bhai,Late night,7.0,7.1,8.0
+2026-10-08,Jayanagar,Sharief Bhai,Late night,11.0,7.61,11.0
+2026-10-02,Jayanagar,Sharief Bhai,Lunch,15.0,18.13,22.0
+2026-10-03,Jayanagar,Sharief Bhai,Lunch,12.0,12.11,18.0
+2026-10-04,Jayanagar,Sharief Bhai,Lunch,8.0,11.93,9.0
+2026-10-05,Jayanagar,Sharief Bhai,Lunch,15.0,19.51,20.0
+2026-10-06,Jayanagar,Sharief Bhai,Lunch,16.0,14.92,17.0
+2026-10-07,Jayanagar,Sharief Bhai,Lunch,13.0,16.47,18.0
+2026-10-08,Jayanagar,Sharief Bhai,Lunch,15.0,16.4,13.0
+2026-10-02,Jayanagar,Sharief Bhai,Snacks,3.0,2.01,1.0
+2026-10-03,Jayanagar,Sharief Bhai,Snacks,1.0,3.0,7.0
+2026-10-04,Jayanagar,Sharief Bhai,Snacks,1.0,2.13,4.0
+2026-10-05,Jayanagar,Sharief Bhai,Snacks,4.0,2.52,3.0
+2026-10-06,Jayanagar,Sharief Bhai,Snacks,2.0,2.17,1.0
+2026-10-07,Jayanagar,Sharief Bhai,Snacks,3.0,1.84,0.0
+2026-10-08,Jayanagar,Sharief Bhai,Snacks,2.0,1.88,2.0
+2026-10-02,Koramangala,CakeZone,Breakfast,1.0,1.39,6.0
+2026-10-03,Koramangala,CakeZone,Breakfast,2.0,1.22,0.0
+2026-10-04,Koramangala,CakeZone,Breakfast,2.0,0.82,0.0
+2026-10-05,Koramangala,CakeZone,Breakfast,2.0,1.97,1.0
+2026-10-06,Koramangala,CakeZone,Breakfast,4.0,1.53,3.0
+2026-10-07,Koramangala,CakeZone,Breakfast,2.0,2.16,0.0
+2026-10-08,Koramangala,CakeZone,Breakfast,4.0,1.67,2.0
+2026-10-02,Koramangala,CakeZone,Dinner,25.0,14.31,12.0
+2026-10-03,Koramangala,CakeZone,Dinner,18.0,15.58,12.0
+2026-10-04,Koramangala,CakeZone,Dinner,18.0,16.62,10.0
+2026-10-05,Koramangala,CakeZone,Dinner,11.0,13.36,16.0
+2026-10-06,Koramangala,CakeZone,Dinner,10.0,10.62,11.0
+2026-10-07,Koramangala,CakeZone,Dinner,18.0,12.74,9.0
+2026-10-08,Koramangala,CakeZone,Dinner,15.0,16.37,9.0
+2026-10-02,Koramangala,CakeZone,Late night,11.0,12.45,11.0
+2026-10-03,Koramangala,CakeZone,Late night,10.0,10.43,11.0
+2026-10-04,Koramangala,CakeZone,Late night,13.0,10.28,20.0
+2026-10-05,Koramangala,CakeZone,Late night,12.0,9.64,12.0
+2026-10-06,Koramangala,CakeZone,Late night,8.0,8.27,6.0
+2026-10-07,Koramangala,CakeZone,Late night,12.0,7.74,7.0
+2026-10-08,Koramangala,CakeZone,Late night,9.0,8.64,9.0
+2026-10-02,Koramangala,CakeZone,Lunch,3.0,6.47,4.0
+2026-10-03,Koramangala,CakeZone,Lunch,5.0,2.94,0.0
+2026-10-04,Koramangala,CakeZone,Lunch,2.0,3.11,3.0
+2026-10-05,Koramangala,CakeZone,Lunch,3.0,3.6,4.0
+2026-10-06,Koramangala,CakeZone,Lunch,2.0,3.7,8.0
+2026-10-07,Koramangala,CakeZone,Lunch,3.0,2.83,4.0
+2026-10-08,Koramangala,CakeZone,Lunch,8.0,2.98,3.0
+2026-10-02,Koramangala,CakeZone,Snacks,14.0,12.14,11.0
+2026-10-03,Koramangala,CakeZone,Snacks,10.0,12.75,8.0
+2026-10-04,Koramangala,CakeZone,Snacks,11.0,9.66,9.0
+2026-10-05,Koramangala,CakeZone,Snacks,14.0,9.17,10.0
+2026-10-06,Koramangala,CakeZone,Snacks,11.0,9.03,9.0
+2026-10-07,Koramangala,CakeZone,Snacks,12.0,8.28,13.0
+2026-10-08,Koramangala,CakeZone,Snacks,14.0,8.03,6.0
+2026-10-02,Koramangala,EatFit,Breakfast,3.0,7.92,11.0
+2026-10-03,Koramangala,EatFit,Breakfast,4.0,6.25,6.0
+2026-10-04,Koramangala,EatFit,Breakfast,10.0,5.61,5.0
+2026-10-05,Koramangala,EatFit,Breakfast,12.0,9.16,7.0
+2026-10-06,Koramangala,EatFit,Breakfast,14.0,8.5,14.0
+2026-10-07,Koramangala,EatFit,Breakfast,10.0,8.83,11.0
+2026-10-08,Koramangala,EatFit,Breakfast,13.0,8.91,15.0
+2026-10-02,Koramangala,EatFit,Dinner,36.0,22.41,25.0
+2026-10-03,Koramangala,EatFit,Dinner,29.0,23.32,32.0
+2026-10-04,Koramangala,EatFit,Dinner,31.0,23.09,23.0
+2026-10-05,Koramangala,EatFit,Dinner,17.0,20.47,24.0
+2026-10-06,Koramangala,EatFit,Dinner,16.0,19.15,28.0
+2026-10-07,Koramangala,EatFit,Dinner,20.0,23.89,15.0
+2026-10-08,Koramangala,EatFit,Dinner,15.0,20.72,21.0
+2026-10-02,Koramangala,EatFit,Late night,1.0,0.53,1.0
+2026-10-03,Koramangala,EatFit,Late night,3.0,0.74,0.0
+2026-10-04,Koramangala,EatFit,Late night,1.0,1.08,0.0
+2026-10-05,Koramangala,EatFit,Late night,0.0,1.21,1.0
+2026-10-06,Koramangala,EatFit,Late night,1.0,0.55,0.0
+2026-10-07,Koramangala,EatFit,Late night,1.0,1.03,0.0
+2026-10-08,Koramangala,EatFit,Late night,0.0,0.78,0.0
+2026-10-02,Koramangala,EatFit,Lunch,38.0,39.39,40.0
+2026-10-03,Koramangala,EatFit,Lunch,32.0,34.35,30.0
+2026-10-04,Koramangala,EatFit,Lunch,35.0,31.74,33.0
+2026-10-05,Koramangala,EatFit,Lunch,60.0,45.06,36.0
+2026-10-06,Koramangala,EatFit,Lunch,42.0,46.98,52.0
+2026-10-07,Koramangala,EatFit,Lunch,48.0,43.78,46.0
+2026-10-08,Koramangala,EatFit,Lunch,57.0,46.3,51.0
+2026-10-02,Koramangala,EatFit,Snacks,8.0,5.99,5.0
+2026-10-03,Koramangala,EatFit,Snacks,7.0,4.42,4.0
+2026-10-04,Koramangala,EatFit,Snacks,4.0,4.43,3.0
+2026-10-05,Koramangala,EatFit,Snacks,7.0,4.78,2.0
+2026-10-06,Koramangala,EatFit,Snacks,5.0,3.99,2.0
+2026-10-07,Koramangala,EatFit,Snacks,9.0,4.71,6.0
+2026-10-08,Koramangala,EatFit,Snacks,5.0,5.82,5.0
+2026-10-02,Koramangala,Frozen Bottle,Breakfast,0.0,1.23,1.0
+2026-10-03,Koramangala,Frozen Bottle,Breakfast,2.0,0.85,2.0
+2026-10-04,Koramangala,Frozen Bottle,Breakfast,2.0,0.48,0.0
+2026-10-05,Koramangala,Frozen Bottle,Breakfast,2.0,0.98,1.0
+2026-10-06,Koramangala,Frozen Bottle,Breakfast,2.0,1.14,1.0
+2026-10-07,Koramangala,Frozen Bottle,Breakfast,0.0,0.52,1.0
+2026-10-08,Koramangala,Frozen Bottle,Breakfast,4.0,1.18,1.0
+2026-10-02,Koramangala,Frozen Bottle,Dinner,3.0,7.06,7.0
+2026-10-03,Koramangala,Frozen Bottle,Dinner,10.0,8.32,10.0
+2026-10-04,Koramangala,Frozen Bottle,Dinner,6.0,8.15,10.0
+2026-10-05,Koramangala,Frozen Bottle,Dinner,11.0,6.55,3.0
+2026-10-06,Koramangala,Frozen Bottle,Dinner,5.0,7.35,6.0
+2026-10-07,Koramangala,Frozen Bottle,Dinner,10.0,6.26,7.0
+2026-10-08,Koramangala,Frozen Bottle,Dinner,8.0,8.96,8.0
+2026-10-02,Koramangala,Frozen Bottle,Late night,10.0,5.44,5.0
+2026-10-03,Koramangala,Frozen Bottle,Late night,3.0,4.63,1.0
+2026-10-04,Koramangala,Frozen Bottle,Late night,8.0,6.29,7.0
+2026-10-05,Koramangala,Frozen Bottle,Late night,5.0,5.28,6.0
+2026-10-06,Koramangala,Frozen Bottle,Late night,4.0,4.93,3.0
+2026-10-07,Koramangala,Frozen Bottle,Late night,3.0,6.94,3.0
+2026-10-08,Koramangala,Frozen Bottle,Late night,1.0,4.82,2.0
+2026-10-02,Koramangala,Frozen Bottle,Lunch,0.0,2.01,0.0
+2026-10-03,Koramangala,Frozen Bottle,Lunch,1.0,2.09,2.0
+2026-10-04,Koramangala,Frozen Bottle,Lunch,1.0,1.62,3.0
+2026-10-05,Koramangala,Frozen Bottle,Lunch,3.0,2.4,2.0
+2026-10-06,Koramangala,Frozen Bottle,Lunch,2.0,2.29,1.0
+2026-10-07,Koramangala,Frozen Bottle,Lunch,2.0,2.37,0.0
+2026-10-08,Koramangala,Frozen Bottle,Lunch,1.0,2.55,1.0
+2026-10-02,Koramangala,Frozen Bottle,Snacks,10.0,5.68,7.0
+2026-10-03,Koramangala,Frozen Bottle,Snacks,7.0,6.95,4.0
+2026-10-04,Koramangala,Frozen Bottle,Snacks,9.0,6.92,6.0
+2026-10-05,Koramangala,Frozen Bottle,Snacks,7.0,5.25,6.0
+2026-10-06,Koramangala,Frozen Bottle,Snacks,5.0,6.09,5.0
+2026-10-07,Koramangala,Frozen Bottle,Snacks,9.0,5.98,4.0
+2026-10-08,Koramangala,Frozen Bottle,Snacks,9.0,5.17,6.0
+2026-10-02,Koramangala,Millet Express,Breakfast,5.0,5.42,12.0
+2026-10-03,Koramangala,Millet Express,Breakfast,4.0,6.26,7.0
+2026-10-04,Koramangala,Millet Express,Breakfast,3.0,5.28,3.0
+2026-10-05,Koramangala,Millet Express,Breakfast,12.0,8.41,5.0
+2026-10-06,Koramangala,Millet Express,Breakfast,4.0,8.38,5.0
+2026-10-07,Koramangala,Millet Express,Breakfast,11.0,6.51,11.0
+2026-10-08,Koramangala,Millet Express,Breakfast,7.0,8.04,9.0
+2026-10-02,Koramangala,Millet Express,Dinner,8.0,4.94,7.0
+2026-10-03,Koramangala,Millet Express,Dinner,5.0,8.1,4.0
+2026-10-04,Koramangala,Millet Express,Dinner,4.0,5.32,6.0
+2026-10-05,Koramangala,Millet Express,Dinner,4.0,6.76,4.0
+2026-10-06,Koramangala,Millet Express,Dinner,7.0,4.03,6.0
+2026-10-07,Koramangala,Millet Express,Dinner,6.0,4.94,3.0
+2026-10-08,Koramangala,Millet Express,Dinner,3.0,4.79,3.0
+2026-10-02,Koramangala,Millet Express,Lunch,9.0,10.41,12.0
+2026-10-03,Koramangala,Millet Express,Lunch,5.0,7.28,9.0
+2026-10-04,Koramangala,Millet Express,Lunch,13.0,5.67,5.0
+2026-10-05,Koramangala,Millet Express,Lunch,8.0,9.64,10.0
+2026-10-06,Koramangala,Millet Express,Lunch,10.0,8.85,4.0
+2026-10-07,Koramangala,Millet Express,Lunch,7.0,9.67,9.0
+2026-10-08,Koramangala,Millet Express,Lunch,7.0,9.21,8.0
+2026-10-02,Koramangala,Millet Express,Snacks,3.0,1.23,2.0
+2026-10-03,Koramangala,Millet Express,Snacks,3.0,1.14,0.0
+2026-10-04,Koramangala,Millet Express,Snacks,2.0,1.32,0.0
+2026-10-05,Koramangala,Millet Express,Snacks,1.0,1.65,2.0
+2026-10-06,Koramangala,Millet Express,Snacks,2.0,1.72,3.0
+2026-10-07,Koramangala,Millet Express,Snacks,3.0,1.04,0.0
+2026-10-08,Koramangala,Millet Express,Snacks,0.0,1.75,3.0
+2026-10-02,Koramangala,Olio Pizza,Dinner,54.0,41.29,52.0
+2026-10-03,Koramangala,Olio Pizza,Dinner,34.0,48.14,40.0
+2026-10-04,Koramangala,Olio Pizza,Dinner,48.0,44.19,47.0
+2026-10-05,Koramangala,Olio Pizza,Dinner,38.0,40.96,43.0
+2026-10-06,Koramangala,Olio Pizza,Dinner,34.0,34.91,40.0
+2026-10-07,Koramangala,Olio Pizza,Dinner,25.0,34.03,36.0
+2026-10-08,Koramangala,Olio Pizza,Dinner,40.0,32.85,24.0
+2026-10-02,Koramangala,Olio Pizza,Late night,15.0,9.57,16.0
+2026-10-03,Koramangala,Olio Pizza,Late night,6.0,9.14,11.0
+2026-10-04,Koramangala,Olio Pizza,Late night,9.0,9.22,11.0
+2026-10-05,Koramangala,Olio Pizza,Late night,8.0,9.27,6.0
+2026-10-06,Koramangala,Olio Pizza,Late night,5.0,8.06,4.0
+2026-10-07,Koramangala,Olio Pizza,Late night,4.0,7.74,10.0
+2026-10-08,Koramangala,Olio Pizza,Late night,10.0,9.84,3.0
+2026-10-02,Koramangala,Olio Pizza,Lunch,11.0,11.96,8.0
+2026-10-03,Koramangala,Olio Pizza,Lunch,11.0,10.12,8.0
+2026-10-04,Koramangala,Olio Pizza,Lunch,6.0,10.74,11.0
+2026-10-05,Koramangala,Olio Pizza,Lunch,7.0,13.94,19.0
+2026-10-06,Koramangala,Olio Pizza,Lunch,10.0,14.07,15.0
+2026-10-07,Koramangala,Olio Pizza,Lunch,10.0,11.84,11.0
+2026-10-08,Koramangala,Olio Pizza,Lunch,14.0,13.35,15.0
+2026-10-02,Koramangala,Olio Pizza,Snacks,15.0,6.89,6.0
+2026-10-03,Koramangala,Olio Pizza,Snacks,9.0,7.77,11.0
+2026-10-04,Koramangala,Olio Pizza,Snacks,17.0,9.28,7.0
+2026-10-05,Koramangala,Olio Pizza,Snacks,8.0,6.41,9.0
+2026-10-06,Koramangala,Olio Pizza,Snacks,2.0,7.33,4.0
+2026-10-07,Koramangala,Olio Pizza,Snacks,10.0,6.0,6.0
+2026-10-08,Koramangala,Olio Pizza,Snacks,6.0,6.7,6.0
+2026-10-02,Koramangala,Sharief Bhai,Dinner,52.0,39.35,32.0
+2026-10-03,Koramangala,Sharief Bhai,Dinner,55.0,44.53,36.0
+2026-10-04,Koramangala,Sharief Bhai,Dinner,60.0,47.8,42.0
+2026-10-05,Koramangala,Sharief Bhai,Dinner,43.0,38.59,39.0
+2026-10-06,Koramangala,Sharief Bhai,Dinner,43.0,38.92,36.0
+2026-10-07,Koramangala,Sharief Bhai,Dinner,31.0,36.93,27.0
+2026-10-08,Koramangala,Sharief Bhai,Dinner,32.0,40.9,38.0
+2026-10-02,Koramangala,Sharief Bhai,Late night,10.0,11.43,20.0
+2026-10-03,Koramangala,Sharief Bhai,Late night,13.0,10.08,19.0
+2026-10-04,Koramangala,Sharief Bhai,Late night,8.0,12.03,13.0
+2026-10-05,Koramangala,Sharief Bhai,Late night,6.0,8.27,7.0
+2026-10-06,Koramangala,Sharief Bhai,Late night,8.0,7.0,9.0
+2026-10-07,Koramangala,Sharief Bhai,Late night,8.0,7.11,9.0
+2026-10-08,Koramangala,Sharief Bhai,Late night,19.0,8.46,8.0
+2026-10-02,Koramangala,Sharief Bhai,Lunch,14.0,25.36,18.0
+2026-10-03,Koramangala,Sharief Bhai,Lunch,17.0,17.52,19.0
+2026-10-04,Koramangala,Sharief Bhai,Lunch,11.0,18.31,19.0
+2026-10-05,Koramangala,Sharief Bhai,Lunch,27.0,23.21,28.0
+2026-10-06,Koramangala,Sharief Bhai,Lunch,30.0,25.48,16.0
+2026-10-07,Koramangala,Sharief Bhai,Lunch,27.0,22.69,23.0
+2026-10-08,Koramangala,Sharief Bhai,Lunch,27.0,21.59,28.0
+2026-10-02,Koramangala,Sharief Bhai,Snacks,5.0,3.23,2.0
+2026-10-03,Koramangala,Sharief Bhai,Snacks,4.0,4.88,5.0
+2026-10-04,Koramangala,Sharief Bhai,Snacks,3.0,5.94,7.0
+2026-10-05,Koramangala,Sharief Bhai,Snacks,4.0,3.32,5.0
+2026-10-06,Koramangala,Sharief Bhai,Snacks,2.0,2.89,2.0
+2026-10-07,Koramangala,Sharief Bhai,Snacks,2.0,3.1,4.0
+2026-10-08,Koramangala,Sharief Bhai,Snacks,2.0,2.73,1.0
+2026-10-02,Marathahalli,CakeZone,Breakfast,2.0,1.25,2.0
+2026-10-03,Marathahalli,CakeZone,Breakfast,1.0,1.11,1.0
+2026-10-04,Marathahalli,CakeZone,Breakfast,2.0,1.53,1.0
+2026-10-05,Marathahalli,CakeZone,Breakfast,2.0,1.98,1.0
+2026-10-06,Marathahalli,CakeZone,Breakfast,2.0,1.71,2.0
+2026-10-07,Marathahalli,CakeZone,Breakfast,3.0,1.95,2.0
+2026-10-08,Marathahalli,CakeZone,Breakfast,0.0,1.65,3.0
+2026-10-02,Marathahalli,CakeZone,Dinner,15.0,14.07,9.0
+2026-10-03,Marathahalli,CakeZone,Dinner,12.0,13.61,14.0
+2026-10-04,Marathahalli,CakeZone,Dinner,14.0,9.56,6.0
+2026-10-05,Marathahalli,CakeZone,Dinner,9.0,14.2,9.0
+2026-10-06,Marathahalli,CakeZone,Dinner,8.0,10.31,9.0
+2026-10-07,Marathahalli,CakeZone,Dinner,7.0,12.05,12.0
+2026-10-08,Marathahalli,CakeZone,Dinner,8.0,11.49,8.0
+2026-10-02,Marathahalli,CakeZone,Late night,9.0,8.38,6.0
+2026-10-03,Marathahalli,CakeZone,Late night,11.0,10.09,10.0
+2026-10-04,Marathahalli,CakeZone,Late night,11.0,9.86,10.0
+2026-10-05,Marathahalli,CakeZone,Late night,11.0,7.97,6.0
+2026-10-06,Marathahalli,CakeZone,Late night,7.0,6.82,8.0
+2026-10-07,Marathahalli,CakeZone,Late night,7.0,7.55,5.0
+2026-10-08,Marathahalli,CakeZone,Late night,9.0,7.86,6.0
+2026-10-02,Marathahalli,CakeZone,Lunch,2.0,2.9,1.0
+2026-10-03,Marathahalli,CakeZone,Lunch,3.0,2.42,3.0
+2026-10-04,Marathahalli,CakeZone,Lunch,0.0,2.17,2.0
+2026-10-05,Marathahalli,CakeZone,Lunch,3.0,2.37,2.0
+2026-10-06,Marathahalli,CakeZone,Lunch,0.0,4.07,6.0
+2026-10-07,Marathahalli,CakeZone,Lunch,3.0,2.46,3.0
+2026-10-08,Marathahalli,CakeZone,Lunch,0.0,2.43,3.0
+2026-10-02,Marathahalli,CakeZone,Snacks,10.0,10.12,12.0
+2026-10-03,Marathahalli,CakeZone,Snacks,6.0,10.35,10.0
+2026-10-04,Marathahalli,CakeZone,Snacks,11.0,8.46,18.0
+2026-10-05,Marathahalli,CakeZone,Snacks,9.0,7.94,5.0
+2026-10-06,Marathahalli,CakeZone,Snacks,9.0,7.0,8.0
+2026-10-07,Marathahalli,CakeZone,Snacks,8.0,8.25,7.0
+2026-10-08,Marathahalli,CakeZone,Snacks,10.0,7.66,8.0
+2026-10-02,Marathahalli,EatFit,Breakfast,10.0,6.34,3.0
+2026-10-03,Marathahalli,EatFit,Breakfast,5.0,5.02,2.0
+2026-10-04,Marathahalli,EatFit,Breakfast,2.0,5.29,2.0
+2026-10-05,Marathahalli,EatFit,Breakfast,8.0,7.0,6.0
+2026-10-06,Marathahalli,EatFit,Breakfast,6.0,7.99,7.0
+2026-10-07,Marathahalli,EatFit,Breakfast,5.0,7.99,11.0
+2026-10-08,Marathahalli,EatFit,Breakfast,6.0,7.96,7.0
+2026-10-02,Marathahalli,EatFit,Dinner,29.0,21.92,25.0
+2026-10-03,Marathahalli,EatFit,Dinner,19.0,22.94,20.0
+2026-10-04,Marathahalli,EatFit,Dinner,15.0,23.28,24.0
+2026-10-05,Marathahalli,EatFit,Dinner,15.0,21.97,20.0
+2026-10-06,Marathahalli,EatFit,Dinner,16.0,18.89,21.0
+2026-10-07,Marathahalli,EatFit,Dinner,10.0,17.82,14.0
+2026-10-08,Marathahalli,EatFit,Dinner,24.0,21.22,15.0
+2026-10-02,Marathahalli,EatFit,Late night,2.0,0.69,1.0
+2026-10-03,Marathahalli,EatFit,Late night,0.0,0.95,1.0
+2026-10-04,Marathahalli,EatFit,Late night,0.0,0.53,1.0
+2026-10-05,Marathahalli,EatFit,Late night,0.0,0.42,1.0
+2026-10-06,Marathahalli,EatFit,Late night,0.0,0.53,2.0
+2026-10-07,Marathahalli,EatFit,Late night,0.0,0.33,1.0
+2026-10-08,Marathahalli,EatFit,Late night,0.0,0.75,0.0
+2026-10-02,Marathahalli,EatFit,Lunch,39.0,36.07,27.0
+2026-10-03,Marathahalli,EatFit,Lunch,32.0,26.12,25.0
+2026-10-04,Marathahalli,EatFit,Lunch,28.0,26.93,23.0
+2026-10-05,Marathahalli,EatFit,Lunch,35.0,33.16,34.0
+2026-10-06,Marathahalli,EatFit,Lunch,34.0,33.84,44.0
+2026-10-07,Marathahalli,EatFit,Lunch,38.0,34.66,33.0
+2026-10-08,Marathahalli,EatFit,Lunch,44.0,36.04,32.0
+2026-10-02,Marathahalli,EatFit,Snacks,6.0,3.76,3.0
+2026-10-03,Marathahalli,EatFit,Snacks,5.0,4.09,3.0
+2026-10-04,Marathahalli,EatFit,Snacks,4.0,4.58,5.0
+2026-10-05,Marathahalli,EatFit,Snacks,5.0,4.41,6.0
+2026-10-06,Marathahalli,EatFit,Snacks,2.0,4.23,2.0
+2026-10-07,Marathahalli,EatFit,Snacks,6.0,3.96,3.0
+2026-10-08,Marathahalli,EatFit,Snacks,2.0,4.6,8.0
+2026-10-02,Marathahalli,Frozen Bottle,Breakfast,0.0,0.74,1.0
+2026-10-03,Marathahalli,Frozen Bottle,Breakfast,1.0,1.55,2.0
+2026-10-04,Marathahalli,Frozen Bottle,Breakfast,0.0,1.82,1.0
+2026-10-05,Marathahalli,Frozen Bottle,Breakfast,0.0,0.94,0.0
+2026-10-06,Marathahalli,Frozen Bottle,Breakfast,0.0,0.84,0.0
+2026-10-07,Marathahalli,Frozen Bottle,Breakfast,0.0,0.83,0.0
+2026-10-08,Marathahalli,Frozen Bottle,Breakfast,3.0,1.09,2.0
+2026-10-02,Marathahalli,Frozen Bottle,Dinner,8.0,6.31,8.0
+2026-10-03,Marathahalli,Frozen Bottle,Dinner,3.0,7.7,10.0
+2026-10-04,Marathahalli,Frozen Bottle,Dinner,8.0,6.7,4.0
+2026-10-05,Marathahalli,Frozen Bottle,Dinner,7.0,5.26,5.0
+2026-10-06,Marathahalli,Frozen Bottle,Dinner,9.0,5.59,6.0
+2026-10-07,Marathahalli,Frozen Bottle,Dinner,2.0,5.8,7.0
+2026-10-08,Marathahalli,Frozen Bottle,Dinner,6.0,6.95,3.0
+2026-10-02,Marathahalli,Frozen Bottle,Late night,3.0,5.01,3.0
+2026-10-03,Marathahalli,Frozen Bottle,Late night,6.0,5.9,3.0
+2026-10-04,Marathahalli,Frozen Bottle,Late night,7.0,7.47,9.0
+2026-10-05,Marathahalli,Frozen Bottle,Late night,3.0,3.05,4.0
+2026-10-06,Marathahalli,Frozen Bottle,Late night,6.0,3.07,2.0
+2026-10-07,Marathahalli,Frozen Bottle,Late night,5.0,4.4,2.0
+2026-10-08,Marathahalli,Frozen Bottle,Late night,2.0,4.58,3.0
+2026-10-02,Marathahalli,Frozen Bottle,Lunch,3.0,1.72,1.0
+2026-10-03,Marathahalli,Frozen Bottle,Lunch,2.0,1.49,3.0
+2026-10-04,Marathahalli,Frozen Bottle,Lunch,0.0,1.52,0.0
+2026-10-05,Marathahalli,Frozen Bottle,Lunch,4.0,1.74,1.0
+2026-10-06,Marathahalli,Frozen Bottle,Lunch,2.0,1.87,1.0
+2026-10-07,Marathahalli,Frozen Bottle,Lunch,0.0,1.95,0.0
+2026-10-08,Marathahalli,Frozen Bottle,Lunch,2.0,1.65,2.0
+2026-10-02,Marathahalli,Frozen Bottle,Snacks,4.0,6.41,8.0
+2026-10-03,Marathahalli,Frozen Bottle,Snacks,12.0,6.43,10.0
+2026-10-04,Marathahalli,Frozen Bottle,Snacks,5.0,6.23,7.0
+2026-10-05,Marathahalli,Frozen Bottle,Snacks,3.0,5.24,0.0
+2026-10-06,Marathahalli,Frozen Bottle,Snacks,9.0,5.31,6.0
+2026-10-07,Marathahalli,Frozen Bottle,Snacks,1.0,6.24,8.0
+2026-10-08,Marathahalli,Frozen Bottle,Snacks,2.0,5.73,7.0
+2026-10-02,Marathahalli,Millet Express,Breakfast,6.0,4.9,5.0
+2026-10-03,Marathahalli,Millet Express,Breakfast,3.0,4.1,4.0
+2026-10-04,Marathahalli,Millet Express,Breakfast,5.0,4.04,4.0
+2026-10-05,Marathahalli,Millet Express,Breakfast,3.0,5.52,8.0
+2026-10-06,Marathahalli,Millet Express,Breakfast,10.0,6.73,7.0
+2026-10-07,Marathahalli,Millet Express,Breakfast,7.0,6.8,5.0
+2026-10-08,Marathahalli,Millet Express,Breakfast,8.0,5.39,11.0
+2026-10-02,Marathahalli,Millet Express,Dinner,6.0,5.6,4.0
+2026-10-03,Marathahalli,Millet Express,Dinner,5.0,4.25,4.0
+2026-10-04,Marathahalli,Millet Express,Dinner,5.0,4.38,0.0
+2026-10-05,Marathahalli,Millet Express,Dinner,9.0,4.21,1.0
+2026-10-06,Marathahalli,Millet Express,Dinner,2.0,4.8,5.0
+2026-10-07,Marathahalli,Millet Express,Dinner,6.0,4.02,4.0
+2026-10-08,Marathahalli,Millet Express,Dinner,6.0,4.47,6.0
+2026-10-02,Marathahalli,Millet Express,Lunch,5.0,6.77,7.0
+2026-10-03,Marathahalli,Millet Express,Lunch,6.0,5.31,4.0
+2026-10-04,Marathahalli,Millet Express,Lunch,3.0,4.94,5.0
+2026-10-05,Marathahalli,Millet Express,Lunch,10.0,7.58,8.0
+2026-10-06,Marathahalli,Millet Express,Lunch,9.0,6.95,11.0
+2026-10-07,Marathahalli,Millet Express,Lunch,8.0,6.9,10.0
+2026-10-08,Marathahalli,Millet Express,Lunch,4.0,8.17,9.0
+2026-10-02,Marathahalli,Millet Express,Snacks,2.0,1.45,0.0
+2026-10-03,Marathahalli,Millet Express,Snacks,1.0,2.79,4.0
+2026-10-04,Marathahalli,Millet Express,Snacks,1.0,2.11,2.0
+2026-10-05,Marathahalli,Millet Express,Snacks,0.0,1.17,3.0
+2026-10-06,Marathahalli,Millet Express,Snacks,1.0,1.36,2.0
+2026-10-07,Marathahalli,Millet Express,Snacks,2.0,2.57,0.0
+2026-10-08,Marathahalli,Millet Express,Snacks,2.0,1.53,1.0
+2026-10-02,Marathahalli,Olio Pizza,Dinner,37.0,36.82,43.0
+2026-10-03,Marathahalli,Olio Pizza,Dinner,24.0,36.57,43.0
+2026-10-04,Marathahalli,Olio Pizza,Dinner,37.0,37.41,34.0
+2026-10-05,Marathahalli,Olio Pizza,Dinner,30.0,31.16,30.0
+2026-10-06,Marathahalli,Olio Pizza,Dinner,24.0,26.92,36.0
+2026-10-07,Marathahalli,Olio Pizza,Dinner,31.0,27.93,36.0
+2026-10-08,Marathahalli,Olio Pizza,Dinner,29.0,30.1,29.0
+2026-10-02,Marathahalli,Olio Pizza,Late night,11.0,6.35,4.0
+2026-10-03,Marathahalli,Olio Pizza,Late night,10.0,7.88,10.0
+2026-10-04,Marathahalli,Olio Pizza,Late night,8.0,8.32,7.0
+2026-10-05,Marathahalli,Olio Pizza,Late night,7.0,6.12,10.0
+2026-10-06,Marathahalli,Olio Pizza,Late night,4.0,5.35,6.0
+2026-10-07,Marathahalli,Olio Pizza,Late night,6.0,6.37,7.0
+2026-10-08,Marathahalli,Olio Pizza,Late night,5.0,6.94,5.0
+2026-10-02,Marathahalli,Olio Pizza,Lunch,5.0,8.91,11.0
+2026-10-03,Marathahalli,Olio Pizza,Lunch,5.0,6.41,6.0
+2026-10-04,Marathahalli,Olio Pizza,Lunch,11.0,7.52,5.0
+2026-10-05,Marathahalli,Olio Pizza,Lunch,13.0,9.04,10.0
+2026-10-06,Marathahalli,Olio Pizza,Lunch,8.0,8.84,10.0
+2026-10-07,Marathahalli,Olio Pizza,Lunch,7.0,9.2,6.0
+2026-10-08,Marathahalli,Olio Pizza,Lunch,7.0,8.31,12.0
+2026-10-02,Marathahalli,Olio Pizza,Snacks,1.0,5.56,6.0
+2026-10-03,Marathahalli,Olio Pizza,Snacks,6.0,5.0,6.0
+2026-10-04,Marathahalli,Olio Pizza,Snacks,4.0,6.68,2.0
+2026-10-05,Marathahalli,Olio Pizza,Snacks,9.0,4.18,4.0
+2026-10-06,Marathahalli,Olio Pizza,Snacks,9.0,5.71,1.0
+2026-10-07,Marathahalli,Olio Pizza,Snacks,6.0,5.06,3.0
+2026-10-08,Marathahalli,Olio Pizza,Snacks,3.0,5.2,7.0
+2026-10-02,Marathahalli,Sharief Bhai,Dinner,45.0,39.4,40.0
+2026-10-03,Marathahalli,Sharief Bhai,Dinner,47.0,44.97,44.0
+2026-10-04,Marathahalli,Sharief Bhai,Dinner,37.0,43.17,40.0
+2026-10-05,Marathahalli,Sharief Bhai,Dinner,22.0,37.77,31.0
+2026-10-06,Marathahalli,Sharief Bhai,Dinner,43.0,31.11,30.0
+2026-10-07,Marathahalli,Sharief Bhai,Dinner,34.0,34.7,37.0
+2026-10-08,Marathahalli,Sharief Bhai,Dinner,30.0,32.13,27.0
+2026-10-02,Marathahalli,Sharief Bhai,Late night,12.0,8.8,10.0
+2026-10-03,Marathahalli,Sharief Bhai,Late night,9.0,8.53,6.0
+2026-10-04,Marathahalli,Sharief Bhai,Late night,12.0,9.24,9.0
+2026-10-05,Marathahalli,Sharief Bhai,Late night,11.0,6.87,3.0
+2026-10-06,Marathahalli,Sharief Bhai,Late night,4.0,6.28,9.0
+2026-10-07,Marathahalli,Sharief Bhai,Late night,3.0,5.77,8.0
+2026-10-08,Marathahalli,Sharief Bhai,Late night,6.0,7.03,9.0
+2026-10-02,Marathahalli,Sharief Bhai,Lunch,18.0,20.32,23.0
+2026-10-03,Marathahalli,Sharief Bhai,Lunch,16.0,15.35,13.0
+2026-10-04,Marathahalli,Sharief Bhai,Lunch,13.0,16.15,16.0
+2026-10-05,Marathahalli,Sharief Bhai,Lunch,18.0,20.27,24.0
+2026-10-06,Marathahalli,Sharief Bhai,Lunch,28.0,19.21,22.0
+2026-10-07,Marathahalli,Sharief Bhai,Lunch,17.0,18.26,29.0
+2026-10-08,Marathahalli,Sharief Bhai,Lunch,23.0,20.65,22.0
+2026-10-02,Marathahalli,Sharief Bhai,Snacks,3.0,3.46,3.0
+2026-10-03,Marathahalli,Sharief Bhai,Snacks,5.0,3.36,3.0
+2026-10-04,Marathahalli,Sharief Bhai,Snacks,3.0,3.68,5.0
+2026-10-05,Marathahalli,Sharief Bhai,Snacks,2.0,2.62,4.0
+2026-10-06,Marathahalli,Sharief Bhai,Snacks,4.0,3.09,3.0
+2026-10-07,Marathahalli,Sharief Bhai,Snacks,3.0,3.38,4.0
+2026-10-08,Marathahalli,Sharief Bhai,Snacks,3.0,3.18,3.0
+2026-10-02,Whitefield,CakeZone,Breakfast,2.0,1.23,2.0
+2026-10-03,Whitefield,CakeZone,Breakfast,0.0,0.56,0.0
+2026-10-04,Whitefield,CakeZone,Breakfast,0.0,0.49,0.0
+2026-10-05,Whitefield,CakeZone,Breakfast,3.0,1.37,2.0
+2026-10-06,Whitefield,CakeZone,Breakfast,5.0,1.14,0.0
+2026-10-07,Whitefield,CakeZone,Breakfast,3.0,1.13,3.0
+2026-10-08,Whitefield,CakeZone,Breakfast,1.0,1.48,1.0
+2026-10-02,Whitefield,CakeZone,Dinner,12.0,14.12,17.0
+2026-10-03,Whitefield,CakeZone,Dinner,13.0,13.21,19.0
+2026-10-04,Whitefield,CakeZone,Dinner,10.0,13.51,15.0
+2026-10-05,Whitefield,CakeZone,Dinner,14.0,11.86,14.0
+2026-10-06,Whitefield,CakeZone,Dinner,4.0,9.55,8.0
+2026-10-07,Whitefield,CakeZone,Dinner,14.0,9.87,11.0
+2026-10-08,Whitefield,CakeZone,Dinner,10.0,10.81,13.0
+2026-10-02,Whitefield,CakeZone,Late night,11.0,8.58,7.0
+2026-10-03,Whitefield,CakeZone,Late night,12.0,8.79,6.0
+2026-10-04,Whitefield,CakeZone,Late night,13.0,10.13,9.0
+2026-10-05,Whitefield,CakeZone,Late night,7.0,8.44,9.0
+2026-10-06,Whitefield,CakeZone,Late night,9.0,7.33,8.0
+2026-10-07,Whitefield,CakeZone,Late night,4.0,7.43,8.0
+2026-10-08,Whitefield,CakeZone,Late night,11.0,8.28,7.0
+2026-10-02,Whitefield,CakeZone,Lunch,4.0,1.91,2.0
+2026-10-03,Whitefield,CakeZone,Lunch,3.0,1.37,3.0
+2026-10-04,Whitefield,CakeZone,Lunch,0.0,1.27,3.0
+2026-10-05,Whitefield,CakeZone,Lunch,2.0,2.19,2.0
+2026-10-06,Whitefield,CakeZone,Lunch,1.0,1.99,1.0
+2026-10-07,Whitefield,CakeZone,Lunch,1.0,1.98,1.0
+2026-10-08,Whitefield,CakeZone,Lunch,1.0,2.07,3.0
+2026-10-02,Whitefield,CakeZone,Snacks,12.0,9.31,9.0
+2026-10-03,Whitefield,CakeZone,Snacks,9.0,8.32,11.0
+2026-10-04,Whitefield,CakeZone,Snacks,4.0,8.6,9.0
+2026-10-05,Whitefield,CakeZone,Snacks,13.0,8.36,10.0
+2026-10-06,Whitefield,CakeZone,Snacks,9.0,8.51,6.0
+2026-10-07,Whitefield,CakeZone,Snacks,12.0,7.25,3.0
+2026-10-08,Whitefield,CakeZone,Snacks,7.0,7.62,11.0
+2026-10-02,Whitefield,EatFit,Breakfast,7.0,7.56,8.0
+2026-10-03,Whitefield,EatFit,Breakfast,5.0,6.12,5.0
+2026-10-04,Whitefield,EatFit,Breakfast,3.0,7.65,11.0
+2026-10-05,Whitefield,EatFit,Breakfast,10.0,9.08,14.0
+2026-10-06,Whitefield,EatFit,Breakfast,12.0,8.13,12.0
+2026-10-07,Whitefield,EatFit,Breakfast,8.0,8.43,15.0
+2026-10-08,Whitefield,EatFit,Breakfast,11.0,7.87,7.0
+2026-10-02,Whitefield,EatFit,Dinner,25.0,24.37,26.0
+2026-10-03,Whitefield,EatFit,Dinner,20.0,19.26,31.0
+2026-10-04,Whitefield,EatFit,Dinner,27.0,24.38,24.0
+2026-10-05,Whitefield,EatFit,Dinner,15.0,20.21,16.0
+2026-10-06,Whitefield,EatFit,Dinner,15.0,20.78,24.0
+2026-10-07,Whitefield,EatFit,Dinner,16.0,15.64,13.0
+2026-10-08,Whitefield,EatFit,Dinner,17.0,19.76,13.0
+2026-10-02,Whitefield,EatFit,Late night,0.0,0.68,1.0
+2026-10-03,Whitefield,EatFit,Late night,1.0,0.78,0.0
+2026-10-04,Whitefield,EatFit,Late night,0.0,0.76,2.0
+2026-10-05,Whitefield,EatFit,Late night,0.0,0.71,1.0
+2026-10-06,Whitefield,EatFit,Late night,0.0,0.73,0.0
+2026-10-07,Whitefield,EatFit,Late night,1.0,0.62,0.0
+2026-10-08,Whitefield,EatFit,Late night,0.0,0.73,0.0
+2026-10-02,Whitefield,EatFit,Lunch,29.0,38.23,52.0
+2026-10-03,Whitefield,EatFit,Lunch,34.0,29.27,40.0
+2026-10-04,Whitefield,EatFit,Lunch,32.0,25.63,22.0
+2026-10-05,Whitefield,EatFit,Lunch,39.0,33.06,32.0
+2026-10-06,Whitefield,EatFit,Lunch,40.0,30.35,37.0
+2026-10-07,Whitefield,EatFit,Lunch,26.0,30.27,27.0
+2026-10-08,Whitefield,EatFit,Lunch,46.0,40.16,41.0
+2026-10-02,Whitefield,EatFit,Snacks,5.0,2.73,2.0
+2026-10-03,Whitefield,EatFit,Snacks,4.0,4.13,2.0
+2026-10-04,Whitefield,EatFit,Snacks,9.0,4.28,5.0
+2026-10-05,Whitefield,EatFit,Snacks,4.0,3.46,1.0
+2026-10-06,Whitefield,EatFit,Snacks,4.0,3.52,4.0
+2026-10-07,Whitefield,EatFit,Snacks,1.0,3.11,4.0
+2026-10-08,Whitefield,EatFit,Snacks,3.0,3.08,2.0
+2026-10-02,Whitefield,Frozen Bottle,Breakfast,0.0,0.96,2.0
+2026-10-03,Whitefield,Frozen Bottle,Breakfast,0.0,0.93,1.0
+2026-10-04,Whitefield,Frozen Bottle,Breakfast,0.0,1.18,0.0
+2026-10-05,Whitefield,Frozen Bottle,Breakfast,1.0,1.23,1.0
+2026-10-06,Whitefield,Frozen Bottle,Breakfast,0.0,1.29,0.0
+2026-10-07,Whitefield,Frozen Bottle,Breakfast,5.0,1.42,0.0
+2026-10-08,Whitefield,Frozen Bottle,Breakfast,1.0,0.71,2.0
+2026-10-02,Whitefield,Frozen Bottle,Dinner,8.0,6.97,4.0
+2026-10-03,Whitefield,Frozen Bottle,Dinner,8.0,6.06,5.0
+2026-10-04,Whitefield,Frozen Bottle,Dinner,8.0,8.31,6.0
+2026-10-05,Whitefield,Frozen Bottle,Dinner,4.0,5.38,5.0
+2026-10-06,Whitefield,Frozen Bottle,Dinner,6.0,6.22,6.0
+2026-10-07,Whitefield,Frozen Bottle,Dinner,11.0,5.64,7.0
+2026-10-08,Whitefield,Frozen Bottle,Dinner,9.0,7.6,4.0
+2026-10-02,Whitefield,Frozen Bottle,Late night,4.0,4.34,5.0
+2026-10-03,Whitefield,Frozen Bottle,Late night,3.0,4.89,5.0
+2026-10-04,Whitefield,Frozen Bottle,Late night,2.0,6.44,4.0
+2026-10-05,Whitefield,Frozen Bottle,Late night,7.0,4.73,4.0
+2026-10-06,Whitefield,Frozen Bottle,Late night,2.0,2.86,3.0
+2026-10-07,Whitefield,Frozen Bottle,Late night,2.0,3.07,6.0
+2026-10-08,Whitefield,Frozen Bottle,Late night,3.0,2.58,2.0
+2026-10-02,Whitefield,Frozen Bottle,Lunch,2.0,2.04,0.0
+2026-10-03,Whitefield,Frozen Bottle,Lunch,2.0,0.86,0.0
+2026-10-04,Whitefield,Frozen Bottle,Lunch,1.0,1.07,1.0
+2026-10-05,Whitefield,Frozen Bottle,Lunch,0.0,1.67,2.0
+2026-10-06,Whitefield,Frozen Bottle,Lunch,2.0,1.7,0.0
+2026-10-07,Whitefield,Frozen Bottle,Lunch,1.0,1.77,2.0
+2026-10-08,Whitefield,Frozen Bottle,Lunch,1.0,1.57,2.0
+2026-10-02,Whitefield,Frozen Bottle,Snacks,6.0,6.68,8.0
+2026-10-03,Whitefield,Frozen Bottle,Snacks,5.0,7.02,10.0
+2026-10-04,Whitefield,Frozen Bottle,Snacks,5.0,7.2,5.0
+2026-10-05,Whitefield,Frozen Bottle,Snacks,7.0,4.94,4.0
+2026-10-06,Whitefield,Frozen Bottle,Snacks,13.0,5.35,6.0
+2026-10-07,Whitefield,Frozen Bottle,Snacks,5.0,5.24,6.0
+2026-10-08,Whitefield,Frozen Bottle,Snacks,8.0,5.55,8.0
+2026-10-02,Whitefield,Millet Express,Breakfast,5.0,6.25,7.0
+2026-10-03,Whitefield,Millet Express,Breakfast,6.0,5.02,2.0
+2026-10-04,Whitefield,Millet Express,Breakfast,8.0,4.6,6.0
+2026-10-05,Whitefield,Millet Express,Breakfast,6.0,6.93,2.0
+2026-10-06,Whitefield,Millet Express,Breakfast,9.0,6.35,11.0
+2026-10-07,Whitefield,Millet Express,Breakfast,7.0,7.5,10.0
+2026-10-08,Whitefield,Millet Express,Breakfast,7.0,6.2,13.0
+2026-10-02,Whitefield,Millet Express,Dinner,3.0,5.63,2.0
+2026-10-03,Whitefield,Millet Express,Dinner,8.0,4.29,7.0
+2026-10-04,Whitefield,Millet Express,Dinner,5.0,6.11,9.0
+2026-10-05,Whitefield,Millet Express,Dinner,2.0,5.77,6.0
+2026-10-06,Whitefield,Millet Express,Dinner,6.0,3.57,9.0
+2026-10-07,Whitefield,Millet Express,Dinner,0.0,4.4,2.0
+2026-10-08,Whitefield,Millet Express,Dinner,2.0,4.16,3.0
+2026-10-02,Whitefield,Millet Express,Lunch,7.0,7.88,6.0
+2026-10-03,Whitefield,Millet Express,Lunch,5.0,6.18,7.0
+2026-10-04,Whitefield,Millet Express,Lunch,7.0,6.07,3.0
+2026-10-05,Whitefield,Millet Express,Lunch,7.0,9.85,5.0
+2026-10-06,Whitefield,Millet Express,Lunch,6.0,8.63,3.0
+2026-10-07,Whitefield,Millet Express,Lunch,4.0,6.07,11.0
+2026-10-08,Whitefield,Millet Express,Lunch,7.0,8.59,8.0
+2026-10-02,Whitefield,Millet Express,Snacks,1.0,1.21,2.0
+2026-10-03,Whitefield,Millet Express,Snacks,2.0,1.98,0.0
+2026-10-04,Whitefield,Millet Express,Snacks,1.0,1.12,1.0
+2026-10-05,Whitefield,Millet Express,Snacks,1.0,1.01,3.0
+2026-10-06,Whitefield,Millet Express,Snacks,0.0,1.54,1.0
+2026-10-07,Whitefield,Millet Express,Snacks,1.0,1.76,0.0
+2026-10-08,Whitefield,Millet Express,Snacks,0.0,1.56,1.0
+2026-10-02,Whitefield,Olio Pizza,Dinner,49.0,35.58,33.0
+2026-10-03,Whitefield,Olio Pizza,Dinner,33.0,30.42,32.0
+2026-10-04,Whitefield,Olio Pizza,Dinner,37.0,36.53,33.0
+2026-10-05,Whitefield,Olio Pizza,Dinner,33.0,31.96,17.0
+2026-10-06,Whitefield,Olio Pizza,Dinner,30.0,28.75,40.0
+2026-10-07,Whitefield,Olio Pizza,Dinner,26.0,31.53,27.0
+2026-10-08,Whitefield,Olio Pizza,Dinner,38.0,30.6,25.0
+2026-10-02,Whitefield,Olio Pizza,Late night,12.0,8.48,5.0
+2026-10-03,Whitefield,Olio Pizza,Late night,10.0,7.6,10.0
+2026-10-04,Whitefield,Olio Pizza,Late night,3.0,8.1,9.0
+2026-10-05,Whitefield,Olio Pizza,Late night,8.0,7.76,8.0
+2026-10-06,Whitefield,Olio Pizza,Late night,4.0,5.39,9.0
+2026-10-07,Whitefield,Olio Pizza,Late night,3.0,5.87,2.0
+2026-10-08,Whitefield,Olio Pizza,Late night,5.0,7.42,8.0
+2026-10-02,Whitefield,Olio Pizza,Lunch,7.0,9.42,11.0
+2026-10-03,Whitefield,Olio Pizza,Lunch,9.0,5.92,6.0
+2026-10-04,Whitefield,Olio Pizza,Lunch,8.0,6.98,5.0
+2026-10-05,Whitefield,Olio Pizza,Lunch,10.0,9.99,11.0
+2026-10-06,Whitefield,Olio Pizza,Lunch,11.0,8.62,15.0
+2026-10-07,Whitefield,Olio Pizza,Lunch,14.0,9.36,9.0
+2026-10-08,Whitefield,Olio Pizza,Lunch,6.0,10.36,9.0
+2026-10-02,Whitefield,Olio Pizza,Snacks,7.0,6.67,3.0
+2026-10-03,Whitefield,Olio Pizza,Snacks,6.0,6.56,7.0
+2026-10-04,Whitefield,Olio Pizza,Snacks,11.0,6.63,3.0
+2026-10-05,Whitefield,Olio Pizza,Snacks,6.0,5.36,2.0
+2026-10-06,Whitefield,Olio Pizza,Snacks,4.0,4.9,5.0
+2026-10-07,Whitefield,Olio Pizza,Snacks,5.0,6.64,9.0
+2026-10-08,Whitefield,Olio Pizza,Snacks,6.0,5.67,9.0
+2026-10-02,Whitefield,Sharief Bhai,Dinner,49.0,34.97,29.0
+2026-10-03,Whitefield,Sharief Bhai,Dinner,33.0,32.47,34.0
+2026-10-04,Whitefield,Sharief Bhai,Dinner,34.0,41.85,50.0
+2026-10-05,Whitefield,Sharief Bhai,Dinner,36.0,34.41,31.0
+2026-10-06,Whitefield,Sharief Bhai,Dinner,29.0,34.34,51.0
+2026-10-07,Whitefield,Sharief Bhai,Dinner,38.0,31.9,30.0
+2026-10-08,Whitefield,Sharief Bhai,Dinner,38.0,35.31,31.0
+2026-10-02,Whitefield,Sharief Bhai,Late night,14.0,9.37,10.0
+2026-10-03,Whitefield,Sharief Bhai,Late night,10.0,9.73,7.0
+2026-10-04,Whitefield,Sharief Bhai,Late night,10.0,10.31,15.0
+2026-10-05,Whitefield,Sharief Bhai,Late night,13.0,9.11,11.0
+2026-10-06,Whitefield,Sharief Bhai,Late night,10.0,6.37,5.0
+2026-10-07,Whitefield,Sharief Bhai,Late night,7.0,6.91,8.0
+2026-10-08,Whitefield,Sharief Bhai,Late night,10.0,7.9,5.0
+2026-10-02,Whitefield,Sharief Bhai,Lunch,14.0,18.56,27.0
+2026-10-03,Whitefield,Sharief Bhai,Lunch,11.0,13.69,13.0
+2026-10-04,Whitefield,Sharief Bhai,Lunch,17.0,12.87,12.0
+2026-10-05,Whitefield,Sharief Bhai,Lunch,23.0,16.81,9.0
+2026-10-06,Whitefield,Sharief Bhai,Lunch,21.0,17.95,17.0
+2026-10-07,Whitefield,Sharief Bhai,Lunch,25.0,18.25,20.0
+2026-10-08,Whitefield,Sharief Bhai,Lunch,17.0,19.82,26.0
+2026-10-02,Whitefield,Sharief Bhai,Snacks,2.0,1.74,1.0
+2026-10-03,Whitefield,Sharief Bhai,Snacks,3.0,2.38,3.0
+2026-10-04,Whitefield,Sharief Bhai,Snacks,4.0,1.85,1.0
+2026-10-05,Whitefield,Sharief Bhai,Snacks,5.0,2.22,2.0
+2026-10-06,Whitefield,Sharief Bhai,Snacks,0.0,2.49,2.0
+2026-10-07,Whitefield,Sharief Bhai,Snacks,4.0,2.52,3.0
+2026-10-08,Whitefield,Sharief Bhai,Snacks,6.0,2.7,2.0

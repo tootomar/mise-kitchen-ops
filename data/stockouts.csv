@@ -1,0 +1,37 @@
+date,kitchen,slot,brand,item,minutes_switched_off,reason
+2026-08-15,Indiranagar,Lunch,Sharief Bhai,Biryani masala base,20,Ran out during service
+2026-08-15,Hebbal,Lunch,Frozen Bottle,Ice-cream mix,54,Ran out during service
+2026-08-16,Hebbal,Breakfast,Millet Express,Millet dosa batter,62,Ran out during service
+2026-08-26,Electronic City,Breakfast,Frozen Bottle,Ice-cream mix,59,Ran out during service
+2026-08-26,Marathahalli,Breakfast,Frozen Bottle,Ice-cream mix,31,Ran out during service
+2026-08-29,Koramangala,Late night,Sharief Bhai,Biryani masala base,52,Ran out during service
+2026-08-30,Koramangala,Dinner,CakeZone,"Cake bases, 500 g",55,Ran out during service
+2026-08-30,Indiranagar,Dinner,CakeZone,"Cake bases, 500 g",26,Ran out during service
+2026-09-01,HSR Layout,Snacks,Olio Pizza,Pizza dough balls,63,Ran out during service
+2026-09-01,Indiranagar,Dinner,Millet Express,Millet dosa batter,54,Ran out during service
+2026-09-05,JP Nagar,Snacks,CakeZone,"Cake bases, 500 g",52,Ran out during service
+2026-09-05,Marathahalli,Breakfast,Frozen Bottle,Ice-cream mix,58,Ran out during service
+2026-09-07,JP Nagar,Snacks,Millet Express,Millet dosa batter,61,Ran out during service
+2026-09-09,Koramangala,Snacks,Olio Pizza,Pizza dough balls,67,Ran out during service
+2026-09-12,HSR Layout,Late night,EatFit,Dal and sabzi base,29,Ran out during service
+2026-09-12,Electronic City,Dinner,Olio Pizza,Pizza dough balls,48,Ran out during service
+2026-09-13,Electronic City,Late night,CakeZone,"Cake bases, 500 g",53,Ran out during service
+2026-09-17,JP Nagar,Lunch,Millet Express,Millet dosa batter,36,Ran out during service
+2026-09-18,Indiranagar,Lunch,EatFit,Dal and sabzi base,62,Ran out during service
+2026-09-18,Bellandur,Breakfast,EatFit,Dal and sabzi base,41,Ran out during service
+2026-09-24,Koramangala,Breakfast,EatFit,Dal and sabzi base,36,Ran out during service
+2026-09-25,Jayanagar,Breakfast,Frozen Bottle,Ice-cream mix,46,Ran out during service
+2026-09-25,Marathahalli,Dinner,CakeZone,"Cake bases, 500 g",59,Ran out during service
+2026-09-26,Indiranagar,Snacks,Sharief Bhai,Biryani masala base,57,Ran out during service
+2026-09-29,HSR Layout,Breakfast,Millet Express,Millet dosa batter,22,Ran out during service
+2026-09-29,Marathahalli,Lunch,CakeZone,"Cake bases, 500 g",46,Ran out during service
+2026-10-01,JP Nagar,Lunch,EatFit,Dal and sabzi base,26,Ran out during service
+2026-10-01,Jayanagar,Breakfast,CakeZone,"Cake bases, 500 g",41,Ran out during service
+2026-10-02,HSR Layout,Late night,Olio Pizza,Pizza dough balls,27,Ran out during service
+2026-10-02,Hebbal,Snacks,EatFit,Dal and sabzi base,68,Ran out during service
+2026-10-05,Indiranagar,Lunch,Millet Express,Millet dosa batter,25,Ran out during service
+2026-10-05,Marathahalli,Dinner,Millet Express,Millet dosa batter,45,Ran out during service
+2026-10-06,Jayanagar,Dinner,CakeZone,"Cake bases, 500 g",100,Central kitchen dispatch short by 18 bases
+2026-10-06,Marathahalli,Snacks,Sharief Bhai,Biryani masala base,32,Ran out during service
+2026-10-07,Marathahalli,Snacks,Frozen Bottle,Ice-cream mix,53,Ran out during service
+2026-10-08,Jayanagar,Dinner,CakeZone,"Cake bases, 500 g",96,Central kitchen dispatch short by 18 bases
