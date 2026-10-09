@@ -2,6 +2,8 @@
 
 **Mise** helps an area operations manager run 10 multi-brand cloud kitchens: what to prep, whether tonight's roster can hold the rush, and which complaint causes to fix first.
 
+[![Publish dashboard](https://github.com/tootomar/mise-kitchen-ops/actions/workflows/pages.yml/badge.svg)](https://github.com/tootomar/mise-kitchen-ops/actions/workflows/pages.yml)
+
 **Live dashboard:** https://tootomar.github.io/mise-kitchen-ops/
 
 ![Mise overview](docs/img/overview.png)
