@@ -25,7 +25,7 @@ def main():
     elif res["channels"]:
         print("Sent to:", ", ".join(res["channels"]))
     else:
-        print("No channel configured (set TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID, or SLACK_WEBHOOK_URL), so nothing was sent.")
+        print("No channel configured (set TELEGRAM_BOT_TOKEN, or SLACK_WEBHOOK_URL), so nothing was sent.")
 
 
 if __name__ == "__main__":

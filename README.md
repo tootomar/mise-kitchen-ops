@@ -162,4 +162,4 @@ python send_alerts.py --dry-run   # print this morning's alerts
 python send_alerts.py             # send them to the channels you configured
 ```
 
-Channels are environment variables: `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID`, `SLACK_WEBHOOK_URL`, or `DISCORD_WEBHOOK_URL`. The **Morning alerts** workflow (`.github/workflows/alerts.yml`) runs the pipeline and sends the alerts at 6:55 am IST every day; add the same names as repository secrets to switch it on.
+Channels are environment variables: `TELEGRAM_BOT_TOKEN` (send your bot "hi" first; `TELEGRAM_CHAT_ID` is optional), `SLACK_WEBHOOK_URL`, or `DISCORD_WEBHOOK_URL`. The **Morning alerts** workflow (`.github/workflows/alerts.yml`) runs the pipeline and sends the alerts at 6:55 am IST every day; add the same names as repository secrets to switch it on.

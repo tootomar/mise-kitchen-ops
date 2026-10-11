@@ -1,6 +1,6 @@
 # The alert bot: every morning at 6:55 am IST, run the pipeline and send the alerts.
 # Add repository secrets (Settings -> Secrets and variables -> Actions) for the channels you want:
-#   TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID, and/or SLACK_WEBHOOK_URL, and/or DISCORD_WEBHOOK_URL.
+#   TELEGRAM_BOT_TOKEN (TELEGRAM_CHAT_ID optional), and/or SLACK_WEBHOOK_URL, and/or DISCORD_WEBHOOK_URL.
 # With no secrets set it still runs and prints the alerts in the job log.
 name: Morning alerts
 on:

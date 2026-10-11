@@ -10,7 +10,8 @@ How it works, in plain words:
       4. Stock-outs: items switched off during yesterday's service.
   * It writes the alerts to outputs/alerts.json and outputs/alerts.md.
   * It sends them wherever a channel is configured with environment variables:
-      TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID   -> a Telegram message
+      TELEGRAM_BOT_TOKEN (+ optional TELEGRAM_CHAT_ID) -> a Telegram message;
+                                          without a chat id it messages whoever last wrote to the bot
       SLACK_WEBHOOK_URL                       -> a Slack message
       DISCORD_WEBHOOK_URL                     -> a Discord message
     With none set it just prints the message, so it runs anywhere.
@@ -102,10 +103,24 @@ def _post(url: str, payload: dict) -> None:
         r.read()
 
 
+def _find_chat(token: str):
+    """No TELEGRAM_CHAT_ID set: use the chat of whoever last messaged the bot (send it "hi" first)."""
+    with urllib.request.urlopen(f"https://api.telegram.org/bot{token}/getUpdates", timeout=20) as r:
+        updates = json.loads(r.read()).get("result", [])
+    for u in reversed(updates):
+        msg = u.get("message") or u.get("my_chat_member") or {}
+        if msg.get("chat", {}).get("id"):
+            return msg["chat"]["id"]
+    print("Telegram: no chat found. Open your bot in Telegram, press Start and send it 'hi', then run again.")
+    return None
+
+
 def send(alerts: list, data: dict) -> list:
     """Send to every configured channel. Returns the channels that were used."""
     used = []
     token, chat = os.environ.get("TELEGRAM_BOT_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID")
+    if token and not chat:
+        chat = _find_chat(token)
     if token and chat:
         _post(f"https://api.telegram.org/bot{token}/sendMessage",
               {"chat_id": chat, "text": format_message(alerts, data), "parse_mode": "Markdown",
