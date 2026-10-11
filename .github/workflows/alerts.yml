@@ -1,0 +1,30 @@
+# The alert bot: every morning at 6:55 am IST, run the pipeline and send the alerts.
+# Add repository secrets (Settings -> Secrets and variables -> Actions) for the channels you want:
+#   TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID, and/or SLACK_WEBHOOK_URL, and/or DISCORD_WEBHOOK_URL.
+# With no secrets set it still runs and prints the alerts in the job log.
+name: Morning alerts
+on:
+  schedule:
+    - cron: "25 1 * * *"   # 01:25 UTC = 06:55 IST
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  alerts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Run the pipeline
+        run: python run_pipeline.py
+      - name: Send alerts
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python send_alerts.py

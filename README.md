@@ -139,3 +139,27 @@ Licence: MIT.
 `.github/workflows/pages.yml` publishes the dashboard to GitHub Pages on every push to `main`. In the repo, open Settings → Pages and set Source to **GitHub Actions** once.
 
 The dashboard uses Plus Jakarta Sans and Sora (Google Fonts), Apache ECharts for charts and Lucide for icons, all loaded from public CDNs.
+
+## Ask Mise (AI chatbot) and the alert bot
+
+**Ask Mise** is a chat assistant built into the dashboard (the blue button, bottom right). Ask "Which kitchens need cooks tomorrow?" or "Why is Koramangala getting cold food complaints?" and it answers from the day's results, naming the owner and the first action.
+
+- Opened inside Claude, the questions go to Claude with a compact summary of the day's data, so it handles any wording and follow-up questions.
+- On the public website it answers from built-in rules covering staffing, complaints, break-even, stock-outs, model accuracy and any kitchen by name.
+- From the terminal: `ANTHROPIC_API_KEY=... python ask_mise.py "Which kitchens need cooks tomorrow?"`
+
+**The alert bot** turns the results into a morning message. The bell in the dashboard shows the same alerts. Rules:
+
+| Alert | Fires when | Owner |
+| --- | --- | --- |
+| Add cooks | Over 10% of tomorrow's orders in a kitchen and slot are predicted to pass 15 minutes | Kitchen manager |
+| Complaint hotspot | 6+ complaints in the week and 2.5x the median kitchen | Owner set by the hotspot rule |
+| Below break-even | A kitchen is forecast under 180 orders tomorrow | Area manager |
+| Stock-out | An item was switched off during yesterday's service | Central kitchen dispatch |
+
+```bash
+python send_alerts.py --dry-run   # print this morning's alerts
+python send_alerts.py             # send them to the channels you configured
+```
+
+Channels are environment variables: `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID`, `SLACK_WEBHOOK_URL`, or `DISCORD_WEBHOOK_URL`. The **Morning alerts** workflow (`.github/workflows/alerts.yml`) runs the pipeline and sends the alerts at 6:55 am IST every day; add the same names as repository secrets to switch it on.

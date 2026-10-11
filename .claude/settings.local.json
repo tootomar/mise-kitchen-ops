@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git checkout *)",
+      "Bash(git add *)",
+      "Bash(git -c 'user.name=Harsh Tomar' -c user.email=harsh.t2028@iimbg.ac.in commit -qm 'Add Ask Mise chatbot and morning alert bot *)",
+      "Bash(git push *)",
+      "Bash(rm -rf /home/claude/mise-ops)",
+      "Bash(cp -r /home/claude/mise-kitchen-ops /home/claude/mise-ops)",
+      "Bash(rm -rf /home/claude/mise-ops/.git)"
+    ]
+  }
+}

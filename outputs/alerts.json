@@ -1,0 +1,74 @@
+[
+  {
+    "severity": "critical",
+    "kind": "staffing",
+    "kitchen": "Indiranagar",
+    "title": "Add 1 cook at Indiranagar for dinner tomorrow",
+    "detail": "10.2% of 135 forecast orders at risk of passing 15 min with 8 cooks; 3.0% with +1.",
+    "owner": "Kitchen manager"
+  },
+  {
+    "severity": "critical",
+    "kind": "staffing",
+    "kitchen": "Whitefield",
+    "title": "Add 2 cooks at Whitefield for dinner tomorrow",
+    "detail": "45.2% of 125 forecast orders at risk of passing 15 min with 5 cooks; 9.1% with +2.",
+    "owner": "Kitchen manager"
+  },
+  {
+    "severity": "critical",
+    "kind": "hotspot",
+    "kitchen": "HSR Layout",
+    "title": "HSR Layout: missing item hotspot",
+    "detail": "22 complaints this week vs 3 at a typical kitchen. Brand-wise checklist at the pass; dips and sachets pre-kitted per order.",
+    "owner": "Packing lead"
+  },
+  {
+    "severity": "critical",
+    "kind": "hotspot",
+    "kitchen": "Whitefield",
+    "title": "Whitefield: late delivery hotspot",
+    "detail": "19 complaints this week vs 2 at a typical kitchen. Restore the missing cooks at dinner; see the staffing what-if.",
+    "owner": "Kitchen manager"
+  },
+  {
+    "severity": "critical",
+    "kind": "hotspot",
+    "kitchen": "Koramangala",
+    "title": "Koramangala: cold food hotspot",
+    "detail": "16 complaints this week vs 2 at a typical kitchen. Check rider wait at pickup; hot bags; hold orders until rider is near.",
+    "owner": "Area manager with platform"
+  },
+  {
+    "severity": "warning",
+    "kind": "hotspot",
+    "kitchen": "Jayanagar",
+    "title": "Jayanagar: late delivery hotspot",
+    "detail": "9 complaints this week vs 2 at a typical kitchen. Add a line cook or station for the slot; simplify the peak menu.",
+    "owner": "Kitchen manager"
+  },
+  {
+    "severity": "warning",
+    "kind": "hotspot",
+    "kitchen": "Jayanagar",
+    "title": "Jayanagar: missing item hotspot",
+    "detail": "10 complaints this week vs 3 at a typical kitchen. Fix the dispatch count for the brand; do not accept orders for items switched off.",
+    "owner": "Central kitchen dispatch"
+  },
+  {
+    "severity": "warning",
+    "kind": "break-even",
+    "kitchen": "Electronic City",
+    "title": "Electronic City forecast below break-even tomorrow",
+    "detail": "159 orders forecast against the 180 needed to cover costs.",
+    "owner": "Area manager"
+  },
+  {
+    "severity": "warning",
+    "kind": "stock-out",
+    "kitchen": "Jayanagar",
+    "title": "Cake bases, 500 g ran out at Jayanagar",
+    "detail": "Dinner, CakeZone: switched off for 96 min on Thu 8 Oct. Central kitchen dispatch short by 18 bases.",
+    "owner": "Central kitchen dispatch"
+  }
+]

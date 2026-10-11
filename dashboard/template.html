@@ -232,6 +232,64 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-s
   .ch{flex-wrap:wrap}
   .chart{height:280px}
 }
+
+/* ---------- alert centre ---------- */
+.bell{position:relative;width:40px;padding:0;justify-content:center}
+.bell .bdg{position:absolute;top:-6px;right:-6px;min-width:20px;height:20px;border-radius:99px;background:var(--warn);color:#fff;font-size:11px;font-weight:800;display:grid;place-items:center;padding:0 5px;border:2px solid var(--bg)}
+.bell .bdg.crit{background:var(--bad)}
+.al-panel{position:fixed;top:76px;right:24px;z-index:60;width:min(420px,calc(100vw - 32px));max-height:min(640px,calc(100vh - 100px));display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 60px rgba(10,26,63,.22);overflow:hidden;animation:fade .2s ease}
+.al-panel[hidden],.chat[hidden]{display:none!important}
+.al-head,.chat-head{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.al-head b,.chat-head b{display:block;color:var(--ink);font-size:15px}
+.al-head span,.chat-head span{font-size:12px;color:var(--muted)}
+.x{all:unset;cursor:pointer;margin-left:auto;width:32px;height:32px;border-radius:10px;display:grid;place-items:center;color:var(--muted)}
+.x:hover{background:var(--hover);color:var(--ink)}
+.x svg{width:16px;height:16px}
+.al-list{overflow:auto;padding:8px}
+.al{all:unset;cursor:pointer;display:flex;gap:12px;padding:12px;border-radius:14px;width:calc(100% - 24px)}
+.al:hover{background:var(--hover)}
+.al-ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:none}
+.al-ic svg{width:17px;height:17px}
+.al.critical .al-ic{background:var(--bad-soft);color:var(--bad)}
+.al.warning .al-ic{background:var(--warn-soft);color:#b46a00}
+.al-tx b{display:block;color:var(--ink);font-size:13.5px;line-height:1.35}
+.al-tx span{display:block;font-size:12.5px;color:var(--text);margin-top:2px}
+.al-tx em{display:block;font-style:normal;font-size:11.5px;color:var(--blue);font-weight:700;margin-top:4px}
+.al-foot{padding:10px 16px;border-top:1px solid var(--line);font-size:11.5px;color:var(--muted)}
+
+/* ---------- Ask Mise ---------- */
+.fab{all:unset;cursor:pointer;position:fixed;right:24px;bottom:24px;z-index:55;display:flex;align-items:center;gap:8px;height:52px;padding:0 20px 0 16px;border-radius:99px;background:linear-gradient(135deg,var(--blue-2),var(--blue));color:#fff;font-weight:700;font-size:14px;box-shadow:0 14px 34px rgba(26,86,240,.42)}
+.fab:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.fab:focus-visible{outline:3px solid #9cbcff;outline-offset:3px}
+.fab svg{width:20px;height:20px}
+.chat{position:fixed;right:24px;bottom:88px;z-index:60;width:min(400px,calc(100vw - 32px));height:min(600px,calc(100vh - 120px));display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 24px 60px rgba(10,26,63,.25);overflow:hidden;animation:fade .2s ease}
+.chat-head{background:linear-gradient(120deg,#1546d6,#2f6bff);border-bottom:0}
+.chat-head b{color:#fff}.chat-head span{color:#dce7ff}
+.chat-head .x{color:#dce7ff}.chat-head .x:hover{background:rgba(255,255,255,.15);color:#fff}
+.chat-av{width:36px;height:36px;border-radius:12px;background:rgba(255,255,255,.18);display:grid;place-items:center;color:#fff}
+.chat-av svg{width:18px;height:18px}
+.chat-body{flex:1;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
+.msg-user,.msg-bot{max-width:86%;padding:10px 13px;border-radius:16px;font-size:13.5px;line-height:1.5}
+.msg-user{align-self:flex-end;background:var(--blue);color:#fff;border-bottom-right-radius:5px}
+.msg-bot{align-self:flex-start;background:#fff;border:1px solid var(--line);color:var(--text);border-bottom-left-radius:5px}
+.msg-bot p{margin:0 0 6px}.msg-bot p:last-child{margin:0}
+.msg-bot ul{margin:4px 0 6px;padding-left:18px}.msg-bot li{margin:2px 0}
+.msg-bot b{color:var(--ink)}
+.msg-bot .note{font-size:11.5px;color:var(--muted);margin-top:6px}
+.typing{display:flex;gap:4px;padding:4px 0}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--blue);opacity:.35;animation:blink 1s infinite}
+.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+@keyframes blink{50%{opacity:1}}
+.chat-sugg{display:flex;flex-wrap:wrap;gap:6px;padding:10px 14px 0;background:var(--bg)}
+.chat-sugg[hidden]{display:none}
+.chat-sugg button{all:unset;cursor:pointer;font-size:12px;font-weight:600;color:var(--blue);background:var(--blue-soft);border-radius:99px;padding:6px 11px}
+.chat-sugg button:hover{background:#d6e3ff}
+.chat-in{display:flex;gap:8px;padding:12px 14px;background:var(--bg);border-top:1px solid var(--line)}
+.chat-in input{flex:1;min-width:0;height:42px;border:1px solid var(--line);border-radius:12px;padding:0 14px;font:inherit;font-size:13.5px;background:#fff;color:var(--ink)}
+.chat-in input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+.chat-in button{all:unset;cursor:pointer;width:42px;height:42px;border-radius:12px;background:var(--blue);color:#fff;display:grid;place-items:center}
+.chat-in button svg{width:18px;height:18px}
+@media (max-width:640px){.fab span{display:none}.fab{padding:0;width:52px;justify-content:center}.chat{right:16px;bottom:84px}.al-panel{right:16px;top:64px}}
 </style>
 
 <div class="app">
@@ -261,6 +319,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-s
       <label class="pill"><i data-lucide="store"></i><select id="fKitchen" aria-label="Kitchen"></select></label>
       <label class="pill"><i data-lucide="clock-4"></i><select id="fSlot" aria-label="Meal slot"></select></label>
       <button class="btn ghost" id="fReset" type="button"><i data-lucide="rotate-ccw"></i>Reset</button>
+      <button class="btn ghost bell" id="bellBtn" type="button" aria-label="Alerts"><i data-lucide="bell"></i><span class="bdg" id="bellCount"></span></button>
     </div>
   </header>
 
@@ -466,7 +525,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-s
     </div>
   </section>
 
-  <footer><span>Mise v1.1 · <span id="fBuilt"></span></span><span>All data is synthetic, generated to mirror a multi-brand cloud kitchen network</span></footer>
+  <footer><span>Mise v1.2 · <span id="fBuilt"></span></span><span>All data is synthetic, generated to mirror a multi-brand cloud kitchen network</span></footer>
 </main>
 </div>
 
@@ -913,5 +972,211 @@ const h0 = (location.hash || "").slice(1); if (TABS.some(t => t[0] === h0)) stat
 $("fBuilt").textContent = `Pipeline run ${M.builtAt}`;
 initFilters(); renderTabs(); render(); showPanel();
 let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(drawCharts, 150); });
+})();
+</script>
+<!-- ============ ALERT CENTRE + ASK MISE ============ -->
+<div class="al-panel" id="alPanel" hidden role="dialog" aria-label="Alerts">
+  <div class="al-head"><div><b>Alerts</b><span id="alSub"></span></div><button class="x" id="alClose" type="button" aria-label="Close alerts"><i data-lucide="x"></i></button></div>
+  <div class="al-list" id="alList"></div>
+  <div class="al-foot">The same alerts go to Telegram or Slack each morning from the alert bot (<code>send_alerts.py</code>).</div>
+</div>
+
+<button class="fab" id="chatFab" type="button" aria-label="Ask Mise"><i data-lucide="message-circle"></i><span>Ask Mise</span></button>
+<div class="chat" id="chat" hidden role="dialog" aria-label="Ask Mise">
+  <div class="chat-head">
+    <div class="chat-av"><i data-lucide="sparkles"></i></div>
+    <div><b>Ask Mise</b><span id="chatMode">Operations assistant</span></div>
+    <button class="x" id="chatClose" type="button" aria-label="Close chat"><i data-lucide="x"></i></button>
+  </div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-sugg" id="chatSugg"></div>
+  <form class="chat-in" id="chatForm" autocomplete="off">
+    <input id="chatInput" placeholder="Ask about orders, cooks, complaints…" aria-label="Your question" maxlength="400">
+    <button type="submit" aria-label="Send"><i data-lucide="send"></i></button>
+  </form>
+</div>
+
+<script>
+(function(){
+"use strict";
+const D = JSON.parse(document.getElementById("mise-data").textContent);
+const M = D.meta, K = M.kitchens, B = M.brands, S = M.slots, DEF = M.defects, TAGS = M.tags, DAYS = M.dates;
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt = n => Math.round(n).toLocaleString("en-IN");
+const pct = x => Math.round(x * 100) + "%";
+const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const dl = iso => `${M.weekday[iso] || ""} ${Number(iso.slice(8))} ${MON[Number(iso.slice(5,7))-1]}`.trim();
+const icons = () => { if (window.lucide && lucide.createIcons) { try { lucide.createIcons(); } catch (e) {} } };
+const goTab = id => { const t = document.getElementById("tab-" + id); if (t) t.click(); };
+const and = a => a.length <= 1 ? (a[0] || "") : a.slice(0, -1).join(", ") + " and " + a[a.length - 1];
+const LAST = DAYS.length - 1;
+
+/* ---------- shared facts ---------- */
+const tomorrowOrders = k => D.tomorrow.filter(r => r[0] === k).reduce((a, r) => a + r[3], 0);
+const avgOrders = k => D.cells.filter(c => c[1] === k).reduce((a, c) => a + c[3], 0) / DAYS.length;
+const whatif = (k, s) => D.whatif.find(w => w[0] === k && w[1] === s);
+const rec = w => w[5] <= .10 ? 0 : w[7] <= .10 ? 1 : 2;
+const defectCounts = (k) => DEF.map((d, i) => ({ d, n: D.complaints.filter(c => c[5] === i && (k == null || c[2] === k)).length })).sort((a, b) => b.n - a.n);
+
+/* ---------- alerts (same rules as src/mise/alerts.py) ---------- */
+function buildAlerts() {
+  const A = [];
+  D.whatif.forEach(w => {
+    const n = rec(w); if (!n) return;
+    A.push({ sev: "critical", icon: "users", tab: "speed",
+      title: `Add ${n} cook${n > 1 ? "s" : ""} at ${K[w[0]]} for ${S[w[1]].toLowerCase()} tomorrow`,
+      detail: `${(w[5] * 100).toFixed(1)}% of ${fmt(w[3])} forecast orders at risk of passing 15 min with ${w[2]} cooks; ${((n === 1 ? w[7] : w[9]) * 100).toFixed(1)}% with +${n}.`,
+      owner: "Kitchen manager" });
+  });
+  D.hotspots.forEach(h => {
+    const crit = h.n / Math.max(h.typical, 1) >= 6;
+    A.push({ sev: crit ? "critical" : "warning", icon: "flame", tab: "complaints",
+      title: `${h.kitchen}: ${h.defect.toLowerCase()} hotspot`,
+      detail: `${h.n} complaints this week vs ${fmt(h.typical)} at a typical kitchen. ${h.action}.`,
+      owner: h.owner });
+  });
+  K.forEach((name, k) => {
+    const o = tomorrowOrders(k);
+    if (o < M.breakEven) A.push({ sev: "warning", icon: "trending-down", tab: "overview",
+      title: `${name} forecast below break-even tomorrow`,
+      detail: `${fmt(o)} orders forecast against the ${M.breakEven} needed to cover costs; ${fmt(avgOrders(k))} a day over the last week.`,
+      owner: "Area manager" });
+  });
+  D.stockouts.filter(s => s[0] === LAST).forEach(s => {
+    A.push({ sev: "warning", icon: "package-x", tab: "complaints",
+      title: `${s[4]} ran out at ${K[s[1]]}`,
+      detail: `${S[s[2]]}, ${s[3]}: switched off for ${s[5]} min on ${dl(DAYS[LAST])}. ${s[6]}.`,
+      owner: "Central kitchen dispatch" });
+  });
+  const rank = { critical: 0, warning: 1, info: 2 };
+  return A.sort((a, b) => rank[a.sev] - rank[b.sev]);
+}
+const ALERTS = buildAlerts();
+
+function renderBell() {
+  const crit = ALERTS.filter(a => a.sev === "critical").length;
+  const cnt = $("bellCount"); if (cnt) { cnt.textContent = ALERTS.length; cnt.className = "bdg" + (crit ? " crit" : ""); }
+  $("alSub").textContent = `${crit} critical, ${ALERTS.length - crit} warnings · for ${dl(M.tomorrow)}`;
+  $("alList").innerHTML = ALERTS.map((a, i) => `<button class="al ${a.sev}" type="button" data-i="${i}"><span class="al-ic">${`<i data-lucide="${a.icon}"></i>`}</span><span class="al-tx"><b>${esc(a.title)}</b><span>${esc(a.detail)}</span><em>Owner: ${esc(a.owner)}</em></span></button>`).join("");
+  $("alList").querySelectorAll(".al").forEach(b => b.onclick = () => { goTab(ALERTS[Number(b.dataset.i)].tab); $("alPanel").hidden = true; });
+  icons();
+}
+const bell = $("bellBtn");
+if (bell) bell.onclick = () => { $("alPanel").hidden = !$("alPanel").hidden; $("chat").hidden = true; };
+$("alClose").onclick = () => { $("alPanel").hidden = true; };
+
+/* ---------- Ask Mise: context for Claude ---------- */
+function context() {
+  const L = [];
+  L.push(`Area: ${M.area}. ${K.length} kitchens, brands: ${B.join(", ")}. Meal slots: ${S.map((s, i) => `${s} (${M.slotHours[i]})`).join(", ")}.`);
+  L.push(`Last 7 days = ${dl(DAYS[0])} to ${dl(DAYS[LAST])}. Tomorrow = ${dl(M.tomorrow)}. Break-even ${M.breakEven} orders a day per kitchen; ${M.strong}+ is clearly profitable. Prep promise ${M.promise} min.`);
+  L.push("KITCHENS (avg daily orders last 7 days | tomorrow forecast | tomorrow dinner: cooks, predicted prep min, share at risk, +1 cook, +2 cooks, recommendation):");
+  K.forEach((n, k) => { const w = whatif(k, 3); const r = rec(w);
+    L.push(`- ${n}: ${fmt(avgOrders(k))} | ${fmt(tomorrowOrders(k))} | ${w[2]} cooks, ${w[4].toFixed(1)} min, ${pct(w[5])}, ${pct(w[7])}, ${pct(w[9])}, ${r ? "add " + r : "keep roster"}`); });
+  L.push("OTHER SLOTS NEEDING COOKS TOMORROW: " + (D.whatif.filter(w => w[1] !== 3 && rec(w)).map(w => `${K[w[0]]} ${S[w[1]]} add ${rec(w)}`).join("; ") || "none"));
+  L.push("PREP TIME LAST 7 DAYS, worst kitchen per slot (typical / bad case / share late):");
+  S.forEach((s, si) => { let worst = null; K.forEach((n, k) => { const sub = D.cells.filter(c => c[1] === k && c[2] === si); const o = sub.reduce((a, c) => a + c[3], 0) || 1; const p90 = sub.reduce((a, c) => a + c[7] * c[3], 0) / o; if (!worst || p90 > worst.p90) worst = { n, p90, p50: sub.reduce((a, c) => a + c[6] * c[3], 0) / o, late: sub.reduce((a, c) => a + c[9] * c[3], 0) / o, st: sub.length ? sub[0][11] : 0 }; });
+    L.push(`- ${s}: ${worst.n} ${worst.p50.toFixed(1)} / ${worst.p90.toFixed(1)} min, ${pct(worst.late)} late`); });
+  L.push("HOTSPOTS (kitchen, defect, complaints this week vs typical kitchen, evidence, owner, first action):");
+  D.hotspots.forEach(h => L.push(`- ${h.kitchen}, ${h.defect}: ${h.n} vs ${fmt(h.typical)} (week before ${h.prev}); ${h.evidence.slice(1).join("; ")}; owner ${h.owner}; action: ${h.action}`));
+  L.push("COMPLAINTS LAST 7 DAYS by defect: " + defectCounts().map(x => `${x.d} ${x.n}`).join(", ") + `; needs review ${D.complaints.filter(c => c[5] === TAGS.indexOf("Needs review")).length}; total ${D.complaints.length}.`);
+  L.push("TOP DEFECT PER KITCHEN: " + K.map((n, k) => { const t = defectCounts(k)[0]; return `${n} ${t.d} ${t.n}`; }).join("; "));
+  L.push("STOCK-OUTS LAST 7 DAYS: " + (D.stockouts.map(s => `${dl(DAYS[s[0]])} ${K[s[1]]} ${S[s[2]]} ${s[3]} ${s[4]} ${s[5]} min (${s[6]})`).join("; ") || "none"));
+  const f = D.models.forecast, p = D.models.prep, t = D.models.tagger;
+  L.push(`MODELS (held-out week): demand forecast WAPE ${(f.wape * 100).toFixed(1)}% vs ${(f.baseline * 100).toFixed(1)}% for same day last week; prep-time MAE ${p.mae.toFixed(2)} vs ${p.baseline.toFixed(2)} min; late-order flags ${pct(p.precision)} precision, ${pct(p.recall)} recall; complaint tagging ${(t.accuracy * 100).toFixed(1)}% (${t.method}).`);
+  L.push("TODAY'S ALERTS: " + ALERTS.map(a => `[${a.sev}] ${a.title}`).join("; "));
+  return L.join("\n");
+}
+const PREAMBLE = () => `You are Mise, the operations assistant inside a dashboard for an area operations manager who runs 10 multi-brand cloud kitchens in Bengaluru (brands like EatFit, Olio Pizza, Sharief Bhai). Answer the manager's questions using ONLY the data below. If the data does not cover the question, say so in one line and suggest what would answer it.
+Style: direct and practical, like a sharp ops analyst. 2 to 5 short sentences, or a short list of up to 5 items. Give numbers with units. When something needs action, name the owner and the first action. Plain text; you may use "- " bullets and **bold** for kitchen names. The data is synthetic demo data generated by the Mise pipeline.
+
+DATA
+${context()}`;
+
+/* ---------- Ask Mise: built-in answers when Claude is not available ---------- */
+const ALIAS = { "hsr": "HSR Layout", "e city": "Electronic City", "ecity": "Electronic City", "electronic": "Electronic City", "kora": "Koramangala", "jp": "JP Nagar", "indira": "Indiranagar", "white": "Whitefield", "marat": "Marathahalli" };
+function findKitchen(q) {
+  let k = K.findIndex(n => q.includes(n.toLowerCase()));
+  if (k < 0) { const a = Object.keys(ALIAS).find(x => q.includes(x)); if (a) k = K.indexOf(ALIAS[a]); }
+  return k;
+}
+function localAnswer(raw) {
+  const q = raw.toLowerCase(), k = findKitchen(q), si = S.findIndex(s => q.includes(s.toLowerCase()));
+  const has = (...w) => w.some(x => q.includes(x));
+  if (has("alert", "today", "priorit", "what should", "urgent", "focus")) {
+    return `**${ALERTS.length} alerts** for ${dl(M.tomorrow)}, most urgent first:\n` + ALERTS.slice(0, 5).map(a => `- ${a.title} (${a.owner})`).join("\n");
+  }
+  if (has("cook", "staff", "roster", "rush", "late", "speed", "prep time", "on time")) {
+    const slot = si >= 0 ? si : 3;
+    if (k >= 0) { const w = whatif(k, slot), r = rec(w);
+      return `**${K[k]}**, ${S[slot].toLowerCase()} tomorrow: ${w[2]} cooks rostered for ${fmt(w[3])} orders, predicted prep ${w[4].toFixed(1)} min with ${(w[5] * 100).toFixed(1)}% of orders at risk. ` + (r ? `Add ${r} cook${r > 1 ? "s" : ""}: that brings it to ${pct(r === 1 ? w[7] : w[9])}.` : "The roster is enough."); }
+    const need = D.whatif.filter(w => w[1] === slot && rec(w));
+    return need.length ? `For ${S[slot].toLowerCase()} on ${dl(M.tomorrow)}:\n` + need.map(w => `- **${K[w[0]]}**: add ${rec(w)} (${(w[5] * 100).toFixed(1)}% at risk now, ${((rec(w) === 1 ? w[7] : w[9]) * 100).toFixed(1)}% after)`).join("\n") + `\nEvery other kitchen's roster covers it.` : `Rostered cooks cover ${S[slot].toLowerCase()} tomorrow in every kitchen.`;
+  }
+  if (has("complain", "hotspot", "issue", "problem", "missing", "cold", "wrong")) {
+    if (k >= 0) { const hs = D.hotspots.filter(h => h.kitchen === K[k]); const top = defectCounts(k).slice(0, 3);
+      return `**${K[k]}** complaints, last 7 days: ` + top.map(x => `${x.d.toLowerCase()} ${x.n}`).join(", ") + "." + (hs.length ? "\n" + hs.map(h => `- Hotspot: ${h.defect.toLowerCase()}, ${h.n} vs ${fmt(h.typical)} typical. Owner ${h.owner}: ${h.action}.`).join("\n") : " No hotspot here."); }
+    return `${D.hotspots.length} hotspots this week:\n` + D.hotspots.map(h => `- **${h.kitchen}**, ${h.defect.toLowerCase()}: ${h.n} complaints vs ${fmt(h.typical)} typical → ${h.owner}`).join("\n");
+  }
+  if (has("break", "losing", "profit", "money", "viable")) {
+    const rows = K.map((n, i) => ({ n, a: avgOrders(i), t: tomorrowOrders(i) }));
+    const below = rows.filter(r => r.a < M.breakEven);
+    return (below.length ? below.map(r => `**${r.n}** averages ${fmt(r.a)} orders a day, below the ${M.breakEven} break-even (tomorrow ${fmt(r.t)}).`).join(" ") : `Every kitchen covers the ${M.breakEven}-order break-even.`) + ` ${rows.filter(r => r.a >= M.strong).length} of ${K.length} kitchens are above ${M.strong} a day.`;
+  }
+  if (has("stock", "ran out", "switched off", "inventory")) {
+    return D.stockouts.length ? `${D.stockouts.length} items were switched off in the last 7 days. Latest:\n` + D.stockouts.slice().sort((a, b) => b[0] - a[0]).slice(0, 4).map(s => `- ${dl(DAYS[s[0]])}: ${s[4]} at ${K[s[1]]} (${s[3]}, ${s[5]} min). ${s[6]}`).join("\n") : "No stock-outs in the last 7 days.";
+  }
+  if (has("accura", "model", "wape", "trust", "error", "how good")) {
+    const f = D.models.forecast, p = D.models.prep;
+    return `On a week the models never saw: the demand forecast missed by ${(f.wape * 100).toFixed(1)}% against ${(f.baseline * 100).toFixed(1)}% for "same day last week", and prep time was off by ${p.mae.toFixed(2)} min against ${p.baseline.toFixed(2)} min for the kitchen's usual time. Late-order flags are right ${pct(p.precision)} of the time.`;
+  }
+  if (k >= 0) {
+    const w = whatif(k, 3), r = rec(w), hs = D.hotspots.filter(h => h.kitchen === K[k]);
+    return `**${K[k]}**: ${fmt(avgOrders(k))} orders a day last week, ${fmt(tomorrowOrders(k))} forecast tomorrow. Dinner: ${w[2]} cooks, ${pct(w[5])} of orders at risk${r ? `, add ${r}` : ", roster OK"}. ` + (hs.length ? `Hotspot: ${hs.map(h => h.defect.toLowerCase()).join(", ")}.` : "No complaint hotspot.");
+  }
+  if (has("forecast", "tomorrow", "order", "demand", "prep")) {
+    const rows = K.map((n, i) => ({ n, t: tomorrowOrders(i) })).sort((a, b) => b.t - a.t);
+    return `**${fmt(rows.reduce((a, r) => a + r.t, 0))} orders** forecast for ${dl(M.tomorrow)}. Busiest: ${rows.slice(0, 3).map(r => `${r.n} ${fmt(r.t)}`).join(", ")}. Quietest: ${rows.at(-1).n} ${fmt(rows.at(-1).t)}. The prep list per kitchen is on the Demand and prep tab.`;
+  }
+  return `I can answer from today's data about: tomorrow's orders, which kitchens need cooks, complaint hotspots, break-even, stock-outs, model accuracy, or any kitchen by name (try "How is Whitefield doing?").`;
+}
+
+/* ---------- Ask Mise: UI ---------- */
+const SUGG = ["What should I act on first?", "Which kitchens need cooks tomorrow?", "Why is Koramangala getting cold food complaints?", "Which kitchen is losing money?", "How accurate is the forecast?"];
+const turns = []; let busy = false, sampleP = null;
+const getSample = () => sampleP || (sampleP = (window.claude && window.claude.use) ? Promise.resolve().then(() => window.claude.use("sample")).catch(() => null) : Promise.resolve(null));
+const md = s => esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").split("\n").map(l => /^\s*[-•]\s+/.test(l) ? `<li>${l.replace(/^\s*[-•]\s+/, "")}</li>` : l ? `<p>${l}</p>` : "").join("").replace(/(<li>.*?<\/li>)+/g, m => `<ul>${m}</ul>`);
+function bubble(role, html) { const d = document.createElement("div"); d.className = "msg-" + role; d.innerHTML = html; $("chatBody").append(d); $("chatBody").scrollTop = $("chatBody").scrollHeight; return d; }
+function renderSugg() { $("chatSugg").innerHTML = SUGG.map((s, i) => `<button type="button" data-i="${i}">${esc(s)}</button>`).join(""); $("chatSugg").querySelectorAll("button").forEach(b => b.onclick = () => ask(SUGG[Number(b.dataset.i)])); }
+async function ask(q) {
+  q = String(q || "").trim(); if (!q || busy) return;
+  busy = true; $("chatInput").value = ""; $("chatSugg").hidden = true;
+  bubble("user", esc(q));
+  const out = bubble("bot", `<p class="typing"><i></i><i></i><i></i></p>`);
+  const sample = await getSample();
+  if (sample) {
+    turns.push({ role: "user", content: turns.length ? q : `${PREAMBLE()}\n\nQUESTION: ${q}` });
+    try {
+      const r = await sample(turns, { modelTier: "quick", cache: false, onText: ({ text }) => { out.innerHTML = md(text); $("chatBody").scrollTop = $("chatBody").scrollHeight; } });
+      out.innerHTML = md(r.text); turns.push({ role: "assistant", content: r.text });
+    } catch (e) {
+      turns.pop();
+      const ans = localAnswer(q);
+      out.innerHTML = md(ans) + `<p class="note">${esc(e && e.code === "rate_limited" ? "Claude is busy, so this answer comes from the built-in rules." : "Claude could not answer, so this comes from the built-in rules.")}</p>`;
+    }
+  } else {
+    out.innerHTML = md(localAnswer(q));
+  }
+  busy = false; $("chatInput").focus();
+}
+$("chatFab").onclick = () => { const c = $("chat"); c.hidden = !c.hidden; $("alPanel").hidden = true; if (!c.hidden) $("chatInput").focus(); };
+$("chatClose").onclick = () => { $("chat").hidden = true; };
+$("chatForm").onsubmit = e => { e.preventDefault(); ask($("chatInput").value); };
+document.addEventListener("keydown", e => { if (e.key === "Escape") { $("chat").hidden = true; $("alPanel").hidden = true; } });
+
+bubble("bot", md(`Hi, I'm Mise. Ask me about tomorrow's orders, staffing, complaints or any kitchen. **${ALERTS.filter(a => a.sev === "critical").length} critical alerts** are waiting in the bell.`));
+renderSugg(); renderBell();
+getSample().then(s => { $("chatMode").textContent = s ? "Answers by Claude from today's data" : "Built-in answers · open in Claude for AI answers"; });
 })();
 </script>
