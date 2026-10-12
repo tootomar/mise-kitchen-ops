@@ -8,6 +8,8 @@
 
 ![Mise overview](docs/img/overview.png)
 
+**Launch film (20 s):** [video/mise-launch.mp4](video/mise-launch.mp4), made entirely in code. See [video/BRIEF.md](video/BRIEF.md).
+
 > All data is synthetic. Business assumptions (180 orders a day break-even, a 15-minute food-ready promise, a 1.6–1.7% complaint rate, multi-brand kitchens on one line) come from public interviews with a cloud-kitchen founder. No company data is used.
 
 ## The problem
@@ -163,3 +165,16 @@ python send_alerts.py             # send them to the channels you configured
 ```
 
 Channels are environment variables: `TELEGRAM_BOT_TOKEN` (send your bot "hi" first; `TELEGRAM_CHAT_ID` is optional), `SLACK_WEBHOOK_URL`, or `DISCORD_WEBHOOK_URL`. The **Morning alerts** workflow (`.github/workflows/alerts.yml`) runs the pipeline and sends the alerts at 6:55 am IST every day; add the same names as repository secrets to switch it on.
+
+## The launch film
+
+`video/` holds a 20-second product film made entirely in code, with no video model and no stock footage:
+
+1. `BRIEF.md`: the film in one line, a style guide (palette, type, motion rules, banned looks) and a beat grid that times every shot and sound to 120 BPM.
+2. `film.html`: one page that draws any frame from a single `render(t)` function, using real screenshots of the dashboard.
+3. `score.py`: synthesizes the soundtrack (beat, pad, clicks, whooshes, number ticks) on the same beat grid.
+4. `render.py`: Playwright steps through the timeline at 30 fps and screenshots each frame; ffmpeg joins them with the score into `mise-launch.mp4`. `render.py --sheet` makes a 12-frame contact sheet for the critique loop.
+
+```bash
+python video/score.py && python video/render.py
+```

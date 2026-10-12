@@ -4,3 +4,9 @@ __pycache__/
 .env
 .DS_Store
 shots/
+
+# film build files
+video/frames/
+video/score.wav
+video/contact_sheet.png
+video/_sheet_*.png

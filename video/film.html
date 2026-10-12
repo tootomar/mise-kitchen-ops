@@ -1,0 +1,327 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Mise launch film</title>
+<style>
+@font-face{font-family:"PJS";font-weight:400;src:url(assets/plus-jakarta-sans-latin-400-normal.woff2)}
+@font-face{font-family:"PJS";font-weight:600;src:url(assets/plus-jakarta-sans-latin-600-normal.woff2)}
+@font-face{font-family:"PJS";font-weight:700;src:url(assets/plus-jakarta-sans-latin-700-normal.woff2)}
+@font-face{font-family:"PJS";font-weight:800;src:url(assets/plus-jakarta-sans-latin-800-normal.woff2)}
+@font-face{font-family:"Sora";font-weight:600;src:url(assets/sora-latin-600-normal.woff2)}
+@font-face{font-family:"Sora";font-weight:700;src:url(assets/sora-latin-700-normal.woff2)}
+:root{--paper:#f5f8ff;--ink:#0a1a3f;--blue:#1a56f0;--soft:#e8efff;--red:#e2394b;--green:#0f9d58;--muted:#5d6b88}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--paper)}
+#stage{position:relative;width:1920px;height:1080px;overflow:hidden;background:var(--paper);font-family:PJS,sans-serif;color:var(--ink)}
+#grid{position:absolute;inset:-60px;background-image:radial-gradient(rgba(26,86,240,.13) 1.6px,transparent 1.7px);background-size:36px 36px}
+.abs{position:absolute}
+.mask{display:block;overflow:hidden;padding-bottom:.08em}
+.mask>span{display:inline-block;will-change:transform}
+.b{color:var(--blue)}.r{color:var(--red)}.g{color:var(--green)}
+.num{font-family:Sora,PJS,sans-serif;font-weight:700;letter-spacing:-.02em}
+/* shot 1 */
+#hook{left:160px;top:250px;font-size:104px;font-weight:800;letter-spacing:-.035em;line-height:1.08}
+/* shot 2 */
+#chaosA,#chaosB{left:160px;top:400px;font-size:76px;font-weight:800;letter-spacing:-.03em;line-height:1.08}
+.chip{position:absolute;display:flex;align-items:center;gap:14px;padding:18px 26px;border-radius:18px;background:#fff;border:1.5px solid #d6e1f5;box-shadow:0 14px 34px rgba(10,26,63,.10);font-size:27px;font-weight:600;white-space:nowrap;will-change:transform}
+.chip i{width:14px;height:14px;border-radius:4px;background:#b8c8e8;display:block}
+/* captions */
+.cap{left:160px;top:330px;width:500px}
+.kick{font-size:20px;font-weight:800;letter-spacing:.16em;color:var(--blue);margin-bottom:22px}
+.h{font-size:58px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.sub{font-size:25px;font-weight:600;color:var(--muted);line-height:1.45;margin-top:22px}
+/* product container */
+#box{position:absolute;overflow:hidden;background:#fff;box-shadow:0 30px 80px rgba(10,26,63,.18),0 0 0 1.5px rgba(10,26,63,.06);will-change:transform}
+#boxFill{position:absolute;inset:0;background:var(--blue)}
+.layer{position:absolute;inset:0;will-change:opacity,filter}
+.cam{position:absolute;inset:0;will-change:transform}
+.cam img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top left}
+#band{position:absolute;left:1%;width:98%;border-radius:10px;border:3px solid var(--red);background:rgba(226,57,75,.08)}
+#ring{position:absolute;border-radius:12px;border:4px solid var(--ink)}
+#ringPulse{position:absolute;border-radius:16px;border:3px solid var(--ink)}
+#cursor{position:absolute;width:30px;height:30px;will-change:transform}
+#clickRing{position:absolute;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;border:3px solid var(--blue)}
+/* chat */
+#chat{background:#f2f6fc;display:flex;flex-direction:column}
+.ch-head{height:96px;background:linear-gradient(120deg,#1546d6,#2f6bff);display:flex;align-items:center;gap:16px;padding:0 28px;color:#fff}
+.ch-av{width:52px;height:52px;border-radius:16px;background:rgba(255,255,255,.2);display:grid;place-items:center}
+.ch-head b{display:block;font-size:26px}.ch-head span{font-size:17px;color:#dce7ff}
+.ch-body{flex:1;padding:28px;display:flex;flex-direction:column;gap:18px}
+.bub{max-width:88%;padding:18px 22px;border-radius:22px;font-size:23px;line-height:1.45;font-weight:600}
+.bub.u{align-self:flex-end;background:var(--blue);color:#fff;border-bottom-right-radius:6px}
+.bub.a{align-self:flex-start;background:#fff;border:1.5px solid #dbe5f5;color:#33415c;border-bottom-left-radius:6px;white-space:pre-line}
+.bub.a b{color:var(--ink)}
+.ch-in{margin:0 24px 24px;height:64px;border-radius:16px;background:#fff;border:1.5px solid #dbe5f5;display:flex;align-items:center;padding:0 20px;font-size:21px;color:#8a97b2;font-weight:600}
+/* numbers row */
+#nums{left:160px;top:640px;display:flex;gap:34px}
+.stat .v{font-size:68px;line-height:1}
+.stat .l{font-size:20px;font-weight:700;color:var(--muted);margin-top:8px;letter-spacing:.02em}
+/* lockup */
+#lock{left:740px;top:430px}
+#lock .w{font-family:Sora,PJS,sans-serif;font-size:132px;font-weight:700;letter-spacing:-.04em;line-height:1}
+#lock .t{font-size:38px;font-weight:700;color:var(--muted);margin-top:14px}
+#lock .f{font-size:24px;font-weight:700;color:var(--blue);margin-top:26px;letter-spacing:.01em}
+#lock .u{font-size:21px;font-weight:600;color:var(--muted);margin-top:14px}
+#mark{position:absolute;inset:0;display:grid;place-items:center}
+.tile{position:absolute;width:150px;height:118px;border-radius:20px;background:#fff;border:1.5px solid #d6e1f5;box-shadow:0 10px 26px rgba(10,26,63,.08);padding:16px;will-change:transform}
+.tile b{display:block;font-size:17px;font-weight:700;line-height:1.2;height:42px}
+.tile .dots{display:flex;gap:6px;margin-top:14px}.tile .dots i{width:12px;height:12px;border-radius:50%;background:#c9d6ef;display:block}
+.slot{position:absolute;height:44px;padding:0 18px;border-radius:99px;background:var(--soft);color:var(--blue);font-size:19px;font-weight:700;display:flex;align-items:center;will-change:transform}
+#grain{position:absolute;inset:0;width:1920px;height:1080px;opacity:.028;mix-blend-mode:multiply;pointer-events:none}
+</style></head>
+<body><div id="stage">
+  <div id="grid"></div>
+
+  <!-- shot 1 -->
+  <div id="hook" class="abs">
+    <div class="mask"><span data-in="0.25" data-out="2.3">10 kitchens.</span></div>
+    <div class="mask"><span data-in="0.75" data-out="2.33">6 brands.</span></div>
+    <div class="mask"><span data-in="1.25" data-out="2.36">5 meal slots.</span></div>
+    <div class="mask"><span class="b" data-in="1.75" data-out="2.39">One area manager.</span></div>
+  </div>
+
+  <!-- shot 2 -->
+  <div id="chaosA" class="abs">
+    <div class="mask"><span data-in="2.6" data-out="4.25">Tomorrow's answers</span></div>
+    <div class="mask"><span data-in="2.72" data-out="4.28">are scattered.</span></div>
+  </div>
+  <div id="chaosB" class="abs">
+    <div class="mask"><span data-in="4.55" data-out="5.2">Mise puts them</span></div>
+    <div class="mask"><span data-in="4.67" data-out="5.23">on <span class="b">one screen.</span></span></div>
+  </div>
+  <div id="chips"></div><div id="tiles"></div>
+
+  <!-- captions -->
+  <div class="cap abs" id="capOv">
+    <div class="mask kick"><span data-in="5.5" data-out="7.15">TOMORROW, PLANNED</span></div>
+    <div class="mask h"><span data-in="5.6" data-out="7.18"><span class="num b" id="count">0</span> orders</span></div>
+    <div class="mask h"><span data-in="5.7" data-out="7.21">forecast for</span></div>
+    <div class="mask h"><span data-in="5.8" data-out="7.24">tomorrow.</span></div>
+    <div class="mask sub"><span data-in="6.0" data-out="7.27">Per kitchen, brand and meal slot,</span></div>
+    <div class="mask sub" style="margin-top:0"><span data-in="6.08" data-out="7.3">with 23% less error than last week's numbers.</span></div>
+  </div>
+  <div class="cap abs" id="capAl">
+    <div class="mask kick"><span data-in="7.75" data-out="8.8">BEFORE 7 AM</span></div>
+    <div class="mask h"><span data-in="8.0" data-out="8.83">9 alerts.</span></div>
+    <div class="mask h"><span data-in="8.12" data-out="8.86">Every one has</span></div>
+    <div class="mask h"><span data-in="8.24" data-out="8.89">an <span class="b">owner.</span></span></div>
+    <div class="mask sub"><span data-in="8.36" data-out="8.92">Also sent to Telegram at 6:55 am.</span></div>
+  </div>
+  <div class="cap abs" id="capSp" style="top:250px">
+    <div class="mask kick"><span data-in="9.5" data-out="12.2">BEFORE THE DINNER RUSH</span></div>
+    <div class="mask h"><span data-in="9.6" data-out="12.23">Whitefield dinner</span></div>
+    <div class="mask h"><span data-in="9.72" data-out="12.26">is <span class="r">2 cooks short.</span></span></div>
+    <div class="mask sub"><span data-in="9.95" data-out="12.29">Orders at risk of missing the</span></div>
+    <div class="mask sub" style="margin-top:0"><span data-in="10.02" data-out="12.32">15-minute promise:</span></div>
+  </div>
+  <div id="nums" class="abs">
+    <div class="stat"><div class="mask"><span class="v num r" data-in="10.5" data-out="12.3">45%</span></div><div class="mask"><span class="l" data-in="10.56" data-out="12.32">AS ROSTERED</span></div></div>
+    <div class="stat"><div class="mask"><span class="v num" data-in="11.0" data-out="12.34">23%</span></div><div class="mask"><span class="l" data-in="11.06" data-out="12.36">+1 COOK</span></div></div>
+    <div class="stat"><div class="mask"><span class="v num g" data-in="11.5" data-out="12.38">9%</span></div><div class="mask"><span class="l" data-in="11.56" data-out="12.4">+2 COOKS</span></div></div>
+  </div>
+  <div class="cap abs" id="capHm" style="width:640px">
+    <div class="mask kick"><span data-in="13.0" data-out="15.2">AFTER CLOSE</span></div>
+    <div class="mask h"><span data-in="13.1" data-out="15.23"><span class="num r">22</span> missing-item</span></div>
+    <div class="mask h"><span data-in="13.22" data-out="15.26">complaints at</span></div>
+    <div class="mask h"><span data-in="13.34" data-out="15.29"><span class="b">HSR Layout.</span></span></div>
+    <div class="mask sub"><span data-in="13.6" data-out="15.32">95% on Olio Pizza, orders delivered:</span></div>
+    <div class="mask sub" style="margin-top:0"><span data-in="13.68" data-out="15.35">it's packing. Owner: packing lead.</span></div>
+  </div>
+  <div class="cap abs" id="capCh">
+    <div class="mask kick"><span data-in="16.0" data-out="17.75">ASK MISE</span></div>
+    <div class="mask h"><span data-in="16.1" data-out="17.78">Ask in</span></div>
+    <div class="mask h"><span data-in="16.22" data-out="17.81"><span class="b">plain words.</span></span></div>
+    <div class="mask sub"><span data-in="16.4" data-out="17.84">Claude answers from today's numbers.</span></div>
+  </div>
+
+  <!-- product container -->
+  <div id="box">
+    <div id="boxFill"></div>
+    <div class="layer" id="Lov"><div class="cam" id="camOv"><img src="assets/overview.png">
+      <div id="clickRing"></div>
+      <svg id="cursor" viewBox="0 0 24 24"><path d="M4 2l15 9-6.5 1.5L16 20l-3 1.5-3.5-7.5L4 18z" fill="#0a1a3f" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    </div></div>
+    <div class="layer" id="Lal"><div class="cam" id="camAl"><img src="assets/alerts.png"></div></div>
+    <div class="layer" id="Lsp"><div class="cam" id="camSp"><img src="assets/speed.png"><div id="band"></div></div></div>
+    <div class="layer" id="Lhm"><div class="cam" id="camHm"><img src="assets/heatmap.png"><div id="ringPulse"></div><div id="ring"></div></div></div>
+    <div class="layer" id="Lch"><div class="cam" id="chat">
+      <div class="ch-head"><div class="ch-av"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg></div><div><b>Ask Mise</b><span>Answers by Claude from today's data</span></div></div>
+      <div class="ch-body"><div class="bub u" id="qB"><span id="qT"></span></div><div class="bub a" id="aB"><span id="aT"></span></div></div>
+      <div class="ch-in" id="chIn">Ask about orders, cooks, complaints…</div>
+    </div></div>
+    <div id="mark"><svg width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18a9 9 0 0 1-18 0z"/><path d="M8 8c-1-1.5 1-2.5 0-4M12 8c-1-1.5 1-2.5 0-4M16 8c-1-1.5 1-2.5 0-4"/></svg></div>
+  </div>
+
+  <!-- lockup -->
+  <div id="lock" class="abs">
+    <div class="mask"><span class="w" data-in="18.5">Mise</span></div>
+    <div class="mask"><span class="t" data-in="18.75">Kitchen ops control tower</span></div>
+    <div class="mask"><span class="f" data-in="19.0">AI demand forecast · staffing what-if · complaint intelligence</span></div>
+    <div class="mask"><span class="u" data-in="19.25">github.com/tootomar/mise-kitchen-ops</span></div>
+  </div>
+
+  <canvas id="grain" width="960" height="540"></canvas>
+</div>
+<script>
+const DUR = 20, FPS = 30;
+const C = {"bell": [1391.0, 47.875], "speed": {"w": 1136, "h": 558.34375, "rowY": 157.54375, "chartX": 23, "chartW": 1090}, "heat": {"w": 559, "h": 518.78125, "cx": 198.95654296875, "cy": 185.5308766699896, "cw": 50.6220703125, "ch": 24.283132156471822}};
+const $ = id => document.getElementById(id);
+const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const lin = (t, a, b) => clamp((t - a) / (b - a));
+const outExpo = p => p >= 1 ? 1 : 1 - Math.pow(2, -10 * p);
+const inOut = p => p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+const outBack = p => { const c = 1.7; return 1 + (c + 1) * Math.pow(p - 1, 3) + c * Math.pow(p - 1, 2); };
+const mix = (a, b, p) => a + (b - a) * p;
+
+/* ---------- product container keyframes (x, y, w, h, r) ---------- */
+const OV = { x: 720, y: 196, w: 1080, h: 675, r: 22 };
+const SP = { x: 690, y: 330, w: 1130, h: 556, r: 22 };
+const HM = { x: 940, y: 196, w: 700, h: 650, r: 22 };
+const CH = { x: 1020, y: 230, w: 700, h: 620, r: 30 };
+const LG = { x: 560, y: 452, w: 140, h: 140, r: 40 };
+const PT = { x: 1240, y: 522, w: 36, h: 36, r: 18 };
+const KF = [[4.45, PT], [5.3, OV], [9.0, OV], [9.5, SP], [12.5, SP], [13.0, HM], [15.5, HM], [16.0, CH], [18.0, CH], [18.55, LG]];
+function boxAt(t) {
+  if (t <= KF[0][0]) return KF[0][1];
+  for (let i = 0; i < KF.length - 1; i++) {
+    const [t0, a] = KF[i], [t1, b] = KF[i + 1];
+    if (t <= t1) { const p = inOut(lin(t, t0, t1)); return { x: mix(a.x, b.x, p), y: mix(a.y, b.y, p), w: mix(a.w, b.w, p), h: mix(a.h, b.h, p), r: mix(a.r, b.r, p) }; }
+  }
+  return KF[KF.length - 1][1];
+}
+/* layer visibility with a short blur swap */
+function swap(t, i0, i1, o0, o1) { const a = inOut(lin(t, i0, i1)) * (1 - inOut(lin(t, o0, o1))); return a; }
+function setLayer(el, a) { el.style.opacity = a; el.style.filter = a < 1 ? `blur(${((1 - a) * 8).toFixed(2)}px)` : 'none'; el.style.visibility = a <= 0.001 ? 'hidden' : 'visible'; }
+
+/* ---------- chips ---------- */
+const CHIPS = [["Swiggy partner app", 1040, 230, 3.0, -8], ["Zomato dashboard", 1380, 330, 3.0, 6], ["POS export.xlsx", 1110, 470, 3.5, 4],
+  ["Roster sheet v3 (final)", 1420, 560, 3.5, -5], ["WhatsApp: “dips missing again”", 1000, 690, 4.0, -3], ["Stock register", 1470, 800, 4.0, 7]];
+const chipEls = CHIPS.map(([txt]) => { const d = document.createElement('div'); d.className = 'chip'; d.innerHTML = '<i></i>'; d.append(txt); $('chips').append(d); return d; });
+
+/* ---------- text in/out ---------- */
+const KIT = ["Koramangala","HSR Layout","Indiranagar","Whitefield","Bellandur","Electronic City","JP Nagar","Jayanagar","Marathahalli","Hebbal"];
+const tileEls = KIT.map((k, i) => { const d = document.createElement('div'); d.className = 'tile'; d.innerHTML = `<b>${k}</b><div class="dots">${'<i></i>'.repeat(6)}</div>`; $('tiles').append(d); return d; });
+const SLOTS = ["Breakfast","Lunch","Snacks","Dinner","Late night"];
+const slotEls = SLOTS.map(s => { const d = document.createElement('div'); d.className = 'slot'; d.textContent = s; $('tiles').append(d); return d; });
+const lines = [...document.querySelectorAll('[data-in]')].map(el => ({ el, i: +el.dataset.in, o: el.dataset.out ? +el.dataset.out : 99 }));
+
+/* ---------- grain ---------- */
+const g = $('grain').getContext('2d'), img = g.createImageData(960, 540);
+function grain(frame) {
+  let s = (frame * 2654435761) >>> 0;
+  const d = img.data;
+  for (let i = 0; i < d.length; i += 4) { s ^= s << 13; s >>>= 0; s ^= s >>> 17; s ^= s << 5; s >>>= 0; const v = s & 255; d[i] = d[i + 1] = d[i + 2] = v; d[i + 3] = 255; }
+  g.putImageData(img, 0, 0);
+}
+
+const Q = "Which kitchens need cooks tomorrow?";
+const A = "For dinner on Fri 9 Oct:\n• <b>Whitefield</b>: add 2 cooks (45% → 9%)\n• <b>Indiranagar</b>: add 1 cook (10% → 3%)\nEvery other kitchen's roster covers it.";
+const Aplain = A.replace(/<\/?b>/g, '');
+
+function render(t) {
+  const frame = Math.round(t * FPS);
+  $('grid').style.transform = `translate(${(-t * 1.2).toFixed(2)}px, ${(-t * 0.8).toFixed(2)}px)`;
+
+  // text lines
+  for (const L of lines) {
+    const pin = outExpo(lin(t, L.i, L.i + 0.45)), pout = inOut(lin(t, L.o, L.o + 0.25));
+    L.el.style.transform = `translateY(${((1 - pin) * 110).toFixed(2)}%) translateY(${(-pout * 24).toFixed(2)}px)`;
+    L.el.style.opacity = (1 - pout).toFixed(3);
+  }
+
+  // shot 1: the 10 kitchens, their 6 brands, the 5 slots
+  const out1 = inOut(lin(t, 2.25, 2.6));
+  tileEls.forEach((el, i) => {
+    const col = i % 5, row = Math.floor(i / 5), p = outBack(lin(t, 0.25 + i * 0.035, 0.6 + i * 0.035));
+    const x = 990 + col * 168, y = 300 + row * 140;
+    el.style.transform = `translate(${x}px, ${(y + (1 - p) * 40 + out1 * 30).toFixed(1)}px) scale(${(0.85 + 0.15 * p).toFixed(3)})`;
+    el.style.opacity = (clamp(lin(t, 0.25 + i * 0.035, 0.45 + i * 0.035)) * (1 - out1)).toFixed(3);
+    el.style.borderColor = t > 1.75 ? '#1a56f0' : '#d6e1f5';
+    [...el.querySelectorAll('i')].forEach((d, j) => { const q = clamp(lin(t, 0.75 + j * 0.03 + i * 0.01, 0.9 + j * 0.03 + i * 0.01)); d.style.transform = `scale(${q.toFixed(3)})`; d.style.background = t > 1.75 ? '#1a56f0' : '#c9d6ef'; });
+  });
+  let sx = 990;
+  slotEls.forEach((el, j) => { const p = outExpo(lin(t, 1.25 + j * 0.05, 1.6 + j * 0.05));
+    el.style.transform = `translate(${sx}px, ${(600 + (1 - p) * 30 + out1 * 30).toFixed(1)}px)`; el.style.opacity = (clamp(lin(t, 1.25 + j * 0.05, 1.4 + j * 0.05)) * (1 - out1)).toFixed(3); sx += el.offsetWidth + 12; });
+
+  // chips: fly in, drift, then pulled into one point
+  CHIPS.forEach(([, x, y, tin, rot], i) => {
+    const el = chipEls[i], pin = outBack(lin(t, tin, tin + 0.5)), pull = inOut(lin(t, 4.4, 4.8));
+    const fromX = x + (i % 2 ? 260 : -220), fromY = y + 120;
+    let cx = mix(fromX, x, pin) + Math.sin(t * 1.3 + i) * 6, cy = mix(fromY, y, pin) + Math.cos(t * 1.1 + i) * 5;
+    const w = el.offsetWidth, h = el.offsetHeight;
+    cx = mix(cx, PT.x + 18 - w / 2, pull); cy = mix(cy, PT.y + 18 - h / 2, pull);
+    const sc = mix(1, 0.15, pull), r = mix(rot, 0, pull) * (1 - (1 - lin(t, tin, tin + 0.5)) * 0) ;
+    el.style.transform = `translate(${cx.toFixed(1)}px, ${cy.toFixed(1)}px) rotate(${(r * (1 - pin) + r * 0.25).toFixed(2)}deg) scale(${sc.toFixed(3)})`;
+    el.style.opacity = (clamp(lin(t, tin, tin + 0.2)) * (1 - lin(t, 4.6, 4.8))).toFixed(3);
+  });
+
+  // container
+  const B = boxAt(t), box = $('box');
+  const shown = t >= 4.45;
+  box.style.visibility = shown ? 'visible' : 'hidden';
+  box.style.left = B.x + 'px'; box.style.top = B.y + 'px'; box.style.width = B.w + 'px'; box.style.height = B.h + 'px'; box.style.borderRadius = B.r + 'px';
+  const pop = outBack(lin(t, 4.45, 4.75));
+  box.style.transform = t < 4.75 ? `scale(${pop.toFixed(3)})` : 'none';
+  $('boxFill').style.opacity = ((1 - inOut(lin(t, 4.95, 5.3))) + inOut(lin(t, 18.05, 18.45))).toFixed(3);
+  setLayer($('Lov'), swap(t, 4.95, 5.3, 7.55, 7.85));
+  setLayer($('Lal'), swap(t, 7.55, 7.85, 9.0, 9.3));
+  setLayer($('Lsp'), swap(t, 9.0, 9.3, 12.5, 12.8));
+  setLayer($('Lhm'), swap(t, 12.5, 12.8, 15.5, 15.8));
+  setLayer($('Lch'), swap(t, 15.5, 15.8, 18.0, 18.3));
+  const mk = outBack(lin(t, 18.4, 18.75));
+  $('mark').style.opacity = clamp(lin(t, 18.4, 18.6)); $('mark').style.transform = `scale(${mk.toFixed(3)})`;
+
+  // overview camera: push into the banner, back out, cursor clicks the bell
+  const push = inOut(lin(t, 5.4, 6.7)) * (1 - inOut(lin(t, 6.75, 7.1)));
+  $('camOv').style.transformOrigin = '30% 22%';
+  $('camOv').style.transform = `scale(${(1 + 0.16 * push).toFixed(4)})`;
+  const bx = C.bell[0] / 1440 * 100, by = C.bell[1] / 900 * 100;
+  const cm = inOut(lin(t, 6.95, 7.4));
+  const cx = mix(62, bx, cm), cy = mix(58, by, cm);
+  const cur = $('cursor');
+  cur.style.left = `calc(${cx}% - 4px)`; cur.style.top = `calc(${cy}% - 2px)`;
+  cur.style.opacity = clamp(lin(t, 6.9, 7.0));
+  const press = lin(t, 7.45, 7.5) * (1 - lin(t, 7.52, 7.6));
+  cur.style.transform = `scale(${(1 - 0.18 * press).toFixed(3)})`;
+  const ring = lin(t, 7.5, 7.85);
+  const cr = $('clickRing'); cr.style.left = bx + '%'; cr.style.top = by + '%';
+  cr.style.opacity = t >= 7.5 ? (1 - ring).toFixed(3) : 0; cr.style.transform = `scale(${(0.4 + ring * 1.4).toFixed(3)})`;
+  $('camAl').style.transformOrigin = '88% 30%';
+  $('camAl').style.transform = `scale(${(1 + 0.14 * inOut(lin(t, 7.85, 9.0))).toFixed(4)})`;
+
+  // speed: band on Whitefield, gentle push
+  const band = $('band'), rowH = 34 / C.speed.h * 100;
+  band.style.top = `calc(${(C.speed.rowY / C.speed.h * 100 - rowH / 2).toFixed(3)}%)`; band.style.height = rowH + '%';
+  band.style.opacity = clamp(lin(t, 10.0, 10.25)); band.style.transform = `scaleX(${outExpo(lin(t, 10.0, 10.5)).toFixed(3)})`; band.style.transformOrigin = 'left center';
+  $('camSp').style.transformOrigin = '50% 30%';
+  $('camSp').style.transform = `scale(${(1 + 0.1 * inOut(lin(t, 9.6, 12.4))).toFixed(4)})`;
+
+  // heat map: ring on HSR Layout x Missing
+  const H = C.heat, rx = (H.cx - H.cw / 2 - 4) / H.w * 100, ry = (H.cy - H.ch / 2 - 4) / H.h * 100, rw = (H.cw + 8) / H.w * 100, rh = (H.ch + 8) / H.h * 100;
+  for (const id of ['ring', 'ringPulse']) { const e = $(id); e.style.left = rx + '%'; e.style.top = ry + '%'; e.style.width = rw + '%'; e.style.height = rh + '%'; }
+  const rp = outBack(lin(t, 13.5, 13.8));
+  $('ring').style.opacity = clamp(lin(t, 13.5, 13.6)); $('ring').style.transform = `scale(${(1.6 - 0.6 * rp).toFixed(3)})`;
+  const pulse = lin(t, 13.7, 14.4);
+  $('ringPulse').style.opacity = t > 13.7 ? (0.6 * (1 - pulse)).toFixed(3) : 0; $('ringPulse').style.transform = `scale(${(1 + pulse * 0.9).toFixed(3)})`;
+  $('camHm').style.transformOrigin = `${(H.cx / H.w * 100).toFixed(1)}% ${(H.cy / H.h * 100).toFixed(1)}%`;
+  $('camHm').style.transform = `scale(${(1 + 0.18 * inOut(lin(t, 13.3, 15.4))).toFixed(4)})`;
+
+  // chat: question types, send click, answer streams
+  const qn = Math.floor(Q.length * lin(t, 16.05, 16.85));
+  $('qT').textContent = Q.slice(0, qn); $('qB').style.opacity = qn ? 1 : 0;
+  $('chIn').style.borderColor = t > 16.0 && t < 17.0 ? '#1a56f0' : '#dbe5f5';
+  const an = Math.floor(Aplain.length * lin(t, 17.1, 17.85));
+  $('aB').style.opacity = t >= 17.05 ? 1 : 0;
+  let shownA = '', k = 0;
+  for (let i = 0; i < A.length && k < an; i++) { if (A[i] === '<') { const j = A.indexOf('>', i); shownA += A.slice(i, j + 1); i = j; continue; } shownA += A[i]; k++; }
+  if (an > 0 && shownA.split('<b>').length > shownA.split('</b>').length) shownA += '</b>';
+  $('aT').innerHTML = an ? shownA : '<span style="opacity:.5">…</span>';
+
+  // count-up
+  $('count').textContent = Math.round(2609 * outExpo(lin(t, 5.6, 6.6))).toLocaleString('en-IN');
+
+  grain(frame);
+}
+window.render = render;
+window.DUR = DUR; window.FPS = FPS;
+document.fonts.ready.then(() => { window.READY = true; render(0); });
+if (location.hash === '#play') { const t0 = performance.now(); const loop = () => { render(((performance.now() - t0) / 1000) % DUR); requestAnimationFrame(loop); }; requestAnimationFrame(loop); }
+</script></body></html>
